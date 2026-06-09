@@ -1,0 +1,156 @@
+﻿@page "/"
+@layout MainLayout
+
+@inject RuleDatabase ruledb
+@inject TeamsDatabase teamdb
+
+@using Kt.Data
+
+<RuleAlert @ref=rules></RuleAlert>
+@code {
+    private RuleAlert? rules;
+    private async Task alertRule(string id) {  if(rules is null) return; await rules.Show(id); }
+    private async Task alertRule(Rule r) {  if(rules is null) return; await rules.Show(r); }
+}
+
+<Modal @ref=teamSelector Title="Select an Official Team" Options="@Modal.Buttons.OkayCancel" OnOkay=@(async () => await LoadDefaultTeam(ktId))>
+    <select class="w3-select" @bind=ktId>
+        <option></option>
+        @foreach (var grp in teamdb.AllGrouped) {
+            <optgroup label="@(grp.Key ?? "Unknown Group")">
+                @foreach (string kt in grp) {
+                    <option>@kt</option>
+                }
+            </optgroup>
+        }
+    </select>
+</Modal>
+@code {
+    private string? ktId;
+    private Modal? teamSelector;
+}
+
+<Modal @ref=ruleLookup Title="Search for Rule" Options=@Modal.Buttons.Cancel>
+    <RuleSearch Items=@ruledb.All>
+        <b style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>@context.Name</b>
+    </RuleSearch>
+</Modal>
+@code {
+    private Modal? ruleLookup;
+}
+
+<NavMenu @ref=navigator>
+    <Accordion Title="Teams">
+        @foreach (var team in currentTeams) {
+            var myTeam = team;
+            <span class="w3-bar-item">@(team.Name ?? "Un-named Team")</span>
+            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+                @foreach (var unit in (team.Units ?? Enumerable.Empty<Unit>())) {
+                    var myUnit = unit;
+                    <button class="w3-button w3-bar-item" @onclick=@(() => select(myTeam, myUnit))>@unit.Name</button>
+                }
+            </div>
+        }
+        <hr />
+        <button class="w3-button w3-bar-item" @onclick="LoadDefaultTeam">  Load Offical Team Rules</button>
+        <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">  Load Custom Team Rules</button>
+    </Accordion>
+    <Accordion Title="Rules">
+        <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>Search</button>
+        <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("set-up"))>Set Up</button>
+
+        <span class="w3-bar-item">Orders</span>
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("engage"))>Engage Order</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("conceal"))>Conceal Order</button>
+        </div>
+
+        <span class="w3-bar-item">Phases</span>
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("strategy-phase"))>Strategy Phase</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("firefight-phase"))>Firefight Phase</button>
+            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("counteract"))>Counteract</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("action"))>Actions</button>
+                <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("reposition"))>Reposition</button>
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("dash"))>Dash</button>
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("fall-back"))>Fall Back</button>
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("charge"))>Charge</button>
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("shoot"))>Shoot</button>
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("fight"))>Fight</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="w3-button w3-bar-item">Weapon Rules</button>
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("accurate"))>Accurate</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("balanced"))>Balanced</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("blast"))>Blast</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("brutal"))>Brutal</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("ceaseless"))>Ceaseless</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("devastating"))>Devastating</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("heavy"))>Heavy</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("hot"))>Hot</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("lethal"))>Lethal</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("limited"))>Limited</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("piercing"))>Piercing</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("punishing"))>Punishing</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("range"))>Range</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("relentless"))>Relentless</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("rending"))>Rending</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("saturate"))>Saturate</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("seek"))>Seek</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("severe"))>Severe</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("shock"))>Shock</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("silent"))>Silent</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("stun"))>Stun</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("torrent"))>Torrent</button>
+        </div>
+    </Accordion>
+</NavMenu>
+@code {
+    private NavMenu? navigator;
+}
+<Header>
+    <button class="w3-button app-primary w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> <h2 class="w3-xlarge" style="display: inline-block; margin: 0;">Mission Cogitator</h2>
+</Header>
+
+<article class="w3-padding">
+    <UnitRenderer Team=@selectedTeam Unit=@selectedUnit OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
+    @code {
+        private Team? selectedTeam;
+        private Unit? selectedUnit;
+    }
+</article>
+
+
+@code {
+    private List<Team> currentTeams = new();
+
+    private void LoadDefaultTeam() {
+        teamSelector?.Show();
+    }
+    private async Task LoadDefaultTeam(string? name) {
+        if (string.IsNullOrEmpty(name))
+            return;
+
+        var team = await teamdb.GetValue(name);
+        if (team is null) {
+            return;
+        }
+        currentTeams.Add(team);
+        ruledb.AddTeam(team);
+    }
+
+    private void select(Team team, Unit unit) {
+        this.selectedTeam = team;
+        this.selectedUnit = unit;
+        this.navigator?.CloseNavMenu();
+    }
+
+    private void LoadCustomTeam() {
+
+    }
+}

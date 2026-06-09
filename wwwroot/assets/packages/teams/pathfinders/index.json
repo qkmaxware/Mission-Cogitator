@@ -1,0 +1,16 @@
+{
+    "name": "Pathfinders",
+    "updated": "28/01/2026",
+    "definitions": [
+
+    ],
+    "actions": [
+        "/actions/markerlight.html"
+    ],
+    "units": [
+        "/units/pathfinder-shasui.html"
+    ],
+    "teams": [
+        "/teams/pathfinders.html"
+    ]
+}

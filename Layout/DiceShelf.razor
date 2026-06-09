@@ -1,0 +1,78 @@
+<div class="w3-center">
+    @for (var i = 0; i < dice.Count; i++) {
+        var me = i;
+        <div class="dice">
+            <div class="clickable d6 @CssClass(me)" @onclick=@(() => Roll(me))>
+                <div class="face face-1">1</div>
+                <div class="face face-2">2</div>
+                <div class="face face-3">3</div>
+                <div class="face face-4">4</div>
+                <div class="face face-5">5</div>
+                <div class="face face-6">6</div>
+            </div>
+        </div>
+    }
+</div>
+<table>
+    <thead>
+        <th>HITS</th>
+        <th>MIN</th>
+        <th>MAX</th>
+        <th>AVG</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="w3-center">@QueryRolls(r => r >= hitVal).Count()</td>
+            <td class="w3-center">@MinRoll()</td>
+            <td class="w3-center">@MaxRoll()</td>
+            <td class="w3-center">@AverageRoll()</td>
+        </tr>
+    </tbody>
+</table>
+
+@code {
+    private int hitVal = -1;
+    private List<int> dice = new ();
+
+    public IEnumerable<int> QueryRolls(Func<int, bool> predicate) => dice.Where(die => predicate(die)).Select(die => die);
+
+    public int DiceValue(int i) {
+        if (i < 0 || i >= dice.Count)
+            return 0;
+        
+        return dice[i];
+    }
+
+    private string CssClass(int i) => "d6-show-" + DiceValue(i);
+
+    public int MaxRoll() => dice.Count == 0 ? 0 : dice.Max(x => x);
+
+    public int MinRoll() => dice.Count == 0 ? 0 : dice.Min(x => x);
+
+    public double AverageRoll() => dice.Count == 0 ? 0 : dice.Average(x => x);
+
+    public void SetCount(int count, int hitValue = -1) {
+        this.hitVal = hitValue;
+        this.dice.Clear();
+        for (var i = 0; i < count; i++)
+            this.dice.Add(0);
+        StateHasChanged();
+    }
+
+    public void Roll(int i) {
+        if (i < 0 || i >= dice.Count)
+            return;
+
+        var rng = Random.Shared;
+        dice[i] = rng.Next(1, 7);
+        StateHasChanged();
+    }
+
+    public void RollAll() {
+        var rng = Random.Shared;
+        for (var i = 0; i < dice.Count; i++) {
+            dice[i] = rng.Next(1, 7);
+        }
+        StateHasChanged();
+    }
+}

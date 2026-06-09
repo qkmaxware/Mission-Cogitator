@@ -1,0 +1,35 @@
+<button class="w3-button w3-bar-item w3-light-grey" @onclick="ToggleNavMenu">
+    @Title @if(collapseMenu) {
+        <span class="chevron down"></span>
+    } else {
+        <span class="chevron up"></span>
+    }
+</button>
+<div class="w3-border w3-border-light-grey w3-bottombar @MenuCssClass" style="min-height: 1em;">
+@ChildContent
+</div>
+
+@code {
+    [Parameter] public string? Title {get; set;}
+
+    [Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+    private bool collapseMenu = true;
+
+    private string? MenuCssClass => collapseMenu ? "w3-hide" : "w3-show";
+
+    public void ToggleNavMenu()
+    {
+        collapseMenu = !collapseMenu;
+        StateHasChanged();
+    }
+    public void CloseNavMenu() {
+        collapseMenu = true;
+        StateHasChanged();
+    }
+    public void OpenNavMenu() {
+        collapseMenu = false;
+        StateHasChanged();
+    }
+}

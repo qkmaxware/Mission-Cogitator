@@ -1,0 +1,92 @@
+@using System.Text.RegularExpressions
+@using System.Xml.Linq
+@using Kt.Data
+@using Microsoft.AspNetCore.Components.Rendering
+@using HtmlAgilityPack
+
+
+<div class="w3-modal @MenuCssClass">
+    <div class="w3-modal-content w3-round-large">
+        <header class="w3-container app-primary"> 
+            <h2>@Title</h2>
+        </header>
+        <article class="w3-padding w3-large">
+            @ChildContent
+        </article>
+        <footer class="w3-row w3-center" style="width: 100%;">
+            @if ((Options & Buttons.Cancel) != 0) {
+                <div class="w3-padding" style="display: inline-block; width: 49.99999%">
+                    <button class="w3-button app-error w3-round" style="width: 100%" @onclick=closeRequested>Cancel</button>
+                </div>
+            }
+            @if ((Options & Buttons.Okay) != 0) {
+                <div class="w3-padding" style="display: inline-block; width: 49.99999%">
+                    <button class="w3-button app-primary w3-round" style="width: 100%" @onclick=okayRequested>Okay</button>
+                </div>
+            }
+        </footer>
+    </div>
+</div>
+
+@code {
+
+    public enum Buttons {
+        Okay = 0b01,
+        Cancel = 0b10,
+        OkayCancel = 0b11,
+    }
+
+    [Parameter] public Buttons Options {get; set;}
+
+    [Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+	public string? Title { get; set; }
+
+    [Parameter]
+    public EventCallback OnOkay { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+
+    private bool collapseMenu = true;
+
+    private string? MenuCssClass => collapseMenu ? "w3-hide" : "w3-show";
+
+    public async Task Show() {
+        collapseMenu = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public async Task Hide() {
+        collapseMenu = true;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void ToggleNavMenu()
+    {
+        collapseMenu = !collapseMenu;
+        StateHasChanged();
+    }
+    public void CloseNavMenu() {
+        collapseMenu = true;
+        StateHasChanged();
+    }
+    public void OpenNavMenu() {
+        collapseMenu = false;
+        StateHasChanged();
+    }
+
+    private async Task closeRequested() {
+        await OnCancel.InvokeAsync();
+        collapseMenu = true;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task okayRequested() {
+        await OnOkay.InvokeAsync();
+        collapseMenu = true;
+        await InvokeAsync(StateHasChanged);
+    }
+}

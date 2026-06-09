@@ -1,0 +1,143 @@
+@using Kt.Data
+
+<Modal @ref=diceModal Title="Attack Roll" Options=@Modal.Buttons.Okay>
+    <DiceShelf @ref=dice></DiceShelf>
+</Modal>
+
+@if (Unit is not null) {
+
+<div>
+    <header class="w3-row">
+        <h1 class="unit-name w3-half">
+            <span class="border-primary">@Unit.Name</span>
+            @if (!string.IsNullOrEmpty(Unit.ArtPath)) {
+                <img src="@Unit.ArtPath"/>
+            }
+        </h1>
+        <div class="w3-half w3-row w3-xlarge">
+            <div class="w3-col s3 w3-center">
+                <h2>APL</h2>
+                <div>
+                    <img src="art/apl.svg" style="height: 1em"/> @(Unit.Attributes?.Apl)
+                </div>
+            </div>
+            <div class="w3-col s3 w3-center">
+                <h2>MOVE</h2>
+                <div>
+                    <img src="art/move.svg" style="height: 1em"/> @(Unit.Attributes?.Move)"
+                </div>
+            </div>
+            <div class="w3-col s3 w3-center">
+                <h2>SAVE</h2>
+                <div>
+                    <img src="art/save.svg" style="height: 1em"/> @(Unit.Attributes?.Save)+
+                </div>
+            </div>
+            <div class="w3-col s3 w3-center">
+                <h2>WNDS</h2>
+                <div>
+                    <img src="art/wound.svg" style="height: 1em"/> @(Unit.Attributes?.Wounds)
+                </div>
+            </div>
+        </div>
+    </header>
+    <article class="w3-padding w3-large">
+        <table class="border-primary">
+            <thead >
+                <th class="border-primary">NAME</th>
+                <th class="border-primary">ATK</th>
+                <th class="border-primary">HIT</th>
+                <th class="border-primary">DMG</th>
+            </thead>
+            <tbody>
+                @foreach (var weapon in (Unit.Weapons ?? Enumerable.Empty<Weapon>()) ) {
+                    var myWeapon = weapon;
+                    <tr class="border-primary">
+                        <td>
+                            <div>
+                                <img src="@weaponImg(myWeapon.Kind)" style="height: 1.5em; padding-right: 1em;"/> 
+                                @myWeapon.Name
+                            </div>
+                            <div class="comma-separated">
+                                @foreach (var rule in (myWeapon.Rules ?? Enumerable.Empty<WeaponRule>())) {
+                                    var ruleId = rule.RuleId;
+                                    <a href="#" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(ruleId))>@rule</a>
+                                }
+                            </div>
+                        </td>
+                        <td class="w3-center clickable" @onclick=@(() => attackRoll(myWeapon))>@myWeapon.Atk</td>
+                        <td class="w3-center">@(myWeapon.Hit)+</td>
+                        <td class="w3-center">@(myWeapon.Damage?.Normal)/@(myWeapon.Damage?.Critical)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                @((MarkupString)(Unit.Description ?? string.Empty))
+            </div>
+            <div class="w3-half">
+                @foreach (var frule in (Unit.FactionRules ?? Enumerable.Empty<string>())) {
+                    var ruleId = frule;
+                    FactionRule? ruleInstance = null; 
+                    if (Team is not null && Team.Rules is not null) {
+                        Team.Rules.TryGetValue(ruleId, out ruleInstance);
+                    }
+                    <button class="w3-button app-primary" style="width: 100%" @onclick=@(() => lookupFactionRule(ruleId))>@(ruleInstance?.Name ?? frule)</button>
+                }
+            </div>
+        </div>
+    </article>
+    <footer class="w3-padding w3-large">
+        <div class="comma-separated">
+            @if (Team is not null) {
+                <span class="text-primary">@Team.Name</span>
+            }
+            @foreach (var tag in (Unit.Tags ?? Enumerable.Empty<string>())) {
+                <span>@tag</span>
+            }
+        </div>
+    </footer>
+</div>
+
+}
+
+@code {
+    [Parameter] public Team? Team {get; set;}
+    [Parameter] public Unit? Unit {get; set;}
+    private int hitVal;
+
+    [Parameter]
+    public EventCallback<string> OnWeaponRuleLookup { get; set; } 
+
+    [Parameter]
+    public EventCallback<Rule> OnRuleLookup { get; set; } 
+
+    private Modal? diceModal;
+    private DiceShelf? dice;
+
+    private async Task lookupFactionRule(string id) {
+        if (Team is null || Team.Rules is null)
+            return;
+        
+        Team.Rules.TryGetValue(id, out var ruleInstance);
+
+        if (ruleInstance is not null)
+            await OnRuleLookup.InvokeAsync(ruleInstance);
+    }
+
+    private string weaponImg(WeaponKind kind) {
+        return kind switch {
+            WeaponKind.ranged => "art/ranged.svg",
+            WeaponKind.melee => "art/melee.svg",
+            _ => "art/unknown.svg"
+        };
+    }
+
+    private void attackRoll(Weapon weapon) {
+        dice?.SetCount(weapon.Atk, weapon.Hit);
+        diceModal?.Show();
+        dice?.RollAll();
+    }
+}

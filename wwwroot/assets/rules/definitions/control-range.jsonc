@@ -1,0 +1,4 @@
+{
+    "name": "Control Range",
+    "description": "Something is within an operative's control range if it's <see cref='visible'>visible</see> to and within 1\" of that operative. Control range between operatives is mutual, therefore operatives are within each other's control range even if the above is only true for one of them."
+}

@@ -1,0 +1,154 @@
+@using System.Text.RegularExpressions
+@using System.Xml.Linq
+@using Kt.Data
+@using Microsoft.AspNetCore.Components.Rendering
+@using HtmlAgilityPack
+
+@inject Data.RuleDatabase rules
+
+<div class="w3-modal @MenuCssClass">
+    <div class="w3-modal-content w3-round-large">
+        <header class="w3-container app-primary"> 
+            <h2>@Rule?.Name</h2>
+        </header>
+        <article class="w3-padding w3-large">
+            @RenderDescription(Rule?.Fmt())
+        </article>
+        <figure class="w3-center">
+            @if (Rule?.ArtPath is not null) {
+                <img src="@Rule?.ArtPath" style="max-width: 80%;"/>
+            }
+            <figcaption>@Rule?.ArtCaption</figcaption>
+        </figure>
+        <footer class="w3-padding w3-center">
+            <button class="w3-button app-primary w3-round" style="width: 80%;" @onclick=CloseNavMenu>Okay</button>
+        </footer>
+    </div>
+</div>
+
+@code {
+    private static Rule NoRule = new Rule{
+        Name = "No Rule Found",
+        Description = "Nothing could be found for this rule"
+    };
+
+    private Rule? Rule { get; set; } = NoRule;
+
+    private bool collapseMenu = true;
+
+    private string? MenuCssClass => collapseMenu ? "w3-hide" : "w3-show";
+
+    public async Task Show(Rule rule) {
+        collapseMenu = false;
+        this.Rule = rule;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public async Task Show(string ruleId) {
+        collapseMenu = false;
+        var rule = await rules.GetValue(ruleId);
+        this.Rule = rule ?? NoRule;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void ToggleNavMenu()
+    {
+        collapseMenu = !collapseMenu;
+        StateHasChanged();
+    }
+    public void CloseNavMenu() {
+        collapseMenu = true;
+        StateHasChanged();
+    }
+    public void OpenNavMenu() {
+        collapseMenu = false;
+        StateHasChanged();
+    }
+
+    private RenderFragment RenderDescription(string? text) => builder =>
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return;
+
+        var doc = new HtmlAgilityPack.HtmlDocument();
+
+        // Wrap in a root element because descriptions are fragments
+        doc.LoadHtml(text);
+
+        int seq = 0;
+
+        foreach (var child in doc.DocumentNode.ChildNodes)
+        {
+            RenderNode(builder, child, ref seq);
+        }
+    };
+
+    private void RenderNode(
+        RenderTreeBuilder builder,
+        HtmlNode node,
+        ref int seq)
+    {
+        
+        switch (node.NodeType)
+        {
+            case HtmlNodeType.Text:
+            {
+                if (!string.IsNullOrWhiteSpace(node.InnerText))
+                {
+                    builder.AddContent(seq++, node.InnerText);
+                }
+                break;
+            }
+
+            case HtmlNodeType.Element:
+            {
+                // Handle custom <see> tag
+                if (node.Name.Equals("see", StringComparison.OrdinalIgnoreCase))
+                {
+                    RenderSeeTag(builder, node, ref seq);
+                    return;
+                }
+
+                builder.OpenElement(seq++, node.Name);
+
+                foreach (var attr in node.Attributes)
+                {
+                    builder.AddAttribute(seq++, attr.Name, attr.Value);
+                }
+
+                foreach (var child in node.ChildNodes)
+                {
+                    RenderNode(builder, child, ref seq);
+                }
+
+                builder.CloseElement();
+
+                break;
+            }
+        }
+    }
+
+    private void RenderSeeTag(
+        RenderTreeBuilder builder,
+        HtmlNode node,
+        ref int seq)
+    {
+        var ruleId = node.GetAttributeValue("cref", "");
+        var text = node.InnerText;
+
+        builder.OpenElement(seq++, "a");
+
+        builder.AddAttribute(seq++, "href", "#");
+
+        builder.AddAttribute(
+            seq++,
+            "onclick",
+            EventCallback.Factory.Create<MouseEventArgs>(
+                this,
+                async () => await Show(ruleId)));
+
+        builder.AddContent(seq++, text);
+
+        builder.CloseElement();
+    }
+}

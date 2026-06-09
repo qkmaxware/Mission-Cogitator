@@ -1,0 +1,44 @@
+.app-primary {
+    color:#fff!important;
+    background-color:#ff5722!important;
+}
+
+.text-primary {
+    color:#ff5722!important;
+}
+
+.app-error {
+    color:#fff!important;
+    background-color:#8f0707!important;
+}
+
+.border-primary {
+    border-top-color:#ff5722!important;
+    border-left-color:#ff5722!important;
+    border-right-color:#ff5722!important;
+    border-bottom-color:#ff5722!important;
+}
+
+.usage-bullet,.condition-bullet {
+    list-style: none;
+}
+.usage-bullet li::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: url("../art/grn_arrow.svg") no-repeat center center;
+    background-size: contain;
+}
+.condition-bullet li::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: url("../art/red_diamond.svg") no-repeat center center;
+    background-size: contain;
+}
