@@ -1,5 +1,7 @@
 @using Kt.Data
 
+@inject RuleDatabase ruledb
+
 <Modal @ref=diceModal Title="Attack Roll" Options=@Modal.Buttons.Okay>
     <DiceShelf @ref=dice></DiceShelf>
 </Modal>
@@ -75,16 +77,21 @@
 
         <div class="w3-row-padding">
             <div class="w3-half">
-                @((MarkupString)(Unit.Description ?? string.Empty))
+                @RenderDescription(Unit.Description)
             </div>
             <div class="w3-half">
-                @foreach (var frule in (Unit.FactionRules ?? Enumerable.Empty<string>())) {
+                @foreach (var frule in (Unit.Rules ?? Enumerable.Empty<string>())) {
                     var ruleId = frule;
-                    FactionRule? ruleInstance = null; 
+                    Rule? ruleInstance = null; 
                     if (Team is not null && Team.Rules is not null) {
                         Team.Rules.TryGetValue(ruleId, out ruleInstance);
                     }
-                    <button class="w3-button app-primary" style="width: 100%" @onclick=@(() => lookupFactionRule(ruleId))>@(ruleInstance?.Name ?? frule)</button>
+                    <button class="w3-button app-primary" style="width: 100%" @onclick=@(() => lookupFactionRule(ruleId))>
+                        @(ruleInstance?.Name ?? frule)
+                        @if (ruleInstance is Kt.Data.Action act) {
+                            <span style="float: right">@act.Ap AP</span>
+                        }
+                    </button>
                 }
             </div>
         </div>
@@ -140,4 +147,11 @@
         diceModal?.Show();
         dice?.RollAll();
     }
+
+    private RenderFragment RenderDescription(string? text) => builder =>
+    {
+        DescriptionRenderer.RenderDescription(text, this, async (id) => {
+            await OnWeaponRuleLookup.InvokeAsync(id);
+        })(builder);
+    };
 }

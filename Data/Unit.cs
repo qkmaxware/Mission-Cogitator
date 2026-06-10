@@ -19,5 +19,5 @@ public class Unit: IPackagedContent
     public UnitAttributes Attributes {get; set;} = new();
     public List<Weapon> Weapons {get; set;} = new();
     public string? Description {get; set;}
-    public List<string>? FactionRules {get; set;} = new();
+    public List<string>? Rules {get; set;} = new();
 }

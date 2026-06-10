@@ -12,5 +12,5 @@ public class Team: IPackagedContent
     public List<Unit>? Units {get; set;}
 
     public string? Description { get; set; }
-    public Dictionary<string, FactionRule>? Rules {get; set;}
+    public Dictionary<string, Rule>? Rules {get; set;}
 }

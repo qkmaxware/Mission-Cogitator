@@ -69,6 +69,8 @@ public class Pkg
         pkg.Units   = await ParseResourcesFromRelativeUrl<Unit>   (client, url, index.Units ?? EMPTY);
         pkg.Teams   = await ParseResourcesFromRelativeUrl<Team>   (client, url, index.Teams ?? EMPTY);
 
+        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).ToDictionary(r => r.Id ?? string.Empty, r => r);
+
         foreach (var team in pkg.Teams)
         {
             team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
@@ -80,6 +82,8 @@ public class Pkg
             .Where(unit => unit is not null)
             .Cast<Unit>()
             .ToList();
+
+            team.Value.Rules = allRulesDict;
         }
 
         return pkg;
