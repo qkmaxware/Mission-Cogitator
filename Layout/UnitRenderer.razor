@@ -86,7 +86,7 @@
                     if (Team is not null && Team.Rules is not null) {
                         Team.Rules.TryGetValue(ruleId, out ruleInstance);
                     }
-                    <button class="w3-button app-primary" style="width: 100%" @onclick=@(() => lookupFactionRule(ruleId))>
+                    <button class="w3-button app-primary w3-margin-bottom" style="width: 100%" @onclick=@(() => lookupFactionRule(ruleId))>
                         @(ruleInstance?.Name ?? frule)
                         @if (ruleInstance is Kt.Data.Action act) {
                             <span style="float: right">@act.Ap AP</span>
