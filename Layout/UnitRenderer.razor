@@ -62,7 +62,7 @@
                             </div>
                             <div class="comma-separated">
                                 @foreach (var rule in (myWeapon.Rules ?? Enumerable.Empty<WeaponRule>())) {
-                                    var ruleId = rule.RuleId;
+                                    var ruleId = rule.Id;
                                     <a href="#" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(ruleId))>@rule</a>
                                 }
                             </div>

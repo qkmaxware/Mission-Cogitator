@@ -15,12 +15,12 @@ public enum WeaponKind
 
 public struct WeaponRule
 {
-    public string? RuleId {get; set;}
+    public string? Id {get; set;}
     public int X {get; set;}
 
     public override string? ToString()
     {
-        return RuleId?.Replace("x", X.ToString());
+        return Id?.Replace("x", X.ToString());
     }
 }
 

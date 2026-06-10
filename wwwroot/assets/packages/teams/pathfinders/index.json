@@ -8,7 +8,8 @@
         "/actions/markerlight.html"
     ],
     "units": [
-        "/units/pathfinder-shasui.html"
+        "/units/pathfinder-shasui.html",
+        "/units/pathfinder-assault-grenadier.html"
     ],
     "teams": [
         "/teams/pathfinders.html"
