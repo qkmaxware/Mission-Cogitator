@@ -5,11 +5,14 @@
 
     ],
     "actions": [
-        "/actions/markerlight.html"
+        "/actions/markerlight.html",
+        "/actions/pathfinder-signal.html"
     ],
     "units": [
         "/units/pathfinder-shasui.html",
-        "/units/pathfinder-assault-grenadier.html"
+        "/units/pathfinder-assault-grenadier.html",
+        "/units/blooded-pathfinder.html",
+        "/units/comms-pathfinder.html"
     ],
     "teams": [
         "/teams/pathfinders.html"
