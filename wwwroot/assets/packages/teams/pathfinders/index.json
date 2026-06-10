@@ -5,14 +5,20 @@
 
     ],
     "actions": [
-        "/actions/markerlight.html",
-        "/actions/pathfinder-signal.html"
+        "/actions/pathfinder-markerlight.html",
+        "/actions/pathfinder-signal.html",
+        "/actions/pathfinder-remote-pilot.html",
+        "/actions/pathfinder-medikit.html"
     ],
     "units": [
         "/units/pathfinder-shasui.html",
         "/units/pathfinder-assault-grenadier.html",
         "/units/blooded-pathfinder.html",
-        "/units/comms-pathfinder.html"
+        "/units/comms-pathfinder.html",
+        "/units/controller-pathfinder.html",
+        "/units/marksman-pathfinder.html",
+        "/units/medic-pathfinder.html",
+        "/units/shasla-pathfinder.html"
     ],
     "teams": [
         "/teams/pathfinders.html"

@@ -1,0 +1,59 @@
+---
+{
+    "name": "Marksman Pathfinder",
+    "tags": ["T'Au Empire", "Marksman"],
+    "attributes": {
+        "apl": 2,
+        "move": 6,
+        "save": 5, 
+        "wounds": 7
+    },
+    "weapons": [
+        {
+            "name": "Marksman rail rifle (standard)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "devastating", "x": 2},
+                {"id": "lethal", "x": 5},
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Marksman rail rifle (dart round)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "piercing", "x": 1},
+                {"id": "silent"}
+            ]
+        },
+        {
+            "name": "Gun butt",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 5,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        
+    ]
+}
+---
+<b>Inertial Dampener:</b> You can ignore any changes to the Hit stat of
+this operative's marksman rail rifle.
