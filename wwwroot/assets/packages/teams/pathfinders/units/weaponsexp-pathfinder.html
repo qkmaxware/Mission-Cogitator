@@ -1,0 +1,71 @@
+---
+{
+    "name": "Weapons Expert Pathfinder",
+    "tags": ["T'Au Empire", "Weapons Expert"],
+    "attributes": {
+        "apl": 2,
+        "move": 6,
+        "save": 5, 
+        "wounds": 7
+    },
+    "weapons": [
+        {
+            "name": "Ion rifle (standard)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1}
+            ]
+        },
+        {
+            "name": "Ion rifle (overcharge)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "hot"},
+                {"id": "lethal", "x": 5},
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Rail rifle",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "devastating", "x": 1},
+                {"id": "lethal", "x": 5},
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Gun butt",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 5,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        
+    ]
+}
+---

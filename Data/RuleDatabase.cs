@@ -74,6 +74,7 @@ public class RuleDatabase
         AddHttp<Rule>("assets/rules/weapon-rules/hot.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/lethal.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/limited.jsonc");
+        AddHttp<Rule>("assets/rules/weapon-rules/piercing-crits.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/piercing.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/punishing.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/range.jsonc");

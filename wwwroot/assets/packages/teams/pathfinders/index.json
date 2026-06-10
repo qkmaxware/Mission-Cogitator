@@ -8,7 +8,9 @@
         "/actions/pathfinder-markerlight.html",
         "/actions/pathfinder-signal.html",
         "/actions/pathfinder-remote-pilot.html",
-        "/actions/pathfinder-medikit.html"
+        "/actions/pathfinder-medikit.html",
+        "/actions/pathfinder-system-jam.html",
+        "/actions/pathfinder-pulse-accelerator.html"
     ],
     "units": [
         "/units/pathfinder-shasui.html",
@@ -18,7 +20,15 @@
         "/units/controller-pathfinder.html",
         "/units/marksman-pathfinder.html",
         "/units/medic-pathfinder.html",
-        "/units/shasla-pathfinder.html"
+        "/units/shasla-pathfinder.html",
+        "/units/transpectral-pathfinder.html",
+        "/units/weaponsexp-pathfinder.html",
+        "/units/mb3.html",
+        "/units/mv1.html",
+        "/units/mv4.html",
+        "/units/mv7.html",
+        "/units/mv31.html",
+        "/units/mv33.html"
     ],
     "teams": [
         "/teams/pathfinders.html"
