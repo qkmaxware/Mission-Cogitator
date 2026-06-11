@@ -6,6 +6,6 @@
         "Move like a <see cref='reposition'>Reposition</see>, except the operative can move an additional 2\". It can move within <see cref='control-range'>control range</see> of an enemy operative, and must finish the move there. If it moves within <see cref='control-range'>control range</see> of an enemy operative that no other friendly operatives are within <see cref='control-range'>control range</see> of, it cannot leave that operative's <see cref='control-range'>control range</see>."
     ],
     "conditions": [
-        "An operative cannot perform this action while it has a <see cref='conceal'>Conceal order</see>, if it's already within <see cref='control-range'>control range<see> of an enemy operative, or during the same activation as the <see cref='reposition'>Reposition<see>, <see cref='dash'>Dash<see> or <see cref='fall-back'>Fall Back<see> action."
+        "An operative cannot perform this action while it has a <see cref='conceal'>Conceal order</see>, if it's already within <see cref='control-range'>control range</see> of an enemy operative, or during the same activation as the <see cref='reposition'>Reposition</see>, <see cref='dash'>Dash</see> or <see cref='fall-back'>Fall Back</see> action."
     ]
 }

@@ -1,8 +1,11 @@
 ﻿@page "/"
 @layout MainLayout
 
+@using System.Text.Json
+
 @inject RuleDatabase ruledb
 @inject TeamsDatabase teamdb
+@inject IJSRuntime js
 
 @using Kt.Data
 
@@ -13,47 +16,125 @@
     private async Task alertRule(Rule r) {  if(rules is null) return; await rules.Show(r); }
 }
 
-<Modal @ref=teamSelector Title="Select an Official Team" Options="@Modal.Buttons.OkayCancel" OnOkay=@(async () => await LoadDefaultTeam(ktId))>
-    <select class="w3-select" @bind=ktId>
-        <option></option>
-        @foreach (var grp in teamdb.AllGrouped) {
-            <optgroup label="@(grp.Key ?? "Unknown Group")">
-                @foreach (string kt in grp) {
-                    <option>@kt</option>
-                }
-            </optgroup>
-        }
-    </select>
-</Modal>
-@code {
-    private string? ktId;
-    private Modal? teamSelector;
-}
-
 <Modal @ref=ruleLookup Title="Search for Rule" Options=@Modal.Buttons.Cancel>
     <RuleSearch Items=@ruledb.All>
-        <b style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>@context.Name</b>
+        <b style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>@context.Name <small>(@context.Id)</small></b>
     </RuleSearch>
 </Modal>
 @code {
     private Modal? ruleLookup;
 }
 
-<NavMenu @ref=navigator>
-    <Accordion Title="Teams">
-        @foreach (var team in currentTeams) {
-            var myTeam = team;
-            <span class="w3-bar-item">@(team.Name ?? "Un-named Team")</span>
-            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
-                @foreach (var unit in (team.Units ?? Enumerable.Empty<Unit>())) {
-                    var myUnit = unit;
-                    <button class="w3-button w3-bar-item" @onclick=@(() => select(myTeam, myUnit))>@unit.Name</button>
+<Modal @ref=addUnitToDeploymentModal Title="Deploy Unit" Options=@Modal.Buttons.OkayCancel OnOkay="addUnitToTeam">
+    <label>Team:</label>
+    <select class="w3-select" value="@addFromTeamId" @onchange=selectTeamToAddFrom>
+        <option></option>
+        @foreach (var grp in teamdb.AllTeamsGrouped) {
+            <optgroup label=@grp.Key>
+                @foreach (var team in grp) {
+                    <option value="@team.Id">@team.Name</option>
                 }
-            </div>
+            </optgroup>
+        }
+    </select>
+    <label>Unit:</label>
+    <select class="w3-select" value="@addUnitId" @onchange=selectUnitToAdd>
+        <option></option>
+        @foreach (var unit in (addFromTeam?.Units ?? Enumerable.Empty<Unit>())) {
+            <option value="@unit.Id">@unit.Name</option>
+        }
+    </select>
+    <label>Amount to Add:</label>
+    <input type="number" class="w3-input" @bind=addAmt/>
+</Modal>
+@code {
+    private string? addFromTeamId;
+    private Team? addFromTeam;
+    private void selectTeamToAddFrom(ChangeEventArgs e) {
+        Team? team = teamdb.GetValue(e.Value?.ToString() ?? string.Empty);
+        addFromTeamId = team?.Id;
+        addFromTeam = team;
+    }
+    private string? addUnitId;
+    private Unit? addUnit;
+    private void selectUnitToAdd(ChangeEventArgs e) {
+        if (addFromTeam is null || addFromTeam.Units is null)
+            return;
+        
+        var id = e.Value?.ToString() ?? string.Empty;
+        var unit = addFromTeam.Units.Where(x => id == x.Id).FirstOrDefault();
+        addUnitId = unit?.Id;
+        addUnit = unit;
+    }
+    private int _addAmt;
+    private int addAmt {
+        get => Math.Max(1, _addAmt);
+        set => _addAmt = Math.Max(1, value);
+    }
+    private Modal? addUnitToDeploymentModal;
+    private async Task showAddUnitModal() {
+        addFromTeamId = null;
+        addFromTeam = null;
+        addUnitId = null;
+        addUnit = null;
+        if (addUnitToDeploymentModal is null)
+            return;
+        await addUnitToDeploymentModal.Show();
+    }
+    private void addUnitToTeam() {
+        if (addFromTeam is null)
+            return;
+        if (addUnit is null)
+            return;
+        
+        for (var i = 0; i < addAmt; i++)
+            deployment.Units.Add(new DeployedUnit(addFromTeam, addUnit));
+    }
+}
+
+<Modal @ref=importDeploymentModal Title="Load Deployment" Options=@Modal.Buttons.Cancel>
+    <label>Upload Deployment JSON:</label>
+    <div class="w3-padding w3-center">
+        <InputFile OnChange="deserializeDeployment" />
+    </div>
+</Modal>
+@code {
+    private Modal? importDeploymentModal;
+    private async Task showImportModal() {
+        if (importDeploymentModal is null)
+            return;
+        await importDeploymentModal.Show();
+    }
+}
+
+<NavMenu @ref=navigator Title="Datavault">
+    <Accordion Title="Your Deployment">
+        @foreach (var unit in deployment.Units) {
+            <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))><HealthIndicator Deployment=@unit></HealthIndicator> @unit.Unit?.Name</button>
         }
         <hr />
-        <button class="w3-button w3-bar-item" @onclick="LoadDefaultTeam">  Load Offical Team Rules</button>
-        <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">  Load Custom Team Rules</button>
+        <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Add Unit to Deployment</button>
+        <button class="w3-button w3-bar-item" @onclick=showImportModal>+ Load Deployment</button>
+        <button class="w3-button w3-bar-item" @onclick=serializeDeployment>&nbsp;&nbsp;Save Current Deployment</button>
+    </Accordion>
+    <Accordion Title="Team Intel">
+        @foreach (var grp in teamdb.AllTeamsGrouped) {
+            <Accordion Title="@grp.Key">
+            @foreach (var team in grp) {
+                var myTeam = team;
+                <Accordion Title="@(team.Name)">
+                    <Accordion title="Units">
+                        @foreach (var unit in (team.Units ?? Enumerable.Empty<Unit>())) {
+                            var myUnit = unit;
+                            <button class="w3-button w3-bar-item" @onclick=@(() => select(myTeam, myUnit))>@unit.Name</button>
+                        }
+                    </Accordion>
+                </Accordion>
+            }
+            </Accordion>
+        }
+        <hr />
+        <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">Load Custom Team Rules</button>
     </Accordion>
     <Accordion Title="Rules">
         <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>Search</button>
@@ -118,39 +199,91 @@
 </Header>
 
 <article class="w3-padding">
-    <UnitRenderer Team=@selectedTeam Unit=@selectedUnit OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
+    <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
     @code {
         private Team? selectedTeam;
-        private Unit? selectedUnit;
+        private DeployedUnit? selectedDeployment;
     }
 </article>
 
 
 @code {
-    private List<Team> currentTeams = new();
+    private Deployment deployment = new ();
 
-    private void LoadDefaultTeam() {
-        teamSelector?.Show();
+
+    private void select(DeployedUnit deployment) {
+        this.selectedTeam = deployment.Team;
+        this.selectedDeployment = deployment;
+        if (deployment.Unit is null)
+            return;
+        this.navigator?.CloseNavMenu();
     }
-    private async Task LoadDefaultTeam(string? name) {
-        if (string.IsNullOrEmpty(name))
+    private void select(Team? team, Unit? unit) {
+        if (unit is null)
             return;
 
-        var team = await teamdb.GetValue(name);
-        if (team is null) {
-            return;
-        }
-        currentTeams.Add(team);
-        ruledb.AddTeam(team);
-    }
-
-    private void select(Team team, Unit unit) {
         this.selectedTeam = team;
-        this.selectedUnit = unit;
+        this.selectedDeployment = new DeployedUnit(team, unit);
         this.navigator?.CloseNavMenu();
     }
 
     private void LoadCustomTeam() {
 
+    }
+
+    private async Task serializeDeployment() {
+        // Create deployment specification
+        SerializedDeployment dep = new SerializedDeployment();
+        dep.Units = deployment.Units.GroupBy(u => u.Team?.Id ?? string.Empty).ToDictionary(grp => grp.Key, grp => grp.Select(u => u.Unit?.Id ?? string.Empty).ToArray());
+
+        // Download the deployment
+        using var stream = new MemoryStream();
+        await JsonSerializer.SerializeAsync(stream, dep, options: Kt.Data.IO.Pkg.SerializationOptions);
+        stream.Position = 0;
+
+        using var streamRef = new DotNetStreamReference(stream);
+        await js.InvokeVoidAsync("downloadFileFromStream", "deployment.json", streamRef);
+    }
+
+    private async Task deserializeDeployment(InputFileChangeEventArgs e) {
+        using var stream = e.File.OpenReadStream();
+
+        // Read depoyment specification
+        SerializedDeployment? spec = null;
+        try {
+            spec = await JsonSerializer.DeserializeAsync<SerializedDeployment>(stream, options:  Kt.Data.IO.Pkg.SerializationOptions);
+        } catch {
+            return;
+        }
+        if (spec is null) {
+            return;
+        }
+        
+        // Replace deployment
+        deployment.Units.Clear();
+        if (spec.Units is not null) {
+            foreach (var kv in spec.Units) {
+                var team = teamdb.GetValue(kv.Key);
+                if (team is null || team.Units is null)
+                    continue;
+
+                if (kv.Value is null)
+                    continue;
+                
+                foreach (var unitId in kv.Value) {
+                    if (string.IsNullOrEmpty(unitId))
+                        continue;
+                    
+                    var unit = team.Units.Where(u => unitId == u.Id).FirstOrDefault();
+                    if (unit is null)
+                        continue;
+
+                    deployment.Units.Add(new DeployedUnit(team, unit));
+                }
+            }
+        }
+
+        if (importDeploymentModal is not null)
+            await importDeploymentModal.Hide();
     }
 }

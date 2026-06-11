@@ -1,0 +1,22 @@
+@using Kt.Data
+
+@if (Deployment is not null) {
+    switch (Deployment.HealthPercent) {
+        case >= 1:
+            <img src="art/hp_good.svg" style="height: 1em; width: 1em;"/>
+            break;
+        case > 0.5f and < 1:
+            <img src="art/hp_fine.svg" style="height: 1em; width: 1em;"/>
+            break;
+        case > 0 and <= 0.5f:
+            <img src="art/hp_bad.svg" style="height: 1em; width: 1em;"/>
+            break;
+        case <= 0: 
+            <img src="art/hp_none.svg" style="height: 1em; width: 1em;"/>
+            break;
+    }
+}
+
+@code {
+    [Parameter] public DeployedUnit? Deployment {get; set;}
+}

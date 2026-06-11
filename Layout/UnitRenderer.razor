@@ -1,6 +1,7 @@
 @using Kt.Data
 
 @inject RuleDatabase ruledb
+@inject IJSRuntime js
 
 <Modal @ref=diceModal Title="Attack Roll" Options=@Modal.Buttons.Okay>
     <DiceShelf @ref=dice></DiceShelf>
@@ -37,8 +38,8 @@
             </div>
             <div class="w3-col s3 w3-center">
                 <h2>WNDS</h2>
-                <div>
-                    <img src="art/wound.svg" style="height: 1em"/> @(Unit.Attributes?.Wounds)
+                <div class="clickable" @onclick=applyDamage>
+                    <img src="art/wound.svg" style="height: 1em"/> @(Deployment?.CurrentWounds ?? 0)/@(Unit.Attributes?.Wounds)
                 </div>
             </div>
         </div>
@@ -112,8 +113,8 @@
 
 @code {
     [Parameter] public Team? Team {get; set;}
-    [Parameter] public Unit? Unit {get; set;}
-    private int hitVal;
+    private Unit? Unit => Deployment?.Unit;
+    [Parameter] public DeployedUnit? Deployment {get; set;}
 
     [Parameter]
     public EventCallback<string> OnWeaponRuleLookup { get; set; } 
@@ -154,4 +155,11 @@
             await OnWeaponRuleLookup.InvokeAsync(id);
         })(builder);
     };
+
+    private async Task applyDamage() {
+        var input = await js.InvokeAsync<string>("prompt", "Amount of wounds to apply", "1");
+        if (int.TryParse(input, out var num) && Deployment is not null) {
+            Deployment.CurrentWounds += num;
+        }
+    }
 }

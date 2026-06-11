@@ -1,11 +1,13 @@
 ﻿<div class="w3-sidebar-background @NavMenuCssClass" @onclick="CloseNavMenu"></div>
 <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left @NavMenuCssClass" >
-    <div class="app-primary w3-xlarge w3-container">Menu</div>
+    <div class="app-primary w3-xlarge w3-container">@(Title ?? "Menu")</div>
     <button @onclick="CloseNavMenu" class="app-primary w3-button w3-bar-item w3-large">Close <span style="float: right;">&times;</span></button>
     @ChildContent
 </div>
 
 @code {
+    [Parameter]
+    public string? Title {get; set;}
     [Parameter]
 	public RenderFragment? ChildContent { get; set; }
 

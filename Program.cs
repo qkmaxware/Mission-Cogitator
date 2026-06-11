@@ -10,7 +10,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped(sp => new RuleDatabase(sp.GetService<HttpClient>()!));
-builder.Services.AddScoped(sp => new TeamsDatabase(sp.GetService<HttpClient>()!));
+builder.Services.AddScoped(sp => new TeamsDatabase());
 builder.Services.AddScoped(sp => new PackageManager(sp.GetService<HttpClient>()!, sp.GetService<RuleDatabase>()!, sp.GetService<TeamsDatabase>()!));
 
 var app = builder.Build();

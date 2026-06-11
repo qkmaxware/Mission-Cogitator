@@ -6,13 +6,7 @@ namespace Kt.Data;
 public class RuleDatabase
 {
 
-    private JsonSerializerOptions json = new JsonSerializerOptions
-    {
-        PropertyNameCaseInsensitive = true,
-        PropertyNamingPolicy = JsonNamingPolicy.KebabCaseLower,
-        AllowTrailingCommas = true,
-        ReadCommentHandling = JsonCommentHandling.Skip
-    };
+    private JsonSerializerOptions json = IO.Pkg.SerializationOptions;
 
     private HttpClient client;
 
@@ -57,7 +51,7 @@ public class RuleDatabase
         AddHttp<Rule>("assets/rules/definitions/damage.jsonc");
         AddHttp<Rule>("assets/rules/definitions/valid-target.jsonc");
         AddHttp<Rule>("assets/rules/definitions/visible.jsonc");
-        AddHttp<Rule>("assets/rules/definitions/strategic-gambit.jsonc");
+        AddHttp<Rule>("assets/rules/definitions/gambit.jsonc", "strategic-gambit");
 
         // Orders
         AddHttp<Rule>("assets/rules/orders/conceal.jsonc");
@@ -70,12 +64,11 @@ public class RuleDatabase
         AddHttp<Rule>("assets/rules/weapon-rules/brutal.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/ceaseless.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/devastating.jsonc");
-        AddHttp<Rule>("assets/rules/weapon-rules/heavy.jsonc");
+        AddHttp<Rule>("assets/rules/weapon-rules/heavy.jsonc", "heavy-reposition", "heavy-dash", "heavy-charge");
         AddHttp<Rule>("assets/rules/weapon-rules/hot.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/lethal.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/limited.jsonc");
-        AddHttp<Rule>("assets/rules/weapon-rules/piercing-crits.jsonc");
-        AddHttp<Rule>("assets/rules/weapon-rules/piercing.jsonc");
+        AddHttp<Rule>("assets/rules/weapon-rules/piercing.jsonc", "piercing-crits");
         AddHttp<Rule>("assets/rules/weapon-rules/punishing.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/range.jsonc");
         AddHttp<Rule>("assets/rules/weapon-rules/relentless.jsonc");
@@ -103,11 +96,15 @@ public class RuleDatabase
         return (Rule?)JsonSerializer.Deserialize(stream, info.Type ?? typeof(Rule), json);;
     }
 
-    private void AddHttp<TRule>(string path)
+    private void AddHttp<TRule>(string path, params ReadOnlySpan<string> otherAliases)
     where TRule: Rule
     {
         var name = Path.GetFileNameWithoutExtension(path);
         this.paths[name] = new RuleInfo { Name = name, Path = path, Type = typeof(TRule) };
+        foreach (var alias in otherAliases)
+        {
+            this.paths[alias] = new RuleInfo { Name = name, Path = path, Type = typeof(TRule) };
+        }
     }
 
     public void AddTeam(Team? team)

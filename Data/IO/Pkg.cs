@@ -32,7 +32,9 @@ public class Pkg
         public List<string>? Teams {get; set;}
     }
 
-    private static JsonSerializerOptions json = new JsonSerializerOptions
+    private static JsonSerializerOptions json = SerializationOptions;
+
+    public static JsonSerializerOptions SerializationOptions => new JsonSerializerOptions
     {
         PropertyNameCaseInsensitive = true,
         PropertyNamingPolicy = JsonNamingPolicy.KebabCaseLower,
