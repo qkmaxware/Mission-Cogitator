@@ -7,6 +7,16 @@
     <DiceShelf @ref=dice></DiceShelf>
 </Modal>
 
+<Modal @ref="addEffectModal" Title="Add Effect/Status" Options=@Modal.Buttons.OkayCancel OnOkay=addSelectedEffect>
+    <label>Effect:</label>
+    <select class="w3-select" @bind=selectedEffectId>
+        <option></option>
+        @foreach (var effect in ruledb.AllEffects) {
+            <option value="@effect.Id">@effect.Name</option>
+        }
+    </select>
+</Modal>
+
 @if (Unit is not null) {
 
 <div>
@@ -45,6 +55,19 @@
         </div>
     </header>
     <article class="w3-padding w3-large">
+        <div class="horizontal-gallery border-primary w3-border-bottom w3-margin-bottom">
+            <button class="w3-button w3-round gallery-item" title="Add Effect" @onclick=beginAddStatus>
+                <img src="art/marker-add.svg"/>
+            </button>
+            @if (Deployment?.Effects is not null) {
+                @foreach (var effect in Deployment.Effects) {
+                    var effectId = effect.Id;
+                    <button class="w3-button w3-round gallery-item" title="@effectId" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(effectId))>
+                        <img src="@(string.IsNullOrEmpty(effect.ArtPath) ? "art/unknown-full.svg" : effect.ArtPath)"/>
+                    </button>
+                }
+            }
+        </div>
         <table class="border-primary">
             <thead >
                 <th class="border-primary">NAME</th>
@@ -124,6 +147,7 @@
 
     private Modal? diceModal;
     private DiceShelf? dice;
+    private Modal? addEffectModal;
 
     private async Task lookupFactionRule(string id) {
         if (Team is null || Team.Rules is null)
@@ -161,5 +185,29 @@
         if (int.TryParse(input, out var num) && Deployment is not null) {
             Deployment.CurrentWounds += num;
         }
+    }   
+
+    private string? selectedEffectId;
+    private async Task beginAddStatus() {
+        selectedEffectId = null;
+        if (this.addEffectModal is not null)
+            await this.addEffectModal.Show();
+    }
+
+    private async Task addSelectedEffect() {
+        if (string.IsNullOrEmpty(selectedEffectId))
+            return;
+
+        if (Deployment is null)
+            return;
+
+        if (Deployment.Effects is null)
+            Deployment.Effects = new List<Effect>();
+            
+        Rule? maybeEffect = await ruledb.GetValue(selectedEffectId);
+        if (maybeEffect is null || maybeEffect is not Effect effect)
+            return;
+
+        Deployment.Effects.Add(effect);
     }
 }

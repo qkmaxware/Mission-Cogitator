@@ -12,7 +12,7 @@
 <RuleAlert @ref=rules></RuleAlert>
 @code {
     private RuleAlert? rules;
-    private async Task alertRule(string id) {  if(rules is null) return; await rules.Show(id); }
+    private async Task alertRule(string? id) { if (string.IsNullOrEmpty(id)) return;  if(rules is null) return; await rules.Show(id); }
     private async Task alertRule(Rule r) {  if(rules is null) return; await rules.Show(r); }
 }
 
@@ -108,6 +108,9 @@
 }
 
 <NavMenu @ref=navigator Title="Datavault">
+    <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>
+        <img src="art/search.svg" style="height: 1em; width: 1em;"/> Search
+    </button>
     <Accordion Title="Your Deployment">
         @foreach (var unit in deployment.Units) {
             <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))><HealthIndicator Deployment=@unit></HealthIndicator> @unit.Unit?.Name</button>
@@ -123,7 +126,32 @@
             @foreach (var team in grp) {
                 var myTeam = team;
                 <Accordion Title="@(team.Name)">
-                    <Accordion title="Units">
+                    <Accordion Title="Ploys">
+                        @foreach (var ploy in (team.Ploys ?? Enumerable.Empty<Ploy>()).OrderBy(ploy => ploy.Kind)) {
+                            var myPloy = ploy;
+                            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(ploy.Id))>  
+                                @switch (myPloy.Kind) {
+                                    case PloyKind.strategy:
+                                        <img src="art/strategy.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                        break;
+                                    case PloyKind.firefight:
+                                        <img src="art/ranged.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                        break;
+                                    default:
+                                        <img src="art/unknown.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                        break;
+                                }
+                                @ploy.Name <small>(@ploy.Kind ploy)</small>
+                            </button>
+                        }
+                    </Accordion>
+                    <Accordion Title="Equipment">
+                        @foreach (var eq in (team.Equipment ?? Enumerable.Empty<Equipment>())) {
+                            var myEq = eq;
+                            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(myEq.Id))>@myEq.Name</button>
+                        }
+                    </Accordion>
+                    <Accordion Title="Units">
                         @foreach (var unit in (team.Units ?? Enumerable.Empty<Unit>())) {
                             var myUnit = unit;
                             <button class="w3-button w3-bar-item" @onclick=@(() => select(myTeam, myUnit))>@unit.Name</button>
@@ -137,7 +165,6 @@
         <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">Load Custom Team Rules</button>
     </Accordion>
     <Accordion Title="Rules">
-        <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>Search</button>
         <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("set-up"))>Set Up</button>
 
         <span class="w3-bar-item">Orders</span>
@@ -197,6 +224,7 @@
 <Header>
     <button class="w3-button app-primary w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> <h2 class="w3-xlarge" style="display: inline-block; margin: 0;">Mission Cogitator</h2>
 </Header>
+<Counters></Counters>
 
 <article class="w3-padding">
     <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>

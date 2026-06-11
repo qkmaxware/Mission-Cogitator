@@ -12,10 +12,18 @@ public class Pkg
     // Provides vv
     public Dictionary<string, Rule>? Definitions {get; set;}
     public Dictionary<string, Action>? Actions {get; set;}
+    public Dictionary<string, Effect>? Effects {get; set;}
+    public Dictionary<string, Equipment>? Equipment {get; set;}
+    public Dictionary<string, Ploy>? Ploys {get; set;}
     public Dictionary<string, Unit>? Units {get; set;}
     public Dictionary<string, Team>? Teams {get; set;}
 
-    public IEnumerable<Rule> AllRules() => (Definitions?.Values ?? Enumerable.Empty<Rule>()).Concat((Actions?.Values ?? Enumerable.Empty<Rule>()));
+    public IEnumerable<Rule> AllRules() => 
+        (Definitions?.Values ?? Enumerable.Empty<Rule>())
+        .Concat((Actions?.Values ?? Enumerable.Empty<Rule>()))
+        .Concat((Effects?.Values ?? Enumerable.Empty<Rule>()))
+        .Concat((Equipment?.Values ?? Enumerable.Empty<Rule>()))
+        .Concat((Ploys?.Values ?? Enumerable.Empty<Rule>()));
 
 
     internal class PkgIndex
@@ -28,6 +36,9 @@ public class Pkg
         // Provides vv
         public List<string>? Definitions {get; set;}
         public List<string>? Actions {get; set;}
+        public List<string>? Effects {get; set;}
+        public List<string>? Equipment {get; set;}
+        public List<string>? Ploys {get; set;}
         public List<string>? Units {get; set;}
         public List<string>? Teams {get; set;}
     }
@@ -66,13 +77,17 @@ public class Pkg
         pkg.Updated = index.Updated;
 
         // Convert the paths in the package index into actual resources by parsing them one at a time
-        pkg.Definitions   = await ParseResourcesFromRelativeUrl<Rule>   (client, url, index.Definitions ?? EMPTY);
+        pkg.Definitions = await ParseResourcesFromRelativeUrl<Rule>   (client, url, index.Definitions ?? EMPTY);
         pkg.Actions = await ParseResourcesFromRelativeUrl<Action> (client, url, index.Actions ?? EMPTY);
+        pkg.Effects = await ParseResourcesFromRelativeUrl<Effect> (client, url, index.Effects ?? EMPTY);
+        pkg.Equipment = await ParseResourcesFromRelativeUrl<Equipment> (client, url, index.Equipment ?? EMPTY);
+        pkg.Ploys = await ParseResourcesFromRelativeUrl<Ploy> (client, url, index.Ploys ?? EMPTY);
         pkg.Units   = await ParseResourcesFromRelativeUrl<Unit>   (client, url, index.Units ?? EMPTY);
         pkg.Teams   = await ParseResourcesFromRelativeUrl<Team>   (client, url, index.Teams ?? EMPTY);
 
         var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).ToDictionary(r => r.Id ?? string.Empty, r => r);
 
+        // Resolve ID references to objects for the TEAM 
         foreach (var team in pkg.Teams)
         {
             team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
@@ -83,6 +98,26 @@ public class Pkg
             })
             .Where(unit => unit is not null)
             .Cast<Unit>()
+            .ToList();
+
+            team.Value.Equipment = (team.Value.EquipmentIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Equipment.TryGetValue(id, out var eq))
+                    return eq;
+                return null;
+            })
+            .Where(eq => eq is not null)
+            .Cast<Equipment>()
+            .ToList();
+
+            team.Value.Ploys = (team.Value.PloyIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Ploys.TryGetValue(id, out var ploy))
+                    return ploy;
+                return null;
+            })
+            .Where(ploy => ploy is not null)
+            .Cast<Ploy>()
             .ToList();
 
             team.Value.Rules = allRulesDict;
@@ -98,7 +133,17 @@ public class Pkg
 
         for (var i = 0; i < relatives.Count; i++)
         {
-            var uri = url + relatives[i];
+            // Clean the relative path
+            var relativeUri = relatives[i];
+            if (!relativeUri.StartsWith("/"))
+                relativeUri = "/" + relativeUri;
+            if (!relativeUri.EndsWith(".html"))
+                Path.ChangeExtension(relativeUri, ".html");
+
+            // Form final URL
+            var uri = url + relativeUri;
+
+            // Get resource
             var resp = await client.GetAsync(uri);
             var content = await resp.Content.ReadAsStringAsync();
             var doc = new FmHtmlDocument(content);

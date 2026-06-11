@@ -19,14 +19,17 @@ public class RuleDatabase
 
     private Dictionary<string, RuleInfo> paths;
     private Dictionary<string, Rule> rules;
+    private Dictionary<string, Effect> effects;
 
     public IEnumerable<(string Id, string Name)> All => paths.Select(p => (p.Key, p.Value.Name ?? "Unknown Rule")).Concat(rules.Select(p => (p.Key, p.Value.Name ?? "Unknown Rule")));
+    public IEnumerable<(string Id, string Name)> AllEffects => effects.Select(p => (p.Key, p.Value.Name ?? "Unknown Rule"));
 
     public RuleDatabase(HttpClient client)
     {
         this.client = client;
         this.paths = new();
         this.rules = new();
+        this.effects = new();
 
         // Load all the jsonc files
 
@@ -114,12 +117,16 @@ public class RuleDatabase
 
         foreach (var rule in team.Rules)
         {
-            this.rules[rule.Key] = rule.Value;
+            AddRule(rule.Key, rule.Value);
         }
     }
 
     public void AddRule(string id, Rule rule)
     {
         this.rules[id] = rule;
+        if (rule is Effect effect)
+        {
+            this.effects[id] = effect;
+        }
     }
 }

@@ -59,4 +59,6 @@ public class DeployedUnit
     /// Test if the deployed unit is alive or not
     /// </summary>
     public bool IsAlive => CurrentWounds < MaxWounds;
+
+    public List<Effect>? Effects {get; set;}
 }

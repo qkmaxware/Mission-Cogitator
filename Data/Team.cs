@@ -8,6 +8,13 @@ public class Team: IPackagedContent
     public string? Name {get; set;}
     public string? Faction {get; set;}
     public string? Version {get; set;}
+
+    public List<string>? PloyIds {get; set;}
+    public List<Ploy>? Ploys {get; set;}
+
+    public List<string>? EquipmentIds {get; set;}
+    public List<Equipment>? Equipment {get; set;}
+
     public List<string>? UnitIds {get; set;}
     public List<Unit>? Units {get; set;}
 
