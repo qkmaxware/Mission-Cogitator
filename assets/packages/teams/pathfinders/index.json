@@ -12,6 +12,23 @@
         "/actions/pathfinder-system-jam.html",
         "/actions/pathfinder-pulse-accelerator.html"
     ],
+    "effects": [
+        "/effects/pathfinder-markerlight-marked.html"
+    ],
+    "equipment": [
+        "/equipment/pathfinder-target-analysis-optic.html",
+        "/equipment/pathfinder-high-intensity-markerlight.html",
+        "/equipment/pathfinder-photon-grenade.html",
+        "/equipment/pathfinder-orbital-survey-uplink.html"
+    ],
+    "ploys": [
+        "/ploys/pathfinder-bonded.html",
+        "/ploys/pathfinder-point-blank.html",
+        "/ploys/pathfinder-saviour-protocol.html",
+        "/ploys/pathfinder-supporting-fire.html",
+        "/ploys/pathfinder-take-cover.html",
+        "/ploys/pathfinder-worthy-cause.html"
+    ],
     "units": [
         "/units/pathfinder-shasui.html",
         "/units/pathfinder-assault-grenadier.html",
