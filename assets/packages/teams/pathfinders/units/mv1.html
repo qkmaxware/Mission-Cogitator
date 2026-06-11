@@ -1,0 +1,59 @@
+---
+{
+    "name": "MV1 Gun Drone",
+    "tags": ["T'Au Empire", "Drone"],
+    "attributes": {
+        "apl": 2,
+        "move": 6,
+        "save": 4, 
+        "wounds": 7
+    },
+    "weapons": [
+        {
+            "name": "Twin pulse carbine",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "ceaseless"}
+            ]
+        },
+        {
+            "name": "Ram",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 5,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+    
+    ]
+}
+---
+<p>
+<b>Drone:</b>
+<ul>
+    <li>
+        This operative cannot perform any actions other than <see cref="charge">Charge</see>,
+    <see cref="dash">Dash</see>, <see cref="fall-back">Fall Back</see>, <see cref="fight">Fight</see>, <see cref="pathfinder-markerlight">Markerlight</see>, <see cref="reposition">Reposition</see> and
+    <see cref="shoot">Shoot</see>. It cannot use any weapons that aren't on its datacard
+    </li>
+    <li>Whenever determining control of an objective marker, treat
+this operative's APL stat as 1 lower. Note this isn't a change to
+its APL stat, so any changes are cumulative with this.
+    </li>
+    <li>
+        Whenever determining what's visible to this operative, the
+round disc at the top of the miniature is its head.
+    </li>
+</ul>
+</p>

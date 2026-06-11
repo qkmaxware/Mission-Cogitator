@@ -1,0 +1,4 @@
+{
+    "name": "Action",
+    "description": "If all your operatives are expended but your opponent's aren't, when you would activate a ready friendly operative, one expended friendly operative with an <see cref='engage'>Engage order</see> can counteract to perform a 1AP <see cref='action'>action</see> for free. Each operative can only counteract once per turning point, and cannot move more than 2\" while doing so."
+}

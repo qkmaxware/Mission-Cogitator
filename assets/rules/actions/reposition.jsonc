@@ -1,0 +1,11 @@
+{
+    "name": "Reposition",
+    "ap": 1,
+    "description": "Move the operative to a new position.",
+    "usage": [
+        "Move the operative no more than its Move stat to a location it can be placed. It can't move within <see cref='control-range'>control range</see> of enemy operatives."
+    ],
+    "conditions": [
+        "An operative cannot perform this action while within <see cref='control-range'>control range</see> of an enemy operative, or during the same activation as the <see cref='charge'>Charge</see> or <see cref='fall-back'>Fall Back</see> action."
+    ]
+}

@@ -1,0 +1,4 @@
+{
+    "name": "Strategy Phase",
+    "description": "<p>Each player rolls one D6: whoever rolls highest decides who has initiative; if it's a tie, the player who doesn't currently have initiative decides. Players start the battle with 2CP each to spend on ploys. In the first Strategy phase, they each gain 1CP. In each Strategy phase after the first, the player with initiative gains 1CP, while the player without gains 2CP. Ploys cost 1CP each.</p><p>Each player readies all friendly operatives (order token ready side up). Starting with the player who has initiative, players alternate using a <see cref='strategic-gambit'>STRATEGIC GAMBIT</see> or passing, until each player passes in succession. Every strategy ploy is also a <see cref='strategic-gambit'>STRATEGIC GAMBIT</see>. Each player cannot use each <see cref='strategic-gambit'>STRATEGIC GAMBIT</see> more than once per turning point.</p>"
+}

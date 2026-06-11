@@ -1,0 +1,5 @@
+{
+    "name": "Conceal order",
+    "description": "An operative with a <see cref='conceal'>Conceal order</see> is not a <see cref='valid-target'>valid target</see> while in <see cref='cover'>cover</see>, but it cannot perform <see cref='shoot'>Shoot</see> or <see cref='charge'>Charge</see> actions.",
+    "art-path": "assets/rules/orders/conceal.png"
+}
