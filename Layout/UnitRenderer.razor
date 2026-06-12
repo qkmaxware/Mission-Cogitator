@@ -61,8 +61,9 @@
             </button>
             @if (Deployment?.Effects is not null) {
                 @foreach (var effect in Deployment.Effects) {
-                    var effectId = effect.Id;
-                    <button class="w3-button w3-round gallery-item" title="@effectId" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(effectId))>
+                    var myEffect = effect;
+                    var effectId = myEffect.Id;
+                    <button class="w3-button w3-round gallery-item" title="@effectId" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(effectId)) @oncontextmenu=@(() => rm(myEffect)) @oncontextmenu:preventDefault @ondblclick=@(() => rm(myEffect))>
                         <img src="@(string.IsNullOrEmpty(effect.ArtPath) ? "art/unknown-full.svg" : effect.ArtPath)"/>
                     </button>
                 }
@@ -209,5 +210,12 @@
             return;
 
         Deployment.Effects.Add(effect);
+    }
+
+    private void rm(Effect effect) {
+        if (Deployment is null || Deployment.Effects is null)
+            return;
+
+        Deployment.Effects.Remove(effect);
     }
 }
