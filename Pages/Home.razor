@@ -226,7 +226,7 @@
 </Header>
 <Counters></Counters>
 
-<article class="w3-padding">
+<article>
     <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
     @code {
         private Team? selectedTeam;

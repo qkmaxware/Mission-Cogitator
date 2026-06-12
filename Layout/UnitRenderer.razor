@@ -27,27 +27,27 @@
                 <img src="@Unit.ArtPath"/>
             }
         </h1>
-        <div class="w3-half w3-row w3-xlarge">
+        <div class="w3-half w3-row attributes">
             <div class="w3-col s3 w3-center">
-                <h2>APL</h2>
+                <span>APL</span>
                 <div>
                     <img src="art/apl.svg" style="height: 1em"/> @(Unit.Attributes?.Apl)
                 </div>
             </div>
             <div class="w3-col s3 w3-center">
-                <h2>MOVE</h2>
+                <span>MOVE</span>
                 <div>
                     <img src="art/move.svg" style="height: 1em"/> @(Unit.Attributes?.Move)"
                 </div>
             </div>
             <div class="w3-col s3 w3-center">
-                <h2>SAVE</h2>
+                <span>SAVE</span>
                 <div>
                     <img src="art/save.svg" style="height: 1em"/> @(Unit.Attributes?.Save)+
                 </div>
             </div>
             <div class="w3-col s3 w3-center">
-                <h2>WNDS</h2>
+                <span>WOUND</span>
                 <div class="clickable" @onclick=applyDamage>
                     <img src="art/wound.svg" style="height: 1em"/> @(Deployment?.CurrentWounds ?? 0)/@(Unit.Attributes?.Wounds)
                 </div>

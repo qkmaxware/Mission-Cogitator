@@ -20,6 +20,10 @@ footer {
     content: ", ";
 }
 
+.attributes {
+    padding-top: 12px;
+    font-size: 24px;
+}
 
 .unit-name span {
     display: inline-block;
@@ -30,6 +34,15 @@ footer {
     z-index: 1;            /* keep text above image if they overlap */
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+@media (max-width: 600px) {
+    .unit-name span {
+        padding-left: 0.25em;
+    }
+    .attributes {
+        font-size: 18px;
+    }
 }
 
 .unit-name {
