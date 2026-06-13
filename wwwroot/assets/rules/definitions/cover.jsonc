@@ -1,5 +1,0 @@
-{
-    "name": "Cover",
-    "description": "Cover is determined from one operative to another. An operative is in cover if there's intervening terrain within its <see cref='control-range'>control range</see>. However, it cannot be in cover while within 2\" of the other operative - it's too close to hide.",
-    "art-path": "assets/rules/definitions/cover.png"
-}

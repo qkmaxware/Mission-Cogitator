@@ -16,6 +16,8 @@ builder.Services.AddScoped(sp => new PackageManager(sp.GetService<HttpClient>()!
 var app = builder.Build();
 
 var packages = app.Services.GetService<PackageManager>()!;
+await packages.AddFromUrl("assets/packages/lite-rules");
+await packages.AddFromUrl("assets/packages/universal-equipment");
 await packages.AddFromUrl("assets/packages/teams/pathfinders");
 
 await app.RunAsync();

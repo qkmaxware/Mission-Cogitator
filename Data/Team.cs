@@ -4,6 +4,7 @@ namespace Kt.Data;
 
 public class Team: IPackagedContent
 {
+    public Pkg? SourcePackage {get; set;}
     public string? Id { get; set;}
     public string? Name {get; set;}
     public string? Faction {get; set;}

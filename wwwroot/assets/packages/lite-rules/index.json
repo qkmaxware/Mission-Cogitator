@@ -1,0 +1,58 @@
+{
+    "name": "Lite-Rules",
+    "updated": "23/07/2025",
+    "actions": [
+        "/actions/charge.html",
+        "/actions/dash.html",
+        "/actions/fall-back.html",
+        "/actions/fight.html",
+        "/actions/reposition.html",
+        "/actions/shoot.html"
+    ],
+    "definitions": [
+        "/set-up.html",
+
+        "/orders/conceal.html",
+        "/orders/engage.html",
+
+        "/phases/firefight-phase.html",
+        "/phases/strategy-phase.html",
+
+        "/definitions/action.html",
+        "/definitions/control-range.html",
+        "/definitions/counteract.html",
+        "/definitions/cover.html",
+        "/definitions/damage.html",
+        "/definitions/gambit.html",
+        "/definitions/valid-target.html",
+        "/definitions/visible.html",
+
+        "/weapon-rules/accurate.html",
+        "/weapon-rules/balanced.html",
+        "/weapon-rules/blast.html",
+        "/weapon-rules/brutal.html",
+        "/weapon-rules/ceaseless.html",
+        "/weapon-rules/devastating.html",
+        "/weapon-rules/heavy.html",
+        "/weapon-rules/hot.html",
+        "/weapon-rules/lethal.html",
+        "/weapon-rules/limited.html",
+        "/weapon-rules/piercing.html",
+        "/weapon-rules/punishing.html",
+        "/weapon-rules/range.html",
+        "/weapon-rules/relentless.html",
+        "/weapon-rules/rending.html",
+        "/weapon-rules/saturate.html",
+        "/weapon-rules/seek.html",
+        "/weapon-rules/severe.html",
+        "/weapon-rules/shock.html",
+        "/weapon-rules/silent.html",
+        "/weapon-rules/stun.html",
+        "/weapon-rules/torrent.html"
+    ],
+    "aliases": {
+        "gambit": ["strategic-gambit"],
+        "heavy": ["heavy-reposition", "heavy-dash", "heavy-charge"],
+        "piercing": ["piercing-crits"]
+    }
+}

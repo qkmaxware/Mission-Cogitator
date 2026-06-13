@@ -5,6 +5,7 @@ namespace Kt.Data;
 
 public class Rule: IPackagedContent
 {
+    public Pkg? SourcePackage {get; set;}
     public string? Id { get; set;}
     public string? Name {get; set;}
     public string? Description {get; set;}

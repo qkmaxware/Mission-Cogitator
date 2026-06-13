@@ -1,4 +1,0 @@
-{
-    "name": "Action",
-    "description": "An opertive that has just been <see cref='activation'>activated</see> can perform one or more actions. Each action costs a specific number of AP. An operative cannot perform the same action twice, unless stated otherwise."
-}

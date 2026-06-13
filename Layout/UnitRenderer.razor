@@ -205,7 +205,7 @@
         if (Deployment.Effects is null)
             Deployment.Effects = new List<Effect>();
             
-        Rule? maybeEffect = await ruledb.GetValue(selectedEffectId);
+        Rule? maybeEffect = ruledb.GetValue(selectedEffectId);
         if (maybeEffect is null || maybeEffect is not Effect effect)
             return;
 

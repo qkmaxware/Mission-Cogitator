@@ -1,4 +1,0 @@
-{
-    "name": "Valid Target",
-    "description": "Some rules, most commonly shooting, will require you to determine a valid target for an operative. <ul><li>If the intended target has an <see cref='engage'>Engage order</see>, it's a valid target if it's <see cref='visible'>visible</see> to the operative.</li><li>If the intended target has a <see cref='conceal'>Conceal order</see>, it's a valid target if it's <see cref='visible'>visible</see> to the operative and not in <see cref='cover'>cover</see>.</li></ul>"
-}

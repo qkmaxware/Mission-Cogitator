@@ -30,6 +30,23 @@ html {
     border-bottom-color:#ff5722!important;
 }
 
+section {
+    border: 2px solid #ff5722;
+    padding: 8px;
+    margin-top: 16px;
+}
+
+section>header {
+    margin: -8px;
+    padding: 8px 16px;
+    color: white;
+    background-color: #ff5722;
+}
+
+table {
+    width: 100%;
+}
+
 .usage-bullet,.condition-bullet {
     list-style: none;
 }

@@ -12,6 +12,7 @@ public class UnitAttributes
 
 public class Unit: IPackagedContent
 {
+    public Pkg? SourcePackage {get; set;}
     public string? Id { get; set;}
     public string? Name {get; set;}
     public string? ArtPath {get; set;}

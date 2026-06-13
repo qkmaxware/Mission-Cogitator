@@ -17,8 +17,17 @@
 }
 
 <Modal @ref=ruleLookup Title="Search for Rule" Options=@Modal.Buttons.Cancel>
-    <RuleSearch Items=@ruledb.All>
-        <b style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>@context.Name <small>(@context.Id)</small></b>
+    <RuleSearch Items=@ruledb.AllRules>
+        <div style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>
+            <div>
+                <b>@context.Name <small>(@context.Id)</small></b>
+            </div>
+            @if (context.SourcePackage is not null) {
+            <small>
+                @context.SourcePackage.Name @if(context.SourcePackage.Updated is not null){ <text> (updated: @context.SourcePackage.Updated)</text> }
+            </small>
+            }
+        </div>
     </RuleSearch>
 </Modal>
 @code {
@@ -191,8 +200,7 @@
             </div>
         </div>
 
-        <button class="w3-button w3-bar-item">Weapon Rules</button>
-        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        <Accordion Title="Weapon Rules">
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("accurate"))>Accurate</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("balanced"))>Balanced</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("blast"))>Blast</button>
@@ -215,7 +223,16 @@
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("silent"))>Silent</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("stun"))>Stun</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("torrent"))>Torrent</button>
-        </div>
+        </Accordion>
+
+        <Accordion Title="Universal Equipment">
+            @foreach (var eq in ruledb.AllEquipment) {
+                if ("Universal Equipment" != eq.SourcePackage?.Name)
+                    continue;
+                var myEq = eq;
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(myEq.Id))>@myEq.Name</button>
+            }
+        </Accordion>
     </Accordion>
 </NavMenu>
 @code {

@@ -8,6 +8,8 @@ public class PackageManager
     private RuleDatabase ruledb;
     private TeamsDatabase teamdb;
 
+    //private List<string> loadedPkgs = new();
+
     public PackageManager(HttpClient client, RuleDatabase rules, TeamsDatabase teams)
     {
         this.client = client;
@@ -15,10 +17,31 @@ public class PackageManager
         this.teamdb = teams;
     }
 
+    public class PackageLoadException: Exception
+    {
+        public PackageLoadException(string path, Exception inner): base($"Failed to load package: {path}", inner) {}
+    }
+
     public async Task AddFromUrl(string uri)
     {
-        Pkg pkg = await Pkg.FromUrl(client, uri);
+        Pkg? pkg;
+        try {
+            pkg = await Pkg.FromUrl(client, uri);
+        } catch (Exception e)
+        {
+            var outer = new PackageLoadException(uri, e);
+            Console.WriteLine(outer);
+            // Don't rethrow this exception since that would break the app, but report it to the log instead.
+            return;
+        }
 
+        Import(pkg);
+    }
+
+    private void Import(Pkg pkg)
+    {
+        //loadedPkgs.Add(pkg.Name);
+        
         // Add all offered rules       
         foreach (var rule in pkg.AllRules())
         {
@@ -35,6 +58,28 @@ public class PackageManager
                 continue;
                 
             teamdb.AddTeam(team.Id, team);
+        }
+
+        // Add aliasing if it exists
+        if (pkg.Aliases is not null)
+        {
+            foreach (var kv in pkg.Aliases)
+            {
+                string? uid = kv.Key;
+                if (string.IsNullOrEmpty(uid))
+                    continue;
+                var lst = kv.Value;
+                if (lst is null)
+                    continue;
+
+                foreach (var alias in lst)
+                {
+                    if (string.IsNullOrEmpty(alias))
+                        continue;
+
+                    ruledb.Alias(uid, @as: alias);
+                }
+            }
         }
     }
 }

@@ -1,0 +1,77 @@
+---
+{
+    "name": "Shoot",
+    "ap": 1
+}
+---
+Attack an opposing operative.
+
+<ul class="usage-bullet">
+    <li>
+        Shoot with the operative as described below.
+    </li>
+</ul>
+
+<ul class="condition-bullet">
+    <li>
+        An operative cannot perform this action while it has a <see cref='conceal'>Conceal order</see>, or while within <see cref='control-range'>control range</see>  of an enemy operative.
+</ul>
+
+<section>
+    <header>How to Shoot</header>
+    <p>
+        The player whose operative is performing the action is the attacker. The player 
+controlling the target is the defender. When rolling attack/defence dice, results 
+of 6 are always successes and are critical; all other successes are normal; 
+results of 1 are always a fail.
+    </p>
+    <ol>
+        <li>
+ Attacker selects one of their operative's ranged weapons
+        </li>
+        <li>
+Attacker selects an enemy operative that's a <see cref="valid-target">valid target</see> for the active 
+operative and has no friendly operatives within its <see cref='control-range'>control range</see>.
+        </li>
+        <li>
+Attacker rolls attack dice - a number of D6 equal to the selected 
+weapon's Atk stat. Each result that equals or beats the weapon's Hit stat is 
+retained as a success. Each that doesn't is discarded as a fail.
+        </li>
+        <li>
+ Defender rolls defence dice - three D6. Each result that equals or beats 
+the target's Save stat is retained as a success. Each that doesn't is 
+discarded as a fail. If the target is in cover, the Defender can retain one of 
+their defence dice as a normal success without rolling it.
+        </li>
+        <li>
+            Defender resolves successful defence dice, allocating them to block 
+successful attack dice.
+            <ul>
+                <li>
+                    A normal success can block a normal success.
+                </li>
+                <li>
+                    Two normal successes can block a critical success.
+                </li>
+                <li>
+                    A critical success can block a normal success or a critical success.
+                </li>
+            </ul>
+        </li>
+        <li>
+            Attacker resolves each unblocked attack dice (if any) to inflict damage on 
+the target.
+            <ul>
+                <li>
+                    A normal success inflicts damage equal to the weapon's Normal Dmg 
+stat (first value of Dmg stat).
+                </li>
+                <li>
+                    A critical success inflicts damage equal to the weapon's Critical Dmg 
+stat (second value of Dmg stat).
+                </li>
+            </ul>
+        </li>
+    </ol>
+</section>

@@ -1,5 +1,0 @@
-{
-    "name": "Engage order",
-    "description": "An operative with an Engage order can perform <see cref='action'>actions</see> as normal and <see cref='counteract'>counteract</see>.",
-    "art-path": "assets/rules/orders/engage.png"
-}

@@ -18,6 +18,9 @@ public class Pkg
     public Dictionary<string, Unit>? Units {get; set;}
     public Dictionary<string, Team>? Teams {get; set;}
 
+    // Rule aliasing (if a rule is known by other ids as well)
+    public Dictionary<string, IEnumerable<string>?>? Aliases {get; set;}
+
     public IEnumerable<Rule> AllRules() => 
         (Definitions?.Values ?? Enumerable.Empty<Rule>())
         .Concat((Actions?.Values ?? Enumerable.Empty<Rule>()))
@@ -41,6 +44,8 @@ public class Pkg
         public List<string>? Ploys {get; set;}
         public List<string>? Units {get; set;}
         public List<string>? Teams {get; set;}
+
+        public Dictionary<string, IEnumerable<string>?>? Aliases {get; set;}
     }
 
     private static JsonSerializerOptions json = SerializationOptions;
@@ -55,6 +60,17 @@ public class Pkg
 
     private static List<string> EMPTY = new (0);
 
+    private static async Task<HttpResponseMessage> GetOneOfAsync(HttpClient client, params string[] urls)
+    {
+        foreach (var url in urls)
+        {
+            var resp = await client.GetAsync(url);
+            if (resp.IsSuccessStatusCode)
+                return resp;
+        }
+        throw new AggregateException(urls.Select(url => new FileNotFoundException(url)));
+    }
+
     /// <summary>
     /// Read a package from a network location where the URL points to the package's index.json file
     /// </summary>
@@ -67,7 +83,7 @@ public class Pkg
         pkg.Name = Path.GetFileNameWithoutExtension(url);
 
         // Read the package index
-        var resp = await client.GetAsync(url + "/index.json");
+        var resp = await GetOneOfAsync(client, url + "/index.json", url + "/index.jsonc"); //await client.GetAsync(url + "/index.json");
         var index = JsonSerializer.Deserialize<PkgIndex>(resp.Content.ReadAsStream(), json);
         if (index is null)
             return pkg;
@@ -77,17 +93,19 @@ public class Pkg
         pkg.Updated = index.Updated;
 
         // Convert the paths in the package index into actual resources by parsing them one at a time
-        pkg.Definitions = await ParseResourcesFromRelativeUrl<Rule>   (client, url, index.Definitions ?? EMPTY);
-        pkg.Actions = await ParseResourcesFromRelativeUrl<Action> (client, url, index.Actions ?? EMPTY);
-        pkg.Effects = await ParseResourcesFromRelativeUrl<Effect> (client, url, index.Effects ?? EMPTY);
-        pkg.Equipment = await ParseResourcesFromRelativeUrl<Equipment> (client, url, index.Equipment ?? EMPTY);
-        pkg.Ploys = await ParseResourcesFromRelativeUrl<Ploy> (client, url, index.Ploys ?? EMPTY);
-        pkg.Units   = await ParseResourcesFromRelativeUrl<Unit>   (client, url, index.Units ?? EMPTY);
-        pkg.Teams   = await ParseResourcesFromRelativeUrl<Team>   (client, url, index.Teams ?? EMPTY);
+        pkg.Definitions = await ParseResourcesFromRelativeUrl<Rule>   (pkg, client, url, index.Definitions ?? EMPTY);
+        pkg.Actions = await ParseResourcesFromRelativeUrl<Action> (pkg, client, url, index.Actions ?? EMPTY);
+        pkg.Effects = await ParseResourcesFromRelativeUrl<Effect> (pkg, client, url, index.Effects ?? EMPTY);
+        pkg.Equipment = await ParseResourcesFromRelativeUrl<Equipment> (pkg, client, url, index.Equipment ?? EMPTY);
+        pkg.Ploys = await ParseResourcesFromRelativeUrl<Ploy> (pkg, client, url, index.Ploys ?? EMPTY);
+        pkg.Units   = await ParseResourcesFromRelativeUrl<Unit>   (pkg, client, url, index.Units ?? EMPTY);
+        pkg.Teams   = await ParseResourcesFromRelativeUrl<Team>   (pkg, client, url, index.Teams ?? EMPTY);
+
+        pkg.Aliases = index.Aliases;
 
         var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).ToDictionary(r => r.Id ?? string.Empty, r => r);
 
-        // Resolve ID references to objects for the TEAM 
+        // Resolve ID references to objects for the TEAMs 
         foreach (var team in pkg.Teams)
         {
             team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
@@ -126,7 +144,7 @@ public class Pkg
         return pkg;
     }
 
-    private static async Task<Dictionary<string, T>> ParseResourcesFromRelativeUrl<T>(HttpClient client, string url, List<string> relatives)
+    private static async Task<Dictionary<string, T>> ParseResourcesFromRelativeUrl<T>(Pkg currentPkg, HttpClient client, string url, List<string> relatives)
     where T:IPackagedContent
     {
         Dictionary<string, T> lst = new Dictionary<string, T>(relatives.Count);
@@ -152,6 +170,7 @@ public class Pkg
                 continue;
 
             // Assign the id and description 
+            data.SourcePackage = currentPkg;
             data.Id = Path.GetFileNameWithoutExtension(relatives[i]);
             data.Description = doc.Html.ToString();
             lst[data.Id] = data;

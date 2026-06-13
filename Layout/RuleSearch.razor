@@ -17,8 +17,8 @@
 @code {
     [Parameter] public float DebounceTime {get; set;} = 0.5f;
     [Parameter] public string? Placeholder {get; set;}
-    [Parameter] public IEnumerable<(string Id, string Name)>? Items {get; set;}
-    [Parameter] public RenderFragment<(string Id, string Name)>? ChildContent {get; set;}
+    [Parameter] public IEnumerable<Rule>? Items {get; set;}
+    [Parameter] public RenderFragment<Rule>? ChildContent {get; set;}
     [Parameter] public Func<string, string, bool>? Comparator {get; set;} 
 
     private string _placeholder => Placeholder ?? "search";
@@ -47,7 +47,7 @@
         timer?.Dispose();
     }
 
-    private List<(string Id, string Name)>? results;
+    private List<Rule>? results;
     private bool defaultComparator (string text, string item) {
         return System.Globalization.CultureInfo.InvariantCulture.CompareInfo.IndexOf(
             item?.ToString() ?? string.Empty, 
@@ -68,7 +68,7 @@
                 return;
             }
 
-            var results = Items.Where(x => compare(term, x.Name)).ToList();
+            var results = Items.Where(x => x.Name is not null && compare(term, x.Name)).ToList();
             if (term == this.text) {
                 this.results = results;
                 InvokeAsync(StateHasChanged);

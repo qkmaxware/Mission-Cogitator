@@ -10,6 +10,9 @@
     <div class="w3-modal-content w3-round-large">
         <header class="w3-container app-primary"> 
             <h2>@Rule?.Name</h2>
+            @if (Rule?.SourcePackage is not null) {
+                <h5>@Rule.SourcePackage.Name @if(Rule.SourcePackage.Updated is not null){ <text> (updated: @Rule.SourcePackage.Updated)</text> }</h5>
+            }
         </header>
         <article class="w3-padding w3-large">
             @RenderDescription(Rule?.Fmt())
@@ -46,7 +49,7 @@
 
     public async Task Show(string ruleId) {
         collapseMenu = false;
-        var rule = await rules.GetValue(ruleId);
+        var rule = rules.GetValue(ruleId);
         this.Rule = rule ?? NoRule;
         await InvokeAsync(StateHasChanged);
     }

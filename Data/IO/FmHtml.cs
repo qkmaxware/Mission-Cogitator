@@ -26,7 +26,7 @@ public class FmHtmlDocument
     /// </summary>
     public ReadOnlySpan<char> Html => document.AsSpan(htmlStart);
 
-    private static Regex endRegex = new Regex(@"\r?\n---\r?\n", RegexOptions.Compiled);
+    private static Regex endRegex = new Regex(@"\n---\r?\n", RegexOptions.Compiled);
 
     public FmHtmlDocument(string document)
     {
