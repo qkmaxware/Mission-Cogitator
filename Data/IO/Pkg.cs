@@ -83,10 +83,16 @@ public class Pkg
         pkg.Name = Path.GetFileNameWithoutExtension(url);
 
         // Read the package index
-        var resp = await GetOneOfAsync(client, url + "/index.json", url + "/index.jsonc"); //await client.GetAsync(url + "/index.json");
-        var index = JsonSerializer.Deserialize<PkgIndex>(resp.Content.ReadAsStream(), json);
-        if (index is null)
-            return pkg;
+        PkgIndex? index = null;
+        try {
+            var resp = await GetOneOfAsync(client, url + "/index.json", url + "/index.jsonc"); //await client.GetAsync(url + "/index.json");
+            index = JsonSerializer.Deserialize<PkgIndex>(resp.Content.ReadAsStream(), json);
+            if (index is null)
+                return pkg;
+        } catch (AggregateException ex)
+        {
+            throw new FileNotFoundException($"Could not find package index at {url}/index.json or {url}/index.jsonc", ex);
+        }
 
         pkg.Name = index.Name;
         pkg.Author = index.Author;
@@ -103,7 +109,7 @@ public class Pkg
 
         pkg.Aliases = index.Aliases;
 
-        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).ToDictionary(r => r.Id ?? string.Empty, r => r);
+        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).DistinctBy(r => r.Id).ToDictionary(r => r.Id ?? string.Empty, r => r);
 
         // Resolve ID references to objects for the TEAMs 
         foreach (var team in pkg.Teams)
@@ -151,29 +157,34 @@ public class Pkg
 
         for (var i = 0; i < relatives.Count; i++)
         {
-            // Clean the relative path
-            var relativeUri = relatives[i];
-            if (!relativeUri.StartsWith("/"))
-                relativeUri = "/" + relativeUri;
-            if (!relativeUri.EndsWith(".html"))
-                Path.ChangeExtension(relativeUri, ".html");
+            try {
+                // Clean the relative path
+                var relativeUri = relatives[i];
+                if (!relativeUri.StartsWith("/"))
+                    relativeUri = "/" + relativeUri;
+                if (!relativeUri.EndsWith(".html"))
+                    Path.ChangeExtension(relativeUri, ".html");
 
-            // Form final URL
-            var uri = url + relativeUri;
+                // Form final URL
+                var uri = url + relativeUri;
 
-            // Get resource
-            var resp = await client.GetAsync(uri);
-            var content = await resp.Content.ReadAsStringAsync();
-            var doc = new FmHtmlDocument(content);
-            var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
-            if (data is null)
-                continue;
+                // Get resource
+                var resp = await client.GetAsync(uri);
+                var content = await resp.Content.ReadAsStringAsync();
+                var doc = new FmHtmlDocument(content);
+                var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
+                if (data is null)
+                    continue;
 
-            // Assign the id and description 
-            data.SourcePackage = currentPkg;
-            data.Id = Path.GetFileNameWithoutExtension(relatives[i]);
-            data.Description = doc.Html.ToString();
-            lst[data.Id] = data;
+                // Assign the id and description 
+                data.SourcePackage = currentPkg;
+                data.Id = Path.GetFileNameWithoutExtension(relatives[i]);
+                data.Description = doc.Html.ToString();
+                lst[data.Id] = data;
+            } catch (Exception ex)
+            {
+                throw new FormatException($"Could not load package resource at {url}/{relatives[i]}", ex);
+            }
         }
 
         return lst;

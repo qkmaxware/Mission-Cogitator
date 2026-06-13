@@ -7,14 +7,16 @@ public class PackageManager
     private HttpClient client;
     private RuleDatabase ruledb;
     private TeamsDatabase teamdb;
+    private JsConsole console;
 
     //private List<string> loadedPkgs = new();
 
-    public PackageManager(HttpClient client, RuleDatabase rules, TeamsDatabase teams)
+    public PackageManager(JsConsole console, HttpClient client, RuleDatabase rules, TeamsDatabase teams)
     {
         this.client = client;
         this.ruledb = rules;
         this.teamdb = teams;
+        this.console = console;
     }
 
     public class PackageLoadException: Exception
@@ -30,7 +32,7 @@ public class PackageManager
         } catch (Exception e)
         {
             var outer = new PackageLoadException(uri, e);
-            Console.WriteLine(outer);
+            await console.WarnAsync(outer);
             // Don't rethrow this exception since that would break the app, but report it to the log instead.
             return;
         }

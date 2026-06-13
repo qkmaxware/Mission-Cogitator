@@ -9,9 +9,10 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped<JsConsole>(); // For logging to the browser console
 builder.Services.AddScoped(sp => new RuleDatabase(sp.GetService<HttpClient>()!));
 builder.Services.AddScoped(sp => new TeamsDatabase());
-builder.Services.AddScoped(sp => new PackageManager(sp.GetService<HttpClient>()!, sp.GetService<RuleDatabase>()!, sp.GetService<TeamsDatabase>()!));
+builder.Services.AddScoped(sp => new PackageManager(sp.GetService<JsConsole>()!, sp.GetService<HttpClient>()!, sp.GetService<RuleDatabase>()!, sp.GetService<TeamsDatabase>()!));
 
 var app = builder.Build();
 
