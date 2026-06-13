@@ -1,0 +1,62 @@
+---
+{
+    "name": "Fight",
+    "ap": 1
+}
+---
+Attack an opposing operative.
+
+<ul class="usage-bullet">
+    <li>
+        Fight with the operative as described below.
+    </li>
+</ul>
+
+<ul class="condition-bullet">
+    <li>
+        An operative cannot perform this action unless an enemy operative is within its <see cref='control-range'>control range</see>.
+    </li>
+</ul>
+
+<section>
+    <header>How to Fight</header>
+    <p>
+        The player whose operative is performing the action is the attacker. The player 
+controlling the target is the defender. When rolling attack dice, results of 6 are 
+always successes and are critical; all other successes are normal; results of 1 
+are always a fail.
+    </p>
+    <ol>
+        <li>
+Attacker selects an enemy operative within the active operative's <see cref="control-range">control 
+range</see> to fight against. That enemy operative will retaliate.
+        </li>
+        <li>
+            Both players select one of their operative's melee weapons.
+        </li>
+        <li>
+  Both players roll attack dice - a number of D6 equal to their selected 
+weapon's Atk stat respectively. Each result that equals or beats their 
+weapon's Hit stat is retained as a success. Each that doesn't is discarded 
+as a fail.
+        </li>
+        <li>
+            Starting with the attacker, players alternate resolving their successful 
+unblocked attack dice (or all remaining if their opponent has none). To 
+resolve a dice, they must strike or block:
+            <ul>
+                <li>
+                    Strike: Inflict damage on the enemy operative. A normal success inflicts 
+damage equal to the weapon's Normal Dmg stat (first value of Dmg 
+stat). A critical success inflicts damage equal to the weapon's Critical 
+Dmg stat (second value of Dmg stat).
+                </li>
+                <li>
+                    Block: Allocate this dice to block one of your opponent’s unresolved 
+successes. A normal success can block a normal success. A critical 
+success can block a normal or critical success. 
+                </li>
+            </ul>
+        </li>
+    </ol>
+</section>

@@ -1,0 +1,19 @@
+{
+    "name": "Universal Equipment",
+    "updated": "28/01/2026",
+    "equipment": [
+        "/equipment/ammo-cache.html",
+        "/equipment/razor-wire.html",
+        "/equipment/comms-device.html",
+        "/equipment/mines.html",
+        "/equipment/light-barricades.html",
+        "/equipment/heavy-barricade.html",
+        "/equipment/ladders.html",
+        "/equipment/stun-utility-grenades.html",
+        "/equipment/smoke-utility-grenades.html",
+        "/equipment/frag.html",
+        "/equipment/krak.html",
+        "/equipment/breaching-charge.html",
+        "/equipment/portable-barricade.html"
+    ]
+}
