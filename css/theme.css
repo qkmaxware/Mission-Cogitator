@@ -43,6 +43,10 @@ section>header {
     background-color: #ff5722;
 }
 
+section section {
+    display: none; /* hide nested sections */
+}
+
 table {
     width: 100%;
 }

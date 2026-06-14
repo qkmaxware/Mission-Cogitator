@@ -14,7 +14,8 @@
 
         "/orders/conceal.html",
         "/orders/engage.html",
-
+        
+        "/phases/initiative-phase.html",
         "/phases/firefight-phase.html",
         "/phases/strategy-phase.html",
 
