@@ -73,7 +73,6 @@
 
         team = Wizard.GetProviderValue<Team>("team", null);
         selected.Clear();
-        selected.AddRange(team.Units ?? Enumerable.Empty<Unit>());
     }
 
     public override bool CanAdvance()
