@@ -1,0 +1,67 @@
+@using Kt.Data
+@inherits SetupWizardPage
+
+@if (this.IsActivePage) {
+<h3 style="margin-bottom: 0;">Set Up Deployment</h3>
+<h4 style="margin-top: 0;">Deploy Your Operatives to Killzone</h4>
+<div class="w3-container">
+<p>
+    Split your operatives into 3 groups to be deployed at your drop zone.
+</p>
+<p>
+    Since you are deploying: @unitCount units, your 3 groups will contain:
+</p>
+<table class="w3-center">
+    <thead>
+        <th>Group 1</th>
+        <th>Group 2</th>
+        <th>Group 3</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@grp1 Units</td>
+            <td>@grp2 Units</td>
+            <td>@grp3 Units</td>
+        </tr>
+    </tbody>
+</table>
+@if (has_initiative) {
+<p>
+    You <b>have</b> the initiative so you get to place your first group before the other players.
+</p>
+} else {
+<p>
+    You do <b>not have</b> the initiative and will place your first group after the other players have placed theirs.
+</p>
+}
+</div>
+}
+
+@code {
+    private bool has_initiative;
+    private int unitCount;
+
+    private int grp1 => unitCount / 3;
+    private int grp2 => unitCount / 3;
+    private int grp3 => unitCount - grp1 - grp2;
+    private static List<Unit> EMPTY = new(0);
+
+    public override void Reset()
+    {
+
+    }
+
+    public override void OnShow()
+    {
+        if (Wizard is null)
+            return;
+
+        this.has_initiative = Wizard.GetProviderValue<bool>("has_initiative", false);
+        this.unitCount = Wizard.GetProviderValue<List<Unit>>("units", EMPTY).Count;
+    }
+
+    public override bool CanAdvance()
+    {
+        return true;
+    }
+}

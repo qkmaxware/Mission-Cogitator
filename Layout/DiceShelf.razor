@@ -39,7 +39,7 @@
     public int DiceValue(int i) {
         if (i < 0 || i >= dice.Count)
             return 0;
-        
+
         return dice[i];
     }
 
@@ -50,6 +50,11 @@
     public int MinRoll() => dice.Count == 0 ? 0 : dice.Min(x => x);
 
     public double AverageRoll() => dice.Count == 0 ? 0 : dice.Average(x => x);
+
+    protected override void OnInitialized()
+    {
+        SetCount(1); // Default to 1 dice
+    }
 
     public void SetCount(int count, int hitValue = -1) {
         this.hitVal = hitValue;

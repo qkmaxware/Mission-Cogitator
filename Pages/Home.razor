@@ -34,6 +34,9 @@
     private Modal? ruleLookup;
 }
 
+<Modal @ref=setupWizardModal Title="Game Setup Wizard" Options="@Modal.Buttons.None" AllowTopX=true>
+    <SetupWizard @ref=setupWizard OnSetupComplete=setupWizardComplete></SetupWizard>
+</Modal>
 <Modal @ref=addUnitToDeploymentModal Title="Deploy Unit" Options=@Modal.Buttons.OkayCancel OnOkay="addUnitToTeam">
     <label>Team:</label>
     <select class="w3-select" value="@addFromTeamId" @onchange=selectTeamToAddFrom>
@@ -99,6 +102,19 @@
         for (var i = 0; i < addAmt; i++)
             deployment.Units.Add(new DeployedUnit(addFromTeam, addUnit));
     }
+
+    private Modal? setupWizardModal {get; set;}
+    private SetupWizard? setupWizard {get; set;}
+    public async Task openSetupWizard() {
+        if (setupWizard is not null)
+            await setupWizard.Restart();
+        setupWizardModal?.OpenNavMenu();
+    } 
+    public async Task setupWizardComplete(Deployment deployment) {
+        this.deployment = deployment ?? this.deployment;
+        setupWizardModal?.CloseNavMenu();
+        await InvokeAsync(StateHasChanged);
+    }
 }
 
 <Modal @ref=importDeploymentModal Title="Load Deployment" Options=@Modal.Buttons.Cancel>
@@ -117,9 +133,12 @@
 }
 
 <NavMenu @ref=navigator Title="Datavault">
-    <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>
-        <img src="art/search.svg" style="height: 1em; width: 1em;"/> Search
-    </button>
+    <Header>
+        <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>
+            <img src="art/search.svg" style="height: 1em; width: 1em;"/> Search
+        </button>
+    </Header>
+    <Content>
     <Accordion Title="Your Deployment">
         @foreach (var unit in deployment.Units) {
             <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))><HealthIndicator Deployment=@unit></HealthIndicator> @unit.Unit?.Name</button>
@@ -236,6 +255,10 @@
             }
         </Accordion>
     </Accordion>
+    </Content>
+    <Footer>
+        <button class="w3-button w3-bar-item" @onclick=openSetupWizard>Game Setup Wizard</button>
+    </Footer>
 </NavMenu>
 @code {
     private NavMenu? navigator;

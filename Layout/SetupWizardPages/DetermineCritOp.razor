@@ -1,0 +1,25 @@
+@inherits SetupWizardPage
+
+@if (this.IsActivePage) {
+<h3 style="margin-bottom: 0;">Set Up the Battle</h3>
+<h4 style="margin-top: 0;">Determine Critical Operation</h4>
+<div class="w3-container">
+<p>
+    Determine the critical operation and set objective markers onto the killzone.
+</p>
+</div>
+}
+
+@code {
+    private string? team;
+
+    public override void Reset()
+    {
+        
+    }
+
+    public override bool CanAdvance()
+    {
+        return true;
+    }
+}

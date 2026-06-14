@@ -1,19 +1,31 @@
 ﻿<div class="w3-sidebar-background @NavMenuCssClass" @onclick="CloseNavMenu"></div>
 <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left @NavMenuCssClass" >
-    <div class="app-primary w3-xlarge w3-container">@(Title ?? "Menu")</div>
-    <button @onclick="CloseNavMenu" class="app-primary w3-button w3-bar-item w3-large">Close <span style="float: right;">&times;</span></button>
-    @ChildContent
+    <header>
+        <div class="app-primary w3-xlarge w3-container">@(Title ?? "Menu")</div>
+        <button @onclick="CloseNavMenu" class="app-primary w3-button w3-bar-item w3-large">Close <span style="float: right;">&times;</span></button>
+        @Header
+    </header>
+    <nav>
+        @Content
+    </nav>
+    <footer>
+        @Footer
+    </footer>
 </div>
 
 @code {
     [Parameter]
     public string? Title {get; set;}
     [Parameter]
-	public RenderFragment? ChildContent { get; set; }
+	public RenderFragment? Header { get; set; }
+    [Parameter]
+	public RenderFragment? Content { get; set; }
+    [Parameter]
+	public RenderFragment? Footer { get; set; }
 
     private bool collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "w3-hide" : "w3-show";
+    private string? NavMenuCssClass => collapseNavMenu ? "hide" : "show";
 
     public void ToggleNavMenu()
     {

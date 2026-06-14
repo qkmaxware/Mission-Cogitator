@@ -9,7 +9,36 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.w3-sidebar-background.hide {
+    display: none !important;
+}
+
 .w3-sidebar {
     z-index: 2;
     width: min(100%, 320px);
+    display: flex;
+    height: 100dvh;
+    flex-direction: column;
+}
+
+.w3-sidebar.hide {
+    display: none !important;
+}
+
+.w3-sidebar>header {
+    flex-shrink: 0;     /* fixed height */
+    border-bottom: 1px solid #ccc;
+}
+
+.w3-sidebar>nav {
+    display: block;
+    flex: 1;            /* take remaining space */
+    flex-shrink: 1;
+    flex-grow: 1;
+    overflow-y: auto;   /* scroll when needed */
+}
+
+.w3-sidebar>footer {
+    flex-shrink: 0;     /* never shrink */
+    border-top: 1px solid #ccc;
 }

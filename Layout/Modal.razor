@@ -7,8 +7,11 @@
 
 <div class="w3-modal @MenuCssClass">
     <div class="w3-modal-content w3-round-large">
-        <header class="w3-container app-primary"> 
+        <header class="w3-container app-primary w3-display-container"> 
             <h2>@Title</h2>
+            @if (AllowTopX) {
+                <button class="w3-button w3-round-xlarge w3-display-right" @onclick=closeRequested>x</button>
+            }
         </header>
         <article class="w3-padding w3-large">
             @ChildContent
@@ -31,12 +34,13 @@
 @code {
 
     public enum Buttons {
+        None = 0b00,
         Okay = 0b01,
         Cancel = 0b10,
         OkayCancel = 0b11,
     }
 
-    [Parameter] public Buttons Options {get; set;}
+    [Parameter] public Buttons Options {get; set;} = Buttons.Okay;
 
     [Parameter]
 	public RenderFragment? ChildContent { get; set; }
@@ -49,6 +53,9 @@
 
     [Parameter]
     public EventCallback OnCancel { get; set; }
+
+    [Parameter]
+    public bool AllowTopX {get; set;}
 
     private bool collapseMenu = true;
 

@@ -1,0 +1,53 @@
+@inherits SetupWizardPage
+
+@if (this.IsActivePage) {
+<h3 style="margin-bottom: 0;">Set Up the Battle</h3>
+<h4 style="margin-top: 0;">Select your KT</h4>
+<div class="w3-container">
+    <label>Team:</label>
+    <select class="w3-select" @bind="@team">
+        <option></option>
+        @foreach (var grp in (teamdb?.AllTeamsGrouped ?? Enumerable.Empty<IGrouping<string?, Data.Team>>())) {
+            <optgroup label=@grp.Key>
+                @foreach (var team in grp) {
+                    <option value="@team.Id">@team.Name</option>
+                }
+            </optgroup>
+        }
+    </select>
+</div>
+}
+
+@code {
+    private string? team;
+
+    public override bool Provides(string field)
+    {
+        return field switch {
+            nameof(team) => true,
+            _ => false
+        };
+    }
+
+    public override object? GetValue(string field)
+    {
+        return field switch {
+            nameof(team) => teamdb?.GetValue(team ?? string.Empty),
+            _ => false
+        };
+    }
+
+    public override void Reset()
+    {
+        team = null;
+    }
+
+    public override bool CanAdvance()
+    {
+        if (teamdb is null)
+            Console.WriteLine("no db");
+        if (team is null)
+            Console.WriteLine("no team");
+        return teamdb?.GetValue(team ?? string.Empty) is not null;
+    }
+}

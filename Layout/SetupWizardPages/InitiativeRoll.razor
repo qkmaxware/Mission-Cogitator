@@ -1,0 +1,57 @@
+@inherits SetupWizardPage
+
+@if (this.IsActivePage) {
+<h3 style="margin-bottom: 0;">Roll-Off</h3>
+<h4 style="margin-top: 0;">Determine Initiative</h4>
+<div class="w3-container">
+    <label>Roll:</label>
+    <DiceShelf @ref=shelf></DiceShelf>
+    <label>Initiative Order:</label>
+    <select class="w3-select" @bind=has_initiative_str>
+        <option value="true">Goes First</option>
+        <option value="false">Goes Second</option>
+    </select>
+</div>
+}
+
+
+@code {
+    private DiceShelf? shelf;
+
+    private bool has_initiative = true;
+    private string? has_initiative_str {
+        get {
+            return has_initiative ? "true" : "false";
+        }
+        set {
+            if (!bool.TryParse(value, out has_initiative))
+                has_initiative = false;
+        }
+    }
+
+    public override bool Provides(string field)
+    {
+        return field switch {
+            nameof(has_initiative) => true,
+            _ => false
+        };
+    }
+
+    public override object? GetValue(string field)
+    {
+        return field switch {
+            nameof(has_initiative) => has_initiative,
+            _ => false
+        };
+    }
+
+    public override void Reset()
+    {
+        
+    }
+
+    public override bool CanAdvance()
+    {
+        return true;
+    }
+}

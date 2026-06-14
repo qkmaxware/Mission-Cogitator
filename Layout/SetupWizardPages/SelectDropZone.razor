@@ -1,0 +1,47 @@
+@inherits SetupWizardPage
+
+@if (this.IsActivePage) {
+<h3 style="margin-bottom: 0;">Roll-Off</h3>
+<h4 style="margin-top: 0;">Select Drop Zone</h4>
+<div class="w3-container">
+<p>
+    Player <b>with</b> initiative selects drop zone.
+</p>
+@if (has_initiative) {
+<p>
+    You <b>have</b> the initiative. Select which side of the killzone you wish to be your drop zone.
+</p>
+} else {
+<p>
+    You do <b>not have</b> the initiative. Please wait for the other players first before you can select which side of the killzone you wish to be your drop zone.
+</p>
+<p>
+    Additionally, you gain the re-roll card.
+</p>
+}
+</div>
+}
+
+@code {
+    private string? team;
+
+    private bool has_initiative;
+
+    public override void Reset()
+    {
+
+    }
+
+    public override void OnShow()
+    {
+        if (Wizard is null)
+            return;
+
+        this.has_initiative = Wizard.GetProviderValue<bool>("has_initiative", false);
+    }
+
+    public override bool CanAdvance()
+    {
+        return true;
+    }
+}

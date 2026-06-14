@@ -1,0 +1,148 @@
+@using Kt.Data
+@using Kt.Data.IO
+@using Kt.Layout.SetupWizardPages
+
+@inject JsConsole console
+@inject TeamsDatabase teamdb
+@inject RuleDatabase ruledb
+
+<CascadingValue Value=@this>
+    <!--Set Up the Battle-->
+    <TeamSelection></TeamSelection>
+    <DetermineKZ></DetermineKZ>
+    <DetermineCritOp></DetermineCritOp>
+    <!--Roll-off-->
+    <InitiativeRoll></InitiativeRoll>
+    <SelectDropZone></SelectDropZone>
+    <!--Set Up Deployment-->
+    <OperativeSelection></OperativeSelection>
+    <!--TODO Equipment Selection-->
+    <SetupOperatives></SetupOperatives>
+</CascadingValue>
+
+@if (advance_msg is not null) {
+    <section>
+        <header>Error</header>
+        <p>@advance_msg</p>
+    </section>
+}
+<footer class="w3-row w3-center" style="width: 100%;">
+    <div class="w3-col w3-padding" style="display: inline-block; width: 49.99999%">
+        <button class="w3-button app-error w3-round" style="width: 100%" @onclick=Previous>Previous</button>
+    </div>
+    <div class="w3-col w3-padding" style="display: inline-block; width: 49.99999%">
+        <button class="w3-button app-primary w3-round" style="width: 100%" @onclick=Next>@if(IsAtEnd){ <text>Done</text> }else{ <text>Next</text> }</button>
+    </div>
+</footer>
+
+@code {
+    
+    private int currentPage = 0;
+    private List<SetupWizardPage> pages = new ();
+    public SetupWizardPage? ActivePage {
+        get {
+            if (currentPage < 0 || currentPage >= pages.Count)
+                return null;
+            return pages[currentPage];
+        }
+    }
+    public SetupWizardPage? NextPage {
+        get {
+            var pageIndex = currentPage + 1;
+            if (pageIndex < 0 || pageIndex >= pages.Count)
+                return null;
+            return pages[pageIndex];
+        }
+    }
+    public SetupWizardPage? PreviousPage {
+        get {
+            var pageIndex = currentPage - 1;
+            if (pageIndex < 0 || pageIndex >= pages.Count)
+                return null;
+            return pages[pageIndex];
+        }
+    }
+
+    private string? team_id;
+    private string? advance_msg;
+    public bool IsAtEnd => currentPage == pages.Count - 1;
+
+    [Parameter] public EventCallback<Deployment> OnSetupComplete {get; set;}
+
+    public void AddPage(SetupWizardPage page) {
+        this.pages.Add(page);
+        if (this.pages.Count - 1 == currentPage)
+            page?.OnShow();
+    }
+
+    public async Task Restart() {
+        advance_msg = null;
+        currentPage = 0;
+        foreach (var step in this.pages)
+            step.Reset();
+        ActivePage?.OnShow();
+        await InvokeAsync(StateHasChanged);
+    }
+    public async Task Previous() {
+        advance_msg = null;
+        currentPage = Math.Max(0, currentPage - 1);
+        ActivePage?.OnShow();
+        await InvokeAsync(StateHasChanged);
+    }
+    private List<Unit> EMPTY_UNITS = new List<Unit>(0);
+    public async Task Next() {
+        advance_msg = null;
+        if (ActivePage is null)
+            return;
+
+        if (!ActivePage.CanAdvance()) {
+            advance_msg = "Failed to fill out form completely";
+            return;
+        }
+
+        if (IsAtEnd) {
+            var deployment = new Deployment();
+            var team = GetProviderValue<Team>("team", null);
+            if (team is null) {
+                await console.WarnAsync("Cannot create deployment, missing team");
+                return;
+            }
+
+            deployment.Units = GetProviderValue<List<Unit>>("units", EMPTY_UNITS).Select(
+                (unit) => new DeployedUnit(team, unit)
+            ).ToList();
+
+            if (deployment.Units.Count == 0) {
+                await console.WarnAsync("Cannot create deployment, no units");
+                return;
+            }
+
+            await OnSetupComplete.InvokeAsync(deployment);
+            await Restart();
+            return;
+        }
+
+        currentPage = Math.Max(0, Math.Min(pages.Count - 1, currentPage + 1));
+        ActivePage?.OnShow();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public SetupWizardPage? GetProvider(string field) {
+        foreach (var page in this.pages) {
+            if (page.Provides(field))
+                return page;
+        }
+        return null;
+    }
+
+    public object? GetProviderValue(string field) {
+        return GetProvider(field)?.GetValue(field);
+    }
+
+    public T GetProviderValue<T>(string field, T defaultValue) {
+        var val = GetProvider(field)?.GetValue(field);
+        if (val is T tval)
+            return tval;
+        return defaultValue;
+    }
+}
