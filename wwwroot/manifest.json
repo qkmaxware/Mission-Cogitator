@@ -1,0 +1,24 @@
+{
+  "id": "/?utm_source=pwa",
+  "name": "Mission Cogitator",
+  "short_name": "mission-cogitator",
+  "description": "A WH 40K KT companion app",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#ff5722",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "198x198",
+      "type": "image/png"
+    }
+  ]
+}
