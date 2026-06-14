@@ -55,6 +55,8 @@ public class DeployedUnit
 
     public float HealthPercent => (float)(MaxWounds - CurrentWounds) / (float)MaxWounds;
 
+    public bool IsInjured => HealthPercent < 0.5f;
+
     /// <summary>
     /// Test if the deployed unit is alive or not
     /// </summary>

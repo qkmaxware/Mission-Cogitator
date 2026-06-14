@@ -9,6 +9,9 @@
         "/actions/reposition.html",
         "/actions/shoot.html"
     ],
+    "effects": [
+        "/effects/injured.html"
+    ],
     "definitions": [
         "/set-up.html",
 

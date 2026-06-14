@@ -37,7 +37,7 @@
             <div class="w3-col s3 w3-center">
                 <span>MOVE</span>
                 <div>
-                    <img src="art/move.svg" style="height: 1em"/> @(Unit.Attributes?.Move)"
+                    <img src="art/move.svg" style="height: 1em"/> @((Unit.Attributes?.Move ?? 0))"
                 </div>
             </div>
             <div class="w3-col s3 w3-center">
@@ -59,6 +59,14 @@
             <button class="w3-button w3-round gallery-item" title="Add Effect" @onclick=beginAddStatus>
                 <img src="art/marker-add.svg"/>
             </button>
+            @if (Deployment is not null && Deployment.HealthPercent < 0.5f) {
+                var rule = ruledb.GetValue("injured");
+                if (rule is Effect effect) {
+                <button class="w3-button w3-round gallery-item" title="@effect.Id" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(effect.Id))>
+                    <img src="@(string.IsNullOrEmpty(effect.ArtPath) ? "art/unknown-full.svg" : effect.ArtPath)"/>
+                </button>
+                }
+            }
             @if (Deployment?.Effects is not null) {
                 @foreach (var effect in Deployment.Effects) {
                     var myEffect = effect;
@@ -93,7 +101,9 @@
                             </div>
                         </td>
                         <td class="w3-center clickable" @onclick=@(() => attackRoll(myWeapon))>@myWeapon.Atk</td>
-                        <td class="w3-center">@(myWeapon.Hit)+</td>
+                        <td class="w3-center">
+                           @(myWeapon.Hit)+
+                        </td>
                         <td class="w3-center">@(myWeapon.Damage?.Normal)/@(myWeapon.Damage?.Critical)</td>
                     </tr>
                 }
