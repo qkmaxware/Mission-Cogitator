@@ -1,7 +1,10 @@
 {
+  "id": "/Mission-Cogitator/?utm_source=pwa",
   "name": "Mission Cogitator",
   "short_name": "mission-cogitator",
   "description": "A WH 40K KT companion app",
+  "start_url": "/Mission-Cogitator/?utm_source=pwa",
+  "scope": "/Mission-Cogitator/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
