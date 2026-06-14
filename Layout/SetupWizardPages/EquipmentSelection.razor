@@ -72,7 +72,7 @@
 
     public override void Reset()
     {
-
+        selected.Clear();
     }
 
     public override void OnShow()
@@ -93,6 +93,6 @@
 
     public override bool CanAdvance()
     {
-        return selected.Count > 0;
+        return true;
     }
 }
