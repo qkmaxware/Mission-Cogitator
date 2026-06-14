@@ -16,7 +16,7 @@
     <SelectDropZone></SelectDropZone>
     <!--Set Up Deployment-->
     <OperativeSelection></OperativeSelection>
-    <!--TODO Equipment Selection-->
+    <EquipmentSelection></EquipmentSelection>
     <SetupOperatives></SetupOperatives>
 </CascadingValue>
 
@@ -90,6 +90,7 @@
         await InvokeAsync(StateHasChanged);
     }
     private List<Unit> EMPTY_UNITS = new List<Unit>(0);
+    private List<Equipment> EMPTY_EQUIPMENT = new List<Equipment>(0);
     public async Task Next() {
         advance_msg = null;
         if (ActivePage is null)
@@ -107,6 +108,8 @@
                 await console.WarnAsync("Cannot create deployment, missing team");
                 return;
             }
+
+            deployment.Equipment = new List<Equipment>(GetProviderValue<List<Equipment>>("equipment", EMPTY_EQUIPMENT));
 
             deployment.Units = GetProviderValue<List<Unit>>("units", EMPTY_UNITS).Select(
                 (unit) => new DeployedUnit(team, unit)

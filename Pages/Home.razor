@@ -140,9 +140,19 @@
     </Header>
     <Content>
     <Accordion Title="Your Deployment">
+        <span class="w3-bar-item">Equipment</span>
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        @foreach (var eq in deployment.Equipment) {
+            var myEq = eq;
+            <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(myEq.Id))>@myEq.Name</button>
+        }
+        </div>
+        <span class="w3-bar-item">Operatives</span>
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
         @foreach (var unit in deployment.Units) {
             <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))><HealthIndicator Deployment=@unit></HealthIndicator> @unit.Unit?.Name</button>
         }
+        </div>
         <hr />
         <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Add Unit to Deployment</button>
         <button class="w3-button w3-bar-item" @onclick=showImportModal>+ Load Deployment</button>
@@ -286,7 +296,7 @@
 
 
 @code {
-    private Deployment deployment = new ();
+    private Deployment deployment = new Deployment();
 
     private enum Tab {
         QuickReference,
@@ -319,6 +329,7 @@
     private async Task serializeDeployment() {
         // Create deployment specification
         SerializedDeployment dep = new SerializedDeployment();
+        dep.Equipment = deployment.Equipment.Where(eq => eq.Id is not null).Select(eq => eq.Id).Cast<string>().ToList();
         dep.Units = deployment.Units.GroupBy(u => u.Team?.Id ?? string.Empty).ToDictionary(grp => grp.Key, grp => grp.Select(u => u.Unit?.Id ?? string.Empty).ToArray());
 
         // Download the deployment
@@ -344,6 +355,17 @@
             return;
         }
         
+        // Replace equipment
+        deployment.Equipment.Clear();
+        if (spec.Equipment is not null) {
+            foreach (var id in spec.Equipment) {
+                Rule? rule = ruledb.GetValue(id);
+                if (rule is null || rule is not Equipment eq)
+                    continue;
+                deployment.Equipment.Add(eq);
+            }
+        }
+
         // Replace deployment
         deployment.Units.Clear();
         if (spec.Units is not null) {

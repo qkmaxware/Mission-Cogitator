@@ -1,0 +1,98 @@
+@using Kt.Data
+@inherits SetupWizardPage
+
+@if (this.IsActivePage) {
+<h3 style="margin-bottom: 0;">Set Up Deployment</h3>
+<h4 style="margin-top: 0;">Select Your Equipment</h4>
+<hr />
+<div class="w3-container">
+<p>
+    Select which equipment from you wish to deploy to the killzone. This is normally 4 but some rules may allow for more or less equipment to be selected. Please consult your KT's rules for any conditions or restrictions for your equipment selection.
+</p>
+@if (team is null || team.Units is null) {
+    <p>Something has gone wrong, please select a team first</p>
+} else {
+    <div class="w3-row-padding">
+        <div class="w3-col s6 w3-bar-block">
+            <h3 class="w3-center">Available to Deploy:</h3>
+            @foreach (var unit in teamEquipment) {
+            var myUnit = unit;
+            <div class="w3-row w3-border-right">
+                <button class="w3-col w3-button w3-center app-primary" style="width: 3em;" @onclick=@(() => selected.Add(myUnit))>+</button>
+                <div class="w3-rest" style="padding: 8px;">@myUnit.Name <small>(@(myUnit.SourcePackage?.Name ?? "unknown source"))</small></div>
+            </div>
+            }
+            @foreach (var unit in universalEquipment) {
+            var myUnit = unit;
+            <div class="w3-row w3-border-right">
+                <button class="w3-col w3-button w3-center app-primary" style="width: 3em;" @onclick=@(() => selected.Add(myUnit))>+</button>
+                <div class="w3-rest" style="padding: 8px;">@myUnit.Name <small>(@(myUnit.SourcePackage?.Name ?? "unknown source"))</small></div>
+            </div>
+            }
+        </div>
+        <div class="w3-col s6">
+            <h3 class="w3-center">Deployed (@selected.Count/4):</h3>
+            @for (var index = 0; index < selected.Count; index++) {
+            var myIndex = index;
+            var myUnit = selected[index];
+            <div class="w3-row w3-border-right">
+                <button class="w3-col w3-right w3-button w3-center app-error" style="width: 3em;" @onclick=@(() => selected.RemoveAt(myIndex))>x</button>
+                <div class="w3-rest" style="padding: 8px;">@myUnit.Name</div>
+            </div>
+            }
+        </div>
+    </div>
+}
+</div>
+}
+
+@code {
+    private Team? team;
+
+    private List<Equipment> teamEquipment = new List<Equipment>();
+    private List<Equipment> universalEquipment = new List<Equipment>();
+    private List<Equipment> selected = new ();
+
+
+    public override bool Provides(string field)
+    {
+        return field switch {
+            "equipment" => true,
+            _ => false
+        };
+    }
+
+    public override object? GetValue(string field)
+    {
+        return field switch {
+            "equipment" => selected,
+            _ => false
+        };
+    }
+
+    public override void Reset()
+    {
+
+    }
+
+    public override void OnShow()
+    {
+        if (Wizard is null)
+            return;
+
+        team = Wizard.GetProviderValue<Team>("team", null);
+        selected.Clear();
+
+        teamEquipment.Clear();
+        teamEquipment.AddRange(team.Equipment ?? Enumerable.Empty<Equipment>());
+        
+        universalEquipment.Clear();
+        if (ruledb is not null)
+            universalEquipment.AddRange(ruledb.AllEquipment.Where((eq => "Universal Equipment" == eq.SourcePackage?.Name)));
+    }
+
+    public override bool CanAdvance()
+    {
+        return selected.Count > 0;
+    }
+}

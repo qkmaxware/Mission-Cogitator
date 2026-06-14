@@ -6,6 +6,10 @@ namespace Kt.Data;
 public class Deployment
 {
     /// <summary>
+    /// Deployed Equipment
+    /// </summary>
+    public List<Equipment> Equipment {get; set;} = new ();
+    /// <summary>
     /// Deployed units
     /// </summary>
     public List<DeployedUnit> Units {get; set;} = new();
@@ -13,6 +17,8 @@ public class Deployment
 
 public class SerializedDeployment
 {
+    // Equipment Ids
+    public List<string> Equipment {get; set;} = new ();
     // Faction -> List of Units from Faction
     public Dictionary<string, string[]>? Units {get; set;}
 }
