@@ -174,7 +174,7 @@
         <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">Load Custom Team Rules</button>
     </Accordion>
     <Accordion Title="Rules">
-        <button class="w3-button w3-bar-item" @onclick=@(() => currentTab = Tab.QuickReference)>Quick Reference</button>
+        <button class="w3-button w3-bar-item" @onclick=@(async () => { currentTab = Tab.QuickReference; navigator?.CloseNavMenu(); })>Quick Reference</button>
 
         <span class="w3-bar-item">Orders</span>
         <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">

@@ -94,7 +94,7 @@
                 <div class="w3-third">
                     <div  class="article">
                         <header>
-                            <span class="link" @onclick=@(async () => await LookupRule("initiative-phase"))>Initiative Phase</span>
+                            <span class="link" @onclick=@(async () => await LookupRule("initiative-phase"))>1. Initiative Phase</span>
                         </header>
                         <div>
                             <ul>
@@ -111,7 +111,7 @@
                 <div class="w3-third">
                     <div class="article">
                         <header>
-                            <span class="link" @onclick=@(async () => await LookupRule("strategy-phase"))>Strategy Phase</span>
+                            <span class="link" @onclick=@(async () => await LookupRule("strategy-phase"))>2. Strategy Phase</span>
                         </header>
                         <div>
                             <ul>
@@ -125,7 +125,7 @@
                 <div class="w3-third">
                     <div class="article">
                         <header>
-                            <span class="link" @onclick=@(async () => await LookupRule("firefight-phase"))>Firefight Phase</span>
+                            <span class="link" @onclick=@(async () => await LookupRule("firefight-phase"))>3. Firefight Phase</span>
                         </header>
                         <div>
                             <ul>
@@ -207,7 +207,7 @@
                             <header class="w3-display-container">
                                 @rule.Name
                                 @if (rule is Kt.Data.Action act) {
-                                    <span class="w3-display-right">@(act.Ap)AP</span>
+                                    <span class="w3-display-right w3-margin-right">@(act.Ap)AP</span>
                                 }
                             </header>
                             <p class="w3-container">
@@ -221,8 +221,8 @@
     </div>
 </div>
 
-<div class="w3-row">
-    <div class="w3-half">
+<div class="w3-row-padding">
+    <div class="w3-half w3-margin-bottom">
         <header>
             <span>Weapon Rules</span>
         </header>
@@ -239,7 +239,7 @@
             </tbody>
         </table>
     </div>
-    <div class="article w3-half">
+    <div class="article w3-half w3-margin-bottom">
         <header>
             <span>Terrain</span>
         </header>
