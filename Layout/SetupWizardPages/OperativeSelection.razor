@@ -13,7 +13,7 @@
     <p>Something has gone wrong, please select a team first</p>
 } else {
     <div class="w3-row-padding">
-        <div class="w3-col s6 w3-bar-block">
+        <div class="w3-half">
             <h3 class="w3-center">Available to Deploy:</h3>
             @foreach (var unit in team.Units) {
             var myUnit = unit;
@@ -23,7 +23,7 @@
             </div>
             }
         </div>
-        <div class="w3-col s6">
+        <div class="w3-half">
             <h3 class="w3-center">Deployed (@selected.Count):</h3>
             @for (var index = 0; index < selected.Count; index++) {
             var myIndex = index;
