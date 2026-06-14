@@ -1,0 +1,380 @@
+@using Kt.Data
+
+@inject RuleDatabase db
+
+<div class="article w3-margin-top">
+    <header>
+        <span>Matched Play Sequence</span>
+    </header>
+    <div class="w3-row">
+        <div class="w3-third">
+            <ol start="1">
+                <li>
+                    <b>Set Up the Battle</b>
+                    <ul>
+                        <li>Select kill teams for the battle</li>
+                        <li>Determine the killzone, set terrain</li>
+                        <li>Determine critical op, set objective markers</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Roll-off</b>
+                    <ul>
+                        <li>Winner decides who has initiative</li>
+                        <li>Player <b>with</b> initiative selects drop zone</li>
+                        <li>Player <b>without</b> initiative gains re-roll card</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        <div class="w3-third">
+            <ol start="3">
+                <li>
+                    <b>Select operatives</b>
+                    <ul>
+                        <li>Secretly select operatives and reveal simultaneously</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Select Equipment</b>
+                    <ul>
+                        <li>Select up to 4 equipment, each type only once</li>
+                        <li>Reveal equipment simultaneously</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Get 2 Command Points</b>
+                </li>
+                <li>
+                    <b>Select Tacical Operation</b>
+                    <ul>
+                        <li>Secretly select Tac Op from KT archetype</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        <div class="w3-third">
+            <ol start="7">
+                <li>
+                    <b>Set up operatives</b>
+                    <ul>
+                        <li>Item by item set equipment</li>
+                        <li>Divide operatives into 3 groups and deploy in turns (player with initiative starts)</li>
+                        <li>All operatives beigin in Conceal Order</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Begin Turning Point 1</b>
+                    <ul>
+                        <li>Secretly select Primary Operation as Strategic Gambit</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>End battle and determine victor</b>
+                    <ul>
+                        <li>Player with the most victory points wins</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>  
+</div>
+
+<div>
+
+</div>
+
+<div class="w3-margin-bottom">
+    <div class="w3-row">
+        <div class="w3-half">
+            <header>
+                <span>Each Turning Point</span>
+            </header>
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div  class="article">
+                        <header>
+                            <span class="link" @onclick=@(async () => await LookupRule("initiative-phase"))>Initiative Phase</span>
+                        </header>
+                        <div>
+                            <ul>
+                                <li>Roll for initiative</li>
+                                <li>Use team mods for roll</li>
+                                <li>Use cards</li>
+                                <li>Initiative player wins on tie</li>
+                                <li>Winner decides who gets initative</li>
+                                <li>Loser gets +/- turn card</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="article">
+                        <header>
+                            <span class="link" @onclick=@(async () => await LookupRule("strategy-phase"))>Strategy Phase</span>
+                        </header>
+                        <div>
+                            <ul>
+                                <li>Gain 1 CP (2 if not initiative player)</li>
+                                <li>Ready operatives</li>
+                                <li>Play strategic gambits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="article">
+                        <header>
+                            <span class="link" @onclick=@(async () => await LookupRule("firefight-phase"))>Firefight Phase</span>
+                        </header>
+                        <div>
+                            <ul>
+                                <li>Select ready operative</li>
+                                <li>Chose order</li>
+                                <li>Perform actions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Next part -->
+            <div class="w3-row-padding w3-margin-top">
+                <div class="w3-half w3-center">
+                    <header>
+                        <span  class="link" @onclick=@(async () => await LookupRule("engage"))>Engage Order</span>
+                    </header>
+                    <img src="assets/packages/lite-rules/orders/engage.png"/>
+                    <ul>
+                        <li>Do any actions</li>
+                        <li>Valid target in cover</li>
+                    </ul>
+                </div>
+                <div class="w3-half w3-center">
+                    <header>
+                        <span  class="link" @onclick=@(async () => await LookupRule("conceal"))>Conceal Order</span>
+                    </header>
+                    <img src="assets/packages/lite-rules/orders/conceal.png"/>
+                    <ul>
+                        <li>Can't shoot or charge</li>
+                        <li>Can't be shot in cover</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Next part -->
+            <div class="w3-row-padding w3-margin-top">
+                <div class="article w3-half">
+                    <header>
+                        <span>Valid Target (LoS)</span>
+                    </header>
+                    <div class="w3-container">
+                        <b>Enemy on <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engage Order</span></b>
+                        <ul>
+                            <li>Can be shot if <span class="link" @onclick=@(async () => await LookupRule("visible"))>visible</span></li>
+                        </ul>
+                        <b>Enemy on <span class="link" @onclick=@(async () => await LookupRule("conceal"))>Conceal Order</span></b>
+                        <ul>
+                            <li>Can be shot if <span class="link" @onclick=@(async () => await LookupRule("visible"))>visible</span> and not in cover</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="article w3-half">
+                    <header>
+                        <span>Cover / Obscured</span>
+                    </header>
+                    <div class="w3-container">
+                        <b>In cover</b>
+                        <ul>
+                            <li>Operative within 1" of cover terrain that target line crosses > 2" from shooter</li>
+                            <li>Retain 1 normal Save against Shoot</li>
+                        </ul>
+                        <b>Obscured</b>
+                        <ul>
+                            <li>Greater than 1" from target line point and enemy is further than 1" from it</li>
+                            <li>Discard 1 hit to obscured operative and can't use critial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w3-half">
+            <header>
+                <span>Actions</span>
+            </header>
+            <div>
+                @if (action_rules is not null) {
+                    foreach (var rule in action_rules) {
+                        <section>
+                            <header class="w3-display-container">
+                                @rule.Name
+                                @if (rule is Kt.Data.Action act) {
+                                    <span class="w3-display-right">@(act.Ap)AP</span>
+                                }
+                            </header>
+                            <p class="w3-container">
+                                @RenderDescription(rule.Description)
+                            </p>
+                        </section>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w3-row">
+    <div class="w3-half">
+        <header>
+            <span>Weapon Rules</span>
+        </header>
+        <table class="w3-striped">
+            <tbody>
+            @if (this.weapon_rules is not null) {
+                foreach (var wr in this.weapon_rules) {
+                    <tr>
+                        <td><b>@wr.Name</b></td>
+                        <td>@RenderDescription(wr.Description)</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="article w3-half">
+        <header>
+            <span>Terrain</span>
+        </header>
+        <div class="w3-container">
+            <table class="">
+                <tbody>
+                    <tr>
+                        <td><b>Heavy</b></td>
+                        <td>
+                            <ul>
+                                <li>Cover and obscuring</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Light</b></td>
+                        <td>
+                            <ul>
+                                <li>Cover only</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Accessible</b></td>
+                        <td>
+                            <ul>
+                                <li>1" for moving through</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Vantage</b></td>
+                        <td>
+                            <ul>
+                                <li>1" for moving through</li>
+                                <li>2" lower <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engaged</span>: <span class="link" @onclick=@(async () => await LookupRule("accurate"))>Accurate 1</span></li>
+                                <li>4" lower <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engaged</span>: <span class="link" @onclick=@(async () => await LookupRule("accurate"))>Accurate 2</span></li>
+                                <li>2" lower <span class="link" @onclick=@(async () => await LookupRule("conceal"))>Concealed</span> and in light cover: ignore cover but retail 1 crit save or 2 save</li>
+                                <li>vantage floor is light cover</li>
+                                <li>ignore heavy parts for obscuring operative on vantage</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Climb</b></td>
+                        <td>
+                            <ul>
+                                <li>Within 1" of climable terrain. Vertical distance min 2", can't stop midway or dash</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Drop</b></td>
+                        <td>
+                            <ul>
+                                <li>Move complete from terrain, move vertical distance down, first 2" free</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Jump</b></td>
+                        <td>
+                            <ul>
+                                <li>Move up to 4" horizontally and straight, can jump on terrain 1" higher</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    Rule[]? action_rules;
+    Rule[]?  weapon_rules;
+
+    [Parameter]
+    public EventCallback<string> OnRuleLookup { get; set; } 
+
+    private RenderFragment RenderDescription(string? text) => builder =>
+    {
+        DescriptionRenderer.RenderDescription(text, this, async (id) => {
+            await OnRuleLookup.InvokeAsync(id);
+        })(builder);
+    };
+
+    private async Task LookupRule(string? text) {
+        if (string.IsNullOrEmpty(text))
+            return;
+        await OnRuleLookup.InvokeAsync(text);
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        this.action_rules = new Rule[]{
+            db.GetValue(id: "reposition")!,
+            db.GetValue(id: "charge")!,
+            db.GetValue(id: "fall-back")!,
+            db.GetValue(id: "dash")!,
+            db.GetValue(id: "shoot")!,
+            db.GetValue(id: "fight")!,
+            //db.GetValue(id: "pick-up-marker")!,
+            //db.GetValue(id: "place-marker")!,
+            db.GetValue(id: "counteract")!
+        };
+
+        this.weapon_rules = new Rule[]{
+            db.GetValue(id: "accurate")!,
+            db.GetValue(id: "balanced")!,
+            db.GetValue(id: "blast")!,
+            db.GetValue(id: "brutal")!,
+            db.GetValue(id: "ceaseless")!,
+            db.GetValue(id: "devastating")!,
+            db.GetValue(id: "heavy")!,
+            db.GetValue(id: "hot")!,
+            db.GetValue(id: "lethal")!,
+            db.GetValue(id: "limited")!,
+            db.GetValue(id: "piercing")!,
+            db.GetValue(id: "punishing")!,
+            db.GetValue(id: "range")!,
+            db.GetValue(id: "relentless")!,
+            db.GetValue(id: "rending")!,
+            db.GetValue(id: "saturate")!,
+            db.GetValue(id: "seek")!,
+            db.GetValue(id: "severe")!,
+            db.GetValue(id: "shock")!,
+            db.GetValue(id: "silent")!,
+            db.GetValue(id: "stun")!,
+            db.GetValue(id: "torrent")!,
+        };
+    }
+
+
+}

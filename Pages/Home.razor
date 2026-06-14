@@ -174,7 +174,7 @@
         <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">Load Custom Team Rules</button>
     </Accordion>
     <Accordion Title="Rules">
-        <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("set-up"))>Set Up</button>
+        <button class="w3-button w3-bar-item" @onclick=@(() => currentTab = Tab.QuickReference)>Quick Reference</button>
 
         <span class="w3-bar-item">Orders</span>
         <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
@@ -184,6 +184,8 @@
 
         <span class="w3-bar-item">Phases</span>
         <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("set-up"))>Set Up</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("initiative-phase"))>Initiative Phase</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("strategy-phase"))>Strategy Phase</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("firefight-phase"))>Firefight Phase</button>
             <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
@@ -240,11 +242,19 @@
 }
 <Header>
     <button class="w3-button app-primary w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> <h2 class="w3-xlarge" style="display: inline-block; margin: 0;">Mission Cogitator</h2>
+    <button class="w3-display-right w3-button app-primary w3-xlarge" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/help.svg" style="height: 1em;"/></button>
 </Header>
 <Counters></Counters>
 
 <article>
-    <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
+    @switch (currentTab) {
+        case Tab.QuickReference:
+        <QuickReference OnRuleLookup="alertRule"></QuickReference>
+        break;
+        case Tab.UnitTab:
+        <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
+        break;
+    }
     @code {
         private Team? selectedTeam;
         private DeployedUnit? selectedDeployment;
@@ -255,6 +265,11 @@
 @code {
     private Deployment deployment = new ();
 
+    private enum Tab {
+        QuickReference,
+        UnitTab
+    }
+    private Tab currentTab;
 
     private void select(DeployedUnit deployment) {
         this.selectedTeam = deployment.Team;
@@ -262,6 +277,7 @@
         if (deployment.Unit is null)
             return;
         this.navigator?.CloseNavMenu();
+        this.currentTab = Tab.UnitTab;
     }
     private void select(Team? team, Unit? unit) {
         if (unit is null)
@@ -270,6 +286,7 @@
         this.selectedTeam = team;
         this.selectedDeployment = new DeployedUnit(team, unit);
         this.navigator?.CloseNavMenu();
+        this.currentTab = Tab.UnitTab;
     }
 
     private void LoadCustomTeam() {
