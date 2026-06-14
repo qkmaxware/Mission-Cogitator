@@ -105,9 +105,38 @@ table[b-380v0wsf12] {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.w3-sidebar-background.hide[b-j9zpof6xy1] {
+    display: none !important;
+}
+
 .w3-sidebar[b-j9zpof6xy1] {
     z-index: 2;
     width: min(100%, 320px);
+    display: flex;
+    height: 100dvh;
+    flex-direction: column;
+}
+
+.w3-sidebar.hide[b-j9zpof6xy1] {
+    display: none !important;
+}
+
+.w3-sidebar>header[b-j9zpof6xy1] {
+    flex-shrink: 0;     /* fixed height */
+    border-bottom: 1px solid #ccc;
+}
+
+.w3-sidebar>nav[b-j9zpof6xy1] {
+    display: block;
+    flex: 1;            /* take remaining space */
+    flex-shrink: 1;
+    flex-grow: 1;
+    overflow-y: auto;   /* scroll when needed */
+}
+
+.w3-sidebar>footer[b-j9zpof6xy1] {
+    flex-shrink: 0;     /* never shrink */
+    border-top: 1px solid #ccc;
 }
 /* /Layout/QuickReference.razor.rz.scp.css */
 .article[b-a74zqimslp] {
@@ -160,6 +189,7 @@ table[b-380v0wsf12] {
 .results[b-l7hwozzl11] {
     list-style-type: upper-roman;
 }
+/* /Layout/SetupWizard.razor.rz.scp.css */
 /* /Layout/UnitRenderer.razor.rz.scp.css */
 header[b-tyfdc6oqe8] {
     border-top-left-radius: 16px;
