@@ -145,7 +145,20 @@
             @foreach (var team in deployment.Units.Select(u => u.Team).Distinct()) {
                 foreach (var ploy in (team?.Ploys ?? Enumerable.Empty<Ploy>())) {
                     var myPloy = ploy;
-                    <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(myPloy.Id))>@myPloy.Name</button>
+                    <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(myPloy.Id))>
+                        @switch (myPloy.Kind) {
+                            case PloyKind.strategy:
+                                <img src="art/strategy.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                break;
+                            case PloyKind.firefight:
+                                <img src="art/ranged.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                break;
+                            default:
+                                <img src="art/unknown.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                break;
+                        }
+                        @myPloy.Name <small>(@ploy.Kind ploy)</small>
+                    </button>
                 }
             }
         </div>
