@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    table-layout: fixed
+}
+
+table th {
+    font-weight: bold;
+}
+
+table td:nth-child(1),
+table th:nth-child(1)
+{
+    width: auto;
+    white-space: wrap;
+}
+
+table tbody tr:nth-child(even) td:nth-child(1) {
+    color:rgb(255, 123, 0);
+}
+
+table td:nth-child(2), 
+table th:nth-child(2) {
+    width: 8em;
+    white-space: nowrap;
+}

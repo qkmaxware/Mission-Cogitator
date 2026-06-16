@@ -1,0 +1,66 @@
+---
+{
+    "name": "Deathwatch Marksman Veteran",
+    "tags": ["Imperium", "Adeptus Astartes", "Marksman"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 15
+    },
+    "weapons": [
+        {
+            "name": "Stalker bolt rifle (mobile)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        },
+        {
+            "name": "Stalker bolt rifle (heavy)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [ 
+                {"id": "heavy-dash"},
+                {"id": "lethal", "x": 5},
+                {"id": "piercing-crits", "x": 1}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [ ]
+}
+---
+<p>
+    <b>Vigilant Marksman:</b> This operative can perform the <see cref="guard">Guard</see> 
+action during its activation regardless of the killzone (see close 
+quarters rules, Kill Team: Tomb World).
+</p>
+
+<p>
+    When using the close quarters rules, once per turning point, after 
+this operative performs a free <see cref="shoot">Shoot</see> action on <see cref="guard">guard</see>, it can 
+immediately perform a free <see cref="guard">Guard</see> action. However, if it does, it 
+cannot <see cref="counteract">counteract</see> during that turning point (nor <see cref="guard">Guard</see> twice if 
+it's <see cref="counteract">counteracted</see>).
+</p>

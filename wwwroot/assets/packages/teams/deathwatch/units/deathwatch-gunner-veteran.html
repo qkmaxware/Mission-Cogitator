@@ -1,0 +1,68 @@
+---
+{
+    "name": "Deathwatch Gunner Veteran",
+    "tags": ["Imperium", "Adeptus Astartes", "Gunner"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 15
+    },
+    "weapons": [
+        {
+            "name": "Bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8}
+            ]
+        },
+        {
+            "name": "Heavy plasma incinerator (standard)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Heavy plasma incinerator (supercharge)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 5,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "hot"},
+                {"id": "lethal", "x": 5},
+                {"id": "piercing", "x": 1}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [ ]
+}
+---

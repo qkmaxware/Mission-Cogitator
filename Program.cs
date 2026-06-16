@@ -10,7 +10,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<JsConsole>(); // For logging to the browser console
-builder.Services.AddScoped(sp => new RuleDatabase(sp.GetService<HttpClient>()!));
+builder.Services.AddScoped(sp => new RuleDatabase());
 builder.Services.AddScoped(sp => new TeamsDatabase());
 builder.Services.AddScoped(sp => new PackageManager(sp.GetService<JsConsole>()!, sp.GetService<HttpClient>()!, sp.GetService<RuleDatabase>()!, sp.GetService<TeamsDatabase>()!));
 
@@ -20,5 +20,7 @@ var packages = app.Services.GetService<PackageManager>()!;
 await packages.AddFromUrl("assets/packages/lite-rules");
 await packages.AddFromUrl("assets/packages/universal-equipment");
 await packages.AddFromUrl("assets/packages/teams/pathfinders");
+await packages.AddFromUrl("assets/packages/teams/angels-of-death");
+await packages.AddFromUrl("assets/packages/teams/deathwatch");
 
 await app.RunAsync();

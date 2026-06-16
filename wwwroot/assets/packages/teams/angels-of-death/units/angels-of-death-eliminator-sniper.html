@@ -1,0 +1,94 @@
+---
+{
+    "name": "Eliminator Sniper",
+    "tags": ["Imperium", "Adeptus Astartes", "Space Marine", "Sniper"],
+    "attributes": {
+        "apl": 3,
+        "move": 7,
+        "save": 3, 
+        "wounds": 12
+    },
+    "weapons": [
+        {
+            "name": "Bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8}
+            ]
+        },
+        {
+            "name": "Bolt sniper rifle (executioner)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "heavy-dash"},
+                {"id": "saturate"},
+                {"id": "seek-light"},
+                {"id": "silent"}
+            ]
+        },
+        {
+            "name": "Bolt sniper rifle (hyperfrag)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 2,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "heavy-dash"},
+                {"id": "blast", "x": 1},
+                {"id": "silent"}
+            ]
+        },
+        {
+            "name": "Bolt sniper rifle (mortis)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "devastating", "x": 3},
+                {"id": "heavy-dash"},
+                {"id": "piercing", "x": 1},
+                {"id": "silent"}
+            ]
+        },
+        
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "angels-of-death-optics"
+    ]
+}
+---
+<b>Camo Cloak:</b> Whenever an operative is shooting this operative, 
+ignore the <see cref="saturate">Saturate</see> weapon rule. This operative has the Stealthy 
+CHAPTER TACTIC. If you selected that CHAPTER TACTIC, 
+you can do both of its options (i.e. retain two cover saves - one 
+normal and one critical success).

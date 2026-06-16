@@ -5,36 +5,34 @@
 <h3 style="margin-bottom: 0;">Set Up Deployment</h3>
 <h4 style="margin-top: 0;">Select Your Operatives</h4>
 <hr />
-<div class="w3-container">
+<div class="w3-margin-bottom">
 <p>
     Select which operatives from your KT that you wish to deploy to the killzone. Please consult your KT's rules for any conditions or restrictions for your operative selection.
 </p>
 @if (team is null || team.Units is null) {
     <p>Something has gone wrong, please select a team first</p>
 } else {
-    <div class="w3-row-padding">
-        <div class="w3-half">
-            <h3 class="w3-center">Available to Deploy:</h3>
+    <table class="w3-striped">
+        <thead>
+            <th>Available to Deploy</th>
+            <th style="text-align: center;">Deployed (@selected.Count)</th>
+        </thead>
+        <tbody>
             @foreach (var unit in team.Units) {
-            var myUnit = unit;
-            <div class="w3-row w3-border-right">
-                <button class="w3-col w3-button w3-center app-primary" style="width: 3em;" @onclick=@(() => selected.Add(myUnit))>+</button>
-                <div class="w3-rest" style="padding: 8px;">@myUnit.Name</div>
-            </div>
+                var myUnit = unit;
+                <tr>
+                    <td>
+                        @myUnit.Name
+                    </td>
+                    <td style="text-align: center; width: 4em;">
+                        <button class="w3-button app-error" @onclick=@(() => selected.Remove(myUnit))>-</button>
+                        <span style="display: inline-block; padding: 8px 16px; width: 2em; text-align: center">@selected.Count(u => ReferenceEquals(u, myUnit))</span>
+                        <button class="w3-button app-primary" @onclick=@(() => selected.Add(myUnit))>+</button>
+                    </td>
+                </tr>
             }
-        </div>
-        <div class="w3-half">
-            <h3 class="w3-center">Deployed (@selected.Count):</h3>
-            @for (var index = 0; index < selected.Count; index++) {
-            var myIndex = index;
-            var myUnit = selected[index];
-            <div class="w3-row w3-border-right">
-                <button class="w3-col w3-right w3-button w3-center app-error" style="width: 3em;" @onclick=@(() => selected.RemoveAt(myIndex))>x</button>
-                <div class="w3-rest" style="padding: 8px;">@myUnit.Name</div>
-            </div>
-            }
-        </div>
-    </div>
+        </tbody>
+    </table>
 }
 </div>
 }

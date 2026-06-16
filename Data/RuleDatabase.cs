@@ -5,11 +5,6 @@ namespace Kt.Data;
 
 public class RuleDatabase
 {
-
-    private JsonSerializerOptions json = IO.Pkg.SerializationOptions;
-
-    private HttpClient client;
-
     private Dictionary<string, Rule> rules;
     private Dictionary<string, Effect> effects;
     private Dictionary<string, Equipment> equipment;
@@ -18,9 +13,8 @@ public class RuleDatabase
     public IEnumerable<Rule> AllRules => rules.Values;
     public IEnumerable<Equipment> AllEquipment => equipment.Values;
 
-    public RuleDatabase(HttpClient client)
+    public RuleDatabase()
     {
-        this.client = client;
         this.rules = new();
         this.effects = new();
         this.equipment = new();

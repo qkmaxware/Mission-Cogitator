@@ -67,13 +67,20 @@ The cref attribute contains the unique ID of the other item to link to, and the 
 #### Example: Creating a Package / Adding a KT
 See `wwwroot/assets/packages/teams/pathfinders` for an example of how to begin to setup a team definition package.
 
-Start your package by making a new folder with the name of your package; for instance, `my-kt`. In this folder create your `index.json` file. For now this file will be basically blank with the exception of a package name and some text indicating when it was updated. We will add capabilities to the file as we add resources to the package.
+Start your package by making a new folder with the name of your package; for instance, `my-kt`. In this folder create your `index.json` file. For now this file will be basically blank with the exception of a package name and some text indicating when it was updated. We will add capabilities to the file as we add resources to the package. If you want, you can stub out all capability fields with [] for now as demonstrated below, or you can just not include them. Either works.
 
 > **FILE**: index.json
 ```json
 {
-  "name": "My Custom Package",
-  "updated": "01/02/2026"
+    "name": "My Custom Package",
+    "updated": "01/02/2023",
+    "definitions": [],
+    "actions": [],
+    "effects": [],
+    "equipment": [],
+    "ploys": [],
+    "units": [],
+    "teams": []
 }
 ```
 

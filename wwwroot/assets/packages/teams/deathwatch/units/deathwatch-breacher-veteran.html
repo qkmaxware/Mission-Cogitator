@@ -1,0 +1,83 @@
+---
+{
+    "name": "Deathwatch Breacher Veteran",
+    "tags": ["Imperium", "Adeptus Astartes", "Gravis", "Breacher"],
+    "attributes": {
+        "apl": 3,
+        "move": 5,
+        "save": 3, 
+        "wounds": 18
+    },
+    "weapons": [
+        {
+            "name": "Auxiliary grenade launcher (frag)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 2,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "blast", "x": 2}
+            ]
+        },
+        {
+            "name": "Auxiliary grenade launcher (krak)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Hellstorm bolt rifle",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "torrent", "x": 1}
+            ]
+        },
+        {
+            "name": "Melta bomb",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 5,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 3},
+                {"id": "devastating", "x": 3},
+                {"id": "heavy-reposition"},
+                {"id": "limited", "x": 1},
+                {"id": "piercing", "x": 2}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [ ]
+}
+---

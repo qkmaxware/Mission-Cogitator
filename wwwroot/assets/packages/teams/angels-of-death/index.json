@@ -1,0 +1,42 @@
+{
+    "name": "Angels of Death",
+    "updated": "28/01/2026",
+    "definitions": [
+        "/definitions/angles-of-death-chapter-tactics.html",
+        "/definitions/angles-of-death-astartes.html"
+    ],
+    "actions": [
+        "/actions/angels-of-death-optics.html"
+    ],
+    "effects": [],
+    "equipment": [
+        "/equipment/angels-of-death-purity-seals.html",
+        "/equipment/angels-of-death-chapter-reliquaries.html",
+        "/equipment/angels-of-death-tilting-shields.html",
+        "/equipment/angels-of-death-auspex.html"
+    ],
+    "ploys": [
+        "/ploys/angles-of-death-combat-doctrine.html",
+        "/ploys/angles-of-death-and-they-shall-know-no-fear.html",
+        "/ploys/angles-of-death-adaptive-tactics.html",
+        "/ploys/angles-of-death-indomitus.html",
+        "/ploys/angles-of-death-adjust-doctrine.html",
+        "/ploys/angles-of-death-transhuman-physiology.html",
+        "/ploys/angels-of-death-shock-assault.html",
+        "/ploys/angels-of-death-wrath-of-vengeance.html"
+    ],
+    "units": [
+        "/units/angels-of-death-space-marine-captain.html",
+        "/units/angels-of-death-assault-intercessor-sergeant.html",
+        "/units/angels-of-death-intercessor-sergeant.html",
+        "/units/angels-of-death-assault-intercessor-grenadier.html",
+        "/units/angels-of-death-assault-intercessor-warrior.html",
+        "/units/angels-of-death-heavy-intercessor-gunner.html",
+        "/units/angels-of-death-intercessor-gunner.html",
+        "/units/angels-of-death-intercessor-warrior.html",
+        "/units/angels-of-death-eliminator-sniper.html"
+    ],
+    "teams": [
+        "/teams/angels-of-death.html"
+    ]
+}
