@@ -195,6 +195,79 @@
                     </div>
                 </div>
             </div>
+            <!-- Next part -->
+            <div class="article w3-margin">
+                <header>
+                    <span>Terrain</span>
+                </header>
+                <div class="w3-container">
+                    <table class="">
+                        <tbody>
+                            <tr>
+                                <td><b>Heavy</b></td>
+                                <td>
+                                    <ul>
+                                        <li>Cover and obscuring</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Light</b></td>
+                                <td>
+                                    <ul>
+                                        <li>Cover only</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Accessible</b></td>
+                                <td>
+                                    <ul>
+                                        <li>1" for moving through</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Vantage</b></td>
+                                <td>
+                                    <ul>
+                                        <li>1" for moving through</li>
+                                        <li>2" lower <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engaged</span>: <span class="link" @onclick=@(async () => await LookupRule("accurate"))>Accurate 1</span></li>
+                                        <li>4" lower <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engaged</span>: <span class="link" @onclick=@(async () => await LookupRule("accurate"))>Accurate 2</span></li>
+                                        <li>2" lower <span class="link" @onclick=@(async () => await LookupRule("conceal"))>Concealed</span> and in light cover: ignore cover but retail 1 crit save or 2 save</li>
+                                        <li>vantage floor is light cover</li>
+                                        <li>ignore heavy parts for obscuring operative on vantage</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Climb</b></td>
+                                <td>
+                                    <ul>
+                                        <li>Within 1" of climable terrain. Vertical distance min 2", can't stop midway or dash</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Drop</b></td>
+                                <td>
+                                    <ul>
+                                        <li>Move complete from terrain, move vertical distance down, first 2" free</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Jump</b></td>
+                                <td>
+                                    <ul>
+                                        <li>Move up to 4" horizontally and straight, can jump on terrain 1" higher</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="w3-half">
             <header>
@@ -222,7 +295,7 @@
 </div>
 
 <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
+    <div class="w3-rest w3-margin-bottom">
         <header>
             <span>Weapon Rules</span>
         </header>
@@ -238,78 +311,6 @@
             }
             </tbody>
         </table>
-    </div>
-    <div class="article w3-half w3-margin-bottom">
-        <header>
-            <span>Terrain</span>
-        </header>
-        <div class="w3-container">
-            <table class="">
-                <tbody>
-                    <tr>
-                        <td><b>Heavy</b></td>
-                        <td>
-                            <ul>
-                                <li>Cover and obscuring</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Light</b></td>
-                        <td>
-                            <ul>
-                                <li>Cover only</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Accessible</b></td>
-                        <td>
-                            <ul>
-                                <li>1" for moving through</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Vantage</b></td>
-                        <td>
-                            <ul>
-                                <li>1" for moving through</li>
-                                <li>2" lower <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engaged</span>: <span class="link" @onclick=@(async () => await LookupRule("accurate"))>Accurate 1</span></li>
-                                <li>4" lower <span class="link" @onclick=@(async () => await LookupRule("engage"))>Engaged</span>: <span class="link" @onclick=@(async () => await LookupRule("accurate"))>Accurate 2</span></li>
-                                <li>2" lower <span class="link" @onclick=@(async () => await LookupRule("conceal"))>Concealed</span> and in light cover: ignore cover but retail 1 crit save or 2 save</li>
-                                <li>vantage floor is light cover</li>
-                                <li>ignore heavy parts for obscuring operative on vantage</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Climb</b></td>
-                        <td>
-                            <ul>
-                                <li>Within 1" of climable terrain. Vertical distance min 2", can't stop midway or dash</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Drop</b></td>
-                        <td>
-                            <ul>
-                                <li>Move complete from terrain, move vertical distance down, first 2" free</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Jump</b></td>
-                        <td>
-                            <ul>
-                                <li>Move up to 4" horizontally and straight, can jump on terrain 1" higher</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 
