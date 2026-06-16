@@ -1,0 +1,69 @@
+---
+{
+    "name": "Deathwatch Disruptor Veteran",
+    "tags": ["Imperium", "Adeptus Astartes", "Disruptor"],
+    "attributes": {
+        "apl": 3,
+        "move": 7,
+        "save": 3, 
+        "wounds": 13
+    },
+    "weapons": [
+        {
+            "name": "Marksman bolt carbine",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "lethal", "x": 5}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [ ]
+}
+---
+<p>
+<b>Advanced Omni-Scrambler:</b> STRATEGIC GAMBIT. Select 
+one enemy operative <see cref="visible">visible</see> to or within 6" of this operative, 
+then roll one D6. In the <see cref="firefight-phase">Firefight phase</see> of this turning point, that 
+enemy operative cannot be activated or perform actions until one 
+of the following is true:
+</p>
+<ul>
+    <li>Your opponent has activated a number of enemy operatives equal to the result of the D6.</li>
+    <li>It's the last enemy operative to be activated.</li>
+</ul>
+
+<p>
+    <b>Auspex Triangulation:</b> The <see cref="deathwatch-advanced-auspex-scan">Advanced Auspex Scan</see> firefight ploy 
+costs you 0CP when both of the following are true:
+</p>
+<ul>
+    <li> This operative isn't within <see cref="control-range">control range</see> of enemy operatives.</li>
+    <li> The target of that <see cref="shoot">Shoot</see> action (primary target, if relevant) is 
+visible to this operative.</li>
+</ul>
+
+<p>
+    Note that it doesn't have to be this operative performing 
+the <see cref="shoot">Shoot</see> action, and that any subsequent <see cref="shoot">Shoot</see> actions 
+during that activation/<see cref="counteract">counteraction</see> must meet these same 
+requirements (or that ploy has no effect on those subsequent 
+<see cref="shoot">Shoot</see> actions).
+</p>

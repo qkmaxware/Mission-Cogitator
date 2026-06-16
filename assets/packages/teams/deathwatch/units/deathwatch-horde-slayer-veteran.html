@@ -1,0 +1,82 @@
+---
+{
+    "name": "Deathwatch Horde-Slayer Veteran",
+    "tags": ["Imperium", "Adeptus Astartes", "Gravis", "Bombard"],
+    "attributes": {
+        "apl": 3,
+        "move": 5,
+        "save": 3, 
+        "wounds": 18
+    },
+    "weapons": [
+        {
+            "name": "Bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8}
+            ]
+        },
+        {
+            "name": "Infernus heavy bolter (flame)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 2,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "saturate"},
+                {"id": "torrent", "x": 2}
+            ]
+        },
+        {
+            "name": "Infernus heavy bolter (focused bolt)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1}
+            ]
+        },
+        {
+            "name": "Infernus heavy bolter (sweeping bolt)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1},
+                {"id": "torrent", "x": 1}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [ ]
+}
+---

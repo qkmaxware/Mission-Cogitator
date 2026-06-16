@@ -1,0 +1,44 @@
+{
+    "name": "Deathwatch",
+    "updated": "28/01/2026",
+    "definitions": [
+        "/definitions/deathwatch-veteran-astartes.html",
+        "/definitions/deathwatch-special-issue-ammunition.html",
+        "/definitions/deathwatch-shield.html",
+        "/definitions/deathwatch-phase-sweep.html"
+    ],
+    "actions": [],
+    "effects": [],
+    "equipment": [
+        "/equipment/deathwatch-digital-weapons.html",
+        "/equipment/deathwatch-scrutavore-servo-thrall.html",
+        "/equipment/deathwatch-sanctus-v-bioscryer-cuffs.html",
+        "/equipment/deathwatch-ammunition-reserve.html"
+    ],
+    "ploys": [
+        "/ploys/deathwatch-mission-tactics.html",
+        "/ploys/deathwatch-the-long-vigil.html",
+        "/ploys/deathwatch-the-shield-that-slays.html",
+        "/ploys/deathwatch-and-they-shall-know-no-fear.html",
+        "/ploys/deathwatch-suffer-not-the-alien.html",
+        "/ploys/deathwatch-auspicator-tracking.html",
+        "/ploys/deathwatch-advanced-auspex-scan.html",
+        "/ploys/deathwatch-transhuman-physiology.html"
+    ],
+    "units": [
+        "/units/deathwatch-watch-sergeant.html",
+        "/units/deathwatch-aegis-veteran.html",
+        "/units/deathwatch-blademaster-veteran.html",
+        "/units/deathwatch-bombard-veteran.html",
+        "/units/deathwatch-breacher-veteran.html",
+        "/units/deathwatch-demolisher-veteran.html",
+        "/units/deathwatch-disruptor-veteran.html",
+        "/units/deathwatch-gunner-veteran.html",
+        "/units/deathwatch-headtaker-veteran.html",
+        "/units/deathwatch-horde-slayer-veteran.html",
+        "/units/deathwatch-marksman-veteran.html"
+    ],
+    "teams": [
+        "/teams/deathwatch.html"
+    ]
+}

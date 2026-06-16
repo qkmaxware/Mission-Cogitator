@@ -190,6 +190,58 @@ table[b-380v0wsf12] {
     list-style-type: upper-roman;
 }
 /* /Layout/SetupWizard.razor.rz.scp.css */
+/* /Layout/SetupWizardPages/EquipmentSelection.razor.rz.scp.css */
+table[b-7f61os6nnd] {
+    width: 100%;
+    table-layout: fixed
+}
+
+table th[b-7f61os6nnd] {
+    font-weight: bold;
+}
+
+table td:nth-child(1)[b-7f61os6nnd],
+table th:nth-child(1)[b-7f61os6nnd]
+{
+    width: auto;
+    white-space: wrap;
+}
+
+table tbody tr:nth-child(even) td:nth-child(1)[b-7f61os6nnd] {
+    color:rgb(255, 123, 0);
+}
+
+table td:nth-child(2)[b-7f61os6nnd], 
+table th:nth-child(2)[b-7f61os6nnd] {
+    width: 8em;
+    white-space: nowrap;
+}
+/* /Layout/SetupWizardPages/OperativeSelection.razor.rz.scp.css */
+table[b-32co24661i] {
+    width: 100%;
+    table-layout: fixed
+}
+
+table th[b-32co24661i] {
+    font-weight: bold;
+}
+
+table td:nth-child(1)[b-32co24661i],
+table th:nth-child(1)[b-32co24661i]
+{
+    width: auto;
+    white-space: wrap;
+}
+
+table tbody tr:nth-child(even) td:nth-child(1)[b-32co24661i] {
+    color:rgb(255, 123, 0);
+}
+
+table td:nth-child(2)[b-32co24661i], 
+table th:nth-child(2)[b-32co24661i] {
+    width: 8em;
+    white-space: nowrap;
+}
 /* /Layout/UnitRenderer.razor.rz.scp.css */
 header[b-tyfdc6oqe8] {
     border-top-left-radius: 16px;

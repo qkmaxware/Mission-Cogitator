@@ -1,0 +1,52 @@
+---
+{
+    "name": "Deathwatch Aegis Veteran",
+    "tags": ["Imperium", "Adeptus Astartes", "Aegis"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 2, 
+        "wounds": 15
+    },
+    "weapons": [
+        {
+            "name": "Bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8}
+            ]
+        },
+        {
+            "name": "Power maul & storm shield",
+            "kind": "melee",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "shock"},
+                {"id": "deathwatch-shield"}
+            ]
+        }
+    ],
+    "rules": [ ]
+}
+---
+<p>
+<b>Shield:</b> Whenever this operative is fighting or retaliating with 
+this weapon, each of your blocks can be allocated to block two 
+unresolved successes (instead of one).
+</p>
+<p>
+<b>Storm Shield:</b> Whenever an operative is shooting this operative, 
+worsen the x of the Piercing weapon rule by 1 (if any). Note that 
+Piercing 1 would therefore be ignored.
+</p>

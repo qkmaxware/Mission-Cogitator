@@ -57,6 +57,7 @@
     "aliases": {
         "gambit": ["strategic-gambit"],
         "heavy": ["heavy-reposition", "heavy-dash", "heavy-charge"],
-        "piercing": ["piercing-crits"]
+        "piercing": ["piercing-crits"],
+        "seek": ["seek-light"]
     }
 }
