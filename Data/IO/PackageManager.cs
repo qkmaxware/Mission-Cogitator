@@ -9,7 +9,8 @@ public class PackageManager
     private TeamsDatabase teamdb;
     private JsConsole console;
 
-    //private List<string> loadedPkgs = new();
+    private List<Pkg> loaded = new();
+    private List<(string, Exception)> failed = new();
 
     public PackageManager(JsConsole console, HttpClient client, RuleDatabase rules, TeamsDatabase teams)
     {
@@ -24,6 +25,9 @@ public class PackageManager
         public PackageLoadException(string path, Exception inner): base($"Failed to load package: {path}", inner) {}
     }
 
+    public IEnumerable<Pkg> LoadedPackages => loaded.AsReadOnly();
+    public IEnumerable<(string Id, Exception Error)> FailedPackages => failed.AsReadOnly();
+
     public async Task AddFromUrl(string uri)
     {
         Pkg? pkg;
@@ -33,16 +37,19 @@ public class PackageManager
         {
             var outer = new PackageLoadException(uri, e);
             await console.WarnAsync(outer);
-            // Don't rethrow this exception since that would break the app, but report it to the log instead.
+            failed.Add((uri, outer));
             return;
         }
 
         Import(pkg);
     }
 
-    private void Import(Pkg pkg)
+    private void Import(Pkg? pkg)
     {
-        //loadedPkgs.Add(pkg.Name);
+        if (pkg is null)
+            return;
+        
+        loaded.Add(pkg);
         
         // Add all offered rules       
         foreach (var rule in pkg.AllRules())

@@ -1,0 +1,50 @@
+@page "/admin/packages"
+@using Kt.Data.IO
+
+@inject PackageManager mgr
+
+<div class="w3-padding">
+
+<section>
+    <header>Loaded Packages</header>
+    <p>
+        <table class="w3-table w3-striped">
+            <thead>
+                <th>Package Name</th>
+                <th>Author</th>
+                <th>Updated</th>
+            </thead>
+            <tbody>
+                @foreach (var pkg in mgr.LoadedPackages) {
+                    <tr>
+                        <td>@pkg.Name</td>
+                        <td>@pkg.Author</td>
+                        <td>@pkg.Updated</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </p>
+</section>
+
+<section>
+    <header>Failed Packages</header>
+    <p>
+        <table class="w3-table w3-striped">
+            <thead>
+                <th>Package URI</th>
+                <th>Issue</th>
+            </thead>
+            <tbody>
+                @foreach (var pkg in mgr.FailedPackages) {
+                    <tr>
+                        <td>@pkg.Id</td>
+                        <td>@pkg.Error</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </p>
+</section>
+
+</div>

@@ -1,4 +1,4 @@
-@page "/admin/audit"
+@page "/admin/links"
 
 @using Kt.Data
 @using Kt.Data.IO
@@ -9,25 +9,29 @@
 
 <div class="w3-padding">
 
+<label>Package Filter:</label>
+<input type="text" class="w3-input" @bind=package_filter placeholder="Package Filter (case-insensitive contains)"/>
+
 <section>
     <header>Missing Links</header>
     <p>
+        Find potential missing links within package contents. Missing links are defined as items of text in a document which happen to match the name of another document but are not already surrounded by a &lt;see&gt; tag to that document.
         <button class="w3-button app-primary" style="width: 100%" @onclick=FindMissingLinks>Find Missing Links</button>
         <table class="w3-table w3-striped">
             <thead>
                 <th>Source</th>
-                <th>Target</th>
                 <th>Text</th>
                 <th>Position</th>
+                <th>Potential Target</th>
             </thead>
             <tbody>
                 @if (missingLinks is not null) {
                     foreach (var link in missingLinks) {
                         <tr>
                             <td>@link.Source?.SourcePackage?.Name / @link.Source?.Name (@link.Source?.Id)</td>
-                            <td>@link.Target?.SourcePackage?.Name / @link.Target?.Name (@link.Target?.Id)</td>
                             <td>@link.MatchedText</td>
                             <td>@link.Position</td>
+                            <td>@link.Target?.SourcePackage?.Name / @link.Target?.Name (@link.Target?.Id)</td>
                         </tr>
                     }
                 }
@@ -39,6 +43,7 @@
 <section>
     <header>Broken Links</header>
     <p>
+        Find broken links. Broken links are those defined as &lt;see&gt; tags whose cref points to a non-existent document. This could be due to a simple mistype or the document hasn't been created yet.
         <button class="w3-button app-primary" style="width: 100%" @onclick=FindBrokenLinks>Find Broken Links</button>
         <table class="w3-table w3-striped">
             <thead>
@@ -65,6 +70,8 @@
 
 @code {
 
+    private string? package_filter;
+
     private class MissingLink {
         public IPackagedContent? Source {get; set;}
         public IPackagedContent? Target {get; set;}
@@ -79,12 +86,55 @@
             ruledb.AllRules.Cast<IPackagedContent>()
             .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
             .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
+            
+            .Where(item => item.SourcePackage?.Name is null || package_filter is null || item.SourcePackage.Name.Contains(package_filter, StringComparison.CurrentCultureIgnoreCase))
         );
+    }
+    private static Regex makeRegex(string id, string name) {
+        var pattern_id = Regex.Escape(id);
+        var pattern_name = Regex.Escape(name);
+        var pattern = $@"(?<!<see\s+cref='{pattern_id}'\s+>)\s*{pattern_name}\s*(?!</see>)";
+
+        return new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
     }
     public void FindMissingLinks(IEnumerable<IPackagedContent> pages) {
         var pageList = pages.ToList();
         var results = new List<MissingLink>();
 
+        var patterns = new List<Regex>(pageList.Count);
+        foreach (var page in pageList)
+            if (!string.IsNullOrEmpty(page.Id) && !string.IsNullOrEmpty(page.Name))
+                patterns.Add(makeRegex(page.Id, page.Name));
+
+        for (var i = 0; i < pageList.Count; i++) {
+            var sourcePage = pageList[i];
+            if (sourcePage.Description is null)
+                continue;
+
+            for (var j = 0; j < pageList.Count; j++) {
+                if (i == j)
+                    continue;
+
+                var targetPage = pageList[j];
+                var targetPagePattern = patterns[j];
+
+                foreach (Match match in targetPagePattern.Matches(sourcePage.Description)) {
+                    if (!match.Success)
+                        continue;
+                    
+                    results.Add(
+                        new MissingLink{
+                            Source = sourcePage,
+                            Target = targetPage,
+                            MatchedText = match.Value,
+                            Position = match.Index
+                        }
+                    );
+                }
+            }
+        }
+
+        /*
         foreach (var sourcePage in pageList)
         {
             foreach (var targetPage in pageList)
@@ -130,7 +180,7 @@
                     }
                 }
             }
-        }
+        }*/
         
         this.missingLinks = results;
     }
@@ -172,6 +222,8 @@
             ruledb.AllRules.Cast<IPackagedContent>()
             .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
             .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
+
+            .Where(item => item.SourcePackage?.Name is null || package_filter is null || item.SourcePackage.Name.Contains(package_filter, StringComparison.CurrentCultureIgnoreCase))
         );
     }
 
