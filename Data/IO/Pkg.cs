@@ -21,6 +21,19 @@ public class Pkg
     // Rule aliasing (if a rule is known by other ids as well)
     public Dictionary<string, IEnumerable<string>?>? Aliases {get; set;}
 
+    public IEnumerable<IPackagedContent> Provides()
+    {
+        return 
+        (Definitions?.Values ?? Enumerable.Empty<IPackagedContent>())
+        .Concat((Actions?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Effects?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Equipment?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Ploys?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Units?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Teams?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        ;
+    }
+
     public IEnumerable<Rule> AllRules() => 
         (Definitions?.Values ?? Enumerable.Empty<Rule>())
         .Concat((Actions?.Values ?? Enumerable.Empty<Rule>()))

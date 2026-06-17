@@ -16,10 +16,6 @@ footer {
     cursor: pointer;
 }
 
-.comma-separated *:not(:last-child)::after {
-    content: ", ";
-}
-
 .attributes {
     padding-top: 12px;
     font-size: 24px;

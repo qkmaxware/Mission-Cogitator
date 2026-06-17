@@ -13,6 +13,7 @@
                 <th>Package Name</th>
                 <th>Author</th>
                 <th>Updated</th>
+                <th>Provides</th>
             </thead>
             <tbody>
                 @foreach (var pkg in mgr.LoadedPackages) {
@@ -20,6 +21,7 @@
                         <td>@pkg.Name</td>
                         <td>@pkg.Author</td>
                         <td>@pkg.Updated</td>
+                        <td class="comma-separated">@foreach (var item in pkg.Provides()){ <span>@item.Id</span> }</td>
                     </tr>
                 }
             </tbody>

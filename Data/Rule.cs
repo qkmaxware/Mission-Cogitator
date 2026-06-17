@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Kt.Data.IO;
 using Microsoft.AspNetCore.Components;
 
@@ -15,5 +16,16 @@ public class Rule: IPackagedContent
     public virtual string? Fmt()
     {
         return Description;
+    }
+
+    private static readonly Regex xpattern = new Regex(@"\b[xX]\b", RegexOptions.Compiled);
+    public string? XReplace(int x)
+    {
+        if (Name is not null)
+        {
+            return xpattern.Replace(Name, x.ToString());
+        }
+
+        return Id;
     }
 }
