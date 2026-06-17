@@ -261,10 +261,6 @@ footer[b-tyfdc6oqe8] {
     cursor: pointer;
 }
 
-.comma-separated *:not(:last-child)[b-tyfdc6oqe8]::after {
-    content: ", ";
-}
-
 .attributes[b-tyfdc6oqe8] {
     padding-top: 12px;
     font-size: 24px;

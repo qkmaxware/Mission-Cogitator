@@ -51,6 +51,10 @@ table {
     width: 100%;
 }
 
+.comma-separated *:not(:last-child)::after {
+    content: ", ";
+}
+
 .usage-bullet,.condition-bullet {
     list-style: none;
 }
