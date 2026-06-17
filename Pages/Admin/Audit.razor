@@ -1,0 +1,209 @@
+@page "/admin/audit"
+
+@using Kt.Data
+@using Kt.Data.IO
+@using System.Text.RegularExpressions
+
+@inject RuleDatabase ruledb
+@inject TeamsDatabase teamdb
+
+<div class="w3-padding">
+
+<section>
+    <header>Missing Links</header>
+    <p>
+        <button class="w3-button app-primary" style="width: 100%" @onclick=FindMissingLinks>Find Missing Links</button>
+        <table class="w3-table w3-striped">
+            <thead>
+                <th>Source</th>
+                <th>Target</th>
+                <th>Text</th>
+                <th>Position</th>
+            </thead>
+            <tbody>
+                @if (missingLinks is not null) {
+                    foreach (var link in missingLinks) {
+                        <tr>
+                            <td>@link.Source?.SourcePackage?.Name / @link.Source?.Name (@link.Source?.Id)</td>
+                            <td>@link.Target?.SourcePackage?.Name / @link.Target?.Name (@link.Target?.Id)</td>
+                            <td>@link.MatchedText</td>
+                            <td>@link.Position</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </p>
+</section>
+
+<section>
+    <header>Broken Links</header>
+    <p>
+        <button class="w3-button app-primary" style="width: 100%" @onclick=FindBrokenLinks>Find Broken Links</button>
+        <table class="w3-table w3-striped">
+            <thead>
+                <th>Source</th>
+                <th>UID</th>
+                <th>Position</th>
+            </thead>
+            <tbody>
+                @if (brokenLinks is not null) {
+                    foreach (var link in brokenLinks) {
+                        <tr>
+                            <td>@link.Source?.SourcePackage?.Name / @link.Source?.Name (@link.Source?.Id)</td>
+                            <td>@link.LinkId</td>
+                            <td>@link.Position</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </p>
+</section>
+
+</div>
+
+@code {
+
+    private class MissingLink {
+        public IPackagedContent? Source {get; set;}
+        public IPackagedContent? Target {get; set;}
+        public string? MatchedText { get; set; }
+        public int Position { get; set; }
+    }
+
+    private List<MissingLink>? missingLinks;
+
+    public void FindMissingLinks() {
+        FindMissingLinks(
+            ruledb.AllRules.Cast<IPackagedContent>()
+            .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
+            .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
+        );
+    }
+    public void FindMissingLinks(IEnumerable<IPackagedContent> pages) {
+        var pageList = pages.ToList();
+        var results = new List<MissingLink>();
+
+        foreach (var sourcePage in pageList)
+        {
+            foreach (var targetPage in pageList)
+            {
+                if (sourcePage == targetPage)
+                    continue;
+
+                var searchTerms = new[]
+                {
+                    targetPage.Name,
+                    targetPage.Id?.Replace("-", " ")
+                }
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Distinct(StringComparer.OrdinalIgnoreCase);
+
+                foreach (var term in searchTerms) {
+                    if (term is null)
+                        continue;
+
+                    var pattern = $@"\b{Regex.Escape(term)}\b";
+
+                    foreach (Match match in Regex.Matches(
+                        sourcePage.Description ?? string.Empty,
+                        pattern,
+                        RegexOptions.IgnoreCase))
+                    {
+                        if (IsInsideCorrectLink(
+                                sourcePage.Description ?? string.Empty,
+                                match.Index,
+                                targetPage.Id,
+                                targetPage.Name))
+                        {
+                            continue;
+                        }
+
+                        results.Add(new MissingLink
+                        {
+                            Source = sourcePage,
+                            Target = targetPage,
+                            MatchedText = match.Value,
+                            Position = match.Index
+                        });
+                    }
+                }
+            }
+        }
+        
+        this.missingLinks = results;
+    }
+    private static bool IsInsideCorrectLink(
+        string content,
+        int matchIndex,
+        string? targetId,
+        string? targetName)
+    {
+        if (targetId is null || targetName is null)
+            return false;
+
+        var linkPattern =
+            $@"<see\s+cref\s*=\s*['""]{Regex.Escape(targetId)}['""]\s*>\s*{Regex.Escape(targetName)}\s*</see>";
+
+        foreach (Match linkMatch in Regex.Matches(
+                     content,
+                     linkPattern,
+                     RegexOptions.IgnoreCase))
+        {
+            if (matchIndex >= linkMatch.Index &&
+                matchIndex < linkMatch.Index + linkMatch.Length)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private class BrokenLink {
+        public IPackagedContent? Source {get; set;}
+        public string? LinkId { get; set; }
+        public int Position { get; set; }
+    }
+    private List<BrokenLink>? brokenLinks;
+    public void FindBrokenLinks() {
+        FindBrokenLinks(
+            ruledb.AllRules.Cast<IPackagedContent>()
+            .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
+            .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
+        );
+    }
+
+    private static readonly Regex SEE_PATTERN = new Regex(@"<\s*see\s+cref=['""](?<id>[^'""]*)['""]\s*>", RegexOptions.Compiled);
+    public void FindBrokenLinks(IEnumerable<IPackagedContent> pages) {
+        List<BrokenLink> results = new ();
+
+        foreach (var page in pages) {
+            if (page.Description is null)
+                continue;
+
+            foreach (Match match in SEE_PATTERN.Matches(page.Description)) {
+                if (!match.Success)
+                    continue;
+                if (!match.Groups.ContainsKey("id"))
+                    continue;
+                
+                var id = match.Groups["id"].Value;
+                Rule? matched = ruledb.GetValue(id);
+
+                if (matched is not null)
+                    continue;
+
+                results.Add(new BrokenLink {
+                    Source = page,
+                    LinkId = id,
+                    Position = match.Index
+                });
+            }
+        }
+
+        this.brokenLinks = results;
+    }
+    
+}

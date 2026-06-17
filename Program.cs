@@ -22,5 +22,6 @@ await packages.AddFromUrl("assets/packages/universal-equipment");
 await packages.AddFromUrl("assets/packages/teams/pathfinders");
 await packages.AddFromUrl("assets/packages/teams/angels-of-death");
 await packages.AddFromUrl("assets/packages/teams/deathwatch");
+await packages.AddFromUrl("assets/packages/teams/vespid-stingwings");
 
 await app.RunAsync();

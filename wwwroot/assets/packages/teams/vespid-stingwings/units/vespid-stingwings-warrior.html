@@ -1,0 +1,47 @@
+---
+{
+    "name": "Vespid Warrior",
+    "tags": ["T'Au Empire", "Warrior"],
+    "attributes": {
+        "apl": 2,
+        "move": 6,
+        "save": 5, 
+        "wounds": 9
+    },
+    "weapons": [
+        {
+            "name": "Neutron blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "devastating", "x": 2}
+            ]
+        },
+        {
+            "name": "Claws",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+    
+    ]
+}
+---
+<p>
+    <b>Warrior Instincts:</b> Whenever this operative is shooting, if you 
+don't spend <see cref="vespid-stingwings-communion-points">Communion points</see> during that sequence, its 
+neutron blaster has the <see cref="accurate">Accurate 1</see> weapon rule until the end of 
+that sequence.
+</p>
