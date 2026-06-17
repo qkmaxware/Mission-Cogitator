@@ -1,0 +1,54 @@
+---
+{
+    "name": "Oversight Drone",
+    "tags": ["T'Au Empire", "Drone", "Oversight"],
+    "attributes": {
+        "apl": 2,
+        "move": 8,
+        "save": 2, 
+        "wounds": 5
+    },
+    "weapons": [
+        {
+            "name": "Ram",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 5,
+            "damage": {
+                "normal": 1,
+                "critical": 2
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "vespid-stingwings-aerial-guidance"
+    ]
+}
+---
+<b>Evasive Drone: </b>
+<ul>
+    <li>
+         This operative cannot perform any actions other than 
+<see cref="vespid-stingwings-aerial-guidance">Aerial Guidance</see>, <see cref="charge">Charge</see>, <see cref="dash">Dash</see>, <see cref="fall-back">Fall Back</see>, <see cref="fight">Fight</see> 
+and <see cref="reposition">Reposition</see>.
+    </li>
+    <li>
+         Whenever determining control of an objective marker, treat 
+this operative's APL stat as 1 lower. Note this isn't a change to 
+its APL stat, so any changes are cumulative with this.
+    </li>
+    <li>
+        Whenever determining what's <see cref="visible">visible</see> to this operative, the 
+round disc at the top of the miniature is its head.
+    </li>
+    <li>
+        Whenever this operative has a <see cref="conceal">Conceal order</see> and is in cover, it 
+cannot be selected as a <see cref="valid-target">valid target</see>, taking precedence over all 
+other rules (e.g. Seek, Vantage terrain) except being within 2".
+    </li>
+    <li>
+        Whenever an operative is shooting this operative, ignore the 
+<see cref="piercing">Piercing</see> weapon rule.
+    </li>
+</ul>

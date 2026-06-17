@@ -1,0 +1,59 @@
+---
+{
+    "name": "Vespid Swarmguard",
+    "tags": ["T'Au Empire", "Swarmguard"],
+    "attributes": {
+        "apl": 2,
+        "move": 6,
+        "save": 5, 
+        "wounds": 9
+    },
+    "weapons": [
+        {
+            "name": "Flamer (standard)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "torrent", "x": 2},
+                {"id": "saturate"}
+            ]
+        },
+        {
+            "name": "Flamer (skytorch)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "saturate"},
+                {"id": "torrent", "x": 0},
+                {"id": "vespid-stingwings-skytorch"}
+            ]
+        },
+        {
+            "name": "Claws",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "vespid-stingwings-skytorch",
+        "vespid-stingwings-skytorch-assault"
+    ]
+}
+---

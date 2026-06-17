@@ -7,7 +7,9 @@
         "/actions/fall-back.html",
         "/actions/fight.html",
         "/actions/reposition.html",
-        "/actions/shoot.html"
+        "/actions/shoot.html",
+        "/actions/pick-up-marker.html",
+        "/actions/breach.html"
     ],
     "effects": [
         "/effects/injured.html"
@@ -22,6 +24,7 @@
         "/phases/firefight-phase.html",
         "/phases/strategy-phase.html",
 
+        "/definitions/activation.html",
         "/definitions/action.html",
         "/definitions/control-range.html",
         "/definitions/counteract.html",

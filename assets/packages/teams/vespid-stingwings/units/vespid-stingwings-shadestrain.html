@@ -1,0 +1,73 @@
+---
+{
+    "name": "Vespid Shadestrain",
+    "tags": ["T'Au Empire", "Shadestrain"],
+    "attributes": {
+        "apl": 2,
+        "move": 6,
+        "save": 3, 
+        "wounds": 9
+    },
+    "weapons": [
+        {
+            "name": "Neutron sting",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "devastating", "x": 2}
+            ]
+        },
+        {
+            "name": "Neutron grenade",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 6},
+                {"id": "blast", "x": 2},
+                {"id": "devastating", "x": 2},
+                {"id": "limited", "x": 1},
+                {"id": "saturate"}
+            ]
+        },
+        {
+            "name": "Claws",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+    
+    ]
+}
+---
+<p>
+    <b>Ghost Rig:</b> While this operative has a <see cref="conceal">Conceal order</see>, your 
+opponent cannot select it as a <see cref="valid-target">valid target</see> unless it's within 6" of 
+the operative trying to target it. Note that this rule has no effect 
+if this operative isn't selected as the <see cref="valid-target">valid target</see>, e.g. if it's a 
+secondary target from the <see cref="blast">Blast</see> weapon rule.
+</p>
+<p>
+    <b>Camouflaged:</b> Whenever an operative is shooting this operative, 
+ignore the <see cref="piercing">Piercing</see> weapon rule and all cover saves are retained 
+as critical successes. This rule has no effect if this operative isn't 
+selected as the valid target, e.g. if it's a secondary target from 
+the <see cref="blast">Blast</see> weapon rule.
+</p>

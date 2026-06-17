@@ -1,0 +1,47 @@
+{
+    "name": "Vespid Stingwings",
+    "updated": "17/12/2025",
+    "definitions": [
+        "/definitions/vespid-stingwings-communion-points.html",
+        "/definitions/vespid-stingwings-communion.html",
+        "/definitions/vespid-stingwings-neutron-charge.html",
+        "/definitions/vespid-stingwing-fly.html",
+        "/definitions/vespid-stingwings-neutron-bombardment.html",
+        "/definitions/vespid-stingwings-skytorch.html"
+    ],
+    "actions": [
+        "/actions/vespid-stingwings-aerial-guidance.html",
+        "/actions/vespid-stingwings-skytorch-assault.html"
+    ],
+    "effects": [
+        "/effects/neutron-fragment.html"
+    ],
+    "equipment": [
+        "/equipment/vespid-stingwings-neurostimulant.html",
+        "/equipment/vespid-stingwings-convergence-stimulant.html",
+        "/equipment/vespid-stingwings-accelerant-stimulant.html",
+        "/equipment/vespid-stingwings-aggression-stimulant.html"
+    ],
+    "ploys": [
+        "/ploys/vespid-stingwings-hardened-exoskeleton.html",
+        "/ploys/vespid-stingwings-aerial-agility.html",
+        "/ploys/vespid-stingwings-airborne-predators.html",
+        "/ploys/vespid-stingwings-sting.html",
+        "/ploys/vespid-stingwings-ocelli.html",
+        "/ploys/vespid-stingwings-darting-flight.html",
+        "/ploys/vespid-stingwings-neutron-overload.html",
+        "/ploys/vespid-stingwing-vicious-venom.html"
+    ],
+    "units": [
+        "/units/vespid-stingwings-strain-leader.html",
+        "/units/vespid-stingwings-oversight-drone.html",
+        "/units/vespid-stingwings-longsting.html",
+        "/units/vespid-stingwings-shadestrain.html",
+        "/units/vespid-stingwings-skyblast.html",
+        "/units/vespid-stingwings-swarmguard.html",
+        "/units/vespid-stingwings-warrior.html"
+    ],
+    "teams": [
+        "/teams/vespid-stingwings.html"
+    ]
+}
