@@ -41,7 +41,7 @@
                 @foreach (var pkg in mgr.FailedPackages) {
                     <tr>
                         <td>@pkg.Id</td>
-                        <td>@pkg.Error</td>
+                        <td><pre><code>@pkg.Error</code></pre></td>
                     </tr>
                 }
             </tbody>
