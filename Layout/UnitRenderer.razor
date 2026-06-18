@@ -97,7 +97,12 @@
                                 @foreach (var rule in (myWeapon.Rules ?? Enumerable.Empty<WeaponRule>())) {
                                     var ruleId = rule.Id;
                                     Rule? maybeRule = ruleId is not null ? ruledb.GetValue(ruleId) : null;
-                                    <a href="#" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(ruleId))>@(maybeRule?.XReplace(rule.X) ?? ruleId)</a>
+                                    <a href="#" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(ruleId))>
+                                        @(maybeRule?.XReplace(rule.X) ?? ruleId)
+                                        @if (!string.IsNullOrEmpty(rule.Note)) {
+                                            <text> (@rule.Note)</text>
+                                        }
+                                    </a>
                                 }
                             </div>
                         </td>

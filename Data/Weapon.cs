@@ -18,6 +18,8 @@ public struct WeaponRule
     public string? Id {get; set;}
     public int X {get; set;}
 
+    public string? Note {get; set;}
+
     public override string? ToString()
     {
         return Id?.Replace("x", X.ToString());
