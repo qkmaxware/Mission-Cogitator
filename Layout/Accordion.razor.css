@@ -8,3 +8,41 @@
 .chevron.up {
     transform: scaleY(-1);
 }
+
+.accordion {
+
+}
+
+.accordion>button {
+    color: #000;
+    background-color: #f1f1f1;
+}
+
+.accordion>button:hover {
+    color: #000;
+    background-color: #ccc;
+}
+
+.accordion .accordion>button {
+    color: #000 !important;
+    background-color: white !important;
+}
+
+.accordion .accordion>button:hover {
+    color: #000 !important;
+    background-color: #ccc !important;
+}
+
+.accordion>.accordion-content {
+    border-color: #f1f1f1 !important;
+    border-top-width: 0px; border-top-style: solid;
+    border-bottom-width: 0px; border-bottom-style: solid;
+    border-left-width: 6px; border-left-style: solid;
+    border-bottom-width: 6px; border-bottom-style: solid;
+}
+
+.accordion .accordion>.accordion-content {
+    margin-left: 16px;
+    border-bottom-width: 0px;
+    margin-bottom: 6px;
+}

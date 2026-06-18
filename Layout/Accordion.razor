@@ -1,23 +1,33 @@
-<button class="w3-button w3-bar-item w3-light-grey" @onclick="ToggleNavMenu">
-    @Title @if(collapseMenu) {
-        <span class="chevron down"></span>
-    } else {
-        <span class="chevron up"></span>
-    }
-</button>
-<div class="w3-border w3-border-light-grey w3-bottombar w3-leftbar @MenuCssClass" style="min-height: 1em;">
-@ChildContent
+<div class="accordion">
+    <button class="w3-button w3-bar-item" @onclick="ToggleNavMenu">
+        @Title @if(collapseMenu) {
+            <span class="chevron down"></span>
+        } else {
+            <span class="chevron up"></span>
+        }
+    </button>
+    <div class="accordion-content w3-border-light-grey @MenuCssClass" style="min-height: 1em;">
+    @ChildContent
+    </div>
 </div>
 
 @code {
+    [Parameter] public bool InitiallyExpand {get; set;}
     [Parameter] public string? Title {get; set;}
 
     [Parameter]
-	public RenderFragment? ChildContent { get; set; }
+    public RenderFragment? ChildContent { get; set; }
 
     private bool collapseMenu = true;
 
     private string? MenuCssClass => collapseMenu ? "w3-hide" : "w3-show";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        this.collapseMenu = !InitiallyExpand;
+    }
 
     public void ToggleNavMenu()
     {

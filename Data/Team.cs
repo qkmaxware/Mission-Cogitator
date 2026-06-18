@@ -10,6 +10,8 @@ public class Team: IPackagedContent
     public string? Faction {get; set;}
     public string? Version {get; set;}
 
+    public List<string>? FactionRuleIds {get; set;}
+
     public List<string>? PloyIds {get; set;}
     public List<Ploy>? Ploys {get; set;}
 

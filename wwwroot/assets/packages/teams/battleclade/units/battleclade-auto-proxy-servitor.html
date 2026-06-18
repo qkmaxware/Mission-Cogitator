@@ -1,0 +1,39 @@
+---
+{
+    "name": "Battleclade Auto-Proxy Servitor",
+    "tags": ["Imperium", "Adeptus Mechanicus", "Auto-Proxy", "Servitor"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 4, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Taser goad",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "lethal", "x": 5},
+                {"id": "shock"}
+            ]
+        }
+    ],
+    "rules": [
+        "battleclade-gaze-of-the-omnissiah"
+    ]
+}
+---
+<b>Achillan Eye:</b> Whenever a friendly 
+BATTLECLADE operative is 
+shooting an enemy operative <see cref="visible">visible</see> to 
+this operative, that friendly operative's 
+ranged weapons have the <see cref="saturate">Saturate</see> 
+weapon rule. This rule has no effect if this 
+operative is within <see cref="control-range">control range</see> of an 
+enemy operative.

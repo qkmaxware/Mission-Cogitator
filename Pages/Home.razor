@@ -140,45 +140,67 @@
     </Header>
     <Content>
     <Accordion Title="Your Deployment">
-        <span class="w3-bar-item">Ploys</span>
-        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        <Accordion Title="Faction Rules">
+            @foreach (var team in deployment.Units.Select(u => u.Team).Distinct()) {
+                foreach (var rule in (team?.FactionRuleIds ?? Enumerable.Empty<string>())) {
+                    var ruleId = rule;
+                    var maybeRule = ruledb.GetValue(ruleId);
+                    <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(ruleId))>@(maybeRule?.Name ?? ruleId)</button>
+                }
+            }
+        </Accordion>
+        <Accordion Title="Ploys">
             @foreach (var team in deployment.Units.Select(u => u.Team).Distinct()) {
                 foreach (var ploy in (team?.Ploys ?? Enumerable.Empty<Ploy>())) {
                     var myPloy = ploy;
                     <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(myPloy.Id))>
                         @switch (myPloy.Kind) {
                             case PloyKind.strategy:
-                                <img src="art/strategy.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                <img src="art/strategy.svg" class="icon"/>
                                 break;
                             case PloyKind.firefight:
-                                <img src="art/ranged.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                <img src="art/ranged.svg" class="icon"/>
                                 break;
                             default:
-                                <img src="art/unknown.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                <img src="art/unknown.svg" class="icon"/>
                                 break;
                         }
                         @myPloy.Name <small>(@ploy.Kind ploy)</small>
                     </button>
                 }
             }
-        </div>
-        <span class="w3-bar-item">Equipment</span>
-        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        </Accordion>
+        <Accordion Title="Equipment" InitiallyExpand=true>
         @foreach (var eq in deployment.Equipment) {
             var myEq = eq;
             <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(myEq.Id))>@myEq.Name</button>
         }
-        </div>
-        <span class="w3-bar-item">Operatives</span>
-        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        </Accordion>
+        <Accordion Title="Operatives" InitiallyExpand=true>
         @foreach (var unit in deployment.Units) {
             <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))><HealthIndicator Deployment=@unit></HealthIndicator> @unit.Unit?.Name</button>
         }
-        </div>
+        </Accordion>
         <hr />
-        <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Add Unit to Deployment</button>
-        <button class="w3-button w3-bar-item" @onclick=showImportModal>+ Load Deployment</button>
-        <button class="w3-button w3-bar-item" @onclick=serializeDeployment>&nbsp;&nbsp;Save Current Deployment</button>
+        <div class="w3-row">
+            <div class="w3-col s6">
+                <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Operative</button>
+            </div>
+            <div class="w3-col s6">
+                <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Equipment</button>
+            </div>
+        </div>
+        <div class="w3-row">
+            <div class="w3-col s4">
+                <span class="w3-bar-item">Deployment</span>
+            </div>
+            <div class="w3-col s4">
+                <button class="w3-button w3-bar-item" @onclick=serializeDeployment><img src="art/download.svg" class="icon"/> Save</button>
+            </div>
+            <div class="w3-col s4">
+                <button class="w3-button w3-bar-item" @onclick=showImportModal><img src="art/upload.svg" class="icon"/>Load</button>
+            </div>
+        </div>
     </Accordion>
     <Accordion Title="Codex Militaris">
         @foreach (var grp in teamdb.AllTeamsGrouped) {
@@ -186,19 +208,26 @@
             @foreach (var team in grp) {
                 var myTeam = team;
                 <Accordion Title="@(team.Name)">
+                    <Accordion Title="Faction Rules">
+                        @foreach (var rule in (team.FactionRuleIds ?? Enumerable.Empty<string>())) {
+                            var ruleId = rule;
+                            var maybeRule = ruledb.GetValue(ruleId);
+                            <button class="w3-button w3-bar-item" @onclick=@(async() => await alertRule(ruleId))>@(maybeRule?.Name ?? ruleId)</button>
+                        }
+                    </Accordion>
                     <Accordion Title="Ploys">
                         @foreach (var ploy in (team.Ploys ?? Enumerable.Empty<Ploy>()).OrderBy(ploy => ploy.Kind)) {
                             var myPloy = ploy;
                             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(ploy.Id))>  
                                 @switch (myPloy.Kind) {
                                     case PloyKind.strategy:
-                                        <img src="art/strategy.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                        <img src="art/strategy.svg" class="icon"/>
                                         break;
                                     case PloyKind.firefight:
-                                        <img src="art/ranged.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                        <img src="art/ranged.svg" class="icon"/>
                                         break;
                                     default:
-                                        <img src="art/unknown.svg" style="height: 1em; padding-right: 0.25em;"/>
+                                        <img src="art/unknown.svg" class="icon"/>
                                         break;
                                 }
                                 @ploy.Name <small>(@ploy.Kind ploy)</small>
@@ -290,7 +319,7 @@
     </Accordion>
     </Content>
     <Footer>
-        <button class="w3-button w3-bar-item" @onclick=openSetupWizard><img src="art/wizard.svg" style="height: 1em; margin-right: 0.25em;"/>Game Setup Wizard</button>
+        <button class="w3-button w3-bar-item" @onclick=openSetupWizard><img src="art/wizard.svg" class="icon"/>Game Setup Wizard</button>
     </Footer>
 </NavMenu>
 @code {

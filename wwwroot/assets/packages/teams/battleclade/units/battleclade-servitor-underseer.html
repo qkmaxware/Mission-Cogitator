@@ -1,0 +1,45 @@
+---
+{
+    "name": "Battleclade Servitor Underseer",
+    "tags": ["Imperium", "Adeptus Mechanicus", "Tech-Priest", "Servitor Underseer"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 9
+    },
+    "weapons": [
+        {
+            "name": "Master-crafted radium pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 2,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "balanced"},
+                {"id": "rending"}
+            ]
+        },
+        {
+            "name": "Dataspikes",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 5,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [
+            ]
+        }
+    ],
+    "rules": [
+        "battleclade-datacoronal-accumulator",
+        "battleclade-network-override"
+    ]
+}
+---

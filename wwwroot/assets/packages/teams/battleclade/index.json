@@ -1,0 +1,49 @@
+{
+    "name": "Battleclade",
+    "updated": "29/04/2026",
+    "definitions": [
+        "/definitions/battleclade-noospheric-network.html",
+        "/definitions/battleclade-network-counteract.html"
+    ],
+    "actions": [
+        "/actions/battleclade-omniscanner.html",
+        "/actions/battleclade-gaze-of-the-omnissiah.html",
+        "/actions/battleclade-breach.html",
+        "/actions/battleclade-datacoronal-accumulator.html",
+        "/actions/battleclade-network-override.html",
+        "/actions/battleclade-expedient-repair.html",
+        "/actions/battleclade-transfer-power.html"
+    ],
+    "effects": [
+        "/effects/battleclade-omniscanner-effect.html",
+        "/effects/battleclade-gaze-of-the-omnissiah-effect.html"
+    ],
+    "equipment": [
+        "/equipment/battleclade-covert-guises.html",
+        "/equipment/battleclade-electromantic-capacitors.html",
+        "/equipment/battleclade-concealed-apparatus.html",
+        "/equipment/battleclade-neurocyclic-reserve-cells.html"
+    ],
+    "ploys": [
+        "/ploys/battleclade-noospheric-possession.html",
+        "/ploys/battleclade-duty-of-reclamation.html",
+        "/ploys/battleclade-incantation-of-the-iron-soul.html",
+        "/ploys/battleclade-prioritised-acquisition.html",
+        "/ploys/battleclade-system-exorcism.html",
+        "/ploys/battleclade-remote-access.html",
+        "/ploys/battleclade-auto-ferric-supplication.html",
+        "/ploys/battleclade-servile-surrogacy.html"
+    ],
+    "units": [
+        "/units/battleclade-technoarcheologist.html",
+        "/units/battleclade-auto-proxy-servitor.html",
+        "/units/battleclade-breacher-servitor.html",
+        "/units/battleclade-combat-servitor.html",
+        "/units/battleclade-gun-servitor.html",
+        "/units/battleclade-servitor-underseer.html",
+        "/units/battleclade-technomedic-servitor.html"
+    ],
+    "teams": [
+        "/teams/battleclade.html"
+    ]
+}
