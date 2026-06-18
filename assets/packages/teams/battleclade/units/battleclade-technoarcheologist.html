@@ -1,0 +1,55 @@
+---
+{
+    "name": "Battleclade Technoarcheologist",
+    "tags": ["Imperium", "Adeptus Mechanicus", "Tech-Priest", "Leader", "Technoarcheologist"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 9
+    },
+    "weapons": [
+        {
+            "name": "Eradication pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 2
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "devastating", "x": 3},
+                {"id": "lethal", "x": 5}
+            ]
+        },
+        {
+            "name": "Servo-arc claw",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "shock"},
+                {"id": "severe"}
+            ]
+        }
+    ],
+    "rules": [
+        "battleclade-omniscanner"
+    ]
+}
+---
+<b>Seeker of Divine Arcana:</b> STRATEGIC GAMBIT. You 
+can immediately change this operative's order and/or it can 
+immediately perform a free <see cref="battleclade-omniscanner">Omniscanner</see>, <see cref="fall-back">Fall Back</see>, <see cref="place-marker">Place 
+Marker</see>, <see cref="pick-up-marker">Pick Up Marker</see>, <see cref="reposition">Reposition</see> or mission action. 
+If it's the <see cref="fall-back">Fall Back</see> or <see cref="reposition">Reposition</see> action and this operative 
+isn't carrying a marker, it must end that move either within your 
+drop zone (if this isn't possible, then as close as possible to it), or 
+with an objective marker or one of your mission markers within 
+its <see cref="control-range">control range</see>.

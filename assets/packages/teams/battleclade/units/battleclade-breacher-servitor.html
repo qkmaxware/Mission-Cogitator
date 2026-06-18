@@ -1,0 +1,59 @@
+---
+{
+    "name": "Battleclade Breacher Servitor",
+    "tags": ["Imperium", "Adeptus Mechanicus", "Breacher", "Servitor"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 4, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Lascutter (close range)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 2},
+                {"id": "piercing", "x": 2},
+                {"id": "lethal", "x": 5}
+            ]
+        },
+        {
+            "name": "Lascutter (short range)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 6},
+                {"id": "lethal", "x": 5}
+            ]
+        },
+        {
+            "name": "Hydraulic pincer & lascutter",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "lethal", "x": 5}
+            ]
+        }
+    ],
+    "rules": [
+        "battleclade-breach"
+    ]
+}
+---

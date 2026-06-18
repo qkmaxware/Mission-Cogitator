@@ -1,0 +1,73 @@
+---
+{
+    "name": "Battleclade Combat Servitor",
+    "tags": ["Imperium", "Adeptus Mechanicus", "Combat", "Servitor"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 4, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Incendine igniter",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 4,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 6},
+                {"id": "torrent", "x": 1},
+                {"id": "saturate"}
+            ]
+        },
+        {
+            "name": "Meltagun",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 6,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 6},
+                {"id": "devastating", "x": 4},
+                {"id": "piercing", "x": 2}
+            ]
+        },
+        {
+            "name": "Phosphor blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "blast", "x": 1},
+                {"id": "severe"}
+            ]
+        },
+
+        {
+            "name": "Servo-claw",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+            ]
+        }
+    ],
+    "rules": [
+    ]
+}
+---

@@ -1,0 +1,74 @@
+---
+{
+    "name": "Battleclade Gun Servitor",
+    "tags": ["Imperium", "Adeptus Mechanicus", "Gun", "Servitor"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 4, 
+        "wounds": 11
+    },
+    "weapons": [
+        {
+            "name": "Heavy arc rifle",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "heavy-dash"},
+                {"id": "piercing", "x": 1},
+                {"id": "stun"}
+            ]
+        },
+        {
+            "name": "Heavy bolter (focused)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "heavy-dash"},
+                {"id": "piercing-crits", "x": 1}
+            ]
+        },
+        {
+            "name": "Heavy bolter (sweeping)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "heavy-dash"},
+                {"id": "piercing-crits", "x": 1},
+                {"id": "torrent", "x": 1}
+            ]
+        },
+
+        {
+            "name": "Augmetic claw",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "brutal"}
+            ]
+        }
+    ],
+    "rules": [
+    ]
+}
+---
