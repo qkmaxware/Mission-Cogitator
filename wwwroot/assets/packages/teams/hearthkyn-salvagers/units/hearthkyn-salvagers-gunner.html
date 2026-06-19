@@ -1,0 +1,129 @@
+---
+{
+    "name": "Hearthkyn Gunner",
+    "tags": ["Leagues of Votann", "Gunner"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "EtaCarn plasma beamer",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 5,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "piercing", "x": 1},
+                {"id": "hearthkyn-salvagers-beam"}
+            ]
+        },
+        {
+            "name": "HYLas auto rifle",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "ceaseless"},
+                {"id": "rending"}
+            ]
+        },
+        {
+            "name": "HYLas rotary cannon (focused)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "ceaseless"},
+                {"id": "heavy-reposition", "suffix": "(Reposition Only)"},
+                {"id": "saturate"}
+            ]
+        },
+        {
+            "name": "HYLas rotary cannon (sweeping)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "ceaseless"},
+                {"id": "heavy-reposition", "suffix": "(Reposition Only)"},
+                {"id": "saturate"},
+                {"id": "torrent", "x": 1}
+            ]
+        },
+        {
+            "name": "L7 missile launcher (blast)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "blast", "x": 2}
+            ]
+        },
+        {
+            "name": "L7 missile launcher (focused)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 5,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Magna rail rifle",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 2
+            },
+            "rules": [
+                {"id": "devastating", "x": 3},
+                {"id": "heavy-dash", "suffix": "(Dash Only)"},
+                {"id": "piercing", "x": 2}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        
+    ]
+}
+---

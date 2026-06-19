@@ -1,0 +1,64 @@
+---
+{
+    "name": "Hearthkyn Dôzr",
+    "tags": ["Leagues of Votann", "Dôzr"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Concussion knux",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "ceaseless"},
+                {"id": "lethal", "x": 5},
+                {"id": "shock"}
+            ]
+        }
+    ],
+    "rules": [
+        "hearthkyn-salvagers-knux-smash"
+    ]
+}
+---
+<p>
+    <b>Brawler:</b> Whenever this operative is 
+fighting or retaliating:
+    <ul>
+        <li>
+            Enemy operatives cannot assist.
+        </li>
+        <li>
+            If it's incapacitated, you can strike 
+the enemy operative in that sequence 
+with one of your unresolved successes 
+before it's removed from the killzone.
+        </li>
+        <li>
+            Normal Dmg of 4 or more inflicts 1 less damage on it.
+        </li>
+    </ul>
+</p>

@@ -1,0 +1,62 @@
+---
+{
+    "name": "Hearthkyn Warrior",
+    "tags": ["Leagues of Votann", "Warrior"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Ion blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1, "suffix": "Crits"}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+
+    ]
+}
+---
+<p>
+    <b>Secure Salvage: </b>Whenever an enemy operative is shooting 
+against, fighting against or retaliating against this operative, 
+if this operative contests an objective marker or one of your 
+mission markers, in the Resolve Attack Dice step, you can 
+subtract 1 from the damage inflicted on it from one success.
+</p>

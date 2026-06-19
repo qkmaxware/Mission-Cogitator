@@ -1,0 +1,138 @@
+---
+{
+    "name": "Hearthkyn Theyn",
+    "tags": ["Leagues of Votann", "Leader", "Theyn"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 9
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Autoch-pattern bolter",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Bolt revolver",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 8}
+            ]
+        },
+        {
+            "name": "EtaCarn plasma pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Ion blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1, "suffix": "Crits"}
+            ]
+        },
+        {
+            "name": "Ion pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "piercing-crits", "x": 1, "suffix": "Crits"}
+            ]
+        },
+
+        {
+            "name": "Concussion gauntlet",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 5,
+                "critical": 7
+            },
+            "rules": [
+                {"id": "brutal"},
+                {"id": "shock"}
+            ]
+        },
+        {
+            "name": "Plasma weapon",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "lethal", "x": 5}
+            ]
+        }
+    ],
+    "rules": [
+        
+    ]
+}
+---
+<p>
+    <b>Eye of the Ancestors:</b> STRATEGIC GAMBIT if this operative 
+is in the killzone. Select one enemy operative, or up to two 
+enemy operatives if three or more friendly HEARTHKYN 
+SALVAGER operatives are incapacitated. Each of those 
+enemy operatives gains one of your <see cref="hearthkyn-salvagers-grudge">Grudge</see> tokens.
+</p>
+<p>
+    <b>Weavefield Crest:</b> Once per battle, when an attack dice 
+inflicts Normal Dmg on this operative, you can ignore that 
+inflicted damage.
+</p>

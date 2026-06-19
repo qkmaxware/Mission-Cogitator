@@ -15,9 +15,10 @@ public enum WeaponKind
 
 public struct WeaponRule
 {
+    public string? Prefix {get; set;}
     public string? Id {get; set;}
+    public string? Suffix {get; set;}
     public int X {get; set;}
-
     public string? Note {get; set;}
 
     public override string? ToString()

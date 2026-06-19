@@ -1,0 +1,51 @@
+---
+{
+    "name": "Hearthkyn Jump Pack Warrior",
+    "tags": ["Leagues of Votann", "Jump Pack", "Warrior"],
+    "attributes": {
+        "apl": 2,
+        "move": 8,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Plasma weapon",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "lethal", "x": 5},
+                {"id": "hearthkyn-salvagers-force-impact"}
+            ]
+        }
+    ],
+    "rules": [
+
+    ]
+}
+---
+<b>Jump Pack:</b> Whenever this operative performs an action in which it moves, it can <b>FLY</b>. If it does, don't move it. Instead, remove it 
+from the killzone and set it back up wholly within a distance equal to its Move stat (or 3" if it was a <see cref="dash">Dash</see>) horizontally of its original 
+location (in a killzone that uses the close quarters rules, e.g. Killzone: Tomb World, this distance cannot be measured over or through 
+Wall terrain, and that operative cannot be set up on the other side of an access point - in other words it cannot <b>FLY</b> through an open 
+hatchway). Note that it gains no additional distance when performing the <see cref="charge">Charge</see> action. It must be set up in a location it can be 
+placed, and unless it's the <see cref="charge">Charge</see> action, it cannot be set up within <see cref="control-range">control range</see> of an enemy operative.

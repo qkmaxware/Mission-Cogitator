@@ -1,0 +1,50 @@
+---
+{
+    "name": "Hearthkyn Field Medic",
+    "tags": ["Leagues of Votann", "Medic", "Field Medic"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Bolt revolver",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 8}
+            ]
+        },
+        {
+            "name": "Plasma knife",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "lethal", "x": 5}
+            ]
+        }
+    ],
+    "rules": [
+        "hearthkyn-salvagers-medikit"
+    ]
+}
+---
+<b>Medic!:</b> The first time during each turning point that another friendly HEARTHKYN SALVAGER operative would be incapacitated 
+while <see cref="visible">visible</see> to and within 3" of this operative, you can use this rule, providing neither this nor that operative is within <see cref="control-range">control range</see> 
+of an enemy operative. If you do, that friendly operative isn't incapacitated, has 1 wound remaining and cannot be incapacitated for 
+the remainder of the action. After that action, that friendly operative can immediately perform a free <see cref="dash">Dash</see> action, but must end that 
+move within this operative's <see cref="control-range">control range</see>. Subtract 1 from this and that operative's APL stats until the end of their next activations 
+respectively, and if this rule was used during that friendly operative's activation, that activation ends. You cannot use this rule if this 
+operative is incapacitated, or if it's a <see cref="shoot">Shoot</see> action and this operative would be a primary or secondary target.

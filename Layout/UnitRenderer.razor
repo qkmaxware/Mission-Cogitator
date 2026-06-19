@@ -98,9 +98,15 @@
                                     var ruleId = rule.Id;
                                     Rule? maybeRule = ruleId is not null ? ruledb.GetValue(ruleId) : null;
                                     <a href="#" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(ruleId))>
+                                        @if(!string.IsNullOrEmpty(rule.Prefix)) {
+                                            <text>@(rule.Prefix)&nbsp;</text>
+                                        }
                                         @(maybeRule?.XReplace(rule.X) ?? ruleId)
+                                        @if(!string.IsNullOrEmpty(rule.Suffix)) {
+                                            <text>&nbsp;@rule.Suffix</text>
+                                        }
                                         @if (!string.IsNullOrEmpty(rule.Note)) {
-                                            <text> (@rule.Note)</text>
+                                            <small>&nbsp;(@rule.Note)</small>
                                         }
                                     </a>
                                 }

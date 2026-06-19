@@ -1,0 +1,64 @@
+---
+{
+    "name": "Hearthkyn Lugger",
+    "tags": ["Leagues of Votann", "Lugger"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Ion blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1, "suffix": "Crits"}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+    
+    ]
+}
+---
+<p>
+    <b>Well Supplied: </b>You can select one additional equipment option, 
+and in the Ready step of the first <see cref="strategy-phase">Strategy phase</see>, you gain 1 
+additional CP.
+</p>
+<p>
+    <b>I've Got It: </b>Once during each of this operative's activations, it 
+can perform a mission action for 1 less AP.
+</p>

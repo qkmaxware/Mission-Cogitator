@@ -1,0 +1,60 @@
+---
+{
+    "name": "Hearthkyn Kognitâar",
+    "tags": ["Leagues of Votann", "Kognitâar"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolter",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Ion blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1, "suffix": "Crits"}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "hearthkyn-salvagers-accelerated-appraisal"
+    ]
+}
+---
+<b>Tactician:</b> STRATEGIC GAMBIT if this operative is in the killzone. Place either your Attack or Defence marker in the killzone. 
+Whenever a friendly HEARTHKYN SALVAGER operative is shooting against, fighting against or retaliating against an enemy 
+operative that's within 3" of your Attack marker, that friendly operative's weapons have the <see cref="balanced">Balanced</see> weapon rule. Whenever an 
+enemy operative is shooting a friendly HEARTHKYN SALVAGER operative that's within 3" of your Defence marker, you can 
+re-roll one of your defence dice. In the Ready step of the next <see cref="strategy-phase">Strategy phase</see>, remove that marker.

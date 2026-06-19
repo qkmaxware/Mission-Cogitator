@@ -1,0 +1,57 @@
+---
+{
+    "name": "Hearthkyn Kinlunk",
+    "tags": ["Leagues of Votann", "Kinlunk"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolter",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "Ion blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "piercing-crits", "x": 1, "suffix": "Crits"}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [
+            ]
+        }
+    ],
+    "rules": [
+        "hearthkyn-salvagers-signal",
+        "hearthkyn-salvagers-system-jam"
+    ]
+}
+---
