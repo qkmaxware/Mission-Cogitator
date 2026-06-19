@@ -1,0 +1,66 @@
+---
+{
+    "name": "Hearthkyn Grenadier",
+    "tags": ["Leagues of Votann", "Grenadier"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 8
+    },
+    "weapons": [
+        {
+            "name": "Autoch-pattern bolt pistol",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "accurate", "x": 1}
+            ]
+        },
+        {
+            "name": "C8 HX charge",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 6
+            },
+            "rules": [
+                {"id": "range", "x": 4},
+                {"id": "blast", "x": 1},
+                {"id": "heavy-reposition", "suffix": "(Reposition Only)"},
+                {"id": "limited", "x": 1},
+                {"id": "piercing", "x": 1},
+                {"id": "saturate"}
+            ]
+        },
+
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [
+
+            ]
+        }
+    ],
+    "rules": [
+        "hearthkyn-salvagers-vayr-utility-grenade"
+    ]
+}
+---
+<b>Grenadier:</b> This operative can use <see cref="frag">frag</see>, <see cref="krak">krak</see>, <see cref="smoke-utility-grenades">smoke</see> and <see cref="stun-utility-grenades">stun</see> grenades (see universal equipment). Doing so doesn't count towards any 
+limited uses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever this operative is using a 
+<see cref="frag">frag</see> or <see cref="krak">krak</see> grenade, improve the Hit stat of that weapon by 1.

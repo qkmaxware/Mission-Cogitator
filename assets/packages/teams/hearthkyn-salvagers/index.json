@@ -1,0 +1,54 @@
+{
+    "name": "Hearthkyn Salvagers",
+    "updated": "29/04/2026",
+    "definitions": [
+        "/definitions/hearthkyn-salvagers-grudge.html",
+        "/definitions/hearthkyn-salvagers-beam.html",
+        "/definitions/hearthkyn-salvagers-force-impact.html"
+    ],
+    "actions": [
+        "/actions/hearthkyn-salvagers-knux-smash.html",
+        "/actions/hearthkyn-salvagers-medikit.html",
+        "/actions/hearthkyn-salvagers-vayr-utility-grenade.html",
+        "/actions/hearthkyn-salvagers-system-jam.html",
+        "/actions/hearthkyn-salvagers-signal.html",
+        "/actions/hearthkyn-salvagers-accelerated-appraisal.html",
+        "/actions/hearthkyn-salvagers-spot.html",
+        "/actions/hearthkyn-salvagers-pan-spectral-scan.html"
+    ],
+    "effects": [
+        "/effects/hearthkyn-salvagers-grudge-token.html"
+    ],
+    "equipment": [
+        "/equipment/hearthkyn-salvagers-plasma-knives.html",
+        "/equipment/hearthkyn-salvagers-climbing-rigs.html",
+        "/equipment/hearthkyn-salvagers-excavation-tools.html",
+        "/equipment/hearthkyn-salvagers-writ-of-claim.html"
+    ],
+    "ploys": [
+        "/ploys/hearthkyn-salvagers-need-keeps.html",
+        "/ploys/hearthkyn-salvagers-toil-earns.html",
+        "/ploys/hearthkyn-salvagers-wrought-defence.html",
+        "/ploys/hearthkyn-salvagers-proximate-fierpower.html",
+        "/ploys/hearthkyn-salvagers-ancestors-are-watching.html",
+        "/ploys/hearthkyn-salvagers-worth-it.html",
+        "/ploys/hearthkyn-salvagers-sturdy.html",
+        "/ploys/hearthkyn-salvagers-engage-to-acquire.html"
+    ],
+    "units": [
+        "/units/hearthkyn-salvagers-theyn.html",
+        "/units/hearthkyn-salvagers-dozr.html",
+        "/units/hearthkyn-salvagers-field-medic.html",
+        "/units/hearthkyn-salvagers-grenadier.html",
+        "/units/hearthkyn-salvagers-gunner.html",
+        "/units/hearthkyn-salvagers-jump-pack-warrior.html",
+        "/units/hearthkyn-salvagers-kinlynk.html",
+        "/units/hearthkyn-salvagers-kognitaar.html",
+        "/units/hearthkyn-salvagers-lokatr.html",
+        "/units/hearthkyn-salvagers-lugger.html",
+        "/units/hearthkyn-salvagers-warrior.html"
+    ],
+    "teams": [
+        "/teams/hearthkyn-salvagers.html"
+    ]
+}
