@@ -207,7 +207,7 @@
             <Accordion Title="@grp.Key">
             @foreach (var team in grp) {
                 var myTeam = team;
-                <Accordion Title="@(team.Name)" Subtitle="@(team?.SourcePackage?.Author is null ? null : ("By " + team?.SourcePackage?.Author))">
+                <Accordion Title="@(team.Name)" Subtitle="@(team.SourcePackage?.Author is null ? null : ("By " + team.SourcePackage?.Author))">
                     <Accordion Title="Faction Rules">
                         @foreach (var rule in (team.FactionRuleIds ?? Enumerable.Empty<string>())) {
                             var ruleId = rule;
