@@ -1,8 +1,12 @@
 # Mission Cogitator
-A WH 40K KT companion app
+A WH 40K KT companion app. This web-app is entirely fan made and has **no** affiliation with any of the game's copyright holders. The app is purely designed to be used by myself, and my gaming group to allow for game tracking and rule lookup. It is not designed for wider user than that. 
+
+Content used in this app was obtained from publicly available .pdfs provided officially by the game's owners. The .pdfs from which the written content was pulled can be found on the game's official website [here](https://www.warhammer-community.com/en-gb/downloads/kill-team/).
 
 - [Mission Cogitator](#mission-cogitator)
   - [For Users](#for-users)
+    - [App Layout](#app-layout)
+    - [Basic Usage Flow](#basic-usage-flow)
   - [For Developers](#for-developers)
     - [Building Procedure](#building-procedure)
     - [Packages](#packages)
@@ -11,8 +15,76 @@ A WH 40K KT companion app
 
 
 ## For Users
+The following information is for individuals who wish to use this app for their own personal use. 
+
+> [!NOTE]  
+> The app is designed to be usable both on mobile and desktop devices. However screenshots will be shown as if on a mobile device since that is how the majority of people are expected to use this.
+
+### App Layout
+<table>
+    <tr>
+        <td><img src='screenshots/page-layout.png'/></td>
+        <td>
+            <h3>Main Page</h3>
+            <p>
+                The main page is the core of the application, it consists of a header and game point tracker. Both of which are always visible, and a content pane whose contents will change based on where you are in the app.
+            </p>
+            <ul>
+                <li><b>Header:</b> App header, use the ☰ icon to open the <i>datavault</i> menu or the 🛈 icon to set the content pane to the rules quick reference.</li>
+                <li><b>Point Tracker:</b> Track your game's state. Turning Point, command points, and victory points can be tracked here. If your KT has special rules that require another kind of point tracking, the <i>other</i> tracker can be used for that purpose.</li>
+                <li><b>Content Pane:</b> The contents of this area will change depending on where in the app you are. By default it loads up a rules quick reference guide.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><img src='screenshots/datavault.png'/></td>
+        <td>
+            <h3>Datavault Menu</h3>
+            <p>
+                A slide-out side menu allowing users to navigate among the different pages in the app. Use this to access rules, equipment, KT info, and your current game's deployment. A game setup wizard is also accessible here to help new players setting up games of WH 40K KT.
+            </p>
+            <ul>
+                <li><b>Close Menu:</b> Close the datavault menu and return focus to the content pane.</li>
+                <li><b>Search Rules:</b> Open a popup dialogue to search through all rules, definitions, equipment etc recorded in the app.</li>
+                <li><b>Your Deployment:</b> Manage the operatives, equipment, ploys, and faction rules for the KT you are currently playing as. This is easily configured by using the <b>Game Setup Wizard</b></li>
+                <li><b>Codex Militaris:</b> A database of all KTs currently available in the app including what operatives they can field, what rules they have, and any unique equipment.</li>
+                <li><b>Rules:</b> A collection of the basic rules to WH 40k KT organized in the order in which they are needed.</li>
+                <li><b>Game Setup Wizard:</b> Open a popup which guides you through the process of setting up a game of WH 40k KT. At the end of the process you will be ready to play and the <b>Your Deployment:</b> section will be completely filled out.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><img src='screenshots/operator.png'/></td>
+        <td>
+            <h3>Operator Content View</h3>
+            <p>
+                This page is meant to look as close as possible to the unit data cards provided by the official PDFs. However this page adds some interactable elements to it adding wound and status tracking as well as quick rule lookup.
+            </p>
+            <ul>
+                <li><b>Wound Tracking:</b> Click on the wounds to add or remove wounds. Operative's injury status will be auto determined based on how many wounds they have.</li>
+                <li><b>Status/Effect Tracking:</b> Track the current status of your unit. Is your unit injured, poisoned, stuck with a markerlight? Now you can track those effects. Click the Add button to add an effect, click an effect to learn what it does, and Click+Hold or Right Click an effect to remove it.</li>
+                <li><b>Weapon Info:</b> A table of weapons the operative can use with their attack die, hit, and damage numbers.</li>
+                <li><b>WR Lookup:</b> A list of WR for the given weapon, click the rule to see what it does.</li>
+                <li><b>Attack Roll:</b> Click a weapon's attack number to bring up a virtual dice roller to make your attack roll.</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+### Basic Usage Flow
+The basic flow is as follows:
+1. Open the app, wait for loading to be done (this may take a minute)
+2. Open the datavault menu (sidebar)
+   1. Click the **Game Setup Wizard** at the bottom of the menu
+      1. Chose your KT, Operatives, and Equipment
+      2. Follow all instructions to setup your board
+   2. Navigate to the **Your Deployment** section of the menu
+      1. Track operative wounds, status etc
+      2. Lookup WR, faction rules, or actions
+3. Enjoy your game without having to flip through multiple printed books or pdfs. 
 
 ## For Developers
+The following information is for individuals who wish to contribute to this app and the app's contents. 
 
 ### Building Procedure
 1. Install [dotnet SDK](https://dotnet.microsoft.com/en-us/download) 10+
