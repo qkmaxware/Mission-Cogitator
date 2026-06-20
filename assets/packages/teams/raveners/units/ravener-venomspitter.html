@@ -1,0 +1,75 @@
+---
+{
+    "name": "Ravener Venomspitter",
+    "tags": ["Tyranid", "Great Devourer", "Venomspitter"],
+    "attributes": {
+        "apl": 3,
+        "move": 7,
+        "save": 5, 
+        "wounds": 20
+    },
+    "weapons": [
+        {
+            "name": "Pincer tail",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 3},
+                {"id": "silent"}
+            ]
+        },
+        {
+            "name": "Venom bolt (blast)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "blast", "x": 2},
+                {"id": "raveners-wr-poison"}
+            ]
+        },
+        {
+            "name": "Venom bolt (focused)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "range", "x": 8},
+                {"id": "piercing", "x": 1},
+                {"id": "raveners-wr-poison"}
+            ]
+        },
+
+        {
+            "name": "Scything talons",
+            "kind": "melee",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+            ]
+        }
+    ],
+    "rules": [
+        "raveners-burrow",
+        "raveners-distend-dorsal-sac"
+    ]
+}
+---

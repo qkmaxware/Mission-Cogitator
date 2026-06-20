@@ -1,0 +1,46 @@
+{
+    "name": "Raveners",
+    "updated": "17/12/2025",
+    "definitions": [
+        "/definitions/raveners-tunnel.html",
+        "/definitions/raveners-predatory-instincts.html",
+
+        "/definitions/raveners-wr-crush.html",
+        "/definitions/raveners-wr-poison.html"
+    ],
+    "actions": [
+        "/actions/raveners-burrow.html",
+        "/actions/raveners-distend-dorsal-sac.html",
+        "/actions/raveners-toxic-lunge.html"
+    ],
+    "effects": [
+        "/effects/raveners-poisoned.html"
+    ],
+    "equipment": [
+        "/equipment/raveners-chromatospore-camouflage.html",
+        "/equipment/raveners-acid-blood.html",
+        "/equipment/raveners-metamorphic-flesh.html",
+        "/equipment/raveners-heightened-senses.html"
+    ],
+    "ploys": [
+        "/ploys/raveners-death-from-below.html",
+        "/ploys/raveners-whipcord-emergence.html",
+        "/ploys/raveners-writhe-out-of-sight.html",
+        "/ploys/raveners-tunnel-lurkers.html",
+        "/ploys/raveners-slithering-evasion.html",
+        "/ploys/raveners-subterranean-horror.html",
+        "/ploys/raveners-burrowing-strike.html",
+        "/ploys/raveners-death-frenzy.html"
+    ],
+    "units": [
+        "/units/ravener-prime.html",
+        "/units/ravener-felltalon.html",
+        "/units/ravener-tremorscythe.html",
+        "/units/ravener-venomspitter.html",
+        "/units/ravener-warrior.html",
+        "/units/ravener-wrecker.html"
+    ],
+    "teams": [
+        "/teams/raveners"
+    ]
+}

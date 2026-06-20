@@ -1,0 +1,50 @@
+---
+{
+    "name": "Ravener Wrecker",
+    "tags": ["Tyranid", "Great Devourer", "Wrecker"],
+    "attributes": {
+        "apl": 3,
+        "move": 7,
+        "save": 4, 
+        "wounds": 20
+    },
+    "weapons": [
+        {
+            "name": "Bone mace",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 3},
+                {"id": "piercing", "x": 1},
+                {"id": "silent"}
+            ]
+        },
+
+        {
+            "name": "Scything talons & crushing claws",
+            "kind": "melee",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "raveners-wr-crush"}
+            ]
+        }
+    ],
+    "rules": [
+        "raveners-burrow"
+    ]
+}
+---
+<p>
+    <b>Reinforced Carapace:</b> Normal and Critical Dmg of 4 or more 
+inflicts 1 less damage on this operative.
+</p>

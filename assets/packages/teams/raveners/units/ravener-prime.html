@@ -1,0 +1,80 @@
+---
+{
+    "name": "Ravener Prime",
+    "tags": ["Tyranid", "Great Devourer", "Leader", "Rime"],
+    "attributes": {
+        "apl": 3,
+        "move": 7,
+        "save": 5, 
+        "wounds": 21
+    },
+    "weapons": [
+        {
+            "name": "Tail blade",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 3},
+                {"id": "rending"},
+                {"id": "silent"}
+            ]
+        },
+
+        {
+            "name": "Scything talons & rending claws",
+            "kind": "melee",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "rending"}
+            ]
+        }
+    ],
+    "rules": [
+        "raveners-burrow"
+    ]
+}
+---
+<p>
+    <b>Neuropredatory Crest:</b> Whenever determining control of a marker, treat the 
+total APL stat of enemy operatives that contest it as 1 lower if at least one of 
+those enemy operatives is within 3" of this operative. Note this isn't a change 
+to the APL stat, so any changes are cumulative with this. Whenever an enemy 
+operative is within 3" of this operative:
+</p>
+<ul>
+    <li>
+        Your opponent must spend 1 additional AP for that enemy operative to 
+perform the <see cref="pick-up-marker">Pick Up Marker</see> and mission actions.
+    </li>
+    <li>
+        Your opponent cannot re-roll their attack or defence dice for that operative.
+    </li>
+</ul>
+
+<p>
+    <b>Synaptic Link: </b>STRATEGIC GAMBIT if this 
+operative isn't incapacitated. Roll one D6 and 
+compare the result to the number of the current 
+turning point; if the result is:
+</p>
+<ul>
+    <li>
+        Twice as high or higher, you gain 1CP.
+    </li>
+    <li>
+        Less, inflict damage on this operative equal to the result.
+    </li>
+    <li>
+        Any other result, nothing happens.
+    </li>
+</ul>
