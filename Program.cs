@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Kt;
 using Kt.Data;
 using Kt.Data.IO;
+using Microsoft.JSInterop;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -15,7 +16,13 @@ builder.Services.AddScoped(sp => new TeamsDatabase());
 builder.Services.AddScoped(sp => new PackageManager(sp.GetService<JsConsole>()!, sp.GetService<HttpClient>()!, sp.GetService<RuleDatabase>()!, sp.GetService<TeamsDatabase>()!));
 
 var app = builder.Build();
+var js = app.Services.GetService<IJSRuntime>()!;
 
+async Task updateProgress(int step, int maxSteps, string? title = null)
+{
+    var percent = Math.Clamp((int)MathF.Floor(((float)step/(float)maxSteps) * 100), 0 , 100);
+    await js.InvokeVoidAsync("updateLoader", percent, title);
+}
 
 string[] packages = [
     "assets/packages/lite-rules",
@@ -29,9 +36,12 @@ string[] packages = [
     "assets/packages/teams/raveners",
 ];
 var packageManager = app.Services.GetService<PackageManager>()!;
-foreach (var pkgName in packages)
+await updateProgress(0, packages.Length - 1, "Loading Asset Packs...");
+for (var i = 0; i < packages.Length; i++)
 {
-    await packageManager.AddFromUrl(pkgName);    
+    var pkgName = packages[i];
+    await packageManager.AddFromUrl(pkgName);  
+    await updateProgress(i + 1, packages.Length - 2);  
 }
 
 await app.RunAsync();

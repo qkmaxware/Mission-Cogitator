@@ -18,11 +18,12 @@
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
+        <header id="loading-header" class="loading-progress-heading">Loading App...</header>
+        <svg id="loading-spinner" class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
             <circle r="40%" cx="50%" cy="50%" />
         </svg>
-        <div class="loading-progress-text"></div>
+        <div id="loading-percent" class="loading-progress-text"></div>
     </div>
 
     <div id="blazor-error-ui">
@@ -30,6 +31,20 @@
         <a href="." class="reload">Reload</a>
         <span class="dismiss">🗙</span>
     </div>
+    <script>
+        const loadingHeader = document.getElementById("loading-header");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        const loadingPercent = document.getElementById("loading-percent");
+        window.updateLoader = function(percent, title) {
+            var percentStr = percent + '%';
+            document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
+            document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
+
+            if (title) {
+                loadingHeader.innerText = title;
+            }
+        }
+    </script>
     <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
     <script>
         window.downloadFileFromStream = async (fileName, contentStreamReference) => {
