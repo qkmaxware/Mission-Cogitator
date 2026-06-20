@@ -42,5 +42,8 @@
     ],
     "teams": [
         "/teams/raveners"
-    ]
+    ],
+    "aliases": {
+        "raveners-wr-poison": ["poison"]
+    }
 }
