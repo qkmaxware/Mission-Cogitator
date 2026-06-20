@@ -38,7 +38,6 @@
         window.updateLoader = function(percent, title) {
             var percentStr = percent + '%';
             document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
-            document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
 
             if (title) {
                 loadingHeader.innerText = title;
