@@ -3,7 +3,8 @@
     "updated": "29/04/2026",
     "definitions": [
         "/definitions/battleclade-noospheric-network.html",
-        "/definitions/battleclade-network-counteract.html"
+        "/definitions/battleclade-network-counteract.html",
+        "/definitions/battleclade-mechanosuture-array.html"
     ],
     "actions": [
         "/actions/battleclade-omniscanner.html",

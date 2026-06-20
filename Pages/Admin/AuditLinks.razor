@@ -9,13 +9,33 @@
 
 <div class="w3-padding">
 
-<label>Package Filter:</label>
-<input type="text" class="w3-input" @bind=package_filter placeholder="Package Filter (case-insensitive contains)"/>
+
 
 <section>
     <header>Missing Links</header>
     <p>
         Find potential missing links within package contents. Missing links are defined as items of text in a document which happen to match the name of another document but are not already surrounded by a &lt;see&gt; tag to that document.
+        <hr />
+        <button class="w3-button app-primary" style="width: 100%" @onclick=FindAllLinks>List All Links</button>
+        <table class="w3-table w3-striped">
+            <thead>
+                <th>Source</th>
+                <th>Link ID</th>
+            </thead>
+            <tbody>
+                @if (allRules is not null) {
+                    foreach (var link in allRules) {
+                        <tr>
+                            <td>@link?.SourcePackage?.Name / @link?.Name</td>
+                            <td>@link?.Id</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <label>Rule Filter:</label>
+        <input type="text" class="w3-input" @bind=rule_filter_missing placeholder="Rule Filter (case-insensitive contains)"/>
         <button class="w3-button app-primary" style="width: 100%" @onclick=FindMissingLinks>Find Missing Links</button>
         <table class="w3-table w3-striped">
             <thead>
@@ -39,38 +59,8 @@
         </table>
     </p>
 </section>
-
-<section>
-    <header>Broken Links</header>
-    <p>
-        Find broken links. Broken links are those defined as &lt;see&gt; tags whose cref points to a non-existent document. This could be due to a simple mistype or the document hasn't been created yet.
-        <button class="w3-button app-primary" style="width: 100%" @onclick=FindBrokenLinks>Find Broken Links</button>
-        <table class="w3-table w3-striped">
-            <thead>
-                <th>Source</th>
-                <th>UID</th>
-                <th>Position</th>
-            </thead>
-            <tbody>
-                @if (brokenLinks is not null) {
-                    foreach (var link in brokenLinks) {
-                        <tr>
-                            <td>@link.Source?.SourcePackage?.Name / @link.Source?.Name (@link.Source?.Id)</td>
-                            <td>@link.LinkId</td>
-                            <td>@link.Position</td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
-    </p>
-</section>
-
-</div>
-
 @code {
-
-    private string? package_filter;
+    private string? rule_filter_missing;
 
     private class MissingLink {
         public IPackagedContent? Source {get; set;}
@@ -78,16 +68,33 @@
         public string? MatchedText { get; set; }
         public int Position { get; set; }
     }
-
+    private List<IPackagedContent>? allRules;
     private List<MissingLink>? missingLinks;
+
+    public void FindAllLinks() {
+        allRules = ruledb.AllRules.Cast<IPackagedContent>()
+            .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
+            .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
+            .ToList();
+    }
 
     public void FindMissingLinks() {
         FindMissingLinks(
+            // All rules
+            ruledb.AllRules.Cast<IPackagedContent>()
+            .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
+            .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>()),
+            
+            // All rules matching the filter
             ruledb.AllRules.Cast<IPackagedContent>()
             .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
             .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
             
-            .Where(item => item.SourcePackage?.Name is null || package_filter is null || item.SourcePackage.Name.Contains(package_filter, StringComparison.CurrentCultureIgnoreCase))
+            .Where(item => 
+                rule_filter_missing is null 
+                || (item.Name is not null && item.Name.Contains(rule_filter_missing, StringComparison.CurrentCultureIgnoreCase))
+                || (item.Id is not null && item.Id.Contains(rule_filter_missing, StringComparison.CurrentCultureIgnoreCase))
+            )
         );
     }
     private static Regex makeRegex(string id, string name) {
@@ -97,26 +104,27 @@
 
         return new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
     }
-    public void FindMissingLinks(IEnumerable<IPackagedContent> pages) {
-        var pageList = pages.ToList();
+    public void FindMissingLinks(IEnumerable<IPackagedContent> sourcePages, IEnumerable<IPackagedContent> targetPages) {
+        List<IPackagedContent>? sourcePageList = sourcePages.ToList();
+        List<IPackagedContent>? targetPageList = targetPages.ToList();
         var results = new List<MissingLink>();
 
-        var patterns = new List<Regex>(pageList.Count);
-        foreach (var page in pageList)
+        var patterns = new List<Regex>(targetPageList.Count);
+        foreach (var page in targetPageList)
             if (!string.IsNullOrEmpty(page.Id) && !string.IsNullOrEmpty(page.Name))
                 patterns.Add(makeRegex(page.Id, page.Name));
 
-        for (var i = 0; i < pageList.Count; i++) {
-            var sourcePage = pageList[i];
+        for (var i = 0; i < sourcePageList.Count; i++) {
+            var sourcePage = sourcePageList[i];
             if (sourcePage.Description is null)
                 continue;
 
-            for (var j = 0; j < pageList.Count; j++) {
-                if (i == j)
-                    continue;
-
-                var targetPage = pageList[j];
+            for (var j = 0; j < targetPageList.Count; j++) {
                 var targetPagePattern = patterns[j];
+                var targetPage = targetPageList[j];
+
+                if (ReferenceEquals(sourcePage, targetPage))
+                    continue;
 
                 foreach (Match match in targetPagePattern.Matches(sourcePage.Description)) {
                     if (!match.Success)
@@ -210,6 +218,38 @@
 
         return false;
     }
+}
+
+<section>
+    <header>Broken Links</header>
+    <p>
+        Find broken links. Broken links are those defined as &lt;see&gt; tags whose cref points to a non-existent document. This could be due to a simple mistype or the document hasn't been created yet.
+        <hr />
+        <label>Package Filter:</label>
+        <input type="text" class="w3-input" @bind=package_filter_broken placeholder="Package Filter (case-insensitive contains)"/>
+        <button class="w3-button app-primary" style="width: 100%" @onclick=FindBrokenLinks>Find Broken Links</button>
+        <table class="w3-table w3-striped">
+            <thead>
+                <th>Source</th>
+                <th>UID</th>
+                <th>Position</th>
+            </thead>
+            <tbody>
+                @if (brokenLinks is not null) {
+                    foreach (var link in brokenLinks) {
+                        <tr>
+                            <td>@link.Source?.SourcePackage?.Name / @link.Source?.Name (@link.Source?.Id)</td>
+                            <td>@link.LinkId</td>
+                            <td>@link.Position</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </p>
+</section>
+@code {
+    private string? package_filter_broken;
 
     private class BrokenLink {
         public IPackagedContent? Source {get; set;}
@@ -223,7 +263,7 @@
             .Concat(teamdb.AllTeams.Cast<IPackagedContent>())
             .Concat(teamdb.AllTeams.SelectMany(t => t.Units ?? Enumerable.Empty<Unit>()).Distinct().Cast<IPackagedContent>())
 
-            .Where(item => item.SourcePackage?.Name is null || package_filter is null || item.SourcePackage.Name.Contains(package_filter, StringComparison.CurrentCultureIgnoreCase))
+            .Where(item => item.SourcePackage?.Name is null || package_filter_broken is null || item.SourcePackage.Name.Contains(package_filter_broken, StringComparison.CurrentCultureIgnoreCase))
         );
     }
 
@@ -259,3 +299,5 @@
     }
     
 }
+
+</div>
