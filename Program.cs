@@ -41,7 +41,7 @@ for (var i = 0; i < packages.Length; i++)
 {
     var pkgName = packages[i];
     await packageManager.AddFromUrl(pkgName);  
-    await updateProgress(i + 1, packages.Length - 2);  
+    await updateProgress(i + 1, packages.Length - 1);  
 }
 
 await app.RunAsync();
