@@ -39,9 +39,9 @@ A single file at the package root called `index.json`. This file describes the c
 For instance a simple `index.json` may look something like this
 ```json
 {
-  "equipment": [
-    "/my-equipment.html"
-  ]
+    "equipment": [
+        "/my-equipment.html"
+    ]
 }
 ```
 
@@ -50,7 +50,7 @@ Besides the `index.json` file, the rest of the package consists of `*.html` file
 ```html
 ---
 {
-  "name": "My Equipment"
+    "name": "My Equipment"
 }
 ---
 This is a custom homebrew piece of equipment that does the thing.
@@ -72,15 +72,15 @@ Start your package by making a new folder with the name of your package; for ins
 > **FILE**: index.json
 ```json
 {
-    "name": "My Custom Package",
-    "updated": "01/02/2023",
-    "definitions": [],
-    "actions": [],
-    "effects": [],
-    "equipment": [],
-    "ploys": [],
-    "units": [],
-    "teams": []
+    "name": "My Custom Package",
+    "updated": "01/02/2023",
+    "definitions": [],
+    "actions": [],
+    "effects": [],
+    "equipment": [],
+    "ploys": [],
+    "units": [],
+    "teams": []
 }
 ```
 
@@ -90,7 +90,7 @@ Now we add resources. Start with simple ones like equipment or ploys. These are 
 ```html
 ---
 {
-  "name": "Fire Storm"
+    "name": "Fire Storm"
 }
 ---
 Summon the powers of Chaos to generate a whirlpool of fire within 3" of the operative. Can only be used once per game...
@@ -100,11 +100,11 @@ Be sure to add the file to the `index.json` or it won't be loaded when loading t
 > **FILE**: index.json
 ```json
 {
-  "name": "My Custom Package",
-  "updated": "01/02/2026",
-  "equipment": [
-    "/equipment/fire-storm.html"
-  ]
+    "name": "My Custom Package",
+    "updated": "01/02/2026",
+    "equipment": [
+        "/equipment/fire-storm.html"
+    ]
 }
 ```
 

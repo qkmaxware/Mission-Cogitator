@@ -5,6 +5,10 @@
         } else {
             <span class="chevron up"></span>
         }
+        @if (!string.IsNullOrEmpty(Subtitle)) {
+            <br />
+            <small><i>@Subtitle</i></small>
+        }
     </button>
     <div class="accordion-content w3-border-light-grey @MenuCssClass" style="min-height: 1em;">
     @ChildContent
@@ -14,6 +18,7 @@
 @code {
     [Parameter] public bool InitiallyExpand {get; set;}
     [Parameter] public string? Title {get; set;}
+    [Parameter] public string? Subtitle {get; set;}
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
