@@ -35,13 +35,14 @@ string[] packages = [
     "assets/packages/teams/hearthkyn-salvagers",
     "assets/packages/teams/raveners",
 ];
+var lastPackage = packages.Length - 1;
 var packageManager = app.Services.GetService<PackageManager>()!;
-await updateProgress(0, packages.Length - 1, "Loading Asset Packs...");
-for (var i = 0; i < packages.Length; i++)
+await updateProgress(0, lastPackage, "Loading Asset Packs...");
+for (int i = 0, next=1; i < packages.Length; i++, next++)
 {
     var pkgName = packages[i];
     await packageManager.AddFromUrl(pkgName);  
-    await updateProgress(i + 1, packages.Length - 1);  
+    await updateProgress(next, lastPackage);  
 }
 
 await app.RunAsync();
