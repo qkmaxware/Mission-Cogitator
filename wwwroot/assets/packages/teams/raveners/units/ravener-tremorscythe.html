@@ -1,0 +1,66 @@
+---
+{
+    "name": "Ravener Tremorscythe",
+    "tags": ["Tyranid", "Great Devourer", "Tremorscythe"],
+    "attributes": {
+        "apl": 3,
+        "move": 7,
+        "save": 5, 
+        "wounds": 20
+    },
+    "weapons": [
+        {
+            "name": "Pincer tail",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "range", "x": 3},
+                {"id": "silent"}
+            ]
+        },
+
+        {
+            "name": "Scything talons & rending claws",
+            "kind": "melee",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "rending"}
+            ]
+        }
+    ],
+    "rules": [
+        "raveners-burrow"
+    ]
+}
+---
+<p>
+    <b>Subterranean Ambush:</b> Once per turning point, after an enemy operative performs an action in 
+which it moves more than 2" and ends within 2" of your <see cref="raveners-tunnel">TUNNEL</see>, if this operative is underground 
+and is either ready or hasn't counteracted during this turning point, you can interrupt that enemy 
+operative's activation/counteraction to use this rule.
+</p>
+<p>
+    If you do, activate or counteract with this operative (as appropriate), but during its activation/
+counteraction it must <see cref="fight">fight</see> against or <see cref="shoot">shoot</see> against that enemy operative, and cannot do so 
+against any other enemy operatives until it does (if this isn't possible, this operative's activation/
+counteraction is cancelled and this rule hasn't been used). After completing this operative's 
+activation/counteraction, continue that enemy operative's activation/counteraction (if possible).
+</p>
+<p>
+    <b>Hypersensory Hunter:</b> This operative can perform 
+the <see cref="charge">Charge</see> action while 
+it has a <see cref="conceal">Conceal order</see> if it 
+performed the <see cref="raveners-burrow">Burrow</see> action 
+during the same activation/
+counteraction.
+</p>

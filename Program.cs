@@ -16,14 +16,22 @@ builder.Services.AddScoped(sp => new PackageManager(sp.GetService<JsConsole>()!,
 
 var app = builder.Build();
 
-var packages = app.Services.GetService<PackageManager>()!;
-await packages.AddFromUrl("assets/packages/lite-rules");
-await packages.AddFromUrl("assets/packages/universal-equipment");
-await packages.AddFromUrl("assets/packages/teams/pathfinders");
-await packages.AddFromUrl("assets/packages/teams/angels-of-death");
-await packages.AddFromUrl("assets/packages/teams/deathwatch");
-await packages.AddFromUrl("assets/packages/teams/vespid-stingwings");
-await packages.AddFromUrl("assets/packages/teams/battleclade");
-await packages.AddFromUrl("assets/packages/teams/hearthkyn-salvagers");
+
+string[] packages = [
+    "assets/packages/lite-rules",
+    "assets/packages/universal-equipment",
+    "assets/packages/teams/pathfinders",
+    "assets/packages/teams/angels-of-death",
+    "assets/packages/teams/deathwatch",
+    "assets/packages/teams/vespid-stingwings",
+    "assets/packages/teams/battleclade",
+    "assets/packages/teams/hearthkyn-salvagers",
+    "assets/packages/teams/raveners",
+];
+var packageManager = app.Services.GetService<PackageManager>()!;
+foreach (var pkgName in packages)
+{
+    await packageManager.AddFromUrl(pkgName);    
+}
 
 await app.RunAsync();
