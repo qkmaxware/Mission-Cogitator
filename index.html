@@ -7,7 +7,7 @@
     <title>Mission-Cogitator</title>
     <base href="/Mission-Cogitator/" />
     <link rel="manifest" href="manifest.json">
-    <link href="_framework/dotnet.dj61ous6iy.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-p5izDslOHPWssTvcSYSzPDoNGmeVoQMgXEw7aE/ctp0=" />
+    <link href="_framework/dotnet.pouifkxk7h.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-2brrH4m3HwZPIDqxIB3umvItsrvRW14QfMeD3C7tLvc=" />
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/blazor.css" />
@@ -16,18 +16,18 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.958z1vx7fr.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.dj61ous6iy.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.ikrs475e5v.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.pouifkxk7h.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.a6jcqbs390.js"
   },
   "scopes": {},
   "integrity": {
     "./_framework/blazor.webassembly.958z1vx7fr.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
     "./_framework/blazor.webassembly.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
-    "./_framework/dotnet.dj61ous6iy.js": "sha256-p5izDslOHPWssTvcSYSzPDoNGmeVoQMgXEw7aE/ctp0=",
-    "./_framework/dotnet.js": "sha256-p5izDslOHPWssTvcSYSzPDoNGmeVoQMgXEw7aE/ctp0=",
+    "./_framework/dotnet.js": "sha256-2brrH4m3HwZPIDqxIB3umvItsrvRW14QfMeD3C7tLvc=",
     "./_framework/dotnet.native.ikrs475e5v.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.native.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
+    "./_framework/dotnet.pouifkxk7h.js": "sha256-2brrH4m3HwZPIDqxIB3umvItsrvRW14QfMeD3C7tLvc=",
     "./_framework/dotnet.runtime.a6jcqbs390.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
     "./_framework/dotnet.runtime.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M="
   }
@@ -36,11 +36,12 @@
 
 <body>
     <div id="app">
-        <svg class="loading-progress">
+        <header id="loading-header" class="loading-progress-heading">Loading App...</header>
+        <svg id="loading-spinner" class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
             <circle r="40%" cx="50%" cy="50%" />
         </svg>
-        <div class="loading-progress-text"></div>
+        <div id="loading-percent" class="loading-progress-text"></div>
     </div>
 
     <div id="blazor-error-ui">
@@ -48,6 +49,20 @@
         <a href="." class="reload">Reload</a>
         <span class="dismiss">🗙</span>
     </div>
+    <script>
+        const loadingHeader = document.getElementById("loading-header");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        const loadingPercent = document.getElementById("loading-percent");
+        window.updateLoader = function(percent, title) {
+            var percentStr = percent + '%';
+            document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
+            document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
+
+            if (title) {
+                loadingHeader.innerText = title;
+            }
+        }
+    </script>
     <script src="_framework/blazor.webassembly.958z1vx7fr.js"></script>
     <script>
         window.downloadFileFromStream = async (fileName, contentStreamReference) => {

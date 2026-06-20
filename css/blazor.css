@@ -67,6 +67,15 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
+.loading-progress-heading {
+    position: absolute;
+    display: block;
+    width: 100%;
+    font-size: large;
+    top: calc(20vh - 2em);
+    text-align: center;
+}
+
 .loading-progress {
     position: absolute;
     display: block;
