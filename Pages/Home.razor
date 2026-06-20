@@ -206,7 +206,7 @@
     private Kt.Data.IO.Pkg? userPkg = null;
     private Exception? userPkgException = null;
     private async Task importUserPackage(InputFileChangeEventArgs e) {
-        cancelPkg();
+        await cancelPkg();
 
         using var remote = e.File.OpenReadStream();
 
