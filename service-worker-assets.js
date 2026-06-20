@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "VoTyL8wI",
+  "version": "kxvpbr6/",
   "assets": [
     {
       "hash": "sha256-Nc9WGcQ/Y5+a5jon90XsZp9bS1OH9kyiT8f57GiDuuM=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-5NF6Yuou/TIbvVbsBkEypTnXxDVAc7CU64ENGDMl/F8=",
-      "url": "_framework/Kt.sygw4wzavf.wasm"
+      "hash": "sha256-aCPtbR/hrBDV7nlXhpgR6OekgxW/GoD7FvotqZ4XFmY=",
+      "url": "_framework/Kt.8cmirklqy3.wasm"
     },
     {
       "hash": "sha256-GachBk5BHgrpaeO9o8QgqgUye80/dzuT/5XaYxdjYqA=",
@@ -210,16 +210,16 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-SmsXtf5z/ZZ0PVPRdHEyNHnaqErrSQpcYMwIT/iVhEQ=",
+      "url": "_framework/dotnet.a8u18tkdyz.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
     {
       "hash": "sha256-iQOJ2Ignl/X3n6mOHRQ4zWYcute0MGlaiRFi2J3HXWk=",
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
-    },
-    {
-      "hash": "sha256-iHIr5LIzYTGblQJJIpgYPyLtwj9ls35jGuqpQYf2w8o=",
-      "url": "_framework/dotnet.o4hz8drpl5.js"
     },
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -782,7 +782,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/battleclade/units/battleclade-technoarcheologist.html"
     },
     {
-      "hash": "sha256-9t1tRB4JgyYXN4H9oWYT2X7TDw5aM1snhjb+cxZRur0=",
+      "hash": "sha256-cyG3dl0JHTJF6cOVi67yMjJb6o+d6bDl8RXKXlYYkzY=",
       "url": "assets/packages/teams/battleclade/units/battleclade-technomedic-servitor.html"
     },
     {
@@ -1522,7 +1522,7 @@ self.assetsManifest = {
       "url": "icon-192.png"
     },
     {
-      "hash": "sha256-LMLJUJTAe8kmKtxRddWbIgA/wYLotGlOutDcU1FRQa4=",
+      "hash": "sha256-yUvkxwVdpxQIQTyXZNNndC36HQjSJ49FQbJJS9r8JJA=",
       "url": "index.html"
     },
     {
