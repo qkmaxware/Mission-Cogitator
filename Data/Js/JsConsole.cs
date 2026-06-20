@@ -1,6 +1,6 @@
 using Microsoft.JSInterop;
 
-namespace Kt.Data.IO;
+namespace Kt.Data.JsInterop;
 
 public class JsConsole
 {

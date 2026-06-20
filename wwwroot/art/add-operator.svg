@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="8mm"
+   height="8mm"
+   viewBox="0 0 8 8"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="add-operator.svg"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#333333"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="13.047266"
+     inkscape:cx="17.973114"
+     inkscape:cy="16.133648"
+     inkscape:window-width="1680"
+     inkscape:window-height="979"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#505050" /><defs
+     id="defs2" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"><g
+       aria-label="🖶"
+       id="text1079"
+       style="font-size:10.5833px;line-height:1.2;font-family:Consolas;-inkscape-font-specification:Consolas;fill:#ffffff;stroke-width:0.264583"
+       transform="matrix(1.0460131,0,0,1.0460131,-81.715378,-49.322919)"><path
+         id="rect3"
+         style="fill:#ff6600;stroke:#f9f9f9;stroke-width:0.17017;stroke-linecap:round;stroke-linejoin:round"
+         d="m 79.438988,49.460423 v 0.814165 h -0.824046 v 0.872462 h 0.824046 v 0.814165 H 80.40828 V 51.14705 h 0.824046 V 50.274588 H 80.40828 v -0.814165 z" /><circle
+         style="fill:#ff6600;stroke:#f9f9f9;stroke-width:0.17017;stroke-linecap:round;stroke-linejoin:round"
+         id="path4"
+         cx="82.986885"
+         cy="49.479668"
+         r="1.3764619" /><path
+         id="path5"
+         style="fill:#ff6600;stroke:#f9f9f9;stroke-width:0.180352;stroke-linecap:round;stroke-linejoin:round"
+         d="m 83.025805,51.171447 a 2.2825499,2.5753218 0 0 0 -2.282772,2.575017 2.2825499,2.5753218 0 0 0 0.0138,0.284196 h 4.537448 a 2.2825499,2.5753218 0 0 0 0.0138,-0.284196 2.2825499,2.5753218 0 0 0 -2.28228,-2.575017 z" /></g></g></svg>

@@ -14,8 +14,8 @@
                 <h5>@Rule.SourcePackage.Name @if(Rule.SourcePackage.Updated is not null){ <text> (updated: @Rule.SourcePackage.Updated)</text> }</h5>
             }
             @if(Rule is Kt.Data.Action act){
-   <span class="w3-display-right w3-xlarge w3-margin-right">@act.Ap AP</span>
-}
+                <span class="w3-display-right w3-xlarge w3-margin-right">@act.Ap AP</span>
+            }
         </header>
         <article class="w3-padding w3-large">
             @RenderDescription(Rule?.Fmt())

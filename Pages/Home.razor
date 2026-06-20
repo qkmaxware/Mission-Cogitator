@@ -2,10 +2,13 @@
 @layout MainLayout
 
 @using System.Text.Json
+@using Kt.Data.JsInterop
 
 @inject RuleDatabase ruledb
 @inject TeamsDatabase teamdb
+@inject Kt.Data.IO.PackageManager packageManager
 @inject IJSRuntime js
+@inject JsPrompt prompts
 
 @using Kt.Data
 
@@ -35,7 +38,7 @@
 }
 
 <Modal @ref=setupWizardModal Title="Game Setup Wizard" Options="@Modal.Buttons.None" AllowTopX=true>
-    <SetupWizard @ref=setupWizard OnSetupComplete=setupWizardComplete></SetupWizard>
+    <SetupWizard @ref=setupWizard OnSetupComplete=setupWizardComplete OnSetupCancelled=cancelSetupWizard></SetupWizard>
 </Modal>
 <Modal @ref=addUnitToDeploymentModal Title="Deploy Unit" Options=@Modal.Buttons.OkayCancel OnOkay="addUnitToTeam">
     <label>Team:</label>
@@ -58,6 +61,19 @@
     </select>
     <label>Amount to Add:</label>
     <input type="number" class="w3-input" @bind=addAmt/>
+</Modal>
+<Modal @ref=addEqToDeploymentModal Title="Deploy Equipment" Options=@Modal.Buttons.OkayCancel OnOkay="addEqToTeam">
+    <label>Equipment:</label>
+    <select class="w3-select" value="@addEqId" @onchange=@((v) => addEqId = v.Value?.ToString() ?? string.Empty)>
+        <option></option>
+        @foreach (var eqgrp in (ruledb.AllEquipment ?? Enumerable.Empty<Equipment>()).GroupBy(x => x.SourcePackage?.Name)) {
+            <optgroup label="@eqgrp.Key">
+                @foreach (var eq in eqgrp) {
+                <option value="@eq.Id">@eq.Name</option>
+                }
+            </optgroup>
+        }
+    </select>
 </Modal>
 @code {
     private string? addFromTeamId;
@@ -103,6 +119,25 @@
             deployment.Units.Add(new DeployedUnit(addFromTeam, addUnit));
     }
 
+    private Modal? addEqToDeploymentModal;
+    private string? addEqId = null;
+    private async Task showAddEqModal() {
+        addEqId = null;
+         if (addEqToDeploymentModal is null)
+            return;
+        await addEqToDeploymentModal.Show();
+    }
+    private void addEqToTeam() {
+        if (string.IsNullOrEmpty(addEqId))
+            return;
+
+        var rule = ruledb.GetValue(addEqId);
+        if (rule is not Equipment eq)
+            return;
+
+        deployment.Equipment.Add(eq);
+    }
+
     private Modal? setupWizardModal {get; set;}
     private SetupWizard? setupWizard {get; set;}
     public async Task openSetupWizard() {
@@ -110,6 +145,10 @@
             await setupWizard.Restart();
         setupWizardModal?.OpenNavMenu();
     } 
+    public async Task cancelSetupWizard() {
+        setupWizardModal?.CloseNavMenu();
+        await InvokeAsync(StateHasChanged);
+    }
     public async Task setupWizardComplete(Deployment deployment) {
         this.deployment = deployment ?? this.deployment;
         setupWizardModal?.CloseNavMenu();
@@ -120,7 +159,7 @@
 <Modal @ref=importDeploymentModal Title="Load Deployment" Options=@Modal.Buttons.Cancel>
     <label>Upload Deployment JSON:</label>
     <div class="w3-padding w3-center">
-        <InputFile OnChange="deserializeDeployment" />
+        <InputFile OnChange="deserializeDeployment" accept=".json"/>
     </div>
 </Modal>
 @code {
@@ -129,6 +168,66 @@
         if (importDeploymentModal is null)
             return;
         await importDeploymentModal.Show();
+    }
+}
+
+<Modal @ref=importPackageModal Title="Load User Package" Options=@Modal.Buttons.OkayCancel OnCancel=cancelPkg OnOkay=confirmPkg>
+    <label>Upload Package ZIP:</label>
+    <div class="w3-padding w3-center">
+        <InputFile OnChange="importUserPackage" accept=".zip"/>
+    </div>
+    <br />
+    @if (userPkgException is not null) {
+    <div class="app-error w3-leftbar w3-container">
+        <label><b>Error:</b></label>
+        <p>
+            <pre>@userPkgException</pre>
+        </p>
+    </div>
+    }
+    @if (userPkg is not null) {
+    <div class="w3-leftbar w3-container">
+        <label><b>@userPkg.Name</b> by <i>@userPkg.Author</i> provides:</label>
+        <p class="comma-separated">
+            @foreach (var asset in userPkg.Provides()) {
+                <span>@asset.Id</span>
+            }
+        </p>
+    </div>
+    }
+</Modal>
+@code {
+    private Modal? importPackageModal;
+    private async Task showImportPackageModal() {
+        if (importPackageModal is null)
+            return;
+        await importPackageModal.Show();
+    }
+    private Kt.Data.IO.Pkg? userPkg = null;
+    private Exception? userPkgException = null;
+    private async Task importUserPackage(InputFileChangeEventArgs e) {
+        cancelPkg();
+
+        using var remote = e.File.OpenReadStream();
+
+        // Copy the file into local memory
+        using MemoryStream local = new MemoryStream();
+        await remote.CopyToAsync(local);
+        local.Position = 0;
+
+        try {
+            this.userPkg = Kt.Data.IO.Pkg.FromFile(local);
+        } catch (Exception ex) {
+            userPkgException = ex;
+        }
+    }
+    private async Task cancelPkg() {
+        userPkg = null;
+        userPkgException = null;
+    }
+    private async Task confirmPkg() {
+        packageManager.Import(userPkg);
+        userPkgException = null;
     }
 }
 
@@ -184,15 +283,15 @@
         <hr />
         <div class="w3-row">
             <div class="w3-col s6">
-                <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Operative</button>
+                <button class="w3-button w3-bar-item w3-center" @onclick=showAddUnitModal><img src="art/add-operator.svg" class="icon"/> Operative</button>
             </div>
             <div class="w3-col s6">
-                <button class="w3-button w3-bar-item" @onclick=showAddUnitModal>+ Equipment</button>
+                <button class="w3-button w3-bar-item w3-center" @onclick=showAddEqModal><img src="art/add-equipment.svg" class="icon"/> Equipment</button>
             </div>
         </div>
         <div class="w3-row">
             <div class="w3-col s4">
-                <span class="w3-bar-item">Deployment</span>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => { if(await prompts.ConfirmAsync("Are you sure you want to clear your current deployment?")){ deployment = new Deployment(); }})><img src="art/reload.svg" class="icon"/> Clear</button>
             </div>
             <div class="w3-col s4">
                 <button class="w3-button w3-bar-item" @onclick=serializeDeployment><img src="art/download.svg" class="icon"/> Save</button>
@@ -251,7 +350,7 @@
             </Accordion>
         }
         <hr />
-        <button class="w3-button w3-bar-item" @onclick="LoadCustomTeam">Load Custom Team Rules</button>
+        <button class="w3-button w3-bar-item" @onclick="showImportPackageModal"><img src="art/upload.svg" class="icon"/>Load User Package</button>
     </Accordion>
     <Accordion Title="Rules">
         <button class="w3-button w3-bar-item" @onclick=@(async () => { currentTab = Tab.QuickReference; navigator?.CloseNavMenu(); })>Quick Reference</button>
@@ -372,10 +471,6 @@
         this.selectedDeployment = new DeployedUnit(team, unit);
         this.navigator?.CloseNavMenu();
         this.currentTab = Tab.UnitTab;
-    }
-
-    private void LoadCustomTeam() {
-
     }
 
     private async Task serializeDeployment() {

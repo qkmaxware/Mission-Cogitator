@@ -24,9 +24,9 @@ public class FmHtmlDocument
     /// <summary>
     /// The part of the document representing the raw HTML
     /// </summary>
-    public ReadOnlySpan<char> Html => document.AsSpan(htmlStart);
+    public ReadOnlySpan<char> Html => htmlStart < document.Length ? document.AsSpan(htmlStart) : Span<char>.Empty;
 
-    private static Regex endRegex = new Regex(@"\n---\r?\n", RegexOptions.Compiled);
+    private static Regex endRegex = new Regex(@"\n---(?:\r?\n|$)", RegexOptions.Compiled);
 
     public FmHtmlDocument(string document)
     {

@@ -1,4 +1,5 @@
 using System.Diagnostics.Metrics;
+using Kt.Data.JsInterop;
 
 namespace Kt.Data.IO;
 
@@ -44,7 +45,7 @@ public class PackageManager
         Import(pkg);
     }
 
-    private void Import(Pkg? pkg)
+    public void Import(Pkg? pkg)
     {
         if (pkg is null)
             return;

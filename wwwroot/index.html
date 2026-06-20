@@ -36,8 +36,8 @@
         const loadingSpinner = document.getElementById("loading-spinner");
         const loadingPercent = document.getElementById("loading-percent");
         window.updateLoader = function(percent, title) {
-            var percentStr = percent + '%';
-            document.documentElement.style.setProperty('--blazor-load-percentage', percentStr);
+            document.documentElement.style.setProperty('--blazor-load-percentage', `${percent}%`);
+            document.documentElement.style.setProperty('--blazor-load-percentage-text', `"${percent}%"`);
 
             if (title) {
                 loadingHeader.innerText = title;

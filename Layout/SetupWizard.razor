@@ -1,5 +1,6 @@
 @using Kt.Data
 @using Kt.Data.IO
+@using Kt.Data.JsInterop
 @using Kt.Layout.SetupWizardPages
 
 @inject JsConsole console
@@ -28,7 +29,7 @@
 }
 <footer class="w3-row w3-center" style="width: 100%;">
     <div class="w3-col w3-padding" style="display: inline-block; width: 49.99999%">
-        <button class="w3-button app-error w3-round" style="width: 100%" @onclick=Previous>Previous</button>
+        <button class="w3-button app-error w3-round" style="width: 100%" @onclick=Previous>@if(IsAtStart){ <text>Cancel</text> }else{ <text>Previous</text> }</button>
     </div>
     <div class="w3-col w3-padding" style="display: inline-block; width: 49.99999%">
         <button class="w3-button app-primary w3-round" style="width: 100%" @onclick=Next>@if(IsAtEnd){ <text>Done</text> }else{ <text>Next</text> }</button>
@@ -65,8 +66,10 @@
 
     private string? advance_msg;
     public bool IsAtEnd => currentPage == pages.Count - 1;
+    public bool IsAtStart => currentPage == 0;
 
     [Parameter] public EventCallback<Deployment> OnSetupComplete {get; set;}
+    [Parameter] public EventCallback OnSetupCancelled {get; set;}
 
     public void AddPage(SetupWizardPage page) {
         this.pages.Add(page);
@@ -84,6 +87,12 @@
     }
     public async Task Previous() {
         advance_msg = null;
+
+        if (IsAtStart) {
+            await OnSetupCancelled.InvokeAsync();
+            return;
+        }
+
         currentPage = Math.Max(0, currentPage - 1);
         ActivePage?.OnShow();
         await InvokeAsync(StateHasChanged);
@@ -102,7 +111,10 @@
 
         if (IsAtEnd) {
             var deployment = new Deployment();
+            // Null case is already handled, it is safe to return a NULL default value here
+            #nullable disable
             var team = GetProviderValue<Team>("team", null);
+            #nullable restore
             if (team is null) {
                 await console.WarnAsync("Cannot create deployment, missing team");
                 return;

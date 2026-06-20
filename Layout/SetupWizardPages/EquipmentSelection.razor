@@ -71,7 +71,10 @@
         if (Wizard is null)
             return;
 
+        // Null case is already handled, it is safe to return a NULL default value here
+        #nullable disable
         team = Wizard.GetProviderValue<Team>("team", null);
+        #nullable restore
         selected.Clear();
 
         teamEquipment.Clear();

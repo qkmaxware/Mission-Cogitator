@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using System.Text.Json;
 
 namespace Kt.Data.IO;
@@ -245,10 +246,136 @@ public class Pkg
     /// <summary>
     /// Read a package from a local file where the path points to the package's index.json file
     /// </summary>
-    /// <param name="url">Path to package file *.40pkg</param>
+    /// <param name="stream">Stream containing a .zip file with package data</param>
     /// <returns>package</returns>
-    public static Pkg FromFile(string path)
+    public static Pkg FromFile(Stream stream)
     {
-        throw new NotImplementedException();
+        using var archive = new ZipArchive(stream, ZipArchiveMode.Read);
+        
+        var pkg = new Pkg();
+        pkg.Author = Environment.UserName;
+        
+        // Read the package index
+        PkgIndex? index = null;
+        try
+        {
+            // Try to find index.json or index.jsonc at the root
+            var indexEntry = archive.GetEntry("index.json") ?? archive.GetEntry("index.jsonc");
+            if (indexEntry is null)
+                throw new FileNotFoundException("Could not find index.json or index.jsonc at the root of the archive");
+            
+            using var indexStream = indexEntry.Open();
+            index = JsonSerializer.Deserialize<PkgIndex>(indexStream, json);
+            if (index is null)
+                return pkg;
+        }
+        catch (FileNotFoundException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new FileNotFoundException("Could not find package index at root of archive (index.json or index.jsonc)", ex);
+        }
+        
+        pkg.Name = index.Name;
+        pkg.Author = index.Author;
+        pkg.Updated = index.Updated;
+        
+        // Convert the paths in the package index into actual resources by parsing them one at a time
+        pkg.Definitions = ParseResourcesFromZip<Rule>(pkg, archive, index.Definitions ?? EMPTY);
+        pkg.Actions = ParseResourcesFromZip<Action>(pkg, archive, index.Actions ?? EMPTY);
+        pkg.Effects = ParseResourcesFromZip<Effect>(pkg, archive, index.Effects ?? EMPTY);
+        pkg.Equipment = ParseResourcesFromZip<Equipment>(pkg, archive, index.Equipment ?? EMPTY);
+        pkg.Ploys = ParseResourcesFromZip<Ploy>(pkg, archive, index.Ploys ?? EMPTY);
+        pkg.Units = ParseResourcesFromZip<Unit>(pkg, archive, index.Units ?? EMPTY);
+        pkg.Teams = ParseResourcesFromZip<Team>(pkg, archive, index.Teams ?? EMPTY);
+        
+        pkg.Aliases = index.Aliases;
+        
+        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).DistinctBy(r => r.Id).ToDictionary(r => r.Id ?? string.Empty, r => r);
+        
+        // Resolve ID references to objects for the TEAMs
+        foreach (var team in pkg.Teams)
+        {
+            team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Units.TryGetValue(id, out var unit))
+                    return unit;
+                return null;
+            })
+            .Where(unit => unit is not null)
+            .Cast<Unit>()
+            .ToList();
+            
+            team.Value.Equipment = (team.Value.EquipmentIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Equipment.TryGetValue(id, out var eq))
+                    return eq;
+                return null;
+            })
+            .Where(eq => eq is not null)
+            .Cast<Equipment>()
+            .ToList();
+            
+            team.Value.Ploys = (team.Value.PloyIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Ploys.TryGetValue(id, out var ploy))
+                    return ploy;
+                return null;
+            })
+            .Where(ploy => ploy is not null)
+            .Cast<Ploy>()
+            .ToList();
+            
+            team.Value.Rules = allRulesDict;
+        }
+        
+        return pkg;
+    }
+
+    private static Dictionary<string, T> ParseResourcesFromZip<T>(Pkg currentPkg, ZipArchive archive, List<string> relatives)
+    where T : IPackagedContent
+    {
+        var results = new Dictionary<string, T>();
+        
+        foreach (var relative in relatives)
+        {
+            try
+            {
+                // Clean the relative path
+                var relativeUri = relative;
+                if (relativeUri.StartsWith("/"))
+                    relativeUri = relativeUri.Substring(1);
+                if (!relativeUri.EndsWith(".html"))
+                    relativeUri = Path.ChangeExtension(relativeUri, ".html");
+                
+                // Get the entry from the archive
+                var entry = archive.GetEntry(relativeUri);
+                if (entry is null)
+                    continue;
+                
+                using var contentStream = entry.Open();
+                using var reader = new StreamReader(contentStream);
+                var content = reader.ReadToEnd();
+                
+                var doc = new FmHtmlDocument(content);
+                var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
+                if (data is null)
+                    continue;
+                
+                // Assign the id and description
+                data.SourcePackage = currentPkg;
+                data.Id = Path.GetFileNameWithoutExtension(relative);
+                data.Description = doc.Html.ToString();
+                results[data.Id] = data;
+            }
+            catch (Exception ex)
+            {
+                throw new FormatException($"Could not load package resource from archive: {relative}", ex);
+            }
+        }
+        
+        return results;
     }
 }
