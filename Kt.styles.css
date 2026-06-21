@@ -129,6 +129,11 @@ table[b-380v0wsf12] {
     border-bottom-style: solid;
     margin-bottom: 6px;
 }
+/* /Layout/Editing/PropertyEditor.razor.rz.scp.css */
+textarea[b-qxjjnks04e] {
+    width: 100%;
+    resize: vertical;
+}
 /* /Layout/Header.razor.rz.scp.css */
 /* /Layout/MainLayout.razor.rz.scp.css */
 /* /Layout/NavMenu.razor.rz.scp.css */
@@ -392,6 +397,26 @@ tr:nth-child(even)[b-tyfdc6oqe8] {
 table[b-tyfdc6oqe8] {
     border-bottom-width: 2px;
     border-bottom-style: solid;
+    margin-bottom: 6px;
+}
+/* /Pages/Admin/AssetBuilder.razor.rz.scp.css */
+textarea[b-j6pryufax8] {
+    display: block;
+    width: 100%;
+    min-height: 24em;
+    resize: vertical;
+}
+
+details[b-j6pryufax8] {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+label[b-j6pryufax8] {
+    font-weight: bold;
+}
+
+input[b-j6pryufax8], select[b-j6pryufax8], textarea[b-j6pryufax8] {
     margin-bottom: 6px;
 }
 /* /Pages/Home.razor.rz.scp.css */
