@@ -334,7 +334,7 @@
         
         T val = new();
         val.Name = name;
-        val.Id = whitespace.Replace(name.Trim().ToLower(), "-");
+        val.Id = whitespace.Replace(((pkg.Name ?? "new-package") + "-" + name).Trim().ToLower(), "-");
 
         foreach (var prop in pkgType.GetProperties(BindingFlags.Public | BindingFlags.Instance)) {
             Console.WriteLine("Trying: " + prop.Name);
