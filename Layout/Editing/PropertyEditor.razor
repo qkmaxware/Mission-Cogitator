@@ -1,0 +1,204 @@
+@using System.Collections
+@using System.Globalization
+@using System.Reflection
+
+<div>
+@if (Property is not null) {
+}
+@if (Target is null || Property is null)
+{
+    <div>No property selected</div>
+}
+else if (Property.PropertyType == typeof(bool))
+{
+    <label>@(Property.Name):</label>
+    <input class="w3-check" type="checkbox"
+           checked="@GetBoolValue()"
+           @onchange="OnBoolChanged" />
+}
+else if (Property.PropertyType.IsEnum)
+{
+    <label>@(Property.Name):</label>
+    <select class="w3-select" value="@GetValueAsString()"
+            @onchange="OnEnumChanged">
+        @foreach (var value in Enum.GetValues(Property.PropertyType))
+        {
+            <option value="@value">@value</option>
+        }
+    </select>
+}
+else if (Property.PropertyType == typeof(string))
+{
+    <label>@(Property.Name):</label>
+    if (Property.GetCustomAttribute<HtmlText>() is not null) {
+    <textarea @onchange=OnStringChanged>@GetValueAsString()</textarea>
+    }
+    else {
+    <input class="w3-input" type="text" value="@GetValueAsString()" @onchange="OnStringChanged" />
+    }
+}
+else if (IsNumeric(Property.PropertyType))
+{
+    <label>@(Property.Name):</label>
+    <input class="w3-input" type="number" value="@GetNumericValue()" @onchange="OnNumericChanged" />
+}
+else if (SupportsParsing(Property.PropertyType))
+{
+    <label>@(Property.Name):</label>
+    <input class="w3-input" type="text" value="@GetValueAsString()" @onchange="OnParsableChanged" />
+}
+else
+{
+    
+}
+</div>
+
+@code {
+    [Parameter] public object? Target {get; set;}
+    [Parameter] public PropertyInfo? Property {get; set;}
+
+    private object? GetValue()
+        => Property?.GetValue(Target);
+
+    private string GetValueAsString()
+        => GetValue()?.ToString() ?? "";
+
+    private bool GetBoolValue()
+        => (bool?)GetValue() ?? false;
+
+    private double GetNumericValue()
+        => Convert.ToDouble(GetValue() ?? 0);
+
+    private Task OnStringChanged(ChangeEventArgs value)
+    {
+        Property?.SetValue(Target, value.Value?.ToString() ?? string.Empty);
+        return Task.CompletedTask;
+    }
+
+    private Task OnStringChanged(string value)
+    {
+        Property?.SetValue(Target, value);
+        return Task.CompletedTask;
+    }
+
+    private Task OnBoolChanged(ChangeEventArgs e)
+    {
+        Property?.SetValue(Target, (bool)e.Value!);
+        return Task.CompletedTask;
+    }
+
+    private Task OnEnumChanged(ChangeEventArgs e)
+    {
+        if (Property is null)
+            return Task.CompletedTask;
+
+        var value = Enum.Parse(Property.PropertyType, e.Value?.ToString() ?? "");
+        Property.SetValue(Target, value);
+        return Task.CompletedTask;
+    }
+
+    private Task OnNumericChanged(double value)
+    {
+        if (Property is null)
+            return Task.CompletedTask;
+
+        var converted = Convert.ChangeType(value, Property.PropertyType);
+        Property.SetValue(Target, converted);
+        return Task.CompletedTask;
+    }
+
+    private Task OnNumericChanged(ChangeEventArgs args)
+    {
+        if (Property is null)
+            return Task.CompletedTask;
+
+        var converted = Convert.ChangeType(args?.Value?.ToString() ?? string.Empty, Property.PropertyType);
+        Property.SetValue(Target, converted);
+        return Task.CompletedTask;
+    }
+
+    private static bool IsNumeric(Type type)
+    {
+        type = Nullable.GetUnderlyingType(type) ?? type;
+
+        return type == typeof(byte) ||
+               type == typeof(short) ||
+               type == typeof(int) ||
+               type == typeof(long) ||
+               type == typeof(float) ||
+               type == typeof(double) ||
+               type == typeof(decimal);
+    }
+
+    private static bool SupportsParsing(Type type)
+    {
+        type = Nullable.GetUnderlyingType(type) ?? type;
+
+        return type.GetInterfaces()
+            .Any(i =>
+                i.IsGenericType &&
+                i.GetGenericTypeDefinition() == typeof(IParsable<>));
+    }
+
+    private Task OnParsableChanged(string text)
+    {
+        if (Property is null)
+            return Task.CompletedTask;
+
+        if (TryParse(Property.PropertyType, text, out var value))
+        {
+            Property.SetValue(Target, value);
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task OnParsableChanged(ChangeEventArgs args)
+    {
+        if (Property is null)
+            return Task.CompletedTask;
+
+        if (TryParse(Property.PropertyType, args.Value?.ToString() ?? string.Empty, out var value))
+        {
+            Property.SetValue(Target, value);
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private static bool TryParse(
+        Type type,
+        string text,
+        out object? value)
+    {
+        type = Nullable.GetUnderlyingType(type) ?? type;
+
+        var method = type.GetMethod(
+            nameof(IParsable<int>.TryParse),
+            BindingFlags.Public | BindingFlags.Static,
+            new[]
+            {
+                typeof(string),
+                typeof(IFormatProvider),
+                type.MakeByRefType()
+            });
+
+        if (method is null)
+        {
+            value = null;
+            return false;
+        }
+
+        var args = new object?[]
+        {
+            text,
+            CultureInfo.InvariantCulture,
+            null
+        };
+
+        var success = (bool)method.Invoke(null, args)!;
+
+        value = args[2];
+        return success;
+    }
+}

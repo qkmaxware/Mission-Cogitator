@@ -129,10 +129,7 @@
             <div class="w3-half">
                 @foreach (var frule in (Unit.Rules ?? Enumerable.Empty<string>())) {
                     var ruleId = frule;
-                    Rule? ruleInstance = null; 
-                    if (Team is not null && Team.Rules is not null) {
-                        Team.Rules.TryGetValue(ruleId, out ruleInstance);
-                    }
+                    Rule? ruleInstance = ruledb.GetValue(ruleId);
                     <button class="w3-button app-primary w3-margin-bottom" style="width: 100%" @onclick=@(() => lookupFactionRule(ruleId))>
                         @(ruleInstance?.Name ?? frule)
                         @if (ruleInstance is Kt.Data.Action act) {
@@ -173,10 +170,7 @@
     private Modal? addEffectModal;
 
     private async Task lookupFactionRule(string id) {
-        if (Team is null || Team.Rules is null)
-            return;
-        
-        Team.Rules.TryGetValue(id, out var ruleInstance);
+        Rule? ruleInstance = ruledb.GetValue(id);
 
         if (ruleInstance is not null)
             await OnRuleLookup.InvokeAsync(ruleInstance);

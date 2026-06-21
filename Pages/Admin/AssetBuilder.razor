@@ -1,0 +1,477 @@
+@page "/admin/builder"
+
+@using Kt.Data
+@using Kt.Data.IO
+@using Kt.Data.JsInterop
+@using Kt.Layout.Editing
+@using System.Reflection
+@using System.Text.RegularExpressions
+@using System.IO.Compression
+@using System.Text.Json
+
+@inject IJSRuntime js
+@inject JsPrompt prompt
+
+<div class="w3-padding">
+
+<section>
+    <header>Package Info</header>
+    <div class="w3-margin-top w3-padding">
+        <label>Name: </label>
+        <input class="w3-input" @bind=@pkg.Name/>
+        <br />
+        <label>Author: </label>
+        <input class="w3-input" @bind=@pkg.Author/>
+
+        <button class="w3-button app-primary" style="width: 100%;" @onclick=Pack>Export</button>
+    </div>
+</section>
+
+
+<div class="w3-row">
+    <div class="w3-col" style="width: 240px; padding-right: 6px;">
+        <section>
+            <header>Content</header>
+            <div class="w3-margin-top w3-bar-block">
+                <button class="w3-button w3-bar-item" @onclick=StateHasChanged>Refresh</button>
+                <hr />
+                @foreach (var item in pkg.Provides()) {
+                    var self = item;
+                    <button class="w3-button w3-bar-item @(IsSelected(self) ? "app-primary" : string.Empty)" @onclick=@(() => selectedObject = self)>@self.Name <small><i>@self.GetType().Name</i></small></button>
+                }
+                <hr />
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Rule>())>+ Definition</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Action>())>+ Action</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Effect>())>+ Effect</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Ploy>())>+ Ploy</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Unit>())>+ Unit</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Team>())>+ Team</button>
+            </div>
+        </section>
+    </div>
+    <div class="w3-rest">
+        <section>
+            <header>Selected Item: @(selectedObject?.Name ?? "NULL")</header>
+            <div class="w3-margin-top">
+                @if (selectedObject is not null) {
+                <label for="name">Name:</label>
+                <input id="name" class="w3-input" @bind=name>
+                @*Type specific stuff starts here*@
+                {
+                    if (selectedObject is Kt.Data.Action action) {
+                        <label for="ap">AP Cost:</label>
+                        <input id="ap" class="w3-input" @bind=@action.Ap>
+                    } else if (selectedObject is Kt.Data.Effect effect) {
+
+                    } else if (selectedObject is Kt.Data.Equipment equipment) {
+
+                    } else if (selectedObject is Kt.Data.Ploy ploy) {
+                        <label for="kind">Kind:</label>
+                        <select class="w3-select" @bind=@ploy.Kind>
+                            @foreach (var option in Enum.GetValues<PloyKind>()) {
+                                <option>@option</option>
+                            }
+                        </select>
+                    } else if (selectedObject is Kt.Data.Unit unit) {
+                        unit.Attributes = unit.Attributes ?? new UnitAttributes();
+                        unit.Weapons = unit.Weapons ?? new List<Weapon>();
+                        unit.Rules = unit.Rules ?? new List<string>();
+                        unit.Tags = unit.Tags ?? new List<string>();
+
+                        <label for="attributes">Attributes:</label>
+                        <table id="attributes" class="w3-table">
+                            <thead>
+                                <th>APL</th>
+                                <th>MOVE</th>
+                                <th>SAVE</th>
+                                <th>WOUNDS</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="number" class="w3-input" @bind=@unit.Attributes.Apl/>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="w3-input" @bind=@unit.Attributes.Move/>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="w3-input" @bind=@unit.Attributes.Save/>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="w3-input" @bind=@unit.Attributes.Wounds/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <label for="tags">Tags:</label>
+                        <ul>
+                            @foreach (var tag in unit.Tags) {
+                                <li>@tag</li>
+                            }
+                        </ul>
+                        <div class="w3-center">
+                            <input type="text" @bind=nextTag/>
+                            <button class="w3-button app-primary" @onclick=@(() => { if (!string.IsNullOrEmpty(nextTag)) { unit.Tags.Add(nextTag); nextTag = string.Empty; } })>+</button>
+                            <button class="w3-button app-primary" @onclick=@(() => { if (unit.Tags.Count > 0) { unit.Tags.RemoveAt(unit.Tags.Count - 1); }})>-</button>
+                        </div>
+
+                        <label for="weapons">Weapons:</label>
+                        <table id="weapons" class="w3-table">
+                            <thead>
+                                <th>NAME</th>
+                                <th>KIND</th>
+                                <th>ATK</th>
+                                <th>HIT</th>
+                                <th>DMG (normal)</th>
+                                <th>DMG (crit)</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in unit.Weapons) {
+                                    var weapon = row;
+                                    weapon.Damage = weapon.Damage ?? new Damage();
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="w3-input" @bind=@weapon.Name/>
+                                        </td>
+                                        <td>
+                                            <select class="w3-select" @bind=@weapon.Kind>
+                                                @foreach (var opt in Enum.GetValues<WeaponKind>()) {
+                                                    <option>@opt</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="w3-input" @bind=@weapon.Atk/>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="w3-input" @bind=@weapon.Hit/>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="w3-input" @bind=@weapon.Damage.Normal/>
+                                        </td>
+                                        <td>
+                                            <input type="number" class="w3-input" @bind=@weapon.Damage.Critical/>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="w3-center">
+                            <button class="w3-button app-primary" @onclick=@(() => { unit.Weapons.Add(new Weapon() { Rules = new() }); })>+</button>
+                            <button class="w3-button app-primary" @onclick=@(() => { if (unit.Weapons.Count > 0) { unit.Weapons.RemoveAt(unit.Weapons.Count - 1); }})>-</button>
+                        </div>
+
+                        <label for="rules">Special Rules/Actions:</label>
+                        <ul id="rules">
+                            @foreach (var ruleId in unit.Rules) {
+                                var rule = pkg.GetPackagedContent(ruleId);
+                                <li>@(rule?.Name ?? ruleId)</li>
+                            }
+                        </ul>
+                        <details>
+                            <summary>Add Special Rule</summary>
+                            <button class="w3-button" @onclick=@(async () => { Kt.Data.Action? u = await Add<Kt.Data.Action>(); if (u is not null){ unit.Rules.Add(u.Id ?? string.Empty); selectedObject = u; }})>Create New Action</button>
+                        @foreach (var factOption in DefinitionsAndActions) {
+                            var self = factOption;
+                            if (factOption.Id is not null && unit.Rules.Contains(factOption.Id)) {
+                                <button class="w3-button" @onclick=@(() => { unit.Rules.Add(factOption.Id); })>+ @self.Name</button>
+                            }
+                        }
+                        </details>
+                    } else if (selectedObject is Kt.Data.Team team) {
+                        <label for="faction">Faction:</label>
+                        <select id="faction" class="w3-select">
+                            <option>Imperium of Man</option>
+                            <option>Aeldari</option>
+                            <option>Drukhari</option>
+                            <option>Tyranids</option>
+                            <option>Genestealer Cults</option>
+                            <option>Leagues of Votann</option>
+                            <option>Necrons</option>
+                            <option>Orks</option>
+                            <option>T'Au Empire</option>
+                            <option>Unknown</option>
+                            <option>Other</option>
+                        </select>
+                        <label for="faction-rules">Faction Rules:</label>
+                        <ul id="faction-rules">
+                        @if (team.FactionRules is not null) {
+                                @foreach(var teamRule in team.FactionRules) {
+                                    <li>@(teamRule.Name)</li>
+                                }  
+                        }
+                        </ul>
+                        <details>
+                            <summary>Add Faction Rule to Team</summary>
+                            <button class="w3-button" @onclick=@(async () => { Rule? u = await Add<Rule>(); if (u is not null){ addFactionRuleToTeam(team, u); selectedObject = u; }})>Create New Faction Rule</button>
+                        @foreach (var factOption in DefinitionsAndActions) {
+                            var self = factOption;
+                            if (team.FactionRules is null || !team.FactionRules.Contains(factOption)) {
+                                <button class="w3-button" @onclick=@(() => addFactionRuleToTeam(team, self))>+ @self.Name</button>
+                            }
+                        }
+                        </details>
+                        <label for="ploys">Ploys:</label>
+                        <ul id="ploys">
+                        @if (team.Ploys is not null) {
+                                @foreach(var teamPloy in team.Ploys) {
+                                    <li>@teamPloy.Name</li>
+                                }  
+                        }
+                        </ul>
+                        <details>
+                            <summary>Add Ploy to Team</summary>
+                            <button class="w3-button" @onclick=@(async () => { Ploy? u = await Add<Ploy>(); if (u is not null){ addPloyToTeam(team, u); selectedObject = u; }})>Create New Ploy</button>
+                        @foreach (var ployOption in (pkg.Ploys?.Values ?? Enumerable.Empty<Ploy>())) {
+                            var self = ployOption;
+                            if (team.Ploys is null || !team.Ploys.Contains(ployOption)) {
+                                <button class="w3-button" @onclick=@(() => addPloyToTeam(team, self))>+ @ployOption.Name</button>
+                            }
+                        }
+                        </details>
+                        <label for="equipment">Equipment:</label>
+                        <ul id="equipment">
+                        @if (team.Equipment is not null) {
+                                @foreach(var teamEquipment in team.Equipment) {
+                                    <li>@teamEquipment.Name</li>
+                                }
+                        }
+                        </ul>
+                        <details>
+                            <summary>Add Equipment to Team</summary>
+                            <button class="w3-button" @onclick=@(async () => { Equipment? u = await Add<Equipment>(); if (u is not null){ addEquipToTeam(team, u); selectedObject = u; }})>Create New Equipment</button>
+                        @foreach (var eqOption in (pkg.Equipment?.Values ?? Enumerable.Empty<Equipment>())) {
+                            var self = eqOption;
+                            if (team.Equipment is null || !team.Equipment.Contains(eqOption)) {
+                                <button class="w3-button" @onclick=@(() => addEquipToTeam(team, self))>+ @eqOption.Name</button>
+                            }
+                        }
+                        </details>
+                        <label for="units">Units:</label>
+                        <ul id="equipment">
+                        @if (team.Units is not null) {
+                                @foreach(var teamUnit in team.Units) {
+                                    <li>@teamUnit.Name</li>
+                                }
+                        }
+                        </ul>
+                        <details>
+                            <summary>Add Unit to Team</summary>
+                            <button class="w3-button" @onclick=@(async () => { Unit? u = await Add<Unit>(); if (u is not null){ addUnitToTeam(team, u); selectedObject = u; }})>Create New Unit</button>
+                        @foreach (var unitOption in (pkg.Units?.Values ?? Enumerable.Empty<Unit>())) {
+                            var self = unitOption;
+                            if (team.Units is null || !team.Units.Contains(unitOption)) {
+                                <button class="w3-button" @onclick=@(() => addUnitToTeam(team, self))>+ @unitOption.Name</button>
+                            }
+                        }
+                        </details>
+                    }
+                }
+                @*Type specific stuff ends here*@
+                <label for="description">Description:</label>
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <span for="description">Markup:</span>
+                        <textarea id="description" @bind=description></textarea>
+                    </div>
+                    <div class="w3-half">
+                        <span for="description">Preview:</span>
+                        <div class="w3-border">
+                        @((MarkupString)description)
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+@code {
+    private Pkg pkg = new Pkg {
+        Name = "New Package",
+        Author = Environment.UserName,
+        Updated = DateTime.Now.ToShortDateString()
+    };
+    private static readonly Type pkgType = typeof(Pkg);
+
+    private IPackagedContent? selectedObject;
+
+    private string? name {
+        get => selectedObject?.Name;
+        set {
+            selectedObject?.Name = value;
+            selectedObject?.Id = value is null ? null : whitespace.Replace(value.Trim().ToLower(), "-");
+        }
+    }
+
+    private string? description {
+        get => selectedObject?.Description;
+        set => selectedObject?.Description = value;
+    }
+
+    private IEnumerable<Rule> DefinitionsAndActions {
+        get {
+            return 
+                (pkg.Definitions?.Values?.Cast<Rule>() ?? Enumerable.Empty<Rule>())
+                .Concat(pkg.Actions?.Values?.Cast<Rule>() ?? Enumerable.Empty<Rule>());
+        }
+    }
+
+    private string? nextTag;
+
+    private bool IsSelected(object? self) {
+        return ReferenceEquals(self, selectedObject);
+    }
+
+    private static readonly Regex whitespace = new Regex(@"\s+", RegexOptions.Compiled);
+    private async Task<T?> Add<T>() where T:IPackagedContent, new() {
+        var name = await prompt.PromptAsync<string>("Item Name?", string.Empty);
+        if (string.IsNullOrEmpty(name))
+            return default(T);
+        
+        T val = new();
+        val.Name = name;
+        val.Id = whitespace.Replace(name.Trim().ToLower(), "-");
+
+        foreach (var prop in pkgType.GetProperties(BindingFlags.Public | BindingFlags.Instance)) {
+            Console.WriteLine("Trying: " + prop.Name);
+            if (prop.PropertyType.IsAssignableTo(typeof(Dictionary<string, T>))) {
+                Console.WriteLine("  > Prop is a valid type");
+                Dictionary<string, T>? dict = prop.GetValue(pkg) as Dictionary<string, T>;
+                if (dict is null) {
+                    dict = new Dictionary<string, T>();
+                    prop.SetValue(pkg, dict);
+                }
+
+                dict[val.Id] = val;
+                break;
+            }
+        }
+
+        return val;
+    }
+
+    private void addFactionRuleToTeam(Team team, Rule rule) {
+        team.FactionRules = team.FactionRules ?? new List<Rule>();
+        if (rule.Id is not null)
+            team.FactionRules.Add(rule);
+    }
+    private void addUnitToTeam(Team team, Unit unit) {
+        team.Units = team.Units ?? new List<Unit>();
+        team.Units.Add(unit);
+    }
+    private void addAllUnits(Team team) {
+        team.Units = team.Units ?? new List<Unit>();
+        if (pkg.Units is null)
+            return;
+        team.Units.AddRange(pkg.Units.Values);
+    }
+    private void addPloyToTeam(Team team, Ploy ploy) {
+        team.Ploys = team.Ploys ?? new List<Ploy>();
+        team.Ploys.Add(ploy);
+    }
+    private void addAllPloys(Team team) {
+        team.Ploys = team.Ploys ?? new List<Ploy>();
+        if (pkg.Ploys is null)
+            return;
+        team.Ploys.AddRange(pkg.Ploys.Values);
+    }
+    private void addEquipToTeam(Team team, Equipment eq) {
+        team.Equipment = team.Equipment ?? new List<Equipment>();
+        team.Equipment.Add(eq);
+    }
+    private void addAllEquip(Team team) {
+        team.Equipment = team.Equipment ?? new List<Equipment>();
+        if (pkg.Equipment is null)
+            return;
+        team.Equipment.AddRange(pkg.Equipment.Values);
+    }
+
+    private async Task Pack() {
+        using (var memoryStream = new MemoryStream()) {
+            using (var archive = new System.IO.Compression.ZipArchive(memoryStream, System.IO.Compression.ZipArchiveMode.Create, true)) {
+                // Set team Ids from instances
+                if (pkg.Teams is not null) {
+                    foreach (var team in pkg.Teams) {
+                        team.Value.FactionRuleIds = team.Value.FactionRules?.Select(i => i.Id ?? string.Empty)?.ToList() ?? new List<string>();
+                        team.Value.PloyIds = team.Value.Ploys?.Select(i => i.Id ?? string.Empty)?.ToList() ?? new List<string>();
+                        team.Value.EquipmentIds = team.Value.Equipment?.Select(i => i.Id ?? string.Empty)?.ToList() ?? new List<string>();
+                        team.Value.UnitIds = team.Value.Units?.Select(i => i.Id ?? string.Empty)?.ToList() ?? new List<string>();
+                    }
+                }
+
+                // Create index
+                var index = new Pkg.PkgIndex {
+                    Name = pkg.Name,
+                    Author = pkg.Author,
+                    Updated = pkg.Updated,
+                    Definitions = pkg.Definitions?.Keys.Select(k => $"definitions/{k}").ToList() ?? new List<string>(),
+                    Actions = pkg.Actions?.Keys.Select(k => $"actions/{k}").ToList() ?? new List<string>(),
+                    Effects = pkg.Effects?.Keys.Select(k => $"effects/{k}").ToList() ?? new List<string>(),
+                    Equipment = pkg.Equipment?.Keys.Select(k => $"equipment/{k}").ToList() ?? new List<string>(),
+                    Ploys = pkg.Ploys?.Keys.Select(k => $"ploys/{k}").ToList() ?? new List<string>(),
+                    Units = pkg.Units?.Keys.Select(k => $"units/{k}").ToList() ?? new List<string>(),
+                    Teams = pkg.Teams?.Keys.Select(k => $"teams/{k}").ToList() ?? new List<string>(),
+                    Aliases = pkg.Aliases
+                };
+
+                // Add index.json to archive
+                var indexEntry = archive.CreateEntry("index.json");
+                using (var indexStream = indexEntry.Open()) {
+                    using (var writer = new System.IO.StreamWriter(indexStream)) {
+                        var json = System.Text.Json.JsonSerializer.Serialize(index, Pkg.SerializationOptions);
+                        writer.Write(json);
+                    }
+                }
+
+                // Add all resources to archive
+                AddResourcesToArchive(archive, "definitions", pkg.Definitions?.Values);
+                AddResourcesToArchive(archive, "actions", pkg.Actions?.Values);
+                AddResourcesToArchive(archive, "effects", pkg.Effects?.Values);
+                AddResourcesToArchive(archive, "equipment", pkg.Equipment?.Values);
+                AddResourcesToArchive(archive, "ploys", pkg.Ploys?.Values);
+                AddResourcesToArchive(archive, "units", pkg.Units?.Values);
+                AddResourcesToArchive(archive, "teams", pkg.Teams?.Values);
+            }
+
+            // Download the file
+            memoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+
+            using var streamRef = new DotNetStreamReference(memoryStream);
+            await js.InvokeVoidAsync("downloadFileFromStream", $"{pkg.Name ?? "package"}.40pkg.zip", streamRef);
+        }
+    }
+
+    private void AddResourcesToArchive(System.IO.Compression.ZipArchive archive, string folder, System.Collections.IEnumerable? resources) {
+        if (resources is null) return;
+
+        var json = Pkg.SerializationOptions;
+        foreach (IPackagedContent resource in resources) {
+            if (resource.Id is null) continue;
+
+            // Create entry
+            var entry = archive.CreateEntry($"{folder}/{resource.Id}.html");
+            using (var entryStream = entry.Open()) {
+                using (var writer = new System.IO.StreamWriter(entryStream)) {
+                    // Write front matter
+                    writer.Write("---\n");
+                    
+                    // Serialize to JSON, excluding Description
+                    var jsonStr = System.Text.Json.JsonSerializer.Serialize(resource, resource.GetType(), json);
+                    writer.Write(jsonStr);
+                    
+                    writer.Write("\n---\n");
+                    
+                    // Write description as HTML
+                    if (!string.IsNullOrEmpty(resource.Description)) {
+                        writer.Write(resource.Description);
+                    }
+                }
+            }
+        }
+    }
+}
+</div>

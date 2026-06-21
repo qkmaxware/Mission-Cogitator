@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using Kt.Data.IO;
 using Microsoft.AspNetCore.Components;
@@ -9,6 +10,8 @@ public class Rule: IPackagedContent
     public Pkg? SourcePackage {get; set;}
     public string? Id { get; set;}
     public string? Name {get; set;}
+    [Kt.Layout.Editing.HtmlText()]
+    [JsonIgnore]
     public string? Description {get; set;}
     public string? ArtPath {get; set;}
     public string? ArtCaption {get; set;}

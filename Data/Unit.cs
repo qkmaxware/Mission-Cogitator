@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Kt.Data.IO;
 
 namespace Kt.Data;
@@ -19,6 +20,7 @@ public class Unit: IPackagedContent
     public List<string>? Tags {get; set;}
     public UnitAttributes Attributes {get; set;} = new();
     public List<Weapon> Weapons {get; set;} = new();
+    [JsonIgnore]
     public string? Description {get; set;}
     public List<string>? Rules {get; set;} = new();
 }

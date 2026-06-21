@@ -1,0 +1,14 @@
+@using System.Globalization
+@using System.Reflection
+
+@if (Target is not null) {
+<form>
+    @foreach (var prop in Target.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.SetProperty)) {
+        <PropertyEditor Target=@Target Property=@prop></PropertyEditor>
+    }
+</form>
+}
+
+@code {
+    [Parameter] public object? Target {get; set;}
+}

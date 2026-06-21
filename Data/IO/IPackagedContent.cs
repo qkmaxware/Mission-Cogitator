@@ -8,5 +8,8 @@ public interface IPackagedContent
     
     public string? Id {get; set;}
     public string? Name {get; set;}
+    
+    [Kt.Layout.Editing.HtmlText()]
+    [JsonIgnore]
     public string? Description {get; set;}
 }

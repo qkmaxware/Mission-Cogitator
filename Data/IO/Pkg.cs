@@ -22,6 +22,26 @@ public class Pkg
     // Rule aliasing (if a rule is known by other ids as well)
     public Dictionary<string, IEnumerable<string>?>? Aliases {get; set;}
 
+    public IPackagedContent? GetPackagedContent(string id)
+    {
+        if (Definitions?.TryGetValue(id, out var def) ?? false)
+            return def;
+        if (Actions?.TryGetValue(id, out var act) ?? false)
+            return act;
+        if (Effects?.TryGetValue(id, out var eff) ?? false)
+            return eff;
+        if (Equipment?.TryGetValue(id, out var eqp) ?? false)
+            return eqp;
+        if (Ploys?.TryGetValue(id, out var ply) ?? false)
+            return ply;
+        if (Units?.TryGetValue(id, out var unt) ?? false)
+            return unt;
+        if (Teams?.TryGetValue(id, out var tam) ?? false)
+            return tam;
+
+        return null;
+    }
+
     public IEnumerable<IPackagedContent> Provides()
     {
         return 
@@ -43,7 +63,7 @@ public class Pkg
         .Concat((Ploys?.Values ?? Enumerable.Empty<Rule>()));
 
 
-    internal class PkgIndex
+    public class PkgIndex
     {
         // Metadata vv
         public string? Name {get; set;}
@@ -69,7 +89,8 @@ public class Pkg
         PropertyNameCaseInsensitive = true,
         PropertyNamingPolicy = JsonNamingPolicy.KebabCaseLower,
         AllowTrailingCommas = true,
-        ReadCommentHandling = JsonCommentHandling.Skip
+        ReadCommentHandling = JsonCommentHandling.Skip,
+        WriteIndented = true
     };
 
     private static List<string> EMPTY = new (0);
@@ -123,43 +144,8 @@ public class Pkg
 
         pkg.Aliases = index.Aliases;
 
-        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).DistinctBy(r => r.Id).ToDictionary(r => r.Id ?? string.Empty, r => r);
-
         // Resolve ID references to objects for the TEAMs 
-        foreach (var team in pkg.Teams)
-        {
-            team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
-            {
-                if (pkg.Units.TryGetValue(id, out var unit))
-                    return unit;
-                return null;
-            })
-            .Where(unit => unit is not null)
-            .Cast<Unit>()
-            .ToList();
-
-            team.Value.Equipment = (team.Value.EquipmentIds ?? Enumerable.Empty<string>()).Select(id =>
-            {
-                if (pkg.Equipment.TryGetValue(id, out var eq))
-                    return eq;
-                return null;
-            })
-            .Where(eq => eq is not null)
-            .Cast<Equipment>()
-            .ToList();
-
-            team.Value.Ploys = (team.Value.PloyIds ?? Enumerable.Empty<string>()).Select(id =>
-            {
-                if (pkg.Ploys.TryGetValue(id, out var ploy))
-                    return ploy;
-                return null;
-            })
-            .Where(ploy => ploy is not null)
-            .Cast<Ploy>()
-            .ToList();
-
-            team.Value.Rules = allRulesDict;
-        }
+        ResolveTeamIds(pkg);
 
         return pkg;
     }
@@ -293,43 +279,8 @@ public class Pkg
         
         pkg.Aliases = index.Aliases;
         
-        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).DistinctBy(r => r.Id).ToDictionary(r => r.Id ?? string.Empty, r => r);
-        
-        // Resolve ID references to objects for the TEAMs
-        foreach (var team in pkg.Teams)
-        {
-            team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
-            {
-                if (pkg.Units.TryGetValue(id, out var unit))
-                    return unit;
-                return null;
-            })
-            .Where(unit => unit is not null)
-            .Cast<Unit>()
-            .ToList();
-            
-            team.Value.Equipment = (team.Value.EquipmentIds ?? Enumerable.Empty<string>()).Select(id =>
-            {
-                if (pkg.Equipment.TryGetValue(id, out var eq))
-                    return eq;
-                return null;
-            })
-            .Where(eq => eq is not null)
-            .Cast<Equipment>()
-            .ToList();
-            
-            team.Value.Ploys = (team.Value.PloyIds ?? Enumerable.Empty<string>()).Select(id =>
-            {
-                if (pkg.Ploys.TryGetValue(id, out var ploy))
-                    return ploy;
-                return null;
-            })
-            .Where(ploy => ploy is not null)
-            .Cast<Ploy>()
-            .ToList();
-            
-            team.Value.Rules = allRulesDict;
-        }
+        // Resolve ID references to objects for the TEAMs 
+        ResolveTeamIds(pkg);
         
         return pkg;
     }
@@ -377,5 +328,58 @@ public class Pkg
         }
         
         return results;
+    }
+
+    private static void ResolveTeamIds(Pkg pkg)
+    {
+        #nullable disable
+
+        var allRulesDict = pkg.AllRules().Where(r => r.Id is not null).DistinctBy(r => r.Id).ToDictionary(r => r.Id ?? string.Empty, r => r);
+
+        // Resolve ID references to objects for the TEAMs
+        foreach (var team in pkg.Teams)
+        {
+            team.Value.Units = (team.Value.UnitIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Units.TryGetValue(id, out var unit))
+                    return unit;
+                return null;
+            })
+            .Where(unit => unit is not null)
+            .Cast<Unit>()
+            .ToList();
+            
+            team.Value.Equipment = (team.Value.EquipmentIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Equipment.TryGetValue(id, out var eq))
+                    return eq;
+                return null;
+            })
+            .Where(eq => eq is not null)
+            .Cast<Equipment>()
+            .ToList();
+            
+            team.Value.Ploys = (team.Value.PloyIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (pkg.Ploys.TryGetValue(id, out var ploy))
+                    return ploy;
+                return null;
+            })
+            .Where(ploy => ploy is not null)
+            .Cast<Ploy>()
+            .ToList();
+
+            team.Value.FactionRules = (team.Value.FactionRuleIds ?? Enumerable.Empty<string>()).Select(id =>
+            {
+                if (allRulesDict.TryGetValue(id, out var rule))
+                    return rule;
+                return null;
+            })
+            .Where(rule => rule is not null)
+            .Cast<Rule>()
+            .ToList();
+        }
+
+        #nullable restore
     }
 }

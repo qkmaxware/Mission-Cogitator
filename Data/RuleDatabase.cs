@@ -38,17 +38,6 @@ public class RuleDatabase
         rules[@as] = rule;
     }
 
-    public void AddTeam(Team? team)
-    {
-        if (team is null || team.Rules is null)
-            return;
-
-        foreach (var rule in team.Rules)
-        {
-            AddRule(rule.Key, rule.Value);
-        }
-    }
-
     public void AddRule(string id, Rule rule)
     {
         this.rules[id] = rule;
