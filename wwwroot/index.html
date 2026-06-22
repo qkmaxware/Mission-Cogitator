@@ -61,6 +61,10 @@
             anchorElement.remove();
             URL.revokeObjectURL(url);
         }
+        window.getCaretPosition = (element) => {
+            if (!element) return 0;
+            return element.selectionStart;
+        };
     </script>
 </body>
 

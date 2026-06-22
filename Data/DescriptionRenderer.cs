@@ -87,7 +87,7 @@ public static class DescriptionRenderer
 
         builder.OpenElement(seq++, "a");
 
-        builder.AddAttribute(seq++, "href", "#");
+        builder.AddAttribute(seq++, "href", "javascript:void(0)");
 
         if (seeTagAction is not null) {
         builder.AddAttribute(

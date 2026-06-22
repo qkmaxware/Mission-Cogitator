@@ -311,12 +311,28 @@
                 <div class="w3-row-padding">
                     <div class="w3-half">
                         <span for="description">Markup:</span>
-                        <textarea id="description" @bind=description></textarea>
+                        <div style="overflow-x: auto; whitespace: nowrap; margin-bottom: 2px;">
+                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["quote"]))><img class="icon" src="art/blockquote.svg"/></button>
+                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["usage"]))><img class="icon" src="art/list.svg"/></button>
+                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["section"]))><img class="icon" src="art/section.svg"/></button>
+                            <div style="display: inline-block" class="bordered border-primary">
+                            <select @bind=linkedRule @bind:after=setRuleName class="w3-select" style="width: 12em; margin-bottom: 0;">
+                                @foreach (var action in DefinitionsAndActions) {
+                                    <option value="@action.Id">@action.Name</option>
+                                }
+                            </select>
+                            <button class="w3-button" @onclick=@(async () => await insertIntoDescription(templates["seelink"].Replace("%cref%", linkedRule).Replace("%name%", linkedRuleName)))><img class="icon" src="art/link.svg"/></button>
+                            </div>
+                        </div>
+                        <textarea @ref=descriptionTextArea id="description" @bind=description></textarea>
                     </div>
                     <div class="w3-half">
                         <span for="description">Preview:</span>
+                        <div style="height: 3em;">
+
+                        </div>
                         <div class="w3-border">
-                        @((MarkupString)description)
+                        @RenderDescription(description)
                         </div>
                     </div>
                 </div>
@@ -337,6 +353,43 @@
     private IPackagedContent? selectedObject;
 
     private Rule[] CoreWeaponRules = new Rule[0];
+
+    private ElementReference? descriptionTextArea;
+
+    private string? linkedRule;
+    private string? linkedRuleName;
+    private void setRuleName() {
+        if (linkedRule is null)
+            return;
+
+        linkedRuleName = pkg.GetPackagedContent(linkedRule)?.Name;
+    }
+    private Dictionary<string, string> templates = new Dictionary<string, string>{
+        {"quote", 
+@"<blockquote>
+
+</blockquote>"
+        },
+        {"usage", 
+@"<ul class='usage-bullet'>
+    <li>First Usage</li>
+</ul>
+<ul class='condition-bullet'>
+    <li>First Condition</li>
+</ul>"
+        },
+        {"section", 
+@"<section>
+    <header>Title</header>
+    <p>
+        Content
+    </p>
+</section>"
+        },
+        {"seelink",
+@"<see cref='%cref%'>%name%</see>"
+        }
+    };
 
     protected override void OnInitialized() {
         CoreWeaponRules = ruledb.GetCoreWeaponRules();
@@ -365,6 +418,26 @@
 
     private string? nextTag;
 
+    private async Task insertIntoDescription(string text) {
+        if (selectedObject is null)
+            return;
+
+        var desc = description;
+        if (desc is null) {
+            desc = string.Empty;
+            description = desc;
+        }
+
+        var caret = await js.InvokeAsync<int>("getCaretPosition", descriptionTextArea);
+        if (caret >= desc.Length) {
+            description = desc + text;
+            return;
+        }
+
+        description = desc.Insert(caret, text);
+        return;
+    }
+
     private bool IsSelected(object? self) {
         return ReferenceEquals(self, selectedObject);
     }
@@ -380,9 +453,7 @@
         val.Id = whitespace.Replace(((pkg.Name ?? "new-package") + "-" + name).Trim().ToLower(), "-");
 
         foreach (var prop in pkgType.GetProperties(BindingFlags.Public | BindingFlags.Instance)) {
-            Console.WriteLine("Trying: " + prop.Name);
             if (prop.PropertyType.IsAssignableTo(typeof(Dictionary<string, T>))) {
-                Console.WriteLine("  > Prop is a valid type");
                 Dictionary<string, T>? dict = prop.GetValue(pkg) as Dictionary<string, T>;
                 if (dict is null) {
                     dict = new Dictionary<string, T>();
@@ -432,6 +503,13 @@
             return;
         team.Equipment.AddRange(pkg.Equipment.Values);
     }
+
+    private RenderFragment RenderDescription(string? text) => builder =>
+    {
+        DescriptionRenderer.RenderDescription(text, this, async (id) => {
+            //selectedObject = pkg.GetPackagedContent(id);
+        })(builder);
+    };
 
     private async Task Pack() {
         using (var memoryStream = new MemoryStream()) {
