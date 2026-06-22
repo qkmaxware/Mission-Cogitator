@@ -320,6 +320,12 @@
                                 @foreach (var action in DefinitionsAndActions) {
                                     <option value="@action.Id">@action.Name</option>
                                 }
+                                @foreach (var r in CoreActions) {
+                                    <option value="@r.Id">@r.Name</option>
+                                }
+                                @foreach (var r in CoreWeaponRules) {
+                                    <option value="@r.Id">@r.Name</option>
+                                }
                             </select>
                             <button class="w3-button" @onclick=@(async () => await insertIntoDescription(templates["seelink"].Replace("%cref%", linkedRule).Replace("%name%", linkedRuleName)))><img class="icon" src="art/link.svg"/></button>
                             </div>
@@ -353,6 +359,7 @@
     private IPackagedContent? selectedObject;
 
     private Rule[] CoreWeaponRules = new Rule[0];
+    private Rule[] CoreActions = new Rule[0];
 
     private ElementReference? descriptionTextArea;
 
@@ -362,7 +369,7 @@
         if (linkedRule is null)
             return;
 
-        linkedRuleName = pkg.GetPackagedContent(linkedRule)?.Name;
+        linkedRuleName = pkg.GetPackagedContent(linkedRule)?.Name ?? ruledb.GetValue(linkedRule)?.Name ?? "Rule Name";
     }
     private Dictionary<string, string> templates = new Dictionary<string, string>{
         {"quote", 
@@ -392,6 +399,7 @@
     };
 
     protected override void OnInitialized() {
+        CoreActions = ruledb.GetCoreActions();
         CoreWeaponRules = ruledb.GetCoreWeaponRules();
     }
 

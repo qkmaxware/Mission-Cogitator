@@ -27,6 +27,21 @@ public class RuleDatabase
         return null;
     }
 
+    public Rule[] GetCoreActions()
+    {
+        return [
+            this.GetValue(id: "reposition")!,
+            this.GetValue(id: "charge")!,
+            this.GetValue(id: "fall-back")!,
+            this.GetValue(id: "dash")!,
+            this.GetValue(id: "shoot")!,
+            this.GetValue(id: "fight")!,
+            this.GetValue(id: "pick-up-marker")!,
+          //this.GetValue(id: "place-marker")!,
+            this.GetValue(id: "counteract")!
+        ];
+    }
+
     public Rule[] GetCoreWeaponRules()
     {
         return [

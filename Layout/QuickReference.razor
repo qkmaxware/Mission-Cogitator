@@ -339,17 +339,7 @@
     {
         base.OnInitialized();
 
-        this.action_rules = new Rule[]{
-            db.GetValue(id: "reposition")!,
-            db.GetValue(id: "charge")!,
-            db.GetValue(id: "fall-back")!,
-            db.GetValue(id: "dash")!,
-            db.GetValue(id: "shoot")!,
-            db.GetValue(id: "fight")!,
-            db.GetValue(id: "pick-up-marker")!,
-            //db.GetValue(id: "place-marker")!,
-            db.GetValue(id: "counteract")!
-        };
+        this.action_rules = db.GetCoreActions();
 
         this.weapon_rules = db.GetCoreWeaponRules();
     }
