@@ -27,6 +27,34 @@ public class RuleDatabase
         return null;
     }
 
+    public Rule[] GetCoreWeaponRules()
+    {
+        return [
+            this.GetValue(id: "accurate")!,
+            this.GetValue(id: "balanced")!,
+            this.GetValue(id: "blast")!,
+            this.GetValue(id: "brutal")!,
+            this.GetValue(id: "ceaseless")!,
+            this.GetValue(id: "devastating")!,
+            this.GetValue(id: "heavy")!,
+            this.GetValue(id: "hot")!,
+            this.GetValue(id: "lethal")!,
+            this.GetValue(id: "limited")!,
+            this.GetValue(id: "piercing")!,
+            this.GetValue(id: "punishing")!,
+            this.GetValue(id: "range")!,
+            this.GetValue(id: "relentless")!,
+            this.GetValue(id: "rending")!,
+            this.GetValue(id: "saturate")!,
+            this.GetValue(id: "seek")!,
+            this.GetValue(id: "severe")!,
+            this.GetValue(id: "shock")!,
+            this.GetValue(id: "silent")!,
+            this.GetValue(id: "stun")!,
+            this.GetValue(id: "torrent")!,
+        ];
+    }
+
     public void Alias(string uid, string @as)
     {
         if (!rules.TryGetValue(uid, out Rule? rule))

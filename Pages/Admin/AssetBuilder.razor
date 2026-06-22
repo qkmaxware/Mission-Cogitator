@@ -11,6 +11,7 @@
 
 @inject IJSRuntime js
 @inject JsPrompt prompt
+@inject RuleDatabase ruledb
 
 <div class="w3-padding">
 
@@ -125,6 +126,7 @@
                                 <th>HIT</th>
                                 <th>DMG (normal)</th>
                                 <th>DMG (crit)</th>
+                                <th>WRs</th>
                             </thead>
                             <tbody>
                                 @foreach (var row in unit.Weapons) {
@@ -153,6 +155,41 @@
                                         </td>
                                         <td>
                                             <input type="number" class="w3-input" @bind=@weapon.Damage.Critical/>
+                                        </td>
+                                        <td>
+                                            @{ weapon.Rules = weapon.Rules ?? new List<WeaponRule>(); }
+                                            <table class="w3-table" style="margin-top: -20px;">
+                                                <thead>
+                                                    <th style="width: 8em; font-weight: normal; padding: 0; text-align: center;">Prefix</th>
+                                                    <th style="width: 10em; font-weight: normal; padding: 0; text-align: center;">Id</th>
+                                                    <th style="width: 5em; font-weight: normal; padding: 0; text-align: center;">X</th>
+                                                    <th style="width: 8em; font-weight: normal; padding: 0; text-align: center;">Suffix</th>
+                                                </thead>
+                                                <tbody>
+                                                @foreach (var wr in weapon.Rules) {
+                                                    var rule = wr;
+                                                    <tr>
+                                                        <td style="padding-top: 0; padding-bottom: 0;"><input type="text" class="w3-input" @bind=@rule.Prefix/></td>
+                                                        <td style="padding-top: 0; padding-bottom: 0;">
+                                                            <select class="w3-select" @bind=@rule.Id>
+                                                                @foreach (var r in CoreWeaponRules) {
+                                                                    <option value="@r.Id">@r.Name</option>
+                                                                }
+                                                                @foreach (var r in (pkg.Definitions?.Values ?? Enumerable.Empty<Rule>())) {
+                                                                    <option value="@r.Id">@r.Name</option>
+                                                                }
+                                                            </select>
+                                                        </td>
+                                                        <td style="padding-top: 0; padding-bottom: 0;"><input type="number" class="w3-input" @bind=@rule.X/></td>
+                                                        <td style="padding-top: 0; padding-bottom: 0;"><input type="text" class="w3-input" @bind=@rule.Suffix/></td>
+                                                    </tr>
+                                                }
+                                                </tbody>
+                                            </table>
+                                            <div class="w3-center">
+                                                <button class="w3-button app-primary" @onclick=@(() => { weapon.Rules.Add(new WeaponRule()); })>+</button>
+                                                <button class="w3-button app-primary" @onclick=@(() => { if (weapon.Rules.Count > 0) { weapon.Rules.RemoveAt(weapon.Rules.Count - 1); }})>-</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 }
@@ -298,6 +335,12 @@
     private static readonly Type pkgType = typeof(Pkg);
 
     private IPackagedContent? selectedObject;
+
+    private Rule[] CoreWeaponRules = new Rule[0];
+
+    protected override void OnInitialized() {
+        CoreWeaponRules = ruledb.GetCoreWeaponRules();
+    }
 
     private string? name {
         get => selectedObject?.Name;

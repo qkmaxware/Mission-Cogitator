@@ -13,7 +13,7 @@ public enum WeaponKind
     ranged, melee
 }
 
-public struct WeaponRule
+public class WeaponRule
 {
     public string? Prefix {get; set;}
     public string? Id {get; set;}

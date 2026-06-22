@@ -351,30 +351,7 @@
             db.GetValue(id: "counteract")!
         };
 
-        this.weapon_rules = new Rule[]{
-            db.GetValue(id: "accurate")!,
-            db.GetValue(id: "balanced")!,
-            db.GetValue(id: "blast")!,
-            db.GetValue(id: "brutal")!,
-            db.GetValue(id: "ceaseless")!,
-            db.GetValue(id: "devastating")!,
-            db.GetValue(id: "heavy")!,
-            db.GetValue(id: "hot")!,
-            db.GetValue(id: "lethal")!,
-            db.GetValue(id: "limited")!,
-            db.GetValue(id: "piercing")!,
-            db.GetValue(id: "punishing")!,
-            db.GetValue(id: "range")!,
-            db.GetValue(id: "relentless")!,
-            db.GetValue(id: "rending")!,
-            db.GetValue(id: "saturate")!,
-            db.GetValue(id: "seek")!,
-            db.GetValue(id: "severe")!,
-            db.GetValue(id: "shock")!,
-            db.GetValue(id: "silent")!,
-            db.GetValue(id: "stun")!,
-            db.GetValue(id: "torrent")!,
-        };
+        this.weapon_rules = db.GetCoreWeaponRules();
     }
 
 
