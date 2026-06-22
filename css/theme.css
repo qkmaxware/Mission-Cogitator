@@ -30,6 +30,11 @@ html {
     border-bottom-color:#ff5722!important;
 }
 
+.bordered {
+    border-width: 1px!important;
+    border-style: solid!important;
+}
+
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid #ccc;
@@ -60,7 +65,7 @@ section>header {
     background-color: #ff5722;
 }
 
-section section {
+section.no-subsection section {
     display: none; /* hide nested sections */
 }
 
