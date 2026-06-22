@@ -212,7 +212,7 @@
                             <button class="w3-button" @onclick=@(async () => { Kt.Data.Action? u = await Add<Kt.Data.Action>(); if (u is not null){ unit.Rules.Add(u.Id ?? string.Empty); selectedObject = u; }})>Create New Action</button>
                         @foreach (var factOption in DefinitionsAndActions) {
                             var self = factOption;
-                            if (factOption.Id is not null && unit.Rules.Contains(factOption.Id)) {
+                            if (factOption.Id is not null && !unit.Rules.Contains(factOption.Id)) {
                                 <button class="w3-button" @onclick=@(() => { unit.Rules.Add(factOption.Id); })>+ @self.Name</button>
                             }
                         }
