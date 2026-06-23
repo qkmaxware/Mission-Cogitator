@@ -7,7 +7,7 @@
     <title>Mission-Cogitator</title>
     <base href="/Mission-Cogitator/" />
     <link rel="manifest" href="manifest.json">
-    <link href="_framework/dotnet.khcochvvka.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-yIo9cXnjHa2wDmxijAKvYWjTJ/Tb3onG++Z8v/kl3Mc=" />
+    <link href="_framework/dotnet.gp1pdxvnj3.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-5NWH8tyuW4lkXOh3Wghp/0AcvOIIy9lFzlc1jnnjsTk=" />
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/blazor.css" />
@@ -16,7 +16,7 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.958z1vx7fr.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.khcochvvka.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.gp1pdxvnj3.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.ikrs475e5v.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.a6jcqbs390.js"
   },
@@ -24,8 +24,8 @@
   "integrity": {
     "./_framework/blazor.webassembly.958z1vx7fr.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
     "./_framework/blazor.webassembly.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
-    "./_framework/dotnet.js": "sha256-yIo9cXnjHa2wDmxijAKvYWjTJ/Tb3onG++Z8v/kl3Mc=",
-    "./_framework/dotnet.khcochvvka.js": "sha256-yIo9cXnjHa2wDmxijAKvYWjTJ/Tb3onG++Z8v/kl3Mc=",
+    "./_framework/dotnet.gp1pdxvnj3.js": "sha256-5NWH8tyuW4lkXOh3Wghp/0AcvOIIy9lFzlc1jnnjsTk=",
+    "./_framework/dotnet.js": "sha256-5NWH8tyuW4lkXOh3Wghp/0AcvOIIy9lFzlc1jnnjsTk=",
     "./_framework/dotnet.native.ikrs475e5v.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.native.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.runtime.a6jcqbs390.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -49,6 +49,21 @@
         <a href="." class="reload">Reload</a>
         <span class="dismiss">🗙</span>
     </div>
+    
+    <div id="pwa-update-notification" class="w3-row">
+        <table style="vertical-align: middle;">
+            <tbody>
+                <tr>
+                    <td>
+                        A new version is available
+                    </td>
+                    <td style="width: 6em;">
+                        <button id="pwa-update-reload" class="w3-button w3-bar-item app-primary w3-round">RELOAD</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
     <script>
         const loadingHeader = document.getElementById("loading-header");
         const loadingSpinner = document.getElementById("loading-spinner");
@@ -64,8 +79,38 @@
     </script>
     <script src="_framework/blazor.webassembly.958z1vx7fr.js"></script>
     <script>
+        const pwaNotification = document.getElementById("pwa-update-notification");
+        const pwaUpdateBtn = document.getElementById("pwa-update-reload");
+        let pwaServiceWorkerUpdate = null;
+        pwaUpdateBtn.addEventListener('click', function(){
+            if (!pwaServiceWorkerUpdate)
+                return;
+            pwaServiceWorkerUpdate.postMessage({ action: 'skipWaiting' });
+        });
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' });
+            navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' }).then(reg => {
+                reg.addEventListener('updatefound', () => {
+                    pwaServiceWorkerUpdate = reg.installing;
+
+                    pwaServiceWorkerUpdate.addEventListener('statechange', () => {
+                        switch (pwaServiceWorkerUpdate.state) {
+                            case 'installed': 
+                                if (navigator.serviceWorker.controller) {
+                                    pwaNotification.classList.add('w3-show');
+                                }
+                                break;
+                        }
+                    });
+                });
+            });
+            
+            let refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                if (refreshing) 
+                    return;
+                window.location.reload();
+                refreshing = true;
+            });
         }
         
         window.downloadFileFromStream = async (fileName, contentStreamReference) => {

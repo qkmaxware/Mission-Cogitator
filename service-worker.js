@@ -1,4 +1,4 @@
-/* Manifest version: VQQS0AUL */
+/* Manifest version: vcmVU9qf */
 // Caution! Be sure you understand the caveats before publishing an application with
 // offline support. See https://aka.ms/blazor-offline-considerations
 
@@ -16,6 +16,15 @@ const offlineAssetsExclude = [ /^service-worker\.js$/ ];
 const base = "/";
 const baseUrl = new URL(base, self.origin);
 const manifestUrlList = self.assetsManifest.assets.map(asset => new URL(asset.url, baseUrl).href);
+
+self.addEventListener('message', function (event) {
+    switch (event.data.action) {
+        case "skipWaiting":
+            self.skipWaiting();
+            break;
+    }
+});
+
 
 async function onInstall(event) {
     console.info('Service worker: Install');
