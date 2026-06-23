@@ -28,23 +28,35 @@
     </div>
 </section>
 
+<section>
+    <header>Quality Assurance</header>
+    <div class="w3-margin-top w3-padding">
+
+    </div>
+</section>
 
 <div class="w3-row">
     <div class="w3-col" style="width: 240px; padding-right: 6px;">
         <section>
             <header>Content</header>
             <div class="w3-margin-top w3-bar-block">
-                <button class="w3-button w3-bar-item" @onclick=StateHasChanged>Refresh</button>
-                <hr />
                 @foreach (var item in pkg.Provides()) {
                     var self = item;
-                    <button class="w3-button w3-bar-item @(IsSelected(self) ? "app-primary" : string.Empty)" @onclick=@(() => selectedObject = self)>@self.Name <small><i>@self.GetType().Name</i></small></button>
+                    <div class="w3-row">
+                        <div class="w3-col" style="width: 2.5em;">
+                            <button class="w3-button w3-bar-item" @onclick=@(async () => { if (await prompt.ConfirmAsync("Are you sure you wish to delete this resource? Some links may break if deleted.")){ Delete(self); } })>x</button>
+                        </div>
+                        <div class="w3-rest">
+                            <button class="w3-button w3-bar-item @(IsSelected(self) ? "app-primary" : string.Empty)" @onclick=@(() => selectedObject = self)>@self.Name <small><i>@self.GetType().Name</i></small></button>
+                        </div>
+                    </div>
                 }
                 <hr />
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Rule>())>+ Definition</button>
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Action>())>+ Action</button>
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Effect>())>+ Effect</button>
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Ploy>())>+ Ploy</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Equipment>())>+ Equipment</button>
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Unit>())>+ Unit</button>
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Team>())>+ Team</button>
             </div>
@@ -55,6 +67,8 @@
             <header>Selected Item: @(selectedObject?.Name ?? "NULL")</header>
             <div class="w3-margin-top">
                 @if (selectedObject is not null) {
+                <label for="name">Unique Id:</label>
+                <input id="name" class="w3-input" value=@selectedObject?.Id disabled>
                 <label for="name">Name:</label>
                 <input id="name" class="w3-input" @bind=name>
                 @*Type specific stuff starts here*@
@@ -407,7 +421,8 @@
         get => selectedObject?.Name;
         set {
             selectedObject?.Name = value;
-            selectedObject?.Id = value is null ? null : whitespace.Replace(value.Trim().ToLower(), "-");
+            //Never update ID
+            //selectedObject?.Id = value is null ? null : whitespace.Replace(value.Trim().ToLower(), "-");
         }
     }
 
@@ -458,7 +473,7 @@
         
         T val = new();
         val.Name = name;
-        val.Id = whitespace.Replace(((pkg.Name ?? "new-package") + "-" + name).Trim().ToLower(), "-");
+        val.Id = whitespace.Replace(((pkg.Name ?? "new-package") + "-"  + typeof(T).Name + "-" + name).Trim().ToLower(), "-");
 
         foreach (var prop in pkgType.GetProperties(BindingFlags.Public | BindingFlags.Instance)) {
             if (prop.PropertyType.IsAssignableTo(typeof(Dictionary<string, T>))) {
@@ -474,6 +489,19 @@
         }
 
         return val;
+    }
+
+    private void Delete(IPackagedContent content) {
+        if(content is null || content.Id is null)
+            return;
+
+        pkg.Actions?.Remove(content.Id);
+        pkg.Definitions?.Remove(content.Id);
+        pkg.Effects?.Remove(content.Id);
+        pkg.Equipment?.Remove(content.Id);
+        pkg.Ploys?.Remove(content.Id);
+        pkg.Teams?.Remove(content.Id);
+        pkg.Units?.Remove(content.Id);
     }
 
     private void addFactionRuleToTeam(Team team, Rule rule) {

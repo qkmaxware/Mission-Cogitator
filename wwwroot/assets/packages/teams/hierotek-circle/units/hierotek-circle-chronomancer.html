@@ -1,0 +1,76 @@
+---
+{
+    "name": "Chronomancer",
+    "tags": ["Necron", "Leader", "Cryptek", "Chronomancer"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 14
+    },
+    "weapons": [
+        {
+            "name": "Aeonstave (ranged)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "blast", "x": 2},
+                {"id": "lethal", "x": 5},
+                {"id": "stun"},
+                {"id": "hierotek-circle-wr-magnify"}
+            ]
+        },
+        {
+            "name": "Entropic lance (ranged)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 5,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "devastating", "x": 3},
+                {"id": "piercing", "x": 1},
+                {"id": "hierotek-circle-wr-magnify"}
+            ]
+        },
+        {
+            "name": "Aeonstave (melee)",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "lethal", "x": 5},
+                {"id": "shock"}
+            ]
+        },
+        {
+            "name": "Entropic lance (melee)",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 6
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-interstitial-command",
+        "hierotek-circle-timesplinter",
+        "hierotek-circle-countertemporal-nanomine",
+        "hierotek-circle-chronometron"
+    ]
+}
+---

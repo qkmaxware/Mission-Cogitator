@@ -12,7 +12,12 @@
     <select class="w3-select" @bind=selectedEffectId>
         <option></option>
         @foreach (var effect in ruledb.AllEffects) {
-            <option value="@effect.Id">@effect.Name</option>
+            <option value="@effect.Id">
+                @effect.Name
+                @if (effect.SourcePackage?.Name is not null) {
+                    <text> - @effect.SourcePackage.Name</text>
+                }
+            </option>
         }
     </select>
 </Modal>

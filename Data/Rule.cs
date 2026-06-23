@@ -7,8 +7,8 @@ namespace Kt.Data;
 
 public class Rule: IPackagedContent
 {
-    public Pkg? SourcePackage {get; set;}
-    public string? Id { get; set;}
+    [JsonIgnore] public Pkg? SourcePackage {get; set;}
+    [JsonIgnore] public string? Id { get; set;}
     public string? Name {get; set;}
     [Kt.Layout.Editing.HtmlText()]
     [JsonIgnore]

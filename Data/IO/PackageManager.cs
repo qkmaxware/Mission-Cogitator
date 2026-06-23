@@ -68,6 +68,9 @@ public class PackageManager
                 continue;
                 
             teamdb.AddTeam(team.Id, team);
+
+            // Also add a rule for the team
+            ruledb.AddRule(team.Id, team.ToTeamDescriptionRule());
         }
 
         // Add aliasing if it exists

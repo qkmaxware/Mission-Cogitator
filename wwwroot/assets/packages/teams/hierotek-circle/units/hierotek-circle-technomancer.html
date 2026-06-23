@@ -1,0 +1,47 @@
+---
+{
+    "name": "Technomancer",
+    "tags": ["Necron", "Leader", "Cryptek", "Technomancer"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 14
+    },
+    "weapons": [
+        {
+            "name": "Staff of light (ranged)",
+            "kind": "ranged",
+            "atk": 6,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "rending"},
+                {"id": "hierotek-circle-wr-magnify"}
+            ]
+        },
+        {
+            "name": "Staff of light (melee)",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "rending"}
+            ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-interstitial-command",
+        "hierotek-circle-canoptek-repair",
+        "hierotek-circle-augment-weapon",
+        "hierotek-circle-reinforce-metal"
+    ]
+}
+---

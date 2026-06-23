@@ -20,7 +20,7 @@
 }
 
 <Modal @ref=ruleLookup Title="Search for Rule" Options=@Modal.Buttons.Cancel>
-    <RuleSearch Items=@ruledb.AllRules>
+    <RuleSearch @ref=ruleSearch Items=@ruledb.AllRules>
         <div style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>
             <div>
                 <b>@context.Name <small>(@context.Id)</small></b>
@@ -35,6 +35,7 @@
 </Modal>
 @code {
     private Modal? ruleLookup;
+    private RuleSearch? ruleSearch;
 }
 
 <Modal @ref=setupWizardModal Title="Game Setup Wizard" Options="@Modal.Buttons.None" AllowTopX=true>
@@ -231,9 +232,22 @@
     }
 }
 
+@code {
+    private async Task openSearchModal() {
+        if (ruleLookup is null) 
+            return; 
+
+        await ruleLookup.Show(); 
+        
+        if (ruleSearch is null) 
+            return; 
+        
+        await ruleSearch.Focus();
+    }
+}
 <NavMenu @ref=navigator Title="Datavault">
     <Header>
-        <button class="w3-button w3-bar-item" @onclick=@(async () => { if (ruleLookup is null) return; await ruleLookup.Show(); })>
+        <button class="w3-button w3-bar-item" @onclick=openSearchModal>
             <img src="art/search.svg" style="height: 1em; width: 1em;"/> Search
         </button>
     </Header>

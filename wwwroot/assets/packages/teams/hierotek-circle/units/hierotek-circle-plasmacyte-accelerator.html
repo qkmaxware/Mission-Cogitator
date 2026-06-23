@@ -1,0 +1,51 @@
+---
+{
+    "name": "Plasmacyte Accelerator",
+    "tags": ["Necron", "Plasmacyte", "Accelerator"],
+    "attributes": {
+        "apl": 2,
+        "move": 7,
+        "save": 5, 
+        "wounds": 5
+    },
+    "weapons": [
+        {
+            "name": "Spark",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 2,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "range", "x": 4},
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Claws",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 5,
+            "damage": {
+                "normal": 1,
+                "critical": 2
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-accelerate"
+    ]
+}
+---
+<b>Scuttler:</b>
+<ul>
+<li>Whenever this operative has a <see cref="conceal">Conceal order</see> and is in cover, it 
+cannot be selected as a <see cref="valid-target">valid target</see>, taking precedence over all 
+other rules (e.g. Seek, Vantage terrain) except being within 2".</li>
+<li>This operative can perform the <see cref="fall-back">Fall Back</see> action for 1 less AP.</li>
+<li>This operative cannot use any weapons that aren't on its 
+datacard, or perform unique actions other than <see cref="hierotek-circle-accelerate">Accelerate</see>.</li>
+</ul>
