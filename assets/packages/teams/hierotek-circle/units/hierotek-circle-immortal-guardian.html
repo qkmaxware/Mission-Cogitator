@@ -1,0 +1,59 @@
+---
+{
+    "name": "Immortal Guardian",
+    "tags": ["Necron", "Immortal", "Guardian"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 10
+    },
+    "weapons": [
+        {
+            "name": "Gauss blaster",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "piercing", "x": 1}
+            ]
+        },
+        {
+            "name": "Tesla carbine",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 3
+            },
+            "rules": [
+                {"prefix": "2\"", "id": "devastating", "x": 1}
+            ]
+        },
+
+        {
+            "name": "Bayonet",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-interstitial-command"
+    ]
+}
+---
+<b>Steadfast:</b> Whenever determining control of a marker, you 
+can treat this operative's APL stat as 3. If you do, this takes 
+precedence over all other rules, meaning any changes to its APL 
+stat are ignored for this.

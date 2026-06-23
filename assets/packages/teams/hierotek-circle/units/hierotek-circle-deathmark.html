@@ -1,0 +1,51 @@
+---
+{
+    "name": "Deathmark",
+    "tags": ["Necron", "Deathmark"],
+    "attributes": {
+        "apl": 2,
+        "move": 5,
+        "save": 3, 
+        "wounds": 10
+    },
+    "weapons": [
+        {
+            "name": "Synapic disintegrator",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 2,
+            "damage": {
+                "normal": 4,
+                "critical": 3
+            },
+            "rules": [
+                {"id": "devastating", "x": 2},
+                {"id": "heavy-dash", "suffix": "(Dash only)"},
+                {"id": "piercing", "x": 1},
+                {"id": "severe"}
+            ]
+        },
+        {
+            "name": "Fists",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 3,
+            "damage": {
+                "normal": 3,
+                "critical": 4
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-multi-dimensional-vision"
+    ]
+}
+---
+<b>Deathmarked:</b> Whenever this operative ends the <see cref="shoot">Shoot</see> action, 
+the target gains one of your Deathmarked tokens if it wasn't 
+incapacitated (the primary target, if relevant). Whenever a 
+friendly <b>HIEROTEK CIRCLE DEATHMARK</b> operative is 
+shooting an enemy operative that has one of your Deathmarked 
+tokens, that friendly operative's ranged weapons have the <see cref="seek">Seek</see> 
+weapon rule.

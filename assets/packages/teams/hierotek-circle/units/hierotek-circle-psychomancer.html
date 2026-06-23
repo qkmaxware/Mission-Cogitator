@@ -1,0 +1,49 @@
+---
+{
+    "name": "Psychomancer",
+    "tags": ["Necron", "Leader", "Cryptek", "Psychomancer"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 14
+    },
+    "weapons": [
+        {
+            "name": "Abyssal lance (ranged)",
+            "kind": "ranged",
+            "atk": 5,
+            "hit": 3,
+            "damage": {
+                "normal": 2,
+                "critical": 2
+            },
+            "rules": [
+                {"id": "blast", "x": 2},
+                {"prefix": "1\"", "id": "devastating", "x": 1},
+                {"id": "piercing", "x": 2},
+                {"id": "hierotek-circle-wr-magnify"}
+            ]
+        },
+        {
+            "name": "Abyssal lance (melee)",
+            "kind": "melee",
+            "atk": 4,
+            "hit": 4,
+            "damage": {
+                "normal": 4,
+                "critical": 4
+            },
+            "rules": [
+                {"id": "devastating", "x": 1}
+            ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-interstitial-command",
+        "hierotek-circle-harbinger-of-despair",
+        "hierotek-circle-nightmare-shroud",
+        "hierotek-circle-vision-of-madness"
+    ]
+}
+---

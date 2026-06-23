@@ -1,0 +1,46 @@
+---
+{
+    "name": "Plasmacyte Apprentek",
+    "tags": ["Necron", "Apprentek"],
+    "attributes": {
+        "apl": 3,
+        "move": 6,
+        "save": 3, 
+        "wounds": 11
+    },
+    "weapons": [
+        {
+            "name": "Arcane conduit (ranged)",
+            "kind": "ranged",
+            "atk": 4,
+            "hit": 3,
+            "damage": {
+                "normal": 4,
+                "critical": 5
+            },
+            "rules": [
+                {"id": "piercing", "x": 1},
+                {"id": "hierotek-circle-wr-magnify"}
+            ]
+        },
+        {
+            "name": "Arcane conduit (melee)",
+            "kind": "melee",
+            "atk": 3,
+            "hit": 4,
+            "damage": {
+                "normal": 3,
+                "critical": 5
+            },
+            "rules": [ ]
+        }
+    ],
+    "rules": [
+        "hierotek-circle-reanimate"
+    ]
+}
+---
+<b>Apprentek Assistance:</b> This operative has the same unique 
+actions as your <b>CRYPTEK</b> operative selected for the battle, 
+but can only perform one <b>CRYPTEK</b> unique action per 
+turning point.

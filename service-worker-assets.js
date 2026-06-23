@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "DkAHfvru",
+  "version": "VQQS0AUL",
   "assets": [
     {
       "hash": "sha256-XfO20UMbP6B0mLDBNM26/PSGZU/86LMY5hkT4i540ec=",
@@ -10,20 +10,20 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-VUC8DJtmsnYMSfrmJrFGEuHaWmT1XqZIGogdQrciD2I=",
-      "url": "_framework/Kt.t2fo6uivp0.wasm"
+      "hash": "sha256-VH/DJ3vFhOsTGtnfKLIhfm99JuNh52I7my1/kvgtHzQ=",
+      "url": "_framework/Kt.wpj2zz0tv4.wasm"
     },
     {
-      "hash": "sha256-aOSQuoA3Mky82IWX/iQS7FOuvR7Yl/QqVzw+txlwQeQ=",
-      "url": "_framework/Microsoft.AspNetCore.Components.Web.cvflokny5s.wasm"
+      "hash": "sha256-Bx9P1Y4RPgeLAwZgbg5PLiowypuSmCB0+5CI8pi0oQs=",
+      "url": "_framework/Microsoft.AspNetCore.Components.9c8rqh0lru.wasm"
+    },
+    {
+      "hash": "sha256-NsmaFJfkfdgAZuA2MxtvrP904DRQkhtgehMp94aZ/J0=",
+      "url": "_framework/Microsoft.AspNetCore.Components.Web.607j3z1jmq.wasm"
     },
     {
       "hash": "sha256-yMKxU4CkKtAcU5QU/2ZgGV2qYwIC6mLqzbr56asuX5k=",
       "url": "_framework/Microsoft.AspNetCore.Components.WebAssembly.ogbrk70tmk.wasm"
-    },
-    {
-      "hash": "sha256-wAcL14cEF4oPG37FkaJY3oNazypZ0rKo20bvDxMFKRs=",
-      "url": "_framework/Microsoft.AspNetCore.Components.w84h021ebe.wasm"
     },
     {
       "hash": "sha256-ZOgCu+sSJp5f9j7rCobYQFv+JZXLP1beiOZWlftlx1s=",
@@ -158,8 +158,8 @@ self.assetsManifest = {
       "url": "_framework/System.ObjectModel.2oauxyoozb.wasm"
     },
     {
-      "hash": "sha256-fd9tF5FYPjjMaty9z6b3xoV2tyhBPJnXXRcoGbYOam4=",
-      "url": "_framework/System.Private.CoreLib.vl7sndk09s.wasm"
+      "hash": "sha256-7Dme3sg1tlsgJXBei4cAeyvXuS2s4KEH96uNOY1Psl8=",
+      "url": "_framework/System.Private.CoreLib.gjfd2ezt4z.wasm"
     },
     {
       "hash": "sha256-KMTV6b8QOt820TCnXaihd8UG9E/HRDfk8Cpkhxxydy8=",
@@ -174,8 +174,8 @@ self.assetsManifest = {
       "url": "_framework/System.Runtime.InteropServices.JavaScript.uzoakn3mog.wasm"
     },
     {
-      "hash": "sha256-al2VclDCq+xcuSa1nVin1ih9yX/phhtZ/e4k4XUspQI=",
-      "url": "_framework/System.Runtime.eb1z4iq7ja.wasm"
+      "hash": "sha256-XmW7iX5j62GSuDEdTAr4dY5JEzGMXeQk7gP/ybo5QjE=",
+      "url": "_framework/System.Runtime.up430srrh0.wasm"
     },
     {
       "hash": "sha256-+MEnmrkB+tPje/AU645MfRUr8zlo02T+UG2TeNHbACs=",
@@ -214,6 +214,10 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-yIo9cXnjHa2wDmxijAKvYWjTJ/Tb3onG++Z8v/kl3Mc=",
+      "url": "_framework/dotnet.khcochvvka.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -224,10 +228,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
-    },
-    {
-      "hash": "sha256-sYPZpIGODLsm3RZWkfeJ3x1FUBSC5s5HmO3D4B+Cosk=",
-      "url": "_framework/dotnet.x094pltav9.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1090,6 +1090,182 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hearthkyn-salvagers/units/hearthkyn-salvagers-warrior.html"
     },
     {
+      "hash": "sha256-o0TXYjP8KSXWqQqF8YNVsmZ2SlIqj/HbPJEie8qpP4k=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-accelerate.html"
+    },
+    {
+      "hash": "sha256-Nu/kDKAMvgoQhHyJEoTqIgpayxyrHIbf8XWP89F+FVI=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-augment-weapon.html"
+    },
+    {
+      "hash": "sha256-h623yvUQ6z8NQMI2nlQ7yfSZhvB3Maa2FCN3AVshzZA=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-canoptek-repair.html"
+    },
+    {
+      "hash": "sha256-uVq1wxjUdBZPjfRA0vdpOJbCbtWqH8PZrRvRkoK/LAE=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-chronometron.html"
+    },
+    {
+      "hash": "sha256-4cWK+Sg9ladT3pwiUZa4FtYAG5mkg9kLIB7AYT0gcL4=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-countertemporal-nanomine.html"
+    },
+    {
+      "hash": "sha256-P8/IOkvl7+fuHvt+zaMNcHvWOpqmUtiPcCalcDKB4yE=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-harbinger-of-despair.html"
+    },
+    {
+      "hash": "sha256-aNHipM8OLmWTne/odr/tc7pJQ/Jf1N4uTYVE71UxYOA=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-interstitial-command.html"
+    },
+    {
+      "hash": "sha256-zfNfXaQubpLgQz5dVGWd98vADPoZ1PTqym4t4KtoJ8Q=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-multi-dimensional-vision.html"
+    },
+    {
+      "hash": "sha256-kdMhYIIsc8cbZNWlfmnzg2hPLsNUeO/uUDuI3wLyrt4=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-nightmare-shroud.html"
+    },
+    {
+      "hash": "sha256-HRUc3V1YSJwVM1tKlJcbUBtCGTxNhr0Zod/Du1qi9zw=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-reanimate.html"
+    },
+    {
+      "hash": "sha256-hXrGoQXjm0nOipZpRuOhc3hhoxKsW1kyqvDCtCxE7Z8=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-reinforce-metal.html"
+    },
+    {
+      "hash": "sha256-KC66QWwqKFTfw6v0txD8Dwn751gvvh+x0zXgtLIQWH4=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-timesplinter.html"
+    },
+    {
+      "hash": "sha256-L0Bk1YnyjIZCL2sKluS+pCohjEVzTzRy9dZevhZrpSg=",
+      "url": "assets/packages/teams/hierotek-circle/actions/hierotek-circle-vision-of-madness.html"
+    },
+    {
+      "hash": "sha256-WzI50/M9MGbaQSIaV0owiYhDTaNtHXiepTCman5IxGk=",
+      "url": "assets/packages/teams/hierotek-circle/definitions/hierotek-circle-living-metal.html"
+    },
+    {
+      "hash": "sha256-9zsE9HdudCXIyT3PJBRuZiYeIwbwi9Ke+GsU8yTeN5w=",
+      "url": "assets/packages/teams/hierotek-circle/definitions/hierotek-circle-magnify.html"
+    },
+    {
+      "hash": "sha256-+GLK9kN/ftfpkkNGH/YRtZDBoIrNdG1LRrhi5Jp6lKE=",
+      "url": "assets/packages/teams/hierotek-circle/definitions/hierotek-circle-reanimation-protocols.html"
+    },
+    {
+      "hash": "sha256-IIjG3Nicx9WRmY2V3CiMM9oWbJ+CtszWRfJCTlMDE7s=",
+      "url": "assets/packages/teams/hierotek-circle/definitions/hierotek-circle-wr-magnify.html"
+    },
+    {
+      "hash": "sha256-MPyGSoTRc0eHxuyXNQZOgzBDf5fEhzf4dnX/oFTFiZM=",
+      "url": "assets/packages/teams/hierotek-circle/effects/hierotek-circle-deathmarked.html"
+    },
+    {
+      "hash": "sha256-hSfcXa9nmcLy3Aw1K948KRWPPt0CBGznWSFZqpN8/to=",
+      "url": "assets/packages/teams/hierotek-circle/effects/hierotek-circle-deathmarked.svg"
+    },
+    {
+      "hash": "sha256-+Ufm++UKm0eMEASnpj0D8hdigyY7NaQBzA52WGj+MHQ=",
+      "url": "assets/packages/teams/hierotek-circle/effects/hierotek-circle-madness.html"
+    },
+    {
+      "hash": "sha256-FMpy0V/acZe16B2gtOmUvTGH8aw+YUfLpaN59lGgZH4=",
+      "url": "assets/packages/teams/hierotek-circle/effects/hierotek-circle-madness.svg"
+    },
+    {
+      "hash": "sha256-ahvCcN7zcI449C6I6Xp/2XPtC4at5JlSUzpk7viogss=",
+      "url": "assets/packages/teams/hierotek-circle/equipment/hierotek-circle-magnification-conduits.html"
+    },
+    {
+      "hash": "sha256-OReBdM8y1kCF72mYk/XM8q2Wn28ZKkzQi3zlyphsK6E=",
+      "url": "assets/packages/teams/hierotek-circle/equipment/hierotek-circle-phase-shifter.html"
+    },
+    {
+      "hash": "sha256-upmd/3a/F+BVn8A7vWGI1tXtflry3D1rxIFnN4I4cP0=",
+      "url": "assets/packages/teams/hierotek-circle/equipment/hierotek-circle-tesla-weave.html"
+    },
+    {
+      "hash": "sha256-C1yep2NRZrZp0wWqWH0M4CEVUzZeawBfieZCzCw4kts=",
+      "url": "assets/packages/teams/hierotek-circle/equipment/hierotek-circle-tesseract-cube.html"
+    },
+    {
+      "hash": "sha256-8bm2czIwuKlRROCF5LDjCMkh0gx0JdnixBrwztLPfmE=",
+      "url": "assets/packages/teams/hierotek-circle/index.json"
+    },
+    {
+      "hash": "sha256-C8gMmfWQTHxoP5uP2VKDnfpuufiYvEWqf1pmVNuYWiU=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-command-underlings.html"
+    },
+    {
+      "hash": "sha256-X+mz6NXJmrCWfeIQTVW7PGOhqSMvFnJt+3a71WD/uHY=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-cortical-control.html"
+    },
+    {
+      "hash": "sha256-wadRUGGM0JdcLDSsMZRuxY+PZVUmIjr3cKt+ACrwfTo=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-dimensional-ambush.html"
+    },
+    {
+      "hash": "sha256-+3uf2Ora0KLWHb6Q62FbOAaQ68SchQtuwj6q2N2vVeI=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-living-lightning.html"
+    },
+    {
+      "hash": "sha256-yK1pIIiDgYiPbUxwDY3BgqAetu9Sf77NaFS1PNICcH4=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-methodical-elimination.html"
+    },
+    {
+      "hash": "sha256-LnWzuVmALFWZ/TGZyi47Ui77a5u49iLQjFtF3xVHI1g=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-reanimated-function.html"
+    },
+    {
+      "hash": "sha256-1Ogj5IUllwBdb/SZm5mYRA3DYUaT5Pr/Mtpf0EbB6h4=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-relentless-onslaught.html"
+    },
+    {
+      "hash": "sha256-KsSlftFojDAXaIscOv5FUlEl6PM+4KED3d6kDOE+iR4=",
+      "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-undying-androids.html"
+    },
+    {
+      "hash": "sha256-bDZwyVQcmaCvJwjCveBA+X/5pZ4KzwvxE1pSIq+phug=",
+      "url": "assets/packages/teams/hierotek-circle/teams/hierotek-circle.html"
+    },
+    {
+      "hash": "sha256-H0fC0jX+ZkfhNhym40yVz+ZIy1HVlB7UjPSaSpmswEE=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-apprentek.html"
+    },
+    {
+      "hash": "sha256-ceXeTNgf+SMJTUAqzIRP8ixGiMi1OteY0l/p2eeNCGY=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-chronomancer.html"
+    },
+    {
+      "hash": "sha256-6PBz45R9SywYJw+xC2v7XriV3eakcEsq9dwy5TRt/l8=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-deathmark.html"
+    },
+    {
+      "hash": "sha256-clIHp/0DPbDs43v2SvUlVuJNnYgM4vQDlU9AL9uLdD8=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-immortal-despotek.html"
+    },
+    {
+      "hash": "sha256-j/6WFn3Hq7XcGpm1geZ20i0FvnJdC9ZOHNjmYuK2Qpg=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-immortal-guardian.html"
+    },
+    {
+      "hash": "sha256-Mx4kyBz6bbkRGlFxFlYcBUQQb7SEuXihVjck3eCpmtU=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-plasmacyte-accelerator.html"
+    },
+    {
+      "hash": "sha256-ZtuWAHgIen4MLN0IxEJI69fgswZ5V3oTsxpPITuZQ00=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-plasmacyte-reanimator.html"
+    },
+    {
+      "hash": "sha256-d2UHwMOBrygVh0IdBvEmAPWJRHLcfnNcCNY5jQz51o4=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-psychomancer.html"
+    },
+    {
+      "hash": "sha256-lucFo2tC75bFa5xe5bYTAfxGv/YCZqP4x7WoFDiJZSY=",
+      "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-technomancer.html"
+    },
+    {
       "hash": "sha256-WozXF82n8XpJhounQi/FOnnmagisXVFOLiQHOSft0rM=",
       "url": "assets/packages/teams/pathfinders/actions/pathfinder-markerlight.html"
     },
@@ -1554,7 +1730,7 @@ self.assetsManifest = {
       "url": "icon-192.png"
     },
     {
-      "hash": "sha256-wOM2vXhdY+kIg+A6whVh3dYsFYRqRewec8gFLaaxZ4k=",
+      "hash": "sha256-vwSBwMSM1iLxyM7vJsfFocvcttjS5ErMzh13uHPbd2o=",
       "url": "index.html"
     },
     {

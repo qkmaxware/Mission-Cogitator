@@ -1,0 +1,60 @@
+{
+  "name": "Hierotek Circle",
+  "updated": "29/04/2026",
+  "definitions": [
+    "definitions/hierotek-circle-reanimation-protocols",
+    "definitions/hierotek-circle-magnify",
+    "definitions/hierotek-circle-wr-magnify",
+    "definitions/hierotek-circle-living-metal"
+  ],
+  "actions": [
+    "actions/hierotek-circle-interstitial-command",
+    "actions/hierotek-circle-timesplinter",
+    "actions/hierotek-circle-countertemporal-nanomine",
+    "actions/hierotek-circle-chronometron",
+    "actions/hierotek-circle-harbinger-of-despair",
+    "actions/hierotek-circle-canoptek-repair",
+    "actions/hierotek-circle-augment-weapon",
+    "actions/hierotek-circle-reinforce-metal",
+    "actions/hierotek-circle-accelerate",
+    "actions/hierotek-circle-reanimate",
+    "actions/hierotek-circle-multi-dimensional-vision",
+    "actions/hierotek-circle-nightmare-shroud",
+    "actions/hierotek-circle-vision-of-madness"
+  ],
+  "effects": [
+    "effects/hierotek-circle-madness",
+    "effects/hierotek-circle-deathmarked"
+  ],
+  "equipment": [
+    "equipment/hierotek-circle-magnification-conduits",
+    "equipment/hierotek-circle-phase-shifter",
+    "equipment/hierotek-circle-tesseract-cube",
+    "equipment/hierotek-circle-tesla-weave"
+  ],
+  "ploys": [
+    "ploys/hierotek-circle-relentless-onslaught",
+    "ploys/hierotek-circle-undying-androids",
+    "ploys/hierotek-circle-methodical-elimination",
+    "ploys/hierotek-circle-command-underlings",
+    "ploys/hierotek-circle-cortical-control",
+    "ploys/hierotek-circle-reanimated-function",
+    "ploys/hierotek-circle-living-lightning",
+    "ploys/hierotek-circle-dimensional-ambush"
+  ],
+  "units": [
+    "units/hierotek-circle-chronomancer",
+    "units/hierotek-circle-psychomancer",
+    "units/hierotek-circle-technomancer",
+    "units/hierotek-circle-plasmacyte-accelerator",
+    "units/hierotek-circle-plasmacyte-reanimator",
+    "units/hierotek-circle-apprentek",
+    "units/hierotek-circle-deathmark",
+    "units/hierotek-circle-immortal-despotek",
+    "units/hierotek-circle-immortal-guardian"
+  ],
+  "teams": [
+    "teams/hierotek-circle"
+  ],
+  "aliases": null
+}
