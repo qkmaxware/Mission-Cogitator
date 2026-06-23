@@ -337,6 +337,9 @@
                                 @foreach (var r in CoreActions) {
                                     <option value="@r.Id">@r.Name</option>
                                 }
+                                @foreach (var r in CoreDefinitions) {
+                                    <option value="@r.Id">@r.Name</option>
+                                }
                                 @foreach (var r in CoreWeaponRules) {
                                     <option value="@r.Id">@r.Name</option>
                                 }
@@ -374,6 +377,7 @@
 
     private Rule[] CoreWeaponRules = new Rule[0];
     private Rule[] CoreActions = new Rule[0];
+    private Rule[] CoreDefinitions = new Rule[0];
 
     private ElementReference? descriptionTextArea;
 
@@ -415,6 +419,16 @@
     protected override void OnInitialized() {
         CoreActions = ruledb.GetCoreActions();
         CoreWeaponRules = ruledb.GetCoreWeaponRules();
+        CoreDefinitions = [
+            ruledb.GetValue("activation")!,
+            ruledb.GetValue("counteract")!,
+            ruledb.GetValue("control-range")!,
+            ruledb.GetValue("visible")!,
+            ruledb.GetValue("valid-target")!,
+
+            ruledb.GetValue("conceal")!,
+            ruledb.GetValue("engage")!,
+        ];
     }
 
     private string? name {

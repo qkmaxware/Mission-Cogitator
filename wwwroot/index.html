@@ -31,6 +31,21 @@
         <a href="." class="reload">Reload</a>
         <span class="dismiss">🗙</span>
     </div>
+    
+    <div id="pwa-update-notification" class="w3-row">
+        <table style="vertical-align: middle;">
+            <tbody>
+                <tr>
+                    <td>
+                        A new version is available
+                    </td>
+                    <td style="width: 6em;">
+                        <button id="pwa-update-reload" class="w3-button w3-bar-item app-primary w3-round">RELOAD</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
     <script>
         const loadingHeader = document.getElementById("loading-header");
         const loadingSpinner = document.getElementById("loading-spinner");
@@ -46,8 +61,38 @@
     </script>
     <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
     <script>
+        const pwaNotification = document.getElementById("pwa-update-notification");
+        const pwaUpdateBtn = document.getElementById("pwa-update-reload");
+        let pwaServiceWorkerUpdate = null;
+        pwaUpdateBtn.addEventListener('click', function(){
+            if (!pwaServiceWorkerUpdate)
+                return;
+            pwaServiceWorkerUpdate.postMessage({ action: 'skipWaiting' });
+        });
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' });
+            navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' }).then(reg => {
+                reg.addEventListener('updatefound', () => {
+                    pwaServiceWorkerUpdate = reg.installing;
+
+                    pwaServiceWorkerUpdate.addEventListener('statechange', () => {
+                        switch (pwaServiceWorkerUpdate.state) {
+                            case 'installed': 
+                                if (navigator.serviceWorker.controller) {
+                                    pwaNotification.classList.add('w3-show');
+                                }
+                                break;
+                        }
+                    });
+                });
+            });
+            
+            let refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                if (refreshing) 
+                    return;
+                window.location.reload();
+                refreshing = true;
+            });
         }
         
         window.downloadFileFromStream = async (fileName, contentStreamReference) => {
