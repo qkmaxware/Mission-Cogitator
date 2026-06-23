@@ -17,13 +17,10 @@ const baseUrl = new URL(base, self.origin);
 const manifestUrlList = self.assetsManifest.assets.map(asset => new URL(asset.url, baseUrl).href);
 
 self.addEventListener('message', function (event) {
-    switch (event.data.action) {
-        case "skipWaiting":
-            self.skipWaiting();
-            break;
+    if (event.data.action === 'skipWaiting') {
+        self.skipWaiting();
     }
 });
-
 
 async function onInstall(event) {
     console.info('Service worker: Install');
