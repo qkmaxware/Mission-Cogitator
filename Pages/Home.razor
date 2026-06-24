@@ -12,6 +12,19 @@
 
 @using Kt.Data
 
+<Modal @ref=attribution Title="About">
+    <Attribution></Attribution>
+</Modal>
+@code {
+    private Modal? attribution;
+    private async Task openAttribution() {
+        if (this.attribution is null)
+            return;
+        await this.attribution.Show();
+    }
+}
+
+
 <RuleAlert @ref=rules></RuleAlert>
 @code {
     private RuleAlert? rules;
@@ -433,6 +446,7 @@
     </Content>
     <Footer>
         <button class="w3-button w3-bar-item" @onclick=openSetupWizard><img src="art/wizard.svg" class="icon"/>Game Setup Wizard</button>
+        <button class="w3-button w3-bar-item" @onclick=openAttribution><img src="art/help.svg" class="icon"/>About Application</button>
     </Footer>
 </NavMenu>
 @code {
@@ -440,7 +454,7 @@
 }
 <Header>
     <button class="w3-button app-primary w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> <h2 class="w3-xlarge" style="display: inline-block; margin: 0;">Mission Cogitator</h2>
-    <button class="w3-display-right w3-button app-primary w3-xlarge" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/help.svg" style="height: 1em;"/></button>
+    <button class="w3-display-right w3-button app-primary w3-xlarge" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/home.svg" style="height: 1em;"/></button>
 </Header>
 <Counters></Counters>
 
