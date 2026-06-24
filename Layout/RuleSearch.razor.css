@@ -1,6 +1,13 @@
+.w3-display-container>img {
+    left: 13px;
+    -webkit-user-drag: none;  /* Blocks dragging in Chrome, Safari, and Edge */
+    user-select: none;        /* Blocks accompanying text/image selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
 .search {
     padding-left: 40px;
-    background: transparent url("art/search.svg") no-repeat 13px center;
 }
 
 .search:focus{

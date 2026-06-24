@@ -5,7 +5,10 @@
 
 @inject IJSRuntime js
 
-<input @ref=input type="text" class="w3-input search" placeholder="@_placeholder" @bind=text @bind:event="oninput">
+<div class="w3-display-container">
+    <img src="art/search.svg" draggable="false" class="w3-display-left invert-dark"/>
+    <input @ref=input type="text" class="w3-input search" placeholder="@_placeholder" @bind=text @bind:event="oninput">
+</div>
 <ul class="results">
     @if (this.results != null && ChildContent != null) {
         foreach (var item in this.results) {

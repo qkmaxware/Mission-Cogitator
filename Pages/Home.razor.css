@@ -11,3 +11,7 @@ article {
         padding-right: 8px;
     }
 }
+
+.w3-border-light-grey {
+    border-color: var(--theme-panel-background) !important;
+}

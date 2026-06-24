@@ -1,33 +1,85 @@
+:root {
+    --theme-name: "light";
+
+    --theme-background-foreground: black;
+    --theme-background-light: #ffffff;
+    --theme-background-dark: #fcfcfc;
+
+    --theme-primary-background: #ff5722;
+    --theme-primary-foreground: #fff;
+
+    --theme-panel-background: rgb(240, 240, 240);
+    --theme-panel-foreground: black;
+
+    --theme-error-background: #8f0707;
+    --theme-error-foreground: #fff;
+
+    --theme-dark-background: black;
+    --theme-dark-foreground: white;
+}
+
+@media  (prefers-color-scheme: dark) {
+    :root {
+        --theme-name: "dark";
+
+        --theme-background-foreground: #fff;
+        --theme-background-light: #050505;
+        --theme-background-dark: #000000;
+
+        --theme-panel-background: rgb(44, 44, 44);
+        --theme-panel-foreground: #fff;
+
+        --theme-dark-background: rgb(44, 44, 44);
+        --theme-dark-foreground: white;
+    }
+
+    /* For all black icons, invert them to a light colour */
+    .invert-dark {
+        -webkit-filter: invert();
+        filter: invert();
+    }
+
+    hr {
+        border-top: 1px solid var(--theme-panel-background) !important;
+    }
+
+    input,select,textarea {
+        background-color: var(--theme-panel-background);
+        color: var(--theme-panel-foreground);
+    }
+}
+
 html {
     min-height: 100%;
+    color: var(--theme-background-foreground);
     background: repeating-linear-gradient(
         -45deg,
-        #ffffff,
-        #ffffff 20px,
-        #fcfcfc 20px,
-        #fcfcfc 40px
+        var(--theme-background-light),
+        var(--theme-background-light) 20px,
+        var(--theme-background-dark) 20px,
+        var(--theme-background-dark) 40px
     );
 }
 
 .app-primary {
-    color:#fff!important;
-    background-color:#ff5722!important;
+    color:var(--theme-primary-foreground)!important;
+    background-color:var(--theme-primary-background)!important;
 }
 
 .text-primary {
-    color:#ff5722!important;
+    color:var(--theme-primary-background)!important;
 }
 
 .app-error {
-    color:#fff!important;
-    background-color:#8f0707!important;
+    color:var(--theme-error-foreground)!important;
+    background-color:var(--theme-error-background)!important;
 }
 
 .border-primary {
-    border-top-color:#ff5722!important;
-    border-left-color:#ff5722!important;
-    border-right-color:#ff5722!important;
-    border-bottom-color:#ff5722!important;
+    border-top-color:var(--theme-primary-background)!important;
+    border-left-color:var(--theme-primary-background)!important;
+    border-right-color:var(--theme-primary-background)!important;
+    border-bottom-color:var(--theme-primary-background)!important;
 }
 
 .bordered {
@@ -53,7 +105,7 @@ blockquote:before {
 }
 
 section {
-    border: 2px solid #ff5722;
+    border: 2px solid var(--theme-primary-background);
     padding: 8px;
     margin-top: 16px;
 }
@@ -61,8 +113,8 @@ section {
 section>header {
     margin: -8px;
     padding: 8px 16px;
-    color: white;
-    background-color: #ff5722;
+    color: var(--theme-primary-foreground);
+    background-color: var(--theme-primary-background);
 }
 
 section.no-subsection section {

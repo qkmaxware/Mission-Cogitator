@@ -1,15 +1,15 @@
 header {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    background-color: black;
-    color: white;
+    background-color: var(--theme-dark-background);
+    color: var(--theme-dark-foreground);
 }
 
 footer {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
-    background-color: black;
-    color: white;
+    background-color: var(--theme-dark-background);
+    color: var(--theme-dark-foreground);
 }
 
 .clickable {
@@ -89,7 +89,7 @@ footer {
 }
 
 article {
-    border: 2px solid black;
+    border: 2px solid var(--theme-dark-background);
 }
 
 table {
@@ -103,7 +103,7 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: lightgray;
+    background-color: var(--theme-panel-background);
 }
 
 table {

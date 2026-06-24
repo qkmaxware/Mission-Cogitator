@@ -1,9 +1,15 @@
 input {
     background-color: #0000000a;
+    color: var(--theme-panel-foreground)!important
 }
 
 img {
     height: 1.5em;
     margin-top: -0.25em;
     padding-right: 0.25em;
+}
+
+.w3-light-grey {
+    color: var(--theme-panel-foreground)!important;
+    background-color: var(--theme-panel-background)!important;
 }

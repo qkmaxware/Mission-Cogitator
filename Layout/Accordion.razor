@@ -1,9 +1,9 @@
 <div class="accordion">
     <button class="w3-button w3-bar-item" @onclick="ToggleNavMenu">
         @Title @if(collapseMenu) {
-            <span class="chevron down"></span>
+            <span class="chevron down invert-dark"></span>
         } else {
-            <span class="chevron up"></span>
+            <span class="chevron up invert-dark"></span>
         }
         @if (!string.IsNullOrEmpty(Subtitle)) {
             <br />
