@@ -1,0 +1,236 @@
+@using System.Collections.Generic
+@using System.Text.RegularExpressions
+@using Kt.Data
+@using Kt.Data.IO
+
+@inject RuleDatabase ruledb
+
+<p>
+    This tool is used to detect links to documents that are broken or otherwise do not work.
+</p>
+<hr />
+@if (iterator is null) {
+    <div class="w3-center">
+        <button class="w3-button app-primary" @onclick=restart>Start</button>
+    </div>
+}
+else {
+if (current is null) {
+    <p>
+        Reached then end of the packaged content. Restart?
+    </p>
+    <div class="w3-center">
+        <button class="w3-button app-primary" @onclick=restart>Restart</button>
+    </div>
+} else {
+    <label>@current.Name <small>(@current.Id)</small></label>
+    @if (currentIssue is not null && current.Description is not null) {
+        var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPosition);
+        <div class="w3-row w3-margin-bottom">
+            <div id="before" class="w3-col s6">
+                <span class="source">@before</span><span class="original">@middle</span><span class="source">@after</span>
+            </div>
+            <div id="after" class="w3-col s6">
+                <span class="source">@before</span><span class="replacement">@currentIssue.Replacement</span><span class="source">@after</span>
+            </div>
+        </div>
+    }
+    <div class="w3-row">
+        <div class="w3-col s6">
+            <button class="w3-button app-primary" @onclick=restart>Restart</button>
+        </div>
+        <div class="w3-col s6" style="text-align: right">
+            <button class="w3-button app-primary" @onclick=skip>Skip</button>
+            <button class="w3-button app-primary" @onclick=confirm>Replace</button>
+        </div>
+    </div>
+}
+}
+<hr />
+
+@code {
+    private IEnumerator<IPackagedContent>? iterator;
+    private IPackagedContent? current;
+    private Issue? currentIssue;
+
+    [Parameter] public Pkg? Package {get; set;}
+
+    private void restart() {
+        iterator = Package?.Provides().GetEnumerator();
+        currentIssue = null;
+        current = null;
+        moveNext();
+    }
+
+    private void moveNext() {
+        if (currentIssue is null) {
+            nextContent();
+            return;
+        }
+
+        nextIssue();
+    }
+
+    private void skip() {
+        if (currentIssue is null)
+            return;
+
+        currentIssue.Replace = false; // Skipping, no replacement
+        moveNext();
+    }
+    private void confirm() {
+        if (currentIssue is null)
+            return;
+
+        var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPositionWithoutReplacement);
+        current.Description = before + currentIssue.Replacement + after;
+        currentIssue.Replace = true; // Replacement was done
+        moveNext();
+    }
+
+    private void nextContent() {
+        currentIssue = null;
+        current = iterator is not null && iterator.MoveNext() ? iterator?.Current : null;
+        if (current is not null)
+            nextIssue();
+    }
+
+    public static (string Before, string Middle, string After) SplitAroundRange(
+        string text,
+        int startIndex,
+        int endIndex)
+    {
+        text ??= string.Empty;
+
+        int length = text.Length;
+
+        // Clamp to valid string bounds.
+        int start = Math.Clamp(startIndex, 0, length);
+        int end = Math.Clamp(endIndex, 0, length);
+
+        // Ensure start <= end.
+        if (start > end)
+            (start, end) = (end, start);
+
+        string before = text[..start];
+        string middle = text[start..end];
+        string after = text[end..];
+
+        return (before, middle, after);
+    }
+
+    private class Issue {
+        public int StartPosition;
+        public bool Replace = false;
+        public int EndPositionWithoutReplacement;
+        public int EndPositionWithReplacement;
+        public int EndPosition => Replace ? EndPositionWithReplacement : EndPositionWithoutReplacement;
+        public string Replacement;
+    }
+    private class TextMatch<T> {
+        public bool Success {get; init;}
+        public T? Value {get; init;}
+        public int Index {get; init;}
+        public int Length {get; init;}
+
+        public static readonly TextMatch<T> Empty = new (false, default(T), 0, 0);
+
+        public TextMatch(bool success, T value, int index, int length) {
+            this.Success = success;
+            this.Value = value;
+            this.Index = index;
+            this.Length = length;
+        } 
+    }
+    private static Regex tagPattern = new Regex(@"<see\s+cref\s*=\s*[""'](?<cref>.*)[""']\s*>(?<text>.*?)</see>", RegexOptions.Compiled);
+    private TextMatch<IPackagedContent>? nextMatchNotInTag(string corpus, int startOffset) {
+        while (startOffset < corpus.Length) {
+            var match = tagPattern.Match(corpus, startOffset);
+
+            if (!match.Success)
+                return null;
+
+            var id = match.Groups["cref"].Value;
+            var name = match.Groups["text"].Value;
+            IPackagedContent? rule = Package?.GetPackagedContent(id) ?? ruledb.GetValue(id);
+            if (rule is null) {
+                // No match, link is broken, return the match with a suggested update
+                var closest = 
+                    ruledb.AllRules.Cast<IPackagedContent>()
+                    .Concat(Package?.Provides() ?? Enumerable.Empty<IPackagedContent>())
+                    .OrderBy(p => LevenshteinDistance(
+                        p.Name.ToLowerInvariant(),
+                        name.ToLowerInvariant()))
+                    .FirstOrDefault();
+                return new TextMatch<IPackagedContent> (true, closest, match.Index, match.Length);
+            }
+
+            // Continue to next match
+            startOffset += match.Length;
+        }
+
+        return null;
+    }
+    public static int LevenshteinDistance(string s, string t)
+    {
+        if (string.IsNullOrEmpty(s))
+            return t?.Length ?? 0;
+
+        if (string.IsNullOrEmpty(t))
+            return s.Length;
+
+        int[,] d = new int[s.Length + 1, t.Length + 1];
+
+        for (int i = 0; i <= s.Length; i++)
+            d[i, 0] = i;
+
+        for (int j = 0; j <= t.Length; j++)
+            d[0, j] = j;
+
+        for (int i = 1; i <= s.Length; i++)
+        {
+            for (int j = 1; j <= t.Length; j++)
+            {
+                int cost = s[i - 1] == t[j - 1] ? 0 : 1;
+
+                d[i, j] = Math.Min(
+                    Math.Min(
+                        d[i - 1, j] + 1,      // deletion
+                        d[i, j - 1] + 1),     // insertion
+                    d[i - 1, j - 1] + cost); // substitution
+            }
+        }
+
+        return d[s.Length, t.Length];
+    }
+    private void nextIssue() {
+        if (current is null)
+            return;
+
+        if (current.Description is null) {
+            nextContent();
+            return;
+        }
+
+        var startPosition = this.currentIssue?.EndPosition ?? 0;
+        TextMatch<IPackagedContent>? match = nextMatchNotInTag(current.Description, startPosition);
+        if (match is null || !match.Success) {
+            nextContent();
+            return;
+        }
+
+        var replacement = replace(match.Value);
+        this.currentIssue = new Issue {
+            StartPosition = match.Index,
+            EndPositionWithoutReplacement = match.Index + match.Length,
+            EndPositionWithReplacement = match.Index + replacement.Length,
+            Replacement = replacement
+        };
+    }
+
+    private string replace(IPackagedContent match) {
+        var id = match?.Id ?? "unknown-id";
+        var name = match?.Name ?? "Unknown Article";
+        return $"<see cref=\"{id}\">{name}</see>";
+    }
+}

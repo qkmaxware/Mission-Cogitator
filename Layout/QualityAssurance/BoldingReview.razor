@@ -1,0 +1,186 @@
+@using System.Collections.Generic
+@using System.Text.RegularExpressions
+@using Kt.Data.IO
+
+<p>
+    This tool is used to detect if content within this package should be bolded and is not. It looks for all capital words or phrases that are left uncapitalized and gives you the opportunity to replace those with correctly bolded content.
+</p>
+<hr />
+@if (iterator is null) {
+    <div class="w3-center">
+        <button class="w3-button app-primary" @onclick=restart>Start</button>
+    </div>
+}
+else {
+if (current is null) {
+    <p>
+        Reached then end of the packaged content. Restart?
+    </p>
+    <div class="w3-center">
+        <button class="w3-button app-primary" @onclick=restart>Restart</button>
+    </div>
+} else {
+    <label>@current.Name <small>(@current.Id)</small></label>
+    @if (currentIssue is not null && current.Description is not null) {
+        var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPosition);
+        <div class="w3-row w3-margin-bottom">
+            <div id="before" class="w3-col s6">
+                <span class="source">@before</span><span class="original">@middle</span><span class="source">@after</span>
+            </div>
+            <div id="after" class="w3-col s6">
+                <span class="source">@before</span><span class="replacement">@currentIssue.Replacement</span><span class="source">@after</span>
+            </div>
+        </div>
+    }
+    <div class="w3-row">
+        <div class="w3-col s6">
+            <button class="w3-button app-primary" @onclick=restart>Restart</button>
+        </div>
+        <div class="w3-col s6" style="text-align: right">
+            <button class="w3-button app-primary" @onclick=skip>Skip</button>
+            <button class="w3-button app-primary" @onclick=confirm>Replace</button>
+        </div>
+    </div>
+}
+}
+<hr />
+
+@code {
+    private IEnumerator<IPackagedContent>? iterator;
+    private IPackagedContent? current;
+    private Issue? currentIssue;
+
+    [Parameter] public Pkg? Package {get; set;}
+
+    private void restart() {
+        iterator = Package?.Provides().GetEnumerator();
+        currentIssue = null;
+        current = null;
+        moveNext();
+    }
+
+    private void moveNext() {
+        if (currentIssue is null) {
+            nextContent();
+            return;
+        }
+
+        nextIssue();
+    }
+
+    private void skip() {
+        if (currentIssue is null)
+            return;
+
+        currentIssue.Replace = false; // Skipping, no replacement
+        moveNext();
+    }
+    private void confirm() {
+        if (currentIssue is null)
+            return;
+
+        var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPositionWithoutReplacement);
+        current.Description = before + currentIssue.Replacement + after;
+        currentIssue.Replace = true; // Replacement was done
+        moveNext();
+    }
+
+    private void nextContent() {
+        currentIssue = null;
+        current = iterator is not null && iterator.MoveNext() ? iterator?.Current : null;
+        if (current is not null)
+            nextIssue();
+    }
+
+    public static (string Before, string Middle, string After) SplitAroundRange(
+        string text,
+        int startIndex,
+        int endIndex)
+    {
+        text ??= string.Empty;
+
+        int length = text.Length;
+
+        // Clamp to valid string bounds.
+        int start = Math.Clamp(startIndex, 0, length);
+        int end = Math.Clamp(endIndex, 0, length);
+
+        // Ensure start <= end.
+        if (start > end)
+            (start, end) = (end, start);
+
+        string before = text[..start];
+        string middle = text[start..end];
+        string after = text[end..];
+
+        return (before, middle, after);
+    }
+
+    private class Issue {
+        public int StartPosition;
+        public bool Replace = false;
+        public int EndPositionWithoutReplacement;
+        public int EndPositionWithReplacement;
+        public int EndPosition => Replace ? EndPositionWithReplacement : EndPositionWithoutReplacement;
+        public string Replacement;
+    } // this SHOULD be BOLDED TOGETHER okay?
+
+    private static Regex matchPattern = new Regex(@"[A-Z][A-Z0-9\+\-]+", RegexOptions.Compiled);
+    private static Regex tagPattern = new Regex(@"<b>.*?</b>", RegexOptions.Compiled);
+    private Match nextMatch(string corpus, int startOffset) {
+        return matchPattern.Match(corpus, startOffset);
+    }
+    private Match? nextMatchNotInTag(string corpus, int startOffset) {
+        Match match = nextMatch(corpus, startOffset);
+
+        while (match.Success)
+        {
+            bool insideTag = false;
+
+            foreach (Match tagMatch in tagPattern.Matches(corpus))
+            {
+                if (match.Index >= tagMatch.Index &&
+                    match.Index + match.Length <= tagMatch.Index + tagMatch.Length)
+                {
+                    insideTag = true;
+                    break;
+                }
+            }
+
+            if (!insideTag)
+                return match;
+
+            match = nextMatch(corpus, match.Index + match.Length);
+        }
+
+        return null;
+    }
+    private void nextIssue() {
+        if (current is null)
+            return;
+
+        if (current.Description is null) {
+            nextContent();
+            return;
+        }
+
+        var startPosition = this.currentIssue?.EndPosition ?? 0;
+        Match? match = nextMatchNotInTag(current.Description, startPosition);
+        if (match is null || !match.Success) {
+            nextContent();
+            return;
+        }
+
+        var replacement = replace(match.Value);
+        this.currentIssue = new Issue {
+            StartPosition = match.Index,
+            EndPositionWithoutReplacement = match.Index + match.Length,
+            EndPositionWithReplacement = match.Index + replacement.Length,
+            Replacement = replacement
+        };
+    }
+
+    private string replace(string match) {
+        return "<b>" + match + "</b>";
+    }
+}

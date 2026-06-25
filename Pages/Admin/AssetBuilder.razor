@@ -8,10 +8,41 @@
 @using System.Text.RegularExpressions
 @using System.IO.Compression
 @using System.Text.Json
+@using Kt.Layout.QualityAssurance
 
 @inject IJSRuntime js
 @inject JsPrompt prompt
 @inject RuleDatabase ruledb
+
+<Modal @ref=qa_modal Title=@qa_title Options=@Modal.Buttons.Cancel>
+    @switch (qa_current_tool) {
+        case QATools.Bolding:
+            <BoldingReview Package=@pkg></BoldingReview>
+            break;
+        case QATools.Autolink:
+            <AutolinkReview Package=@pkg></AutolinkReview> 
+            break;
+        case QATools.BrokenLinks:
+            <BrokenLinkReview Package=@pkg></BrokenLinkReview> 
+            break;
+    }
+</Modal>
+@code {
+    private enum QATools {
+        Bolding, Autolink, BrokenLinks
+    }
+    private string qa_title = "Quality Assurance";
+    private QATools qa_current_tool;
+    private Modal? qa_modal;
+
+    private async Task ShowQA(QATools tool) {
+        this.qa_current_tool = tool;
+        this.qa_title = "Quality Assurance - " + tool.ToString();
+        if (qa_modal is null)
+            return;
+        await qa_modal.Show(); 
+    }
+}
 
 <div class="w3-padding">
 
@@ -24,14 +55,26 @@
         <label>Author: </label>
         <input class="w3-input" @bind=@pkg.Author/>
 
-        <button class="w3-button app-primary" style="width: 100%;" @onclick=Pack>Export</button>
+        <div class="w3-row" style="padding-top: 6px;">
+            <div class="w3-col s6" style="padding-right: 6px;">
+                <label for="pgk-import" class="w3-button app-primary" style="width: 100%;">
+                    Import
+                    <InputFile OnChange="loadpkg" id="pgk-import" accept=".zip" style="display: none;"/>
+                </label>
+            </div>
+            <div class="w3-col s6" style="padding-left: 6px;">
+                <button class="w3-button app-primary" style="width: 100%;" @onclick=Pack>Export</button>
+            </div>
+        </div>
     </div>
 </section>
 
 <section>
     <header>Quality Assurance</header>
     <div class="w3-margin-top w3-padding">
-
+        <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.Bolding))>Bolding Checker</button>
+        <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.Autolink))>Autolinker</button>
+        <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.BrokenLinks))>Broken Links</button>
     </div>
 </section>
 
@@ -52,13 +95,13 @@
                     </div>
                 }
                 <hr />
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Rule>())>+ Definition</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Action>())>+ Action</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Effect>())>+ Effect</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Ploy>())>+ Ploy</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Equipment>())>+ Equipment</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Unit>())>+ Unit</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => await Add<Kt.Data.Team>())>+ Team</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Rule>())>+ Definition</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Action>())>+ Action</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Effect>())>+ Effect</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Ploy>())>+ Ploy</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Equipment>())>+ Equipment</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Unit>())>+ Unit</button>
+                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Team>())>+ Team</button>
             </div>
         </section>
     </div>
@@ -126,7 +169,7 @@
                             }
                         </ul>
                         <div class="w3-center">
-                            <input type="text" @bind=nextTag/>
+                            <input type="text" placeholder="New Tag" @bind=nextTag/>
                             <button class="w3-button app-primary" @onclick=@(() => { if (!string.IsNullOrEmpty(nextTag)) { unit.Tags.Add(nextTag); nextTag = string.Empty; } })>+</button>
                             <button class="w3-button app-primary" @onclick=@(() => { if (unit.Tags.Count > 0) { unit.Tags.RemoveAt(unit.Tags.Count - 1); }})>-</button>
                         </div>
@@ -346,6 +389,7 @@
                             </select>
                             <button class="w3-button" @onclick=@(async () => await insertIntoDescription(templates["seelink"].Replace("%cref%", linkedRule).Replace("%name%", linkedRuleName)))><img class="icon" src="art/link.svg"/></button>
                             </div>
+                            <button class="w3-button bordered border-primary" @onclick=StateHasChanged><img src="art/reload.svg" class="icon"/></button>
                         </div>
                         <textarea @ref=descriptionTextArea id="description" @bind=description></textarea>
                     </div>
@@ -429,6 +473,21 @@
             ruledb.GetValue("conceal")!,
             ruledb.GetValue("engage")!,
         ];
+    }
+
+    private async Task loadpkg(InputFileChangeEventArgs e) {
+        try {
+            using var remote = e.File.OpenReadStream();
+
+            // Copy the file into local memory
+            using MemoryStream local = new MemoryStream();
+            await remote.CopyToAsync(local);
+            local.Position = 0;
+
+            this.pkg = Kt.Data.IO.Pkg.FromFile(local);
+        } catch (Exception ex) {
+            await prompt.AlertAsync("Failed to import package, the package may be malformed.");
+        }
     }
 
     private string? name {

@@ -1,0 +1,19 @@
+.original {
+    color: red;
+}
+.original::before {
+    content: " - ";
+}
+.original::after {
+    content: " - ";
+}
+
+.replacement {
+    color: green;
+}
+.replacement::before {
+    content: " + ";
+}
+.replacement::after {
+    content: " + ";
+}
