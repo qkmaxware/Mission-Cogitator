@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "ztAOFxyO",
+  "version": "sq5o8Fi+",
   "assets": [
     {
-      "hash": "sha256-WlInVrOkpAWJrNWCw+8kYnYczWBPx8HXvF0ofNJUFj8=",
+      "hash": "sha256-zwKDM+VONOSVaY5WQG7Ykn7QGCTSdoq4HFBq75uZRoY=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,12 +10,12 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-IZCDfXR7fl1mk53BwCu4USZaeVVFLqmPUbmSLGjkgmo=",
-      "url": "_framework/Kt.l75zfzr8pd.wasm"
+      "hash": "sha256-uLx43AB7LgKBBzIy9xglG8nMDaHEaHQoD2vC8EdeNvM=",
+      "url": "_framework/Kt.cnwgqgmlsh.wasm"
     },
     {
-      "hash": "sha256-Bx9P1Y4RPgeLAwZgbg5PLiowypuSmCB0+5CI8pi0oQs=",
-      "url": "_framework/Microsoft.AspNetCore.Components.9c8rqh0lru.wasm"
+      "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
+      "url": "_framework/Microsoft.AspNetCore.Components.33g49xh8fg.wasm"
     },
     {
       "hash": "sha256-NsmaFJfkfdgAZuA2MxtvrP904DRQkhtgehMp94aZ/J0=",
@@ -174,8 +174,8 @@ self.assetsManifest = {
       "url": "_framework/System.Runtime.InteropServices.JavaScript.uzoakn3mog.wasm"
     },
     {
-      "hash": "sha256-XmW7iX5j62GSuDEdTAr4dY5JEzGMXeQk7gP/ybo5QjE=",
-      "url": "_framework/System.Runtime.up430srrh0.wasm"
+      "hash": "sha256-PjiXR19XrqVz7nUvgmGHvyLlJJBJpj3rx21jSA6xz5E=",
+      "url": "_framework/System.Runtime.ati8rz4aa5.wasm"
     },
     {
       "hash": "sha256-+MEnmrkB+tPje/AU645MfRUr8zlo02T+UG2TeNHbACs=",
@@ -190,8 +190,8 @@ self.assetsManifest = {
       "url": "_framework/System.Text.Json.5p12u2gxqo.wasm"
     },
     {
-      "hash": "sha256-RRCFSdlELNj34ewz+L2BoS1ZcAq7VqRslGDKra4M2LM=",
-      "url": "_framework/System.Text.RegularExpressions.vjzz1odqu1.wasm"
+      "hash": "sha256-Mhhxr6uweq+Rq7shzPOSaKmppdz1u1D4EGIfMGF5y4g=",
+      "url": "_framework/System.Text.RegularExpressions.esphbktz8t.wasm"
     },
     {
       "hash": "sha256-dcK/E4SNUdWyyOe7lh0BAcPmmLOz/mMvz91yxk/o3R4=",
@@ -214,8 +214,8 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-2I9TJVV2U990DFw3PT5a9M48ck1Rs4Bl+5VHGUD+9tU=",
-      "url": "_framework/dotnet.czyri9tfwm.js"
+      "hash": "sha256-jxydNL7Qei6tGWOPBqGr47P7GNe3J5GDoLcwWz10PV4=",
+      "url": "_framework/dotnet.1s41lkxgma.js"
     },
     {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
@@ -1750,7 +1750,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-CNJu9TO1Ffq5tOYNkcnwqQGPAQgvothcRwd1hIXe1Yw=",
+      "hash": "sha256-/b1cvBG0T7ca3g//zBOQ3rwRcwjmdWkeQjkxhTd8l4w=",
       "url": "index.html"
     },
     {
