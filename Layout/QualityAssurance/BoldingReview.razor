@@ -125,7 +125,8 @@ if (current is null) {
         public string Replacement;
     } // this SHOULD be BOLDED TOGETHER okay?
 
-    private static Regex matchPattern = new Regex(@"[A-Z][A-Z0-9\+\-]+", RegexOptions.Compiled);
+
+    private static Regex matchPattern = new Regex(@"[A-Z][A-Z0-9\+\-]+(?: +[A-Z][A-Z0-9\+\-]*)*", RegexOptions.Compiled);
     private static Regex tagPattern = new Regex(@"<b>.*?</b>", RegexOptions.Compiled);
     private Match nextMatch(string corpus, int startOffset) {
         return matchPattern.Match(corpus, startOffset);

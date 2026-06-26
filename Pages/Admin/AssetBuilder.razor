@@ -163,16 +163,11 @@
                         </table>
 
                         <label for="tags">Tags:</label>
-                        <ul>
-                            @foreach (var tag in unit.Tags) {
-                                <li>@tag</li>
-                            }
-                        </ul>
-                        <div class="w3-center">
-                            <input type="text" placeholder="New Tag" @bind=nextTag/>
-                            <button class="w3-button app-primary" @onclick=@(() => { if (!string.IsNullOrEmpty(nextTag)) { unit.Tags.Add(nextTag); nextTag = string.Empty; } })>+</button>
-                            <button class="w3-button app-primary" @onclick=@(() => { if (unit.Tags.Count > 0) { unit.Tags.RemoveAt(unit.Tags.Count - 1); }})>-</button>
-                        </div>
+                        <ListEditor TItem=string Items=unit.Tags OnAdd="@(() => { unit.Tags.Add(string.Empty); })" OnSubtract="@(() => { if (unit.Tags.Count > 0) { unit.Tags.RemoveAt(unit.Tags.Count - 1); }})" OnDelete="@((index) => unit.Tags?.RemoveAt(index.GetOffset(unit.Tags?.Count ?? 0)))">
+                            <Template>
+                                <input type="text" class="w3-input" @bind=unit.Tags[context.Index]>
+                            </Template>
+                        </ListEditor>
 
                         <label for="weapons">Weapons:</label>
                         <table id="weapons" class="w3-table">
@@ -258,12 +253,21 @@
                         </div>
 
                         <label for="rules">Special Rules/Actions:</label>
-                        <ul id="rules">
-                            @foreach (var ruleId in unit.Rules) {
+                        <ol id="rules">
+                            @for (var i = 0; i < unit.Rules.Count; i++) {
+                                var ruleIndex = i;
+                                var ruleId = unit.Rules[i];
                                 var rule = pkg.GetPackagedContent(ruleId);
-                                <li>@(rule?.Name ?? ruleId)</li>
+                                <li>
+                                    <div class="w3-col w3-right" style="width: 3em">
+                                        <button class="w3-button" @onclick=@(() => unit.Rules.RemoveAt(ruleIndex))>x</button>
+                                    </div>
+                                    <div class="w3-rest app-panel">
+                                        <button class="w3-button" style="width: 100%; text-align: left;" @onclick=@(() => selectedObject = rule)>@(rule?.Name ?? ruleId)</button>
+                                    </div>
+                                </li>
                             }
-                        </ul>
+                        </ol>
                         <details>
                             <summary>Add Special Rule</summary>
                             <button class="w3-button" @onclick=@(async () => { Kt.Data.Action? u = await Add<Kt.Data.Action>(); if (u is not null){ unit.Rules.Add(u.Id ?? string.Empty); selectedObject = u; }})>Create New Action</button>
@@ -275,8 +279,13 @@
                         }
                         </details>
                     } else if (selectedObject is Kt.Data.Team team) {
+                        team.FactionRules = team.FactionRules ?? new List<Rule>();
+                        team.Ploys = team.Ploys ?? new List<Ploy>();
+                        team.Equipment = team.Equipment ?? new List<Equipment>();
+                        team.Units = team.Units ?? new List<Unit>();
+
                         <label for="faction">Faction:</label>
-                        <select id="faction" class="w3-select">
+                        <select id="faction" class="w3-select" @bind=team.Faction>
                             <option>Imperium of Man</option>
                             <option>Aeldari</option>
                             <option>Drukhari</option>
@@ -290,13 +299,20 @@
                             <option>Other</option>
                         </select>
                         <label for="faction-rules">Faction Rules:</label>
-                        <ul id="faction-rules">
-                        @if (team.FactionRules is not null) {
-                                @foreach(var teamRule in team.FactionRules) {
-                                    <li>@(teamRule.Name)</li>
-                                }  
-                        }
-                        </ul>
+                        <ol id="faction-rules">
+                            @for (var i = 0; i < team.FactionRules.Count; i++) {
+                                var ruleIndex = i;
+                                var rule = team.FactionRules[i];
+                                <li>
+                                    <div class="w3-col w3-right" style="width: 3em">
+                                        <button class="w3-button" @onclick=@(() => team.FactionRules.RemoveAt(ruleIndex))>x</button>
+                                    </div>
+                                    <div class="w3-rest app-panel">
+                                        <button class="w3-button" style="width: 100%; text-align: left;" @onclick=@(() => selectedObject = rule)>@(rule.Name)</button>
+                                    </div>
+                                </li>
+                            }
+                        </ol>
                         <details>
                             <summary>Add Faction Rule to Team</summary>
                             <button class="w3-button" @onclick=@(async () => { Rule? u = await Add<Rule>(); if (u is not null){ addFactionRuleToTeam(team, u); selectedObject = u; }})>Create New Faction Rule</button>
@@ -308,13 +324,20 @@
                         }
                         </details>
                         <label for="ploys">Ploys:</label>
-                        <ul id="ploys">
-                        @if (team.Ploys is not null) {
-                                @foreach(var teamPloy in team.Ploys) {
-                                    <li>@teamPloy.Name</li>
-                                }  
-                        }
-                        </ul>
+                        <ol id="ploys">
+                            @for (var i = 0; i < team.Ploys.Count; i++) {
+                                var ruleIndex = i;
+                                var rule = team.Ploys[i];
+                                <li>
+                                    <div class="w3-col w3-right" style="width: 3em">
+                                        <button class="w3-button" @onclick=@(() => team.Ploys.RemoveAt(ruleIndex))>x</button>
+                                    </div>
+                                    <div class="w3-rest app-panel">
+                                        <button class="w3-button" style="width: 100%; text-align: left;" @onclick=@(() => selectedObject = rule)>@(rule.Name)</button>
+                                    </div>
+                                </li>
+                            }
+                        </ol>
                         <details>
                             <summary>Add Ploy to Team</summary>
                             <button class="w3-button" @onclick=@(async () => { Ploy? u = await Add<Ploy>(); if (u is not null){ addPloyToTeam(team, u); selectedObject = u; }})>Create New Ploy</button>
@@ -326,13 +349,20 @@
                         }
                         </details>
                         <label for="equipment">Equipment:</label>
-                        <ul id="equipment">
-                        @if (team.Equipment is not null) {
-                                @foreach(var teamEquipment in team.Equipment) {
-                                    <li>@teamEquipment.Name</li>
-                                }
-                        }
-                        </ul>
+                        <ol id="equipment">
+                            @for (var i = 0; i < team.Equipment.Count; i++) {
+                                var ruleIndex = i;
+                                var rule = team.Equipment[i];
+                                <li>
+                                    <div class="w3-col w3-right" style="width: 3em">
+                                        <button class="w3-button" @onclick=@(() => team.Equipment.RemoveAt(ruleIndex))>x</button>
+                                    </div>
+                                    <div class="w3-rest app-panel">
+                                        <button class="w3-button" style="width: 100%; text-align: left;" @onclick=@(() => selectedObject = rule)>@(rule.Name)</button>
+                                    </div>
+                                </li>
+                            }
+                        </ol>
                         <details>
                             <summary>Add Equipment to Team</summary>
                             <button class="w3-button" @onclick=@(async () => { Equipment? u = await Add<Equipment>(); if (u is not null){ addEquipToTeam(team, u); selectedObject = u; }})>Create New Equipment</button>
@@ -344,13 +374,20 @@
                         }
                         </details>
                         <label for="units">Units:</label>
-                        <ul id="equipment">
-                        @if (team.Units is not null) {
-                                @foreach(var teamUnit in team.Units) {
-                                    <li>@teamUnit.Name</li>
-                                }
-                        }
-                        </ul>
+                        <ol id="equipment">
+                            @for (var i = 0; i < team.Units.Count; i++) {
+                                var ruleIndex = i;
+                                var rule = team.Units[i];
+                                <li>
+                                    <div class="w3-col w3-right" style="width: 3em">
+                                        <button class="w3-button" @onclick=@(() => team.Units.RemoveAt(ruleIndex))>x</button>
+                                    </div>
+                                    <div class="w3-rest app-panel">
+                                        <button class="w3-button" style="width: 100%; text-align: left;" @onclick=@(() => selectedObject = rule)>@(rule.Name)</button>
+                                    </div>
+                                </li>
+                            }
+                        </ol>
                         <details>
                             <summary>Add Unit to Team</summary>
                             <button class="w3-button" @onclick=@(async () => { Unit? u = await Add<Unit>(); if (u is not null){ addUnitToTeam(team, u); selectedObject = u; }})>Create New Unit</button>
@@ -364,6 +401,7 @@
                     }
                 }
                 @*Type specific stuff ends here*@
+                <div>&nbsp;</div>
                 <label for="description">Description:</label>
                 <div class="w3-row-padding">
                     <div class="w3-half">
@@ -391,7 +429,7 @@
                             </div>
                             <button class="w3-button bordered border-primary" @onclick=StateHasChanged><img src="art/reload.svg" class="icon"/></button>
                         </div>
-                        <textarea @ref=descriptionTextArea id="description" @bind=description></textarea>
+                        <textarea @ref=descriptionTextArea id="description" @bind=description @bind:event="oninput" @onkeydown=descriptionListen></textarea>
                     </div>
                     <div class="w3-half">
                         <span for="description">Preview:</span>
@@ -504,6 +542,26 @@
         set => selectedObject?.Description = value;
     }
 
+    private async Task descriptionListen(KeyboardEventArgs args) {
+        if (args.CtrlKey) {
+            switch (args.Code) {
+                case "KeyB":
+                    await surroundSelectionDescription("<b>","</b>");
+                    break;
+                case "KeyI":
+                    await surroundSelectionDescription("<i>","</i>");
+                    break;
+                case "KeyU":
+                    await surroundSelectionDescription("<u>","</u>");
+                    break;
+            }
+        }
+
+        if (args.Code == "Tab") {
+            //await insertIntoDescription("\t");
+        }
+    }
+
     private IEnumerable<Rule> DefinitionsAndActions {
         get {
             return 
@@ -512,8 +570,30 @@
         }
     }
 
-    private string? nextTag;
+    private struct CaretPosition {
+        public int start {get; set;}
+        public int end {get; set;}
+    }
+    private async Task surroundSelectionDescription(string before, string after) {
+        if (selectedObject is null)
+            return;
 
+        var desc = this.description ?? string.Empty;
+
+        var caret = await js.InvokeAsync<CaretPosition>("getCaretPosition", descriptionTextArea);
+        
+        int start = Math.Clamp(caret.start, 0, desc.Length);
+        int end = Math.Clamp(caret.end, start, desc.Length);
+
+        desc = 
+            desc[..start] +
+            before +
+            desc[start..end] +
+            after +
+            desc[end..];
+        this.description = desc;
+        return;
+    }
     private async Task insertIntoDescription(string text) {
         if (selectedObject is null)
             return;
@@ -524,13 +604,13 @@
             description = desc;
         }
 
-        var caret = await js.InvokeAsync<int>("getCaretPosition", descriptionTextArea);
-        if (caret >= desc.Length) {
+        var caret = await js.InvokeAsync<CaretPosition>("getCaretPosition", descriptionTextArea);
+        if (caret.start >= desc.Length) {
             description = desc + text;
             return;
         }
 
-        description = desc.Insert(caret, text);
+        description = desc.Insert(caret.start, text);
         return;
     }
 

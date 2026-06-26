@@ -2,18 +2,18 @@
     color: red;
 }
 .original::before {
-    content: " - ";
+    content: "[";
 }
 .original::after {
-    content: " - ";
+    content: "]";
 }
 
 .replacement {
     color: green;
 }
 .replacement::before {
-    content: " + ";
+    content: "[";
 }
 .replacement::after {
-    content: " + ";
+    content: "]";
 }

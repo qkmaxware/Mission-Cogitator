@@ -1,0 +1,70 @@
+---
+{
+  "name": "Breaka Boy Demolisha",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Breaka Boy",
+    "Demolisha"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 12
+  },
+  "weapons": [
+    {
+      "name": "Tankhammer (bash)",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": []
+    },
+    {
+      "name": "Tankhammer (detonate)",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 0,
+        "critical": 0
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "limited",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "wrecka-krew-rule-detonate",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+<b>Reckless Temperament:</b> Normal Dmg of 4 or more inflicts 1 
+less damage on this operative; if this operative has an <see cref="engage">Engage 
+order</see>, Critical Dmg of 4 or more also inflicts 1 less damage on 
+this operative.
+</p>

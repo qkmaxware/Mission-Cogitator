@@ -162,7 +162,7 @@ if (current is null) {
             names = names.Concat(pm.LoadedPackages.SelectMany(pkg => pkg.Provides()));
         }
 
-        var start = -1;
+        var start = int.MaxValue;
         var length = 0;
         IPackagedContent? match = null;
 
@@ -171,7 +171,7 @@ if (current is null) {
                 continue;
 
             var indexOf = corpus.IndexOf(name.Name, startOffset, StringComparison.CurrentCultureIgnoreCase);
-            if (indexOf > start || (indexOf == start && name.Name.Length >= length)) {
+            if ((indexOf >= 0 && indexOf < start) || (indexOf >= 0 && indexOf == start && name.Name.Length >= length)) {
                 start = indexOf;
                 length = name.Name.Length;
                 match = name;

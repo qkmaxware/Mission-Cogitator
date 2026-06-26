@@ -37,6 +37,8 @@ string[] packages = [
     "assets/packages/teams/hearthkyn-salvagers",
     "assets/packages/teams/raveners",
     "assets/packages/teams/hierotek-circle",
+    "assets/packages/teams/wrecka-krew",
+    "assets/packages/teams/xv26-stealth-battlesuits",
 ];
 var lastPackage = packages.Length - 1;
 var packageManager = app.Services.GetService<PackageManager>()!;

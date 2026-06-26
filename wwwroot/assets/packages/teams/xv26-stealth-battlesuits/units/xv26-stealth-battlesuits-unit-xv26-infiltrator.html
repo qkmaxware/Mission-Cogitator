@@ -1,0 +1,136 @@
+---
+{
+  "name": "XV26 Infiltrator",
+  "art-path": null,
+  "tags": [
+    "T\u0027au Empire",
+    "Infiltrator"
+  ],
+  "attributes": {
+    "apl": 3,
+    "move": 6,
+    "save": 3,
+    "wounds": 12
+  },
+  "weapons": [
+    {
+      "name": "Burst cannon (focused)",
+      "kind": "ranged",
+      "atk": 5,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Burst cannon (sweeping)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "torrent",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fusion blaster (short range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 6,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "devastating",
+          "suffix": null,
+          "x": 4,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fusion blaster (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 12,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fists",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<b>Covert Protocols:</b> This operative can <see cref="counteract">counteract</see> regardless of its order, but if it has a <see cref="conceal">Conceal order</see> during that counteraction, it 
+cannot perform any actions other than <see cref="pick-up-marker">Pick Up Marker</see>, <see cref="place-marker">Place Marker</see> or mission Actions.

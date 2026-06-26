@@ -104,6 +104,11 @@ blockquote:before {
   vertical-align: -0.4em;
 }
 
+.app-panel {
+    background-color: var(--theme-panel-background);
+    color: var(--theme-panel-foreground);
+}
+
 section {
     border: 2px solid var(--theme-primary-background);
     padding: 8px;

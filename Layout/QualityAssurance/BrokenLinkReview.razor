@@ -145,7 +145,7 @@ if (current is null) {
             this.Length = length;
         } 
     }
-    private static Regex tagPattern = new Regex(@"<see\s+cref\s*=\s*[""'](?<cref>.*)[""']\s*>(?<text>.*?)</see>", RegexOptions.Compiled);
+    private static Regex tagPattern = new Regex(@"<see\s+cref\s*=\s*[""'](?<cref>[^""']*)[""']\s*>(?<text>.*?)</see>", RegexOptions.Compiled);
     private TextMatch<IPackagedContent>? nextMatchNotInTag(string corpus, int startOffset) {
         while (startOffset < corpus.Length) {
             var match = tagPattern.Match(corpus, startOffset);

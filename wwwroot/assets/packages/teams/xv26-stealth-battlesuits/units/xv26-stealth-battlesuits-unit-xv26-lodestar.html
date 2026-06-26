@@ -1,0 +1,170 @@
+---
+{
+  "name": "XV26 Lodestar",
+  "art-path": null,
+  "tags": [
+    "T\u0027au Empire",
+    "Lodestar"
+  ],
+  "attributes": {
+    "apl": 3,
+    "move": 6,
+    "save": 3,
+    "wounds": 12
+  },
+  "weapons": [
+    {
+      "name": "Burst cannon (focused)",
+      "kind": "ranged",
+      "atk": 5,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Burst cannon (sweeping)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "torrent",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fusion blaster (short range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 6,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "devastating",
+          "suffix": null,
+          "x": 4,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fusion blaster (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 12,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fists",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+<b>Electrochaff Launcher:</b> Once per turning point, when an enemy 
+operative is performing the <see cref="shoot">Shoot</see> action and your opponent 
+selects a <see cref="valid-target">valid target</see> (excluding <b>DRONE</b>), you can use this 
+rule, providing this operative isn’t within <see cref="control-range">control range</see> of enemy 
+operatives. If you do, until the end of that action, whenever 
+an enemy operative is shooting a friendly <b>XV26</b> <b>STEALTH</b> 
+<b>BATTLESUIT</b> operative that’s both visible to and within 3" of 
+this operative and more than 2" from that enemy operative:
+<ul>
+<li>
+ Ignore the <see cref="piercing">Piercing</see> weapon rule.
+</li>
+<li>
+ That friendly operative is obscured.
+</li>
+</ul>
+</p>
+
+<p>
+<b>Homing Beacon:</b> This operative is carrying your Homing Beacon 
+marker. Operatives (excluding <b>DRONE</b>) can perform the <see cref="pick-up-marker">Pick 
+Up Marker</see> action on that marker. The first time an enemy 
+operative performs the Pick Up Marker action on your 
+Homing Beacon marker, discard that marker (remove it from 
+the battle).
+</p>
+
+<p>
+In the Ready step of each <see cref="strategy-phase">Strategy Phase</see>, when you gain <b>CP</b>, 
+if your Homing Beacon marker is in the killzone, roll one <b>D6</b> if 
+it's more than 6" from your drop zone; roll two <b>D6</b> instead if 
+it's within your opponent’s territory; roll three <b>D6</b> instead if it's 
+within 6" of your opponent’s drop zone. If any result is a 4+, you 
+gain one additional <b>CP</b>.
+</p>

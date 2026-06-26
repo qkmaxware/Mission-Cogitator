@@ -112,8 +112,8 @@
             URL.revokeObjectURL(url);
         }
         window.getCaretPosition = (element) => {
-            if (!element) return 0;
-            return element.selectionStart;
+            if (!element) return {start: 0, end: 0};
+            return {start: element.selectionStart, end: element.selectionEnd};
         };
     </script>
 </body>

@@ -1,0 +1,55 @@
+@typeparam TItem
+
+<ol class="w3-ol">
+    @for (var i = 0; i < (Items?.Count ?? 0); i++) {
+        var index = 0;
+        <li class="w3-row">
+            @if (OnDelete.HasDelegate) {
+            <div class="w3-col w3-right" style="width: 3em">
+                <button class="w3-button" @onclick=@(() => delete(index))>x</button>
+            </div>
+            }
+            <div class="w3-rest">
+                @if (Template is not null && Items is not null) {
+                    @Template((i, Items[i]))
+                }
+            </div>
+        </li>
+    }
+</ol>
+
+<div class="w3-center">
+    @if (OnAdd.HasDelegate) {
+    <button class="w3-button app-primary" style="margin: 2px" @onclick=add>+</button>
+    }
+    @if (OnSubtract.HasDelegate) {
+    <button class="w3-button app-primary" style="margin: 2px" @onclick=subtract>-</button>
+    }
+    @Options
+</div>
+
+@code {
+    [Parameter] public IList<TItem>? Items {get; set;}
+
+    [Parameter] public RenderFragment<(Index Index, TItem Value)>? Template {get; set;}
+
+    [Parameter] public RenderFragment? Options {get; set;}
+
+    [Parameter] public EventCallback OnAdd {get; set;}
+    [Parameter] public EventCallback OnSubtract {get; set;}
+    [Parameter] public EventCallback<Index> OnDelete {get; set;}
+
+    private async Task add() {
+        await OnAdd.InvokeAsync();
+        //await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task delete(int index) {
+        await OnDelete.InvokeAsync(index);
+    }
+
+    private async Task subtract() {
+        await OnSubtract.InvokeAsync();
+        //await InvokeAsync(StateHasChanged);
+    }
+}

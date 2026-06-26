@@ -1,0 +1,47 @@
+{
+  "name": "Wrecka Krew",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [
+    "definitions/wrecka-krew-rule-wrecka-rampage",
+    "definitions/wrecka-krew-rule-tanked-up",
+    "definitions/wrecka-krew-rule-salvo",
+    "definitions/wrecka-krew-rule-explosives",
+    "definitions/wrecka-krew-rule-detonate",
+    "definitions/wrecka-krew-rule-smash",
+    "definitions/wrecka-krew-rule-pulsa"
+  ],
+  "actions": [
+    "actions/wrecka-krew-action-break-stuff"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/wrecka-krew-equipment-drill-rokkits",
+    "equipment/wrecka-krew-equipment-extra-armour",
+    "equipment/wrecka-krew-equipment-engine-oil",
+    "equipment/wrecka-krew-equipment-glyphs"
+  ],
+  "ploys": [
+    "ploys/wrecka-krew-ploy-waaagh!",
+    "ploys/wrecka-krew-ploy-tuff-gitz",
+    "ploys/wrecka-krew-ploy-destruction",
+    "ploys/wrecka-krew-ploy-amped-up",
+    "ploys/wrecka-krew-ploy-just-a-scratch",
+    "ploys/wrecka-krew-ploy-demolition-job",
+    "ploys/wrecka-krew-ploy-proppa-scrap",
+    "ploys/wrecka-krew-ploy-kaboom!"
+  ],
+  "units": [
+    "units/wrecka-krew-unit-wrecka-boss-nob",
+    "units/wrecka-krew-unit-wrecka-bomb-squig",
+    "units/wrecka-krew-unit-breaka-boy-demolisha",
+    "units/wrecka-krew-unit-breaka-boy-fighter",
+    "units/wrecka-krew-unit-breaka-boy-krusha",
+    "units/wrecka-krew-unit-tankbusta-gunner",
+    "units/wrecka-krew-unit-tankbusta-rokkiteer"
+  ],
+  "teams": [
+    "teams/wrecka-krew-team-wrecka-krew"
+  ],
+  "aliases": null
+}

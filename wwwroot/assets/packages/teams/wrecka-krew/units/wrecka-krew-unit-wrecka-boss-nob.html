@@ -1,0 +1,144 @@
+---
+{
+  "name": "Wrecka Boss Nob",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Leader",
+    "Boss Nob"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 14
+  },
+  "weapons": [
+    {
+      "name": "Rokkit pistol",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 5,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Two rokkit pistols (focused)",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Two rokkit pistols (salvo)",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 5,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "wrecka-krew-rule-salvo",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Choppa",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": []
+    },
+    {
+      "name": "Smash hammer",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 5,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "brutal",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<b>Wrecka Boss:</b> Whenever this operative performs the <see cref="shoot">Shoot</see> or 
+<see cref="fight">Fight</see> action (excluding Guard), you gain 1 Wrecka point.
