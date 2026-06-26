@@ -204,60 +204,60 @@ textarea[b-qxjjnks04e] {
     color: red;
 }
 .original[b-ig0vg4cvcf]::before {
-    content: " - ";
+    content: "[";
 }
 .original[b-ig0vg4cvcf]::after {
-    content: " - ";
+    content: "]";
 }
 
 .replacement[b-ig0vg4cvcf] {
     color: green;
 }
 .replacement[b-ig0vg4cvcf]::before {
-    content: " + ";
+    content: "[";
 }
 .replacement[b-ig0vg4cvcf]::after {
-    content: " + ";
+    content: "]";
 }
 /* /Layout/QualityAssurance/BoldingReview.razor.rz.scp.css */
 .original[b-kem6z2gqnk] {
     color: red;
 }
 .original[b-kem6z2gqnk]::before {
-    content: " - ";
+    content: "[";
 }
 .original[b-kem6z2gqnk]::after {
-    content: " - ";
+    content: "]";
 }
 
 .replacement[b-kem6z2gqnk] {
     color: green;
 }
 .replacement[b-kem6z2gqnk]::before {
-    content: " + ";
+    content: "[";
 }
 .replacement[b-kem6z2gqnk]::after {
-    content: " + ";
+    content: "]";
 }
 /* /Layout/QualityAssurance/BrokenLinkReview.razor.rz.scp.css */
 .original[b-7rpfnuaczl] {
     color: red;
 }
 .original[b-7rpfnuaczl]::before {
-    content: " - ";
+    content: "[";
 }
 .original[b-7rpfnuaczl]::after {
-    content: " - ";
+    content: "]";
 }
 
 .replacement[b-7rpfnuaczl] {
     color: green;
 }
 .replacement[b-7rpfnuaczl]::before {
-    content: " + ";
+    content: "[";
 }
 .replacement[b-7rpfnuaczl]::after {
-    content: " + ";
+    content: "]";
 }
 /* /Layout/QuickReference.razor.rz.scp.css */
 .article[b-a74zqimslp] {

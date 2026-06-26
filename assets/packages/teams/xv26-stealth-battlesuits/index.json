@@ -1,0 +1,45 @@
+{
+  "name": "XV26 Stealth Battlesuits",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [
+    "definitions/xv26-stealth-battlesuits-rule-kauyon",
+    "definitions/xv26-stealth-battlesuits-rule-stealth-fields"
+  ],
+  "actions": [
+    "actions/xv26-stealth-battlesuits-action-focused-markerlight",
+    "actions/xv26-stealth-battlesuits-action-system-jam",
+    "actions/xv26-stealth-battlesuits-action-photon-grenade-launcher"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/xv26-stealth-battlesuits-equipment-xv26-multitrackers",
+    "equipment/xv26-stealth-battlesuits-equipment-counter-network-jammers",
+    "equipment/xv26-stealth-battlesuits-equipment-advanced-blacksun-filters",
+    "equipment/xv26-stealth-battlesuits-equipment-hardwired-target-locks"
+  ],
+  "ploys": [
+    "ploys/xv26-stealth-battlesuits-ploy-patient-hunters",
+    "ploys/xv26-stealth-battlesuits-ploy-bonds-of-unity",
+    "ploys/xv26-stealth-battlesuits-ploy-prepare-ambush",
+    "ploys/xv26-stealth-battlesuits-ploy-holowave-countermeasures",
+    "ploys/xv26-stealth-battlesuits-ploy-vectored-retro-thrusters",
+    "ploys/xv26-stealth-battlesuits-ploy-ghostshroud",
+    "ploys/xv26-stealth-battlesuits-ploy-engage-jet-pack",
+    "ploys/xv26-stealth-battlesuits-ploy-saviour-protocols"
+  ],
+  "units": [
+    "units/xv26-stealth-battlesuits-unit-vx26-shas\u0027vre",
+    "units/xv26-stealth-battlesuits-unit-xv26-designator",
+    "units/xv26-stealth-battlesuits-unit-xv26-infiltrator",
+    "units/xv26-stealth-battlesuits-unit-xv26-liberator",
+    "units/xv26-stealth-battlesuits-unit-xv26-lodestar",
+    "units/xv26-stealth-battlesuits-unit-xv26-neutraliser",
+    "units/xv26-stealth-battlesuits-unit-mv15-gun-drone",
+    "units/xv26-stealth-battlesuits-unit-mv75-marker-drone"
+  ],
+  "teams": [
+    "teams/xv26-stealth-battlesuits-team-xv26-stealth-battlesuits"
+  ],
+  "aliases": null
+}

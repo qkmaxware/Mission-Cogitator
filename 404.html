@@ -8,7 +8,7 @@
     <title>Mission-Cogitator</title>
     <base href="/Mission-Cogitator/" />
     <link rel="manifest" href="manifest.json">
-    <link href="_framework/dotnet.9kcfi18050.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-WWNQolL+VrNt+hGZlczPv/su/40GmFUhyUHuW206bjE=" />
+    <link href="_framework/dotnet.vtb5htj0os.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-I0DSzpeR1NFTz8tZik+KHvaFSPwHiwxOFjS70YhGaD4=" />
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/blazor.css" />
@@ -21,20 +21,20 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.958z1vx7fr.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.9kcfi18050.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.ikrs475e5v.js",
-    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.a6jcqbs390.js"
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.a6jcqbs390.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.vtb5htj0os.js"
   },
   "scopes": {},
   "integrity": {
     "./_framework/blazor.webassembly.958z1vx7fr.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
     "./_framework/blazor.webassembly.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
-    "./_framework/dotnet.9kcfi18050.js": "sha256-WWNQolL+VrNt+hGZlczPv/su/40GmFUhyUHuW206bjE=",
-    "./_framework/dotnet.js": "sha256-WWNQolL+VrNt+hGZlczPv/su/40GmFUhyUHuW206bjE=",
+    "./_framework/dotnet.js": "sha256-I0DSzpeR1NFTz8tZik+KHvaFSPwHiwxOFjS70YhGaD4=",
     "./_framework/dotnet.native.ikrs475e5v.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.native.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.runtime.a6jcqbs390.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
-    "./_framework/dotnet.runtime.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M="
+    "./_framework/dotnet.runtime.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
+    "./_framework/dotnet.vtb5htj0os.js": "sha256-I0DSzpeR1NFTz8tZik+KHvaFSPwHiwxOFjS70YhGaD4="
   }
 }</script>
 </head>
@@ -130,8 +130,8 @@
             URL.revokeObjectURL(url);
         }
         window.getCaretPosition = (element) => {
-            if (!element) return 0;
-            return element.selectionStart;
+            if (!element) return {start: 0, end: 0};
+            return {start: element.selectionStart, end: element.selectionEnd};
         };
     </script>
 </body>

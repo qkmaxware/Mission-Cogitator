@@ -1,0 +1,131 @@
+---
+{
+  "name": "Tankbusta Rokkiteer",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Tankbusta",
+    "Rokkiteer"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 12
+  },
+  "weapons": [
+    {
+      "name": "Pulsa rokkit",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 5,
+      "damage": {
+        "normal": 0,
+        "critical": 0
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Reposition only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "limited",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "wrecka-krew-rule-pulsa",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Rokkit launcha",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 5,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Rokkit rack",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 5,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Reposition only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "limited",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "relentless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fists",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+<b>Shokkwave:</b> Whenever an operative is within x" of your <see cref="wrecka-krew-rule-pulsa">Pulsa</see> 
+marker (see left), subtract 2" from its Move stat and worsen 
+the Hit stat of its weapons by 1. This is cumulative with being 
+<see cref="injured">Injured</see>. X is that marker’s <see cref="wrecka-krew-rule-pulsa">Pulsa</see> points. In the Ready step of each 
+<see cref="strategy-phase">Strategy Phase</see>, subtract 1 from your <see cref="wrecka-krew-rule-pulsa">Pulsa</see> marker’s points. If a 
+<see cref="wrecka-krew-rule-pulsa">Pulsa</see> marker ever has 0 points, remove it.
+</p>

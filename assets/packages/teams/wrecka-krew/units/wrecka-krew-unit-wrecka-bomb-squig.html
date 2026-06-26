@@ -1,0 +1,87 @@
+---
+{
+  "name": "Wrecka Bomb Squig",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Bomb Squig"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 5
+  },
+  "weapons": [
+    {
+      "name": "Explosives",
+      "kind": "ranged",
+      "atk": 6,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "limited",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "wrecka-krew-rule-explosives",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Bite",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+<b>Stoopid:</b> In the <see cref="firefight-phase">Firefight Phase</see>, whenever you determine this 
+operative’s order, you cannot select <see cref="conceal">Conceal</see>. This operative 
+cannot perform any <see cref="action">Action</see>s other than <see cref="charge">Charge</see>, <see cref="dash">Dash</see>, <see cref="fight">Fight</see>, 
+<see cref="reposition">Reposition</see> and <see cref="shoot">Shoot</see>. It cannot use any weapons that aren’t 
+on its datacard.
+</p>
+
+<p>
+<b>Boom!:</b> If this operative is incapacitated during a battle in which 
+it hasn’t used its explosives, roll one <b>D6</b>, or two <b>D6</b> if you wish. If 
+any result is a 4+, this operative performs a free <see cref="shoot">Shoot</see> action 
+with its explosives before it’s removed from the killzone.
+</p>
+
+<p>
+<b>Expendable:</b> This operative is ignored for your opponent’s kill/
+elimination op (when it’s incapacitated, and when determining 
+your starting number of operatives). It’s also ignored for victory 
+conditions and scoring <b>VP</b>s if either require operatives to 
+‘escape’, ‘survive’ or be incapacitated by enemy operatives (if 
+it escapes/survives/is incapacitated, determining how many 
+operatives must escape/survive/be incapacitated, etc.).
+</p>

@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "y6rOYR97",
+  "version": "iWNn/KMy",
   "assets": [
     {
-      "hash": "sha256-zwKDM+VONOSVaY5WQG7Ykn7QGCTSdoq4HFBq75uZRoY=",
+      "hash": "sha256-MfOjEwsjzZ0jajs0NYdCZG1NjCYQQR3uOwB9/J61NFk=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,16 +10,16 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-betiF8ORdrLwVp0aPzl5FSbbgnPVo0U2X7VxSpmrn5Y=",
-      "url": "_framework/Kt.vdubiphhfz.wasm"
+      "hash": "sha256-maIoHjp22WvTAso7cCFFoZjGknJRJceTx1gSlgKnrKE=",
+      "url": "_framework/Kt.3hslm98n8z.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
       "url": "_framework/Microsoft.AspNetCore.Components.33g49xh8fg.wasm"
     },
     {
-      "hash": "sha256-NsmaFJfkfdgAZuA2MxtvrP904DRQkhtgehMp94aZ/J0=",
-      "url": "_framework/Microsoft.AspNetCore.Components.Web.607j3z1jmq.wasm"
+      "hash": "sha256-qEgPiCjhY1e1REUK6vcaGHS9TeaLjGtQwm79HoBBaJE=",
+      "url": "_framework/Microsoft.AspNetCore.Components.Web.45aggcey4w.wasm"
     },
     {
       "hash": "sha256-yMKxU4CkKtAcU5QU/2ZgGV2qYwIC6mLqzbr56asuX5k=",
@@ -158,8 +158,8 @@ self.assetsManifest = {
       "url": "_framework/System.ObjectModel.2oauxyoozb.wasm"
     },
     {
-      "hash": "sha256-7Dme3sg1tlsgJXBei4cAeyvXuS2s4KEH96uNOY1Psl8=",
-      "url": "_framework/System.Private.CoreLib.gjfd2ezt4z.wasm"
+      "hash": "sha256-WRAK3MPhZBxQNZ6VelHdc5hizzjSIctF6DXwqpkeaE0=",
+      "url": "_framework/System.Private.CoreLib.x2n2bdfs3s.wasm"
     },
     {
       "hash": "sha256-KMTV6b8QOt820TCnXaihd8UG9E/HRDfk8Cpkhxxydy8=",
@@ -170,12 +170,12 @@ self.assetsManifest = {
       "url": "_framework/System.Private.Xml.usiysxogub.wasm"
     },
     {
-      "hash": "sha256-Cp2bQOeRFVxMIA/IQbNc6pVyPdKopwM4EnwXZAse2KM=",
-      "url": "_framework/System.Runtime.InteropServices.JavaScript.uzoakn3mog.wasm"
+      "hash": "sha256-2XfEJ4p6yw1t9r36sumY76SVh5rij+Jg4WR7dTxS1nE=",
+      "url": "_framework/System.Runtime.164vpytwnc.wasm"
     },
     {
-      "hash": "sha256-PjiXR19XrqVz7nUvgmGHvyLlJJBJpj3rx21jSA6xz5E=",
-      "url": "_framework/System.Runtime.ati8rz4aa5.wasm"
+      "hash": "sha256-Cp2bQOeRFVxMIA/IQbNc6pVyPdKopwM4EnwXZAse2KM=",
+      "url": "_framework/System.Runtime.InteropServices.JavaScript.uzoakn3mog.wasm"
     },
     {
       "hash": "sha256-+MEnmrkB+tPje/AU645MfRUr8zlo02T+UG2TeNHbACs=",
@@ -214,10 +214,6 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-WWNQolL+VrNt+hGZlczPv/su/40GmFUhyUHuW206bjE=",
-      "url": "_framework/dotnet.9kcfi18050.js"
-    },
-    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -228,6 +224,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+    },
+    {
+      "hash": "sha256-I0DSzpeR1NFTz8tZik+KHvaFSPwHiwxOFjS70YhGaD4=",
+      "url": "_framework/dotnet.vtb5htj0os.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1658,6 +1658,230 @@ self.assetsManifest = {
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-warrior.html"
     },
     {
+      "hash": "sha256-oQ7AZCccwOtOqdu/xge76TEZnTZ9MsWeEMpKtUmxmVU=",
+      "url": "assets/packages/teams/wrecka-krew/actions/wrecka-krew-action-break-stuff.html"
+    },
+    {
+      "hash": "sha256-4mW+5I6vZtjCN73NmKhyDXrZJHuePnmpl/kBZ5Erd3w=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-detonate.html"
+    },
+    {
+      "hash": "sha256-Eopfci5sG5SXTlmoZHJJvl0/9fiMofy37ItKyNvsS0A=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-explosives.html"
+    },
+    {
+      "hash": "sha256-P9LrcQNRXMDM4E3HkqrcgdiH9RmJX9sElfpD5RVK7lo=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-pulsa.html"
+    },
+    {
+      "hash": "sha256-Ht1CbDCVHEt42sYLq3AapKsuLigZawL4hsGqOf95wV4=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-salvo.html"
+    },
+    {
+      "hash": "sha256-Cfz1x0olA4qV3Q7euFKRHiMKYye9UEpCFcLqY7XSQ0s=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-smash.html"
+    },
+    {
+      "hash": "sha256-cIPZt1ie9PGKIA/9mNgGrfZBrH/4f+IyFU5UmKdpJnQ=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-tanked-up.html"
+    },
+    {
+      "hash": "sha256-U6WLR2SfxB9hneQ6h7BX+5JkLc2tVCy8xHD2/P2MjFw=",
+      "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-wrecka-rampage.html"
+    },
+    {
+      "hash": "sha256-VSurebqfFj6oPs8AwUQuuDJkE4nl4qbzTxRfeCZQ1IE=",
+      "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-drill-rokkits.html"
+    },
+    {
+      "hash": "sha256-CNL0qy5hF+GowfdfR1KupRkUlkpKSMc2ScWntMqtilo=",
+      "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-engine-oil.html"
+    },
+    {
+      "hash": "sha256-V4GK0S4kknrMGtE+vYp27krWjjrwXlvaeJu4TbrF+s0=",
+      "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-extra-armour.html"
+    },
+    {
+      "hash": "sha256-MZ3Y8zXJ3NWniCsUcK5K7WFN4DINmeU3IIBi9x+9hOI=",
+      "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-glyphs.html"
+    },
+    {
+      "hash": "sha256-tWXBqpRrRRa1e+lCOXWPZo9p0Md9rfMYZ1tX+qaNT/s=",
+      "url": "assets/packages/teams/wrecka-krew/index.json"
+    },
+    {
+      "hash": "sha256-EhqYekPkPRqSfrmh9bYLAiSXS65rWTKQELeROlCx7Bk=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-amped-up.html"
+    },
+    {
+      "hash": "sha256-byaIGpy0wu1GhL3kVh+nq9Q0PaGaPPZSc/PbfVBfTQ8=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-demolition-job.html"
+    },
+    {
+      "hash": "sha256-tnToFbRuCK47bYcywlj5n1jCLzYIOGt29D/6VEZIONM=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-destruction.html"
+    },
+    {
+      "hash": "sha256-AsXptHE2Lo/jxpEZ8qOe0FC6WKEM0N+UAFmMPqgm1wU=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-just-a-scratch.html"
+    },
+    {
+      "hash": "sha256-CJbsUlayDniKWL5ohq5ffqSd1GrQEeOaKK5Ky2WhKOY=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-kaboom!.html"
+    },
+    {
+      "hash": "sha256-zbJ65i17TVK6t74Amud2iMM/2GTDGEawjGm6cZYBaQI=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-proppa-scrap.html"
+    },
+    {
+      "hash": "sha256-V4W4wyHq1E71BxvsIHchN36ryNfaqYU84gC2yuD8srA=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-tuff-gitz.html"
+    },
+    {
+      "hash": "sha256-rIYGPCGUFwk++gavo5aISSLfV7SLUf/t+b0rYSskgSQ=",
+      "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-waaagh!.html"
+    },
+    {
+      "hash": "sha256-m14J2f0UvW/+ap+mIGrE70D28x5ChUB9MCfPpw7ZGyE=",
+      "url": "assets/packages/teams/wrecka-krew/teams/wrecka-krew-team-wrecka-krew.html"
+    },
+    {
+      "hash": "sha256-DG6yiyH8rkxttlr0VAKSMVSXFouIGhALdfZvAOhzGs8=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-breaka-boy-demolisha.html"
+    },
+    {
+      "hash": "sha256-CgdZp6HASv0fj2Hs2VUXnAWHYASKF1bgrnHC+/4cXhE=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-breaka-boy-fighter.html"
+    },
+    {
+      "hash": "sha256-Va/V6OLdvyCOP3H0nYYLyEMIK5y972tqqR+Eb0T/Y2s=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-breaka-boy-krusha.html"
+    },
+    {
+      "hash": "sha256-EVjrGwgEBltAl/3XZ5XZ9H46QTYTlrD9x/3IsrjdGM8=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-tankbusta-gunner.html"
+    },
+    {
+      "hash": "sha256-BVh02mw5Kc3ag7t5/4lH1QgA0+cIhzlJGmDQbeoelkE=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-tankbusta-rokkiteer.html"
+    },
+    {
+      "hash": "sha256-1Wk3PDD0AEiukqD0n0EfZrez6/G6GkLJo73nj6zh5s0=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-wrecka-bomb-squig.html"
+    },
+    {
+      "hash": "sha256-RtTMHHxh8D9ByalwSv9QEVw5jn79rv2nH/O2n9hWihE=",
+      "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-wrecka-boss-nob.html"
+    },
+    {
+      "hash": "sha256-VxkzReKvWGSKOeQ0r9V+UYGahSWJsvQtnqZGFjN7TG0=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/actions/xv26-stealth-battlesuits-action-focused-markerlight.html"
+    },
+    {
+      "hash": "sha256-UpoqXOAKr1IGjVbWhFzD4IiSUb/EvhAm/QevdG+mIik=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/actions/xv26-stealth-battlesuits-action-photon-grenade-launcher.html"
+    },
+    {
+      "hash": "sha256-FZIAbepioOWuR7V1N6LG06eW0m/D7ACF8iYrkGBkkG0=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/actions/xv26-stealth-battlesuits-action-system-jam.html"
+    },
+    {
+      "hash": "sha256-2pliI4K4Iaim79YweH/VvInMx+8P60WVdU0A9VtSqJA=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/definitions/xv26-stealth-battlesuits-rule-kauyon.html"
+    },
+    {
+      "hash": "sha256-3qFqGC9rg9/UEtLwEgp66vxXaUwg4i7HR2HWg8OKL/M=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/definitions/xv26-stealth-battlesuits-rule-stealth-fields.html"
+    },
+    {
+      "hash": "sha256-npVXOfi7AkdpO3Af1rb1r9DjqNSe6EB/gWdn3Pm1bfk=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/equipment/xv26-stealth-battlesuits-equipment-advanced-blacksun-filters.html"
+    },
+    {
+      "hash": "sha256-YXGc0uhtToKcaEBKKOyLbKGsNN8SbGnxJDF5fucPm5Y=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/equipment/xv26-stealth-battlesuits-equipment-counter-network-jammers.html"
+    },
+    {
+      "hash": "sha256-5/Bkquq7e0dN/Kv6Y+o/Td0OXANYPUDM6r8m4Ne9d6M=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/equipment/xv26-stealth-battlesuits-equipment-hardwired-target-locks.html"
+    },
+    {
+      "hash": "sha256-938Zt/OuPwuTF6Vp6gTWYCrXuT3QEIgK3HrcDlIR0WU=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/equipment/xv26-stealth-battlesuits-equipment-xv26-multitrackers.html"
+    },
+    {
+      "hash": "sha256-9gidpOSDDCT6t5cqw2SMYf2ZCwZmjexghFkZm5N5hHY=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/index.json"
+    },
+    {
+      "hash": "sha256-g4SdDZPn6tPU5DBAdWRpps1d0GKpbLNfS+RXEZnHfBY=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-bonds-of-unity.html"
+    },
+    {
+      "hash": "sha256-B0+H0V5U4PJqPppuLehdCSIuzpgrzn0o66Ha2yoUSaQ=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-engage-jet-pack.html"
+    },
+    {
+      "hash": "sha256-eHS9O3+AODk4tCE9TWWydHRMsnWJgl+3VUGA4QyAnps=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-ghostshroud.html"
+    },
+    {
+      "hash": "sha256-0F/GhZMuoA3h58xfBJnuicv9bvFohBXJdl4vk7chBSQ=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-holowave-countermeasures.html"
+    },
+    {
+      "hash": "sha256-QYuLVy3IFmIP3XMk+X0VmfT0OQZKijx9qM1MYDbKcaM=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-patient-hunters.html"
+    },
+    {
+      "hash": "sha256-uvHBqb+jX8vvCj5fS6jTK5yt9AQ1VlHsMlntJIUaPXM=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-prepare-ambush.html"
+    },
+    {
+      "hash": "sha256-8R9fW1WnZU+yBt3y+8WJO2Z1NuNQ8czg01AS7cjQAaQ=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-saviour-protocols.html"
+    },
+    {
+      "hash": "sha256-f+kt3z+Wce6hZx9EGRAt/L68a7Gw7MT1gI0l6butITk=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-vectored-retro-thrusters.html"
+    },
+    {
+      "hash": "sha256-3KNpwrUjLDpYYeJSCCQGbUAwDX6guFJ/jcSUdSMZjWc=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/teams/xv26-stealth-battlesuits-team-xv26-stealth-battlesuits.html"
+    },
+    {
+      "hash": "sha256-gA1NcpjPVLNcZC17jNI4Lj0OiCE0o4bmBDshH1MPzv8=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-mv15-gun-drone.html"
+    },
+    {
+      "hash": "sha256-L/6EnSd2W3DGdl//qgHtALj46+aNlsyV6ygH9cgByvI=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-mv75-marker-drone.html"
+    },
+    {
+      "hash": "sha256-dVhK3cnHc7YrUv3ciV/X+Xz3+M6qAB4asK1t+Ltv3oo=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-vx26-shas'vre.html"
+    },
+    {
+      "hash": "sha256-QQH7nXW1PieW31UHjpgoWC6bUX8gdT1d4oz6HAHBDSg=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-designator.html"
+    },
+    {
+      "hash": "sha256-2rTTKXggTH5UItNpoTo+wcc6ICqfCtrtKDkc6FTxcJw=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-infiltrator.html"
+    },
+    {
+      "hash": "sha256-8bF0iX8A/LWnuTBdp/d/nSUfKQJGPKtqekVDN276UVs=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-liberator.html"
+    },
+    {
+      "hash": "sha256-irONFHgQsOE8rqzbw2+BGA9/WLfUR/VVUrE56e3qBpQ=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-lodestar.html"
+    },
+    {
+      "hash": "sha256-RhBx8ToHYTtY0otxH0j9ptA6zsOc3YULESGx85rsjzU=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-neutraliser.html"
+    },
+    {
       "hash": "sha256-7hzTq05Lo/w9UY0IbIwpo7aFJmiwi+KscDF1O4IpScw=",
       "url": "assets/packages/universal-equipment/equipment/ammo-cache.html"
     },
@@ -1718,7 +1942,7 @@ self.assetsManifest = {
       "url": "css/blazor.css"
     },
     {
-      "hash": "sha256-oSPztJh/2w8XxX111/Ac4dkx/sNxf2t21Z2OGR6K3Fo=",
+      "hash": "sha256-vi6a9YKP2LDgMtQR11+bHRfa+i1JFSFeAbVwXGJGMCs=",
       "url": "css/theme.css"
     },
     {
@@ -1750,7 +1974,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-Fkswadrm/egfXu08S7k0axxw3NR9J+6JuoM1D4Gob0w=",
+      "hash": "sha256-UA5uR3zKWhx95/FEK3XlRUi+qXsdeKPoIs0ECouK17U=",
       "url": "index.html"
     },
     {
