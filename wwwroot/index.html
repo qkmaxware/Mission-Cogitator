@@ -115,6 +115,20 @@
             if (!element) return {start: 0, end: 0};
             return {start: element.selectionStart, end: element.selectionEnd};
         };
+        window.preventTabbing = (element) => {
+            if (!element) return
+            
+            function tabKeyHandler(e) {
+                const TABKEY = 9;
+                if(e.keyCode == TABKEY) {
+                    if(e.preventDefault) {
+                        e.preventDefault();
+                    }
+                    return false;
+                }
+            }
+            element.addEventListener('keydown', tabKeyHandler, false);
+        }
     </script>
 </body>
 

@@ -400,8 +400,10 @@
                         </details>
                     }
                 }
+                }
                 @*Type specific stuff ends here*@
                 <div>&nbsp;</div>
+                <div class="@(selectedObject is null ? "w3-hide" : "w3-show")">
                 <label for="description">Description:</label>
                 <div class="w3-row-padding">
                     <div class="w3-half">
@@ -441,37 +443,37 @@
                         </div>
                     </div>
                 </div>
-                }
+                </div>
             </div>
         </section>
     </div>
 </div>
 
-@code {
-    private Pkg pkg = new Pkg {
+    @code {
+        private Pkg pkg = new Pkg {
         Name = "New Package",
         Author = Environment.UserName,
         Updated = DateTime.Now.ToShortDateString()
     };
-    private static readonly Type pkgType = typeof(Pkg);
+        private static readonly Type pkgType = typeof(Pkg);
 
-    private IPackagedContent? selectedObject;
+        private IPackagedContent? selectedObject;
 
-    private Rule[] CoreWeaponRules = new Rule[0];
-    private Rule[] CoreActions = new Rule[0];
-    private Rule[] CoreDefinitions = new Rule[0];
+        private Rule[] CoreWeaponRules = new Rule[0];
+        private Rule[] CoreActions = new Rule[0];
+        private Rule[] CoreDefinitions = new Rule[0];
 
-    private ElementReference? descriptionTextArea;
+        private ElementReference? descriptionTextArea;
 
-    private string? linkedRule;
-    private string? linkedRuleName;
-    private void setRuleName() {
-        if (linkedRule is null)
-            return;
+        private string? linkedRule;
+        private string? linkedRuleName;
+        private void setRuleName() {
+            if (linkedRule is null)
+                return;
 
-        linkedRuleName = pkg.GetPackagedContent(linkedRule)?.Name ?? ruledb.GetValue(linkedRule)?.Name ?? "Rule Name";
-    }
-    private Dictionary<string, string> templates = new Dictionary<string, string>{
+            linkedRuleName = pkg.GetPackagedContent(linkedRule)?.Name ?? ruledb.GetValue(linkedRule)?.Name ?? "Rule Name";
+        }
+        private Dictionary<string, string> templates = new Dictionary<string, string>{
         {"quote", 
 @"<blockquote>
 
@@ -511,6 +513,15 @@
             ruledb.GetValue("conceal")!,
             ruledb.GetValue("engage")!,
         ];
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender) {
+            await js.InvokeVoidAsync("preventTabbing", descriptionTextArea);
+        }
     }
 
     private async Task loadpkg(InputFileChangeEventArgs e) {
@@ -558,7 +569,7 @@
         }
 
         if (args.Code == "Tab") {
-            //await insertIntoDescription("\t");
+            await insertIntoDescription("    ");
         }
     }
 
