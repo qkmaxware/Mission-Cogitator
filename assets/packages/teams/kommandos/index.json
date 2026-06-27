@@ -1,0 +1,52 @@
+{
+  "name": "Kommando",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [
+    "definitions/kommando-rule-throat-slittas",
+    "definitions/kommando-rule-explosive",
+    "definitions/kommando-rule-torrent-0",
+    "definitions/kommando-rule-concealed-position"
+  ],
+  "actions": [
+    "actions/kommando-action-get-it-dun!",
+    "actions/kommando-action-breach",
+    "actions/kommando-action-listen-in",
+    "actions/kommando-action-dakka-dash",
+    "actions/kommando-action-grappling-hook"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/kommando-equipment-choppas",
+    "equipment/kommando-equipment-dynamite",
+    "equipment/kommando-equipment-harpoon",
+    "equipment/kommando-equipment-collapsible-stocks"
+  ],
+  "ploys": [
+    "ploys/kommando-ploy-dakka-dakka-dakka",
+    "ploys/kommando-ploy-skulk-about",
+    "ploys/kommando-ploy-just-a-scratch",
+    "ploys/kommando-ploy-krump-em!",
+    "ploys/kommando-ploy-kunnin-but-brutal",
+    "ploys/kommando-ploy-shake-it-off",
+    "ploys/kommando-ploy-waaagh!",
+    "ploys/kommando-ploy-sssshhhh!"
+  ],
+  "units": [
+    "units/kommando-unit-kommando-boss-nob",
+    "units/kommando-unit-kommando-bomb-squig",
+    "units/kommando-unit-kommando-boy",
+    "units/kommando-unit-kommando-breacha-boy",
+    "units/kommando-unit-kommando-burna-boy",
+    "units/kommando-unit-kommando-comms-boy",
+    "units/kommando-unit-kommando-dakka-boy",
+    "units/kommando-unit-kommando-grot",
+    "units/kommando-unit-kommando-rokkit-boy",
+    "units/kommando-unit-kommando-slasha-boy",
+    "units/kommando-unit-kommando-snipa-boy"
+  ],
+  "teams": [
+    "teams/kommando-team-kommandos"
+  ],
+  "aliases": null
+}

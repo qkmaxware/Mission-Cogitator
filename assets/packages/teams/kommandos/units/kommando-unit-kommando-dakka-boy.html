@@ -1,0 +1,69 @@
+---
+{
+  "name": "Kommando Dakka Boy",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Dakka Boy"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 10
+  },
+  "weapons": [
+    {
+      "name": "Dakka shoota (short range)",
+      "kind": "ranged",
+      "atk": 5,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 9,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Dakk shoota (long range)",
+      "kind": "ranged",
+      "atk": 5,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    },
+    {
+      "name": "Fists",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "kommando-action-dakka-dash"
+  ]
+}
+---

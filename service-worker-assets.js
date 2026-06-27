@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "Qhi2c1Ii",
+  "version": "9J8UlkVL",
   "assets": [
     {
-      "hash": "sha256-MfOjEwsjzZ0jajs0NYdCZG1NjCYQQR3uOwB9/J61NFk=",
+      "hash": "sha256-dOhFGkQIOZSn5HKAs3HuWbfrrOp8Dg8+V3ujkRGzjnA=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-10Pxdkt5rpy2EMF8dQew/TXCcHzCGhp55Wdh/pKg6C4=",
-      "url": "_framework/Kt.tbo8f0qmbv.wasm"
+      "hash": "sha256-zEX6SORN8YMQriuc6NhqEOVGbe41zw5ikFoGkTb/Vzg=",
+      "url": "_framework/Kt.4m7xt57vrm.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -86,8 +86,8 @@ self.assetsManifest = {
       "url": "_framework/System.Collections.Specialized.mlkpsyzexh.wasm"
     },
     {
-      "hash": "sha256-NsdfqVsCqodkJhn5M1XddhHsob+ihrwuGHJySkbS1vg=",
-      "url": "_framework/System.Collections.ydgxqfs1mp.wasm"
+      "hash": "sha256-YxfnTpzwp8UXVVFttRIS/xrArTw+aztDklVdJn4oyPg=",
+      "url": "_framework/System.Collections.nff1be306h.wasm"
     },
     {
       "hash": "sha256-STcj4YJraxZpGuyoajUhBC2tZPFZbCxg+GAdCjkWDdc=",
@@ -214,16 +214,16 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-HEKcPTXICv+mbi3S0Okeg368Kt6B1+yFtFjGF6MfUkQ=",
+      "url": "_framework/dotnet.8bpnewp46k.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
     {
       "hash": "sha256-iQOJ2Ignl/X3n6mOHRQ4zWYcute0MGlaiRFi2J3HXWk=",
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
-    },
-    {
-      "hash": "sha256-e5sx5BJgFXlSU7tZ8wiVWYJMlU90GXdZNGgFbacbD+E=",
-      "url": "_framework/dotnet.ntx1ez4n1c.js"
     },
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -1270,6 +1270,142 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-technomancer.html"
     },
     {
+      "hash": "sha256-1QJ2Xn2rYINMutpYiDEP8x7IxK76WCySVtgvUhwToss=",
+      "url": "assets/packages/teams/kommandos/actions/kommando-action-breach.html"
+    },
+    {
+      "hash": "sha256-2yQVRzH4GppC0XSXq5uIrHhMiuoIfT4LbBQepTcDsXo=",
+      "url": "assets/packages/teams/kommandos/actions/kommando-action-dakka-dash.html"
+    },
+    {
+      "hash": "sha256-TMuPR5CknrXCW21uTYYhkDAQnKiWONNNUkT1EUBVjGg=",
+      "url": "assets/packages/teams/kommandos/actions/kommando-action-get-it-dun!.html"
+    },
+    {
+      "hash": "sha256-Jm6BDS4vLU84hjW4JawBZ9TkjQSKzbVVwDQKISeEmQE=",
+      "url": "assets/packages/teams/kommandos/actions/kommando-action-grappling-hook.html"
+    },
+    {
+      "hash": "sha256-OMkQ1sdq0eYW2DHT544ory1Kk4Nm5jxcHpzBYwQl5Y4=",
+      "url": "assets/packages/teams/kommandos/actions/kommando-action-listen-in.html"
+    },
+    {
+      "hash": "sha256-mUHDGFCIKPYNaydDXf6H7fvOvUxl0w81ACZkxR5n7/A=",
+      "url": "assets/packages/teams/kommandos/definitions/kommando-rule-concealed-position.html"
+    },
+    {
+      "hash": "sha256-Eopfci5sG5SXTlmoZHJJvl0/9fiMofy37ItKyNvsS0A=",
+      "url": "assets/packages/teams/kommandos/definitions/kommando-rule-explosive.html"
+    },
+    {
+      "hash": "sha256-B8Jh6nAw+LAhQLExk5ZvHGIrpn06h+UlPReCkMFoaC8=",
+      "url": "assets/packages/teams/kommandos/definitions/kommando-rule-throat-slittas.html"
+    },
+    {
+      "hash": "sha256-6iZrfFT/rSLvxfXW7zD1nKpyiTmmTlG5qU1elWEfSRA=",
+      "url": "assets/packages/teams/kommandos/definitions/kommando-rule-torrent-0.html"
+    },
+    {
+      "hash": "sha256-lb/SJkgQuYY673yX43PZ/XILRTmwkDXIwTqjX9drkpw=",
+      "url": "assets/packages/teams/kommandos/equipment/kommando-equipment-choppas.html"
+    },
+    {
+      "hash": "sha256-eqiv2PCrdrRTgMCwFIT1M6wqKQILFpoS51e8itw45Qs=",
+      "url": "assets/packages/teams/kommandos/equipment/kommando-equipment-collapsible-stocks.html"
+    },
+    {
+      "hash": "sha256-UQsqHn2dN3m/P6cMwVTzuJAnzcHUZHUwWQe3UjB9beI=",
+      "url": "assets/packages/teams/kommandos/equipment/kommando-equipment-dynamite.html"
+    },
+    {
+      "hash": "sha256-EIfQkdDXGKwZVvWDldInB+Jtc6VtdM7vb+YmeAn7uYA=",
+      "url": "assets/packages/teams/kommandos/equipment/kommando-equipment-harpoon.html"
+    },
+    {
+      "hash": "sha256-AsaoRYRlh1ShFteEq476Tv8Bg02KVGa6lQY9wQja5Vk=",
+      "url": "assets/packages/teams/kommandos/index.json"
+    },
+    {
+      "hash": "sha256-0A2zmEiau5P/zMpkDU6qoGzcq5CUu7C+Rvf8lzzZmdE=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-dakka-dakka-dakka.html"
+    },
+    {
+      "hash": "sha256-+2AevMBXUSTRkPcpfkKVD4GRv3zLgFfv1oDCP8t2bks=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-just-a-scratch.html"
+    },
+    {
+      "hash": "sha256-qHz96OdLQY0L1PO/MyK3TlId7q6yXSjpkSP717ypwac=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-krump-em!.html"
+    },
+    {
+      "hash": "sha256-OkOREyw9tMS7Zfm6H5DJKsHZogSm4WuDsADyL0qbZy8=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-kunnin-but-brutal.html"
+    },
+    {
+      "hash": "sha256-OQsEUPx2z7QZ5nmbXrmcYNhvILChD8DdWJqPt8G1+7c=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-shake-it-off.html"
+    },
+    {
+      "hash": "sha256-KSYh6Pt0uJDYJckK91UNO5+EMU6SIYTSydUUwnuUpfs=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-skulk-about.html"
+    },
+    {
+      "hash": "sha256-jWEwwtfz4rm+k3PgmppJlSsxlYcCKqNnyt3pjWdAoYo=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-sssshhhh!.html"
+    },
+    {
+      "hash": "sha256-yn3+HGfEJsbyBDdGdW3+H1H5kR1SIEcem6KXls8l5LY=",
+      "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-waaagh!.html"
+    },
+    {
+      "hash": "sha256-GTipwWItHYBbvn+4E+0tiBR0Rjaa+Jyy2QFzMUe74NE=",
+      "url": "assets/packages/teams/kommandos/teams/kommando-team-kommandos.html"
+    },
+    {
+      "hash": "sha256-lvRYtt3L0MC4UZBEP8k34TG2tRdjvdOQ5zJRG1qMCeM=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-bomb-squig.html"
+    },
+    {
+      "hash": "sha256-xsYGZr8dAvjGcAqJe2ogapANxKv7ystLkYitSTIkWbc=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-boss-nob.html"
+    },
+    {
+      "hash": "sha256-k6ABqjkQF5/dYfFDZ/w8jHecK0fcmgnv0Ee6uXPaygs=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-boy.html"
+    },
+    {
+      "hash": "sha256-HE+ifZ4T8PMVK7SEGZVAAHtYWyYhSvFkBJia9fz8tnA=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-breacha-boy.html"
+    },
+    {
+      "hash": "sha256-YPWepPHQmUFKiDHc2KdohybEYMWIY2mehkxaFUdqNh0=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-burna-boy.html"
+    },
+    {
+      "hash": "sha256-qMv9U7PXxBcFtsBu3XICLaXHN/XWzZ9IxpOmoNZl9Dk=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-comms-boy.html"
+    },
+    {
+      "hash": "sha256-mTLhKZfZ4p7OabYZiPnJq5pj6QmTfCw3pr6naUWShF8=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-dakka-boy.html"
+    },
+    {
+      "hash": "sha256-x49rS4NbV5rSwnUoXVbgqgzolGhhHdidtG0mm3C89aU=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-grot.html"
+    },
+    {
+      "hash": "sha256-dy4MrR99U1mWN346edeAlqIZnk0+CczA6EGlgNisHl4=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-rokkit-boy.html"
+    },
+    {
+      "hash": "sha256-l0seWu41pvAjYjTcf/PyarVH6SvX1F3V3cfmSzdPKko=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-slasha-boy.html"
+    },
+    {
+      "hash": "sha256-YdtNt6TA25vdgyTq3Fxaq05VeG1SIXla7GLdClFu2Ts=",
+      "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-snipa-boy.html"
+    },
+    {
       "hash": "sha256-WozXF82n8XpJhounQi/FOnnmagisXVFOLiQHOSft0rM=",
       "url": "assets/packages/teams/pathfinders/actions/pathfinder-markerlight.html"
     },
@@ -1974,7 +2110,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-4jBz9nAxQDInxt3q38CX8Y7BzUL28fi2F0ZYtEYl0Ls=",
+      "hash": "sha256-l0FpF3Cc+oBKCFcaTRq30KDHZXk5s4V2n0lAN2PP4rw=",
       "url": "index.html"
     },
     {

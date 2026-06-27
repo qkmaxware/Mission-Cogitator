@@ -1,0 +1,40 @@
+---
+{
+  "name": "Kommando Grot",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Grot"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 5
+  },
+  "weapons": [
+    {
+      "name": "Grot choppa",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 5,
+      "damage": {
+        "normal": 1,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "kommando-action-grappling-hook"
+  ]
+}
+---
+<p>
+<b>Sneaky Zogger:</b> This operative cannot 
+have an <see cref="engage">Engage Order</see>. Whenever this 
+operative is in <see cref="cover">Cover</see>, it cannot be selected 
+as a <see cref="valid-target">Valid Target</see>, taking precedence over 
+all other rules (e.g. <see cref="seek">Seek</see>, Vantage terrain) 
+except being within 2".
+</p>
