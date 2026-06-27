@@ -1,13 +1,8 @@
 /* /Layout/Accordion.razor.rz.scp.css */
 .chevron[b-t7gq6crzbu] {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
     height: 1em;
     width: 1em;
     float: right;
-}
-
-.chevron.up[b-t7gq6crzbu] {
-    transform: scaleY(-1);
 }
 
 .accordion[b-t7gq6crzbu] {
@@ -64,6 +59,16 @@ img[b-mzmrqjyjxb] {
 .w3-light-grey[b-mzmrqjyjxb] {
     color: var(--theme-panel-foreground)!important;
     background-color: var(--theme-panel-background)!important;
+}
+
+.turning-points button[b-mzmrqjyjxb] {
+        width: 3em;
+        display: inline-block;
+        border-bottom: 1px solid rgb(204, 204, 204);
+}
+.turning-points input[b-mzmrqjyjxb] {
+    text-align: center;
+    display: inline-block;
 }
 /* /Layout/DiceShelf.razor.rz.scp.css */
 .dice[b-380v0wsf12] {
