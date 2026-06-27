@@ -76,10 +76,12 @@ if (current is null) {
         moveNext();
     }
     private void confirm() {
+        if (current is null)
+            return; 
         if (currentIssue is null)
             return;
 
-        var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPositionWithoutReplacement);
+        var (before, middle, after) = SplitAroundRange(current.Description ?? string.Empty, currentIssue.StartPosition, currentIssue.EndPositionWithoutReplacement);
         current.Description = before + currentIssue.Replacement + after;
         currentIssue.Replace = true; // Replacement was done
         moveNext();
@@ -122,7 +124,7 @@ if (current is null) {
         public int EndPositionWithoutReplacement;
         public int EndPositionWithReplacement;
         public int EndPosition => Replace ? EndPositionWithReplacement : EndPositionWithoutReplacement;
-        public string Replacement;
+        public string Replacement = string.Empty;
     } // this SHOULD be BOLDED TOGETHER okay?
 
 

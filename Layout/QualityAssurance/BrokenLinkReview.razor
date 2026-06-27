@@ -128,7 +128,7 @@ if (current is null) {
         public int EndPositionWithoutReplacement;
         public int EndPositionWithReplacement;
         public int EndPosition => Replace ? EndPositionWithReplacement : EndPositionWithoutReplacement;
-        public string Replacement;
+        public string Replacement = string.Empty;
     }
     private class TextMatch<T> {
         public bool Success {get; init;}

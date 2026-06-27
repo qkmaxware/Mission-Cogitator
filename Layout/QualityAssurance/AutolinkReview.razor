@@ -88,10 +88,12 @@ if (current is null) {
         moveNext();
     }
     private void confirm() {
+        if (current is null)
+            return; 
         if (currentIssue is null)
             return;
 
-        var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPositionWithoutReplacement);
+        var (before, middle, after) = SplitAroundRange(current.Description ?? string.Empty, currentIssue.StartPosition, currentIssue.EndPositionWithoutReplacement);
         current.Description = before + currentIssue.Replacement + after;
         currentIssue.Replace = true; // Replacement was done
         moveNext();
@@ -134,7 +136,7 @@ if (current is null) {
         public int EndPositionWithoutReplacement;
         public int EndPositionWithReplacement;
         public int EndPosition => Replace ? EndPositionWithReplacement : EndPositionWithoutReplacement;
-        public string Replacement;
+        public string Replacement = string.Empty;
     } // this SHOULD be BOLDED TOGETHER okay?
 
     private static Regex tagPattern = new Regex(@"<see.*?>.*?</see>", RegexOptions.Compiled);
@@ -146,7 +148,7 @@ if (current is null) {
 
         public static readonly TextMatch<T> Empty = new (false, default(T), 0, 0);
 
-        public TextMatch(bool success, T value, int index, int length) {
+        public TextMatch(bool success, T? value, int index, int length) {
             this.Success = success;
             this.Value = value;
             this.Index = index;
@@ -161,20 +163,34 @@ if (current is null) {
         if (include_stdlib && pm is not null) {
             names = names.Concat(pm.LoadedPackages.SelectMany(pkg => pkg.Provides()));
         }
+        var patterns = names
+            .Select(x => (
+                Content: x, 
+                Patterns: new Regex?[]{
+                    string.IsNullOrEmpty(x.Name) ? null : new Regex("\\b" + Regex.Escape(x.Name) + "\\b", RegexOptions.Compiled | RegexOptions.IgnoreCase),
+                    string.IsNullOrEmpty(x.Id) ? null : new Regex("\\b" + Regex.Escape(x.Id) + "\\b", RegexOptions.Compiled | RegexOptions.IgnoreCase),
+                }
+            )).ToList();
 
         var start = int.MaxValue;
         var length = 0;
         IPackagedContent? match = null;
 
-        foreach (var name in names) {
-            if (string.IsNullOrEmpty(name.Name))
-                continue;
+        foreach (var p in patterns) {
+            foreach (var pattern in p.Patterns) {
+                if (pattern is null)
+                    continue;
+                
+                var option = pattern.Match(corpus, startOffset);
+                if (!option.Success) {
+                    continue;
+                }
 
-            var indexOf = corpus.IndexOf(name.Name, startOffset, StringComparison.CurrentCultureIgnoreCase);
-            if ((indexOf >= 0 && indexOf < start) || (indexOf >= 0 && indexOf == start && name.Name.Length >= length)) {
-                start = indexOf;
-                length = name.Name.Length;
-                match = name;
+                if (option.Index < start || (option.Index == start && option.Length >= length)) {
+                    start = option.Index;
+                    length = option.Length;
+                    match = p.Content;
+                }
             }
         }
 

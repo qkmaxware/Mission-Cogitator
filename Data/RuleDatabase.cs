@@ -70,6 +70,23 @@ public class RuleDatabase
         ];
     }
 
+    public IEnumerable<Equipment> GetUniversalEquipment()
+    {
+        yield return (Equipment)this.GetValue(id: "ammo-cache")!;
+        yield return (Equipment)this.GetValue(id: "breaching-charge")!;
+        yield return (Equipment)this.GetValue(id: "comms-device")!;
+        yield return (Equipment)this.GetValue(id: "frag")!;
+        yield return (Equipment)this.GetValue(id: "heavy-barricade")!;
+        yield return (Equipment)this.GetValue(id: "krak")!;
+        yield return (Equipment)this.GetValue(id: "ladders")!;
+        yield return (Equipment)this.GetValue(id: "light-barricades")!;
+        yield return (Equipment)this.GetValue(id: "mines")!;
+        yield return (Equipment)this.GetValue(id: "portable-barricade")!;
+        yield return (Equipment)this.GetValue(id: "razor-wire")!;
+        yield return (Equipment)this.GetValue(id: "smoke-utility-grenades")!;
+        yield return (Equipment)this.GetValue(id: "stun-utility-grenades")!;
+    }
+
     public void Alias(string uid, string @as)
     {
         if (!rules.TryGetValue(uid, out Rule? rule))

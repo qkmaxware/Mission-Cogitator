@@ -435,9 +435,7 @@
         </Accordion>
 
         <Accordion Title="Universal Equipment">
-            @foreach (var eq in ruledb.AllEquipment) {
-                if ("Universal Equipment" != eq.SourcePackage?.Name)
-                    continue;
+            @foreach (var eq in ruledb.GetUniversalEquipment()) {
                 var myEq = eq;
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(myEq.Id))>@myEq.Name</button>
             }

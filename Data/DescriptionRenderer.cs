@@ -7,24 +7,107 @@ namespace Kt.Data;
 
 public static class DescriptionRenderer
 {
+
+    private static readonly string InvalidHtmlClass = "w3-text-red";
+    private static readonly string InvalidHtmlString = "[Invalid HTML]";
     
     public static RenderFragment RenderDescription(string? text, object reciever, Func<string, Task>? seeTagAction = null) => builder =>
     {
         if (string.IsNullOrWhiteSpace(text))
             return;
 
-        var doc = new HtmlAgilityPack.HtmlDocument();
-
-        // Wrap in a root element because descriptions are fragments
-        doc.LoadHtml(text);
-
         int seq = 0;
 
-        foreach (var child in doc.DocumentNode.ChildNodes)
+        try {
+            var doc = new HtmlAgilityPack.HtmlDocument();
+
+            // Wrap in a root element because descriptions are fragments
+            doc.LoadHtml(text);
+
+            foreach (var child in doc.DocumentNode.ChildNodes)
+            {
+                try {
+                    RenderNode(builder, child, ref seq, reciever, seeTagAction);
+                } catch
+                {
+                    //Console.WriteLine(e);
+                    builder.OpenElement(seq++, "div");
+                    builder.AddAttribute(seq++, "class", InvalidHtmlClass);
+                    builder.AddContent(seq++, InvalidHtmlString);
+                    builder.CloseElement();
+                }
+            }
+        } catch
         {
-            RenderNode(builder, child, ref seq, reciever, seeTagAction);
+            //Console.WriteLine(e);
+            builder.OpenElement(seq++, "header");
+            builder.AddAttribute(seq++, "class", InvalidHtmlClass);
+            builder.AddContent(seq++, InvalidHtmlString);
+            builder.CloseElement();
         }
     };
+
+    private static readonly HashSet<string> AllowedTags =
+    [
+        "b",
+        "i",
+        "u",
+        "strong",
+        "em",
+        "br",
+        "p",
+        "ul",
+        "ol",
+        "li",
+        "code",
+        "pre",
+        "span",
+        "div",
+        "a",
+        "del",
+        "blockquote",
+        "section",
+        "header",
+        "footer",
+        "figure",
+        "details",
+        "summary",
+        "article",
+        "figcaption",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "label",
+        "small",
+        "sup",
+        "sub",
+        "table",
+        "thead",
+        "tbody",
+        "tfoot",
+        "tr",
+        "th",
+        "td",
+        "hr",
+        "dl",
+        "dt",
+        "dd",
+        "kbd",
+        "samp",
+        "var",
+        "mark",
+        "abbr",
+        "cite",
+        "q",
+        "caption",
+        "colgroup",
+        "col",
+
+        "see"
+    ];
 
     private static void RenderNode(
         RenderTreeBuilder builder,
@@ -55,19 +138,35 @@ public static class DescriptionRenderer
                     return;
                 }
 
+                if (!AllowedTags.Contains(node.Name))
+                {
+                    builder.OpenElement(seq++, "span");
+                    builder.AddAttribute(seq++, "class", InvalidHtmlClass);
+                    builder.AddContent(seq++, InvalidHtmlString);
+                    builder.CloseElement();
+                    return;
+                }
+
                 builder.OpenElement(seq++, node.Name);
 
-                foreach (var attr in node.Attributes)
-                {
-                    builder.AddAttribute(seq++, attr.Name, attr.Value);
-                }
+                try {
+                    foreach (var attr in node.Attributes)
+                    {
+                        builder.AddAttribute(seq++, attr.Name, attr.Value);
+                    }
 
-                foreach (var child in node.ChildNodes)
+                    foreach (var child in node.ChildNodes)
+                    {
+                        RenderNode(builder, child, ref seq, reciever, seeTagAction);
+                    }
+                } 
+                catch
                 {
-                    RenderNode(builder, child, ref seq, reciever, seeTagAction);
+                    //Console.WriteLine(e);
                 }
-
-                builder.CloseElement();
+                finally {
+                    builder.CloseElement();
+                }
 
                 break;
             }

@@ -95,13 +95,15 @@
                     </div>
                 }
                 <hr />
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Rule>())>+ Definition</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Action>())>+ Action</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Effect>())>+ Effect</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Ploy>())>+ Ploy</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Equipment>())>+ Equipment</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Unit>())>+ Unit</button>
-                <button class="w3-button w3-bar-item" @onclick=@(async () => selectedObject = await Add<Kt.Data.Team>())>+ Team</button>
+                <div class="w3-row">
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Rule>() ?? selectedObject)>+ Definition</button>
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Action>() ?? selectedObject)>+ Action</button>
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Effect>() ?? selectedObject)>+ Effect</button>
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Ploy>() ?? selectedObject)>+ Ploy</button>
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Equipment>() ?? selectedObject)>+ Equipment</button>
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Unit>() ?? selectedObject)>+ Unit</button>
+                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Team>() ?? selectedObject)>+ Team</button>
+                </div>
             </div>
         </section>
     </div>
@@ -410,8 +412,10 @@
                         <span for="description">Markup:</span>
                         <div style="overflow-x: auto; whitespace: nowrap; margin-bottom: 2px;">
                             <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["quote"]))><img class="icon" src="art/blockquote.svg"/></button>
+                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["ul"]))><img class="icon" src="art/list.svg"/></button>
                             <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["usage"]))><img class="icon" src="art/list.svg"/></button>
                             <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["section"]))><img class="icon" src="art/section.svg"/></button>
+                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["paragraph"]))><img class="icon" src="art/section.svg"/></button>
                             <div style="display: inline-block" class="bordered border-primary">
                             <select @bind=linkedRule @bind:after=setRuleName class="w3-select" style="width: 12em; margin-bottom: 0;">
                                 @foreach (var action in DefinitionsAndActions) {
@@ -424,6 +428,9 @@
                                     <option value="@r.Id">@r.Name</option>
                                 }
                                 @foreach (var r in CoreWeaponRules) {
+                                    <option value="@r.Id">@r.Name</option>
+                                }
+                                @foreach (var r in UniversalEquipment) {
                                     <option value="@r.Id">@r.Name</option>
                                 }
                             </select>
@@ -462,6 +469,7 @@
         private Rule[] CoreWeaponRules = new Rule[0];
         private Rule[] CoreActions = new Rule[0];
         private Rule[] CoreDefinitions = new Rule[0];
+        private Rule[] UniversalEquipment = new Rule[0];
 
         private ElementReference? descriptionTextArea;
 
@@ -481,10 +489,21 @@
         },
         {"usage", 
 @"<ul class='usage-bullet'>
-    <li>First Usage</li>
+    <li>
+        Usage
+    </li>
 </ul>
 <ul class='condition-bullet'>
-    <li>First Condition</li>
+    <li>
+        Condition
+    </li>
+</ul>"
+        },
+        {"ul",
+@"<ul>
+    <li>
+        List Item
+    </li>
 </ul>"
         },
         {"section", 
@@ -497,12 +516,18 @@
         },
         {"seelink",
 @"<see cref='%cref%'>%name%</see>"
+        },
+        {"paragraph",
+@"<p>
+    <b>Title: </b> Content
+</p>"
         }
     };
 
     protected override void OnInitialized() {
         CoreActions = ruledb.GetCoreActions();
         CoreWeaponRules = ruledb.GetCoreWeaponRules();
+        UniversalEquipment = ruledb.GetUniversalEquipment().Cast<Rule>().ToArray();
         CoreDefinitions = [
             ruledb.GetValue("activation")!,
             ruledb.GetValue("counteract")!,
@@ -666,6 +691,9 @@
         pkg.Ploys?.Remove(content.Id);
         pkg.Teams?.Remove(content.Id);
         pkg.Units?.Remove(content.Id);
+
+        if (ReferenceEquals(selectedObject, content))
+            selectedObject = null;
     }
 
     private void addFactionRuleToTeam(Team team, Rule rule) {

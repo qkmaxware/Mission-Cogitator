@@ -1,0 +1,81 @@
+---
+{
+  "name": "Kommando Boss Nob",
+  "art-path": null,
+  "tags": [
+    "Ork",
+    "Leader",
+    "Boss Nob"
+  ],
+  "attributes": {
+    "apl": 3,
+    "move": 6,
+    "save": 5,
+    "wounds": 14
+  },
+  "weapons": [
+    {
+      "name": "Slugga",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Big choppa",
+      "kind": "melee",
+      "atk": 5,
+      "hit": 3,
+      "damage": {
+        "normal": 5,
+        "critical": 6
+      },
+      "rules": []
+    },
+    {
+      "name": "Power klaw",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 5,
+        "critical": 7
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "brutal",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "shock",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "kommando-action-get-it-dun!"
+  ]
+}
+---
+<p>
+<b>Krumpin’ Time:</b> This operative can perform two <see cref="fight">Fight</see> actions during its <see cref="activation">Activation</see>
+</p>
