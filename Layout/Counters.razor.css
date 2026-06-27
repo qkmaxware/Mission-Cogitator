@@ -13,3 +13,13 @@ img {
     color: var(--theme-panel-foreground)!important;
     background-color: var(--theme-panel-background)!important;
 }
+
+.turning-points button {
+        width: 3em;
+        display: inline-block;
+        border-bottom: 1px solid rgb(204, 204, 204);
+}
+.turning-points input {
+    text-align: center;
+    display: inline-block;
+}

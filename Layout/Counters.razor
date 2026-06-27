@@ -1,24 +1,30 @@
 <div class="w3-row w3-light-grey">
     <div class="w3-half w3-padding">
         <label><img src="art/tp.svg"/>TURNING POINT:</label>
-        <input type="number" class="w3-input" @bind=TurningPoint/>
-        
+        <div class="turning-points w3-row">
+            <button class="w3-button text-primary w3-col" @onclick=decTp>
+                <img class="icon" src="art/chevron-left.svg"/>
+            </button>
+            <button class="w3-button text-primary w3-col w3-right" @onclick=incTP>
+                <img class="icon" src="art/chevron-right.svg"/>
+            </button>
+            <div class="w3-rest">
+                <input type="number" class="w3-input" @bind=TurningPoint/>
+            </div>
+        </div>
     </div>
     <div class="w3-half w3-row">
-        <div class="w3-col s4 w3-padding">
+        <div class="command-points w3-col s4 w3-padding">
             <label><img src="art/cp.svg"/>CP:</label>
             <input type="number" class="w3-input" @bind=CommandPoints/>
-            
         </div>
-        <div class="w3-col s4 w3-padding">
+        <div class="victory-points w3-col s4 w3-padding">
             <label><img src="art/victory.svg"/>VP:</label>
             <input type="number" class="w3-input" @bind=VictoryPoints/>
-            
         </div>
-        <div class="w3-col s4 w3-padding">
+        <div class="other-points w3-col s4 w3-padding">
             <label><img src="art/unknown.svg"/>OTHER:</label>
             <input type="number" class="w3-input" @bind=GenericCounter/>
-            
         </div>
     </div>
 </div>
@@ -28,4 +34,11 @@
     public int CommandPoints {get; set;} = 2;
     public int VictoryPoints {get; set;} = 0;
     public int GenericCounter {get; set;} = 0;
+
+    private void incTP() {
+        TurningPoint = Math.Max(1, TurningPoint + 1);
+    }
+    private void decTp() {
+        TurningPoint = Math.Max(1, TurningPoint - 1);
+    }
 }
