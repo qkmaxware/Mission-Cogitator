@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "tQSaXX9Z",
+  "version": "6KkkLBXI",
   "assets": [
     {
       "hash": "sha256-ZHPKSh9DaHU86pYju48srUG4NK+vjJ4sWc+EZQxrlm8=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-h6+omnQMPAOfuOR3haRE5b9ESQvoRWVHIvFJTlB/H5U=",
-      "url": "_framework/Kt.9gv56v8ot1.wasm"
+      "hash": "sha256-iuz/LLaMli7LzrMKGF3dxo/jKCNALZAtIwc4b5T3vKE=",
+      "url": "_framework/Kt.q7ee8rwewg.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,16 +214,16 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-3wOmbGmOnJhdB6QeY/ZLry/9kgjgl2XBS1g2cX79fTg=",
+      "url": "_framework/dotnet.n63zp8nfrz.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
     {
       "hash": "sha256-iQOJ2Ignl/X3n6mOHRQ4zWYcute0MGlaiRFi2J3HXWk=",
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
-    },
-    {
-      "hash": "sha256-5XMt8+YFJOmeFh1Pi0ypKohtAtoaOEUk9mzYwtfbKok=",
-      "url": "_framework/dotnet.r004b6f8mb.js"
     },
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -1422,7 +1422,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-hatchcutter.html"
     },
     {
-      "hash": "sha256-PjYv+vFvu6MOIRZvjr3WAVZ63VeQQQFRB8skmdSnqWE=",
+      "hash": "sha256-ANS68uHI7bXW0eMQujJkyY4K8lELV07cr3bGY+xu29g=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-sergeant-at-arms.html"
     },
     {
@@ -2274,7 +2274,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-xK7dnHUNs5rYVkYeffVt0GuBemLjzgJdGyDdI94Pwjo=",
+      "hash": "sha256-QDHU0SmbuA7zt+E0HdiEifhbmW/F38wiaxf21oHuIog=",
       "url": "index.html"
     },
     {
