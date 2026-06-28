@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "FieJ9I0e",
+  "version": "3s0SEApX",
   "assets": [
     {
-      "hash": "sha256-B0BbejDXXaaYd/mdmVX/4NV2VLwoDmDmfOAqwLBWI+k=",
+      "hash": "sha256-NCSwjZ/gKsk7FkR1qpEkkN21EtQ3S/xZ5Jpw0sXCqx4=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-+DN5RdEYzmk00tWC6ScS7QFAdtQt9tDIVaf8Y5gqr7I=",
-      "url": "_framework/Kt.w29khuqp0j.wasm"
+      "hash": "sha256-bfV2c0uz8kLBBqAcIih8b4TOot0OS9OrwdT4/nTOWKQ=",
+      "url": "_framework/Kt.fpw097gpm3.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -158,8 +158,8 @@ self.assetsManifest = {
       "url": "_framework/System.ObjectModel.2oauxyoozb.wasm"
     },
     {
-      "hash": "sha256-WRAK3MPhZBxQNZ6VelHdc5hizzjSIctF6DXwqpkeaE0=",
-      "url": "_framework/System.Private.CoreLib.x2n2bdfs3s.wasm"
+      "hash": "sha256-R76SLuwHpKk1tv6rASw3NzcrZUCBM6UOuyQ46Vro8z4=",
+      "url": "_framework/System.Private.CoreLib.zt9qiewvy0.wasm"
     },
     {
       "hash": "sha256-KMTV6b8QOt820TCnXaihd8UG9E/HRDfk8Cpkhxxydy8=",
@@ -214,8 +214,8 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-8F/rDTC0za5fypHmxVwk3UqKO94goOowtxs698j2Hlg=",
-      "url": "_framework/dotnet.43sf8b1g75.js"
+      "hash": "sha256-pSixUX9IlOORNxEGy6W2RF4rvQYe2vLPZmhwEpXMa0k=",
+      "url": "_framework/dotnet.71v1o3gmwz.js"
     },
     {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
@@ -306,6 +306,10 @@ self.assetsManifest = {
       "url": "art/link.svg"
     },
     {
+      "hash": "sha256-QRBZWhWtDd8tup0kDAjgPGpb+KGnkTdBLhUghS65xNE=",
+      "url": "art/list-plain.svg"
+    },
+    {
       "hash": "sha256-2OJrd8h/w0bVXGhF1SHqSy1Zddwbyxg9go9Y8cIaWa4=",
       "url": "art/list.svg"
     },
@@ -324,6 +328,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-aD3KKxJWJSoBe2sTg3JUZXoTOTdQzrBH9vldHFhSwHQ=",
       "url": "art/move.svg"
+    },
+    {
+      "hash": "sha256-yuh2jJoxRZvtN+Z8ZouhwBWHG+KihxHNuwqxv5BTr6A=",
+      "url": "art/paragraph.svg"
     },
     {
       "hash": "sha256-/zq0mC/UU7Beb+rur2tWDmgRyEe9ynWRZwyOBO6OCmo=",
@@ -1278,6 +1286,150 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-technomancer.html"
     },
     {
+      "hash": "sha256-yGlWzFEYH8VvMf9Ob4nfug356hPastDUJmIZF32DkJA=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-boost.html"
+    },
+    {
+      "hash": "sha256-FRPDpbIGN1iEaBcjxEfFMkbi57EoI38N+hIgWxWEM0I=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-breach-point.html"
+    },
+    {
+      "hash": "sha256-YPUjF4xJ6HycsMelU1ENuTQMcjXpN76l3Q6jaYZGKAM=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-interference-pulse.html"
+    },
+    {
+      "hash": "sha256-jpefXjXEuDXb8rCqWWmE7LcbEqDU/h6UkdCSAfDrqe4=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-remote-control.html"
+    },
+    {
+      "hash": "sha256-W4kGr4jRMsOCjpE3E8HYyOBLHouruHI2Bj/m5CGt3sg=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-spot.html"
+    },
+    {
+      "hash": "sha256-eLVymcn/JWuuFJuDjGZjhHEcnq8YAScA0UJcfih+bfQ=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-wayfind.html"
+    },
+    {
+      "hash": "sha256-9jvQYWfVovVtg24opBFY3qi504eHkZ3v9yvblNqLTxo=",
+      "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-weld-shut.html"
+    },
+    {
+      "hash": "sha256-oTspUP4kZL2zxCz/lYjXNLuIe+0c4hN3848E4udwAgQ=",
+      "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-breach-and-clear.html"
+    },
+    {
+      "hash": "sha256-4K1K7O9mihuDpjcQvpIzMDeTzxbSZB2Od0sElFzS4Yo=",
+      "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-detonate.html"
+    },
+    {
+      "hash": "sha256-ou3Ni9T/bFikGvBXrUrBR7D15bfs/X7kdgwufBMh1lA=",
+      "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-shield.html"
+    },
+    {
+      "hash": "sha256-MSA11f24k+k3CJBj802LcXpQuqIvVbY8ttQOKzeOS0M=",
+      "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-void-armour.html"
+    },
+    {
+      "hash": "sha256-3b3eZa8akmoiSwEEZZKcS7jrvHEG1DBPihPYzXo4AIs=",
+      "url": "assets/packages/teams/imperial-navy-breachers/equipment/imperial-navy-breachers-equipment-combat-stimms.html"
+    },
+    {
+      "hash": "sha256-6i43nDQiRrySUKrSd3XxezFwPS1unCEnrL+gszleA54=",
+      "url": "assets/packages/teams/imperial-navy-breachers/equipment/imperial-navy-breachers-equipment-rebreathers.html"
+    },
+    {
+      "hash": "sha256-9gJ5j4u6jdT4CGP3KDeALPtbVC/41vIvZd/D+hzYRfk=",
+      "url": "assets/packages/teams/imperial-navy-breachers/equipment/imperial-navy-breachers-equipment-slugs.html"
+    },
+    {
+      "hash": "sha256-odDIK5plCfz6Xd4FngMsj6N7/7Cjz+5I7E9+xPgvHNE=",
+      "url": "assets/packages/teams/imperial-navy-breachers/equipment/imperial-navy-breachers-equipment-system-override-device.html"
+    },
+    {
+      "hash": "sha256-xa0472VHMmbXlVQtKfHVpDYGA0oal/kcP8I3MBO/690=",
+      "url": "assets/packages/teams/imperial-navy-breachers/index.json"
+    },
+    {
+      "hash": "sha256-fzExLeyxtK/TJxHd68qAttNMyi5ZwSgGfYGedkTHNhk=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-attack-order.html"
+    },
+    {
+      "hash": "sha256-rpwnrnHjbHNioX+nwfX+lvSmH7hAC8UCDAPQNljFsig=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-blitz.html"
+    },
+    {
+      "hash": "sha256-if/VyBQ29DyCLb4KOdH+/ts60YdZOoiKCNIjruCnxwU=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-brace-for-counterattack.html"
+    },
+    {
+      "hash": "sha256-/T1yvQeihgMlrYWhTD3rdBTZBVMJZ44jAboU5+TpR4s=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-close-assault.html"
+    },
+    {
+      "hash": "sha256-1l9rkZq6gLB5TeQ1PYbF1MTaRzocSDejOqG5RvTMIu8=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-deck-hand.html"
+    },
+    {
+      "hash": "sha256-TiXjOpQfr5i18bqw8EVOcMPOgmjDCkOQ1B+MUSmnG00=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-defence-order.html"
+    },
+    {
+      "hash": "sha256-DZzz3qp+I6UxozhxppOWrBhDd3a5eZpL3WmogXGzBhk=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-lock-it-down.html"
+    },
+    {
+      "hash": "sha256-FXrXRCg+220D88dzVa32ok/KXdvE4qPjMXXmym3+Gpc=",
+      "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-overwhelm-target.html"
+    },
+    {
+      "hash": "sha256-pAMzsUQuhqHz7aApHyoIHg8Zc9rOd3ocF25s/LA0kXI=",
+      "url": "assets/packages/teams/imperial-navy-breachers/teams/imperial-navy-breachers-team-imperial-navy-breachers.html"
+    },
+    {
+      "hash": "sha256-ZyN8JqIhYltMwGVm2kD32b8ud8/tlxW0DWo/GKZwGTg=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-armsman.html"
+    },
+    {
+      "hash": "sha256-c1fhnkD2WIqSlp4ywjek+Zv75tyjq/VPn3M+hDex1qo=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-axejack.html"
+    },
+    {
+      "hash": "sha256-shcZqg5m4xJmc6uzSy/o7V4WhWF4wZkdTspIHqZvbUE=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-cat-unit.html"
+    },
+    {
+      "hash": "sha256-zs5bDoZUOLTTPEVhX/BOCz6ItYbDfWWmATIKPOeNI7s=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-endurant.html"
+    },
+    {
+      "hash": "sha256-LkVES0OkCjCfqP9C4ciFxaIfmMnO21UPKgL3LdJcGgg=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-gheistskull.html"
+    },
+    {
+      "hash": "sha256-eS/stuIESJvnXpUtQNmjUArNrORNIDDLF+KAeTV9AzY=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-grenadier.html"
+    },
+    {
+      "hash": "sha256-vdRUjZJes/fKVRV6Coiny0brW1TkVNnyFNbkNhHTFNs=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-gunner.html"
+    },
+    {
+      "hash": "sha256-OL8awhidE49Cu0YnRabm7GRDslXwQxaj7vNmleLoIOs=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-hatchcutter.html"
+    },
+    {
+      "hash": "sha256-PjYv+vFvu6MOIRZvjr3WAVZ63VeQQQFRB8skmdSnqWE=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-sergeant-at-arms.html"
+    },
+    {
+      "hash": "sha256-G8sqtU1e/+TidnEblfRIA7tM6pjzNGRN9qyQH4cSXlk=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-surveyor.html"
+    },
+    {
+      "hash": "sha256-MTlpApKUxAN++/k3l5GaEfA/qWPkMgYVGPOl5Fb15hQ=",
+      "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-void-jammer.html"
+    },
+    {
       "hash": "sha256-1QJ2Xn2rYINMutpYiDEP8x7IxK76WCySVtgvUhwToss=",
       "url": "assets/packages/teams/kommandos/actions/kommando-action-breach.html"
     },
@@ -2118,7 +2270,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-8EAoKJm+mzu1kIX6oIhxong8kWN1T31jSxXr4p5Oono=",
+      "hash": "sha256-+/cysL05DpFYGXnIZC6+VRPtvux1w2EFcyNBUFyjoaI=",
       "url": "index.html"
     },
     {

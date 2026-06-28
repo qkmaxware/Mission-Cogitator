@@ -1,0 +1,63 @@
+---
+{
+  "name": "Navis Axejack",
+  "art-path": null,
+  "tags": [
+    "Imperium",
+    "Axejack"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Autopistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Power weapon",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Emboldened: </b> Whenever an attack dice inflicts damage of 3
+or more on this operative during a turning point in which it
+performed the <see cref="charge">Charge</see> action, roll one <b>D6</b>: on a 5+, subtract 1
+from that inflicted damage.
+</p>

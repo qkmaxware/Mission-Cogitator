@@ -1,0 +1,119 @@
+---
+{
+  "name": "Navis Grenadier",
+  "art-path": null,
+  "tags": [
+    "Imperium",
+    "Grenadier"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Demolition charge",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 3,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Reposition only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "limited",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "saturate",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Navis shotgun (close range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Navis shotgun (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 5,
+      "damage": {
+        "normal": 1,
+        "critical": 2
+      },
+      "rules": []
+    },
+    {
+      "name": "Navis hatchet",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Grenadier: </b>  This operative can use <see cref="frag">Frag Explosive Grenades</see>, <see cref="krak">Krak Explosive Grenades</see> and <see cref='stun-utility-grenades'>Stun Grenades</see> (see universal equipment). Doing so doesn’t count towards any <see cref="limited">Limited</see>
+uses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever this operative is using a <see cref="frag">Frag Explosive Grenades</see> or
+<see cref="krak">Krak Explosive Grenades</see> grenade, improve the Hit stat of that weapon by 1.
+</p>

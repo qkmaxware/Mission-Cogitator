@@ -546,6 +546,13 @@ label[b-j6pryufax8] {
 input[b-j6pryufax8], select[b-j6pryufax8], textarea[b-j6pryufax8] {
     margin-bottom: 6px;
 }
+/* /Pages/Admin/AuditPackages.razor.rz.scp.css */
+@media  (prefers-color-scheme: dark) {
+    .w3-striped tbody tr:nth-child(even)[b-0f29yy6gte] {
+        color: rgb(255, 123, 0);
+        background-color: rgba(255,255,255,0.2) !important;
+    }
+}
 /* /Pages/Home.razor.rz.scp.css */
 article[b-yj484j0oi8] {
     padding-left: 16px;
