@@ -79,6 +79,13 @@ img[b-mzmrqjyjxb] {
     padding: 15px;
 }
 
+@media (max-width:600px) {
+    .dice[b-380v0wsf12] {
+        --d6-size: 64px;
+        --d6-half-size: 32px; 
+    }
+}
+
 .clickable[b-380v0wsf12] {
     cursor: pointer;
 }
@@ -156,6 +163,10 @@ textarea[b-qxjjnks04e] {
     border-color: var(--theme-primary-background);
     border-width: 1px;
     border-style: solid;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
 .w3-sidebar-background[b-j9zpof6xy1] {

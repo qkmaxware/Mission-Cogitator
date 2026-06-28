@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "oAaFIPA3",
+  "version": "tQSaXX9Z",
   "assets": [
     {
-      "hash": "sha256-NCSwjZ/gKsk7FkR1qpEkkN21EtQ3S/xZ5Jpw0sXCqx4=",
+      "hash": "sha256-ZHPKSh9DaHU86pYju48srUG4NK+vjJ4sWc+EZQxrlm8=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-xarZCTZq7Sd8rgya7RuP238Xb9Lk6aScnupETq3rRps=",
-      "url": "_framework/Kt.pfxuy5pqc8.wasm"
+      "hash": "sha256-h6+omnQMPAOfuOR3haRE5b9ESQvoRWVHIvFJTlB/H5U=",
+      "url": "_framework/Kt.9gv56v8ot1.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -222,12 +222,12 @@ self.assetsManifest = {
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
     },
     {
-      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
-      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+      "hash": "sha256-5XMt8+YFJOmeFh1Pi0ypKohtAtoaOEUk9mzYwtfbKok=",
+      "url": "_framework/dotnet.r004b6f8mb.js"
     },
     {
-      "hash": "sha256-1kFML3+apiXgeN98e3+HfOOIvbjPaMu/VNfrp2IK1A4=",
-      "url": "_framework/dotnet.yigufgildf.js"
+      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
+      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -268,6 +268,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-AqfCuPLPJfn3IMKs8XQEQxotsn+X0oci/s8dtDxkRjU=",
       "url": "art/cp.svg"
+    },
+    {
+      "hash": "sha256-VWwesBBU3Pfusm4Ae6WxZ5kOnRwL6KIK5B+NIYEK5JE=",
+      "url": "art/dice.svg"
     },
     {
       "hash": "sha256-Xiv9v+/vPSWkbTmvb/A1zQhQVY2LptbFGtvQqtCEVME=",
@@ -2270,7 +2274,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-2xL1yMQMLyqsRK9vHEeoiGmFFpb0tgDfnI56x4LOZ84=",
+      "hash": "sha256-xK7dnHUNs5rYVkYeffVt0GuBemLjzgJdGyDdI94Pwjo=",
       "url": "index.html"
     },
     {
