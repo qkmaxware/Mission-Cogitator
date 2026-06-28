@@ -15,14 +15,18 @@
 </div>
 <table>
     <thead>
+        @if (hitVal > 0) {
         <th>HITS</th>
+        }
         <th>MIN</th>
         <th>MAX</th>
         <th>AVG</th>
     </thead>
     <tbody>
         <tr>
+            @if (hitVal > 0) {
             <td class="w3-center">@QueryRolls(r => r >= hitVal).Count()</td>
+            }
             <td class="w3-center">@MinRoll()</td>
             <td class="w3-center">@MaxRoll()</td>
             <td class="w3-center">@AverageRoll()</td>
@@ -49,7 +53,7 @@
 
     public int MinRoll() => dice.Count == 0 ? 0 : dice.Min(x => x);
 
-    public double AverageRoll() => dice.Count == 0 ? 0 : dice.Average(x => x);
+    public double AverageRoll() => dice.Count == 0 ? 0 : Math.Round(dice.Average(x => x), 2);
 
     protected override void OnInitialized()
     {
