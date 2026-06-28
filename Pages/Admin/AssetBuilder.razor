@@ -138,6 +138,9 @@
                         unit.Rules = unit.Rules ?? new List<string>();
                         unit.Tags = unit.Tags ?? new List<string>();
 
+                        <label for="rules">Flavour Text:</label>
+                        <textarea style="min-height: 4em;" @bind=unit.FlavourText></textarea>
+
                         <label for="attributes">Attributes:</label>
                         <table id="attributes" class="w3-table">
                             <thead>
@@ -288,6 +291,7 @@
 
                         <label for="faction">Faction:</label>
                         <select id="faction" class="w3-select" @bind=team.Faction>
+                            <option></option>
                             <option>Imperium of Man</option>
                             <option>Aeldari</option>
                             <option>Drukhari</option>

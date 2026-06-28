@@ -48,6 +48,7 @@ string[] packages = [
     "assets/packages/teams/xv26-stealth-battlesuits",
     "assets/packages/teams/kommandos",
     "assets/packages/teams/imperial-navy-breachers",
+    "assets/packages/teams/kasrkin",
 ];
 var lastPackage = packages.Length - 1;
 var packageManager = app.Services.GetService<PackageManager>()!;

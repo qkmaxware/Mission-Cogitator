@@ -1,0 +1,76 @@
+@using Kt.Data
+
+@inject RuleDatabase ruledb
+@inject TeamsDatabase teamdb
+@inject UnitDatabase unitdb
+@inject IJSRuntime js
+
+@if (Team is not null) {
+
+<header class="w3-xxlarge">@Team.Name</header>
+<article class="w3-margin-bottom w3-large">
+    @Team.Description
+</article>
+
+<div class="w3-row-padding w3-margin-top w3-margin-bottom">
+@foreach (var unit in (Team.Units ?? Enumerable.Empty<Unit>()))
+{
+    var self = unit;
+    <div class="w3-half">
+        <header class="w3-large w3-button" style="min-width: 50%; text-align: left;" @onclick=@(async () => await OnUnitLookup.InvokeAsync((Team, self)))>@self.Name</header>
+        <article class="w3-container w3-margin-bottom" style="min-height: 4em;">
+            @self.FlavourText
+        </article>
+    </div>
+}
+</div>
+}
+
+<div class="w3-row w3-margin-top w3-margin-bottom">
+    @foreach (var pair in Cards) {
+        var rule = pair.Rule;
+    <div class="w3-half" style="padding: 8px 8px;">
+        <div class="card">
+            <div class="card-header @pair.Class">
+                @pair.Kind
+            </div>
+            <div>
+                <div class="card-name @pair.Class">@(rule.Name ?? @rule.Id)</div>
+                <div class="w3-padding">
+                    @RenderDescription(rule.Description)
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+@code {
+    [Parameter] public Team? Team {get; set;}
+
+    [Parameter]
+    public EventCallback<string> OnRuleLookup { get; set; } 
+
+    [Parameter]
+    public EventCallback<(Team, Unit)> OnUnitLookup { get; set; }
+
+    private IEnumerable<(string Kind, string Class, Rule Rule)> Cards {
+        get {
+            foreach (var fr in Team.FactionRules ?? Enumerable.Empty<Rule>())
+                yield return ("Faction Rule", "rule", fr);
+
+            foreach (var pl in Team.Ploys ?? Enumerable.Empty<Ploy>())
+                yield return (pl.Kind switch { PloyKind.strategy => "Strategy Ploy", PloyKind.firefight => "Firefight Ploy", _ => "Ploy" }, "ploy", pl);
+
+            foreach (var eq in Team.Equipment ?? Enumerable.Empty<Equipment>())
+                yield return ("Faction Equipment", "equip", eq);
+        }
+    } 
+
+    private RenderFragment RenderDescription(string? text) => builder =>
+    {
+        DescriptionRenderer.RenderDescription(text, this, async (id) => {
+            await OnRuleLookup.InvokeAsync(id);
+        })(builder);
+    };   
+}

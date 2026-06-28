@@ -58,7 +58,7 @@
             await alertRule(rule.Id);
         }
         else if (content is Team team) {
-            await alertRule(team.ToTeamDescriptionRule());
+            select(team);
         }
         else if (content is Unit unit) {
             select(null, unit);
@@ -362,6 +362,7 @@
             @foreach (var team in grp) {
                 var myTeam = team;
                 <Accordion Title="@(team.Name)" Subtitle="@(string.IsNullOrEmpty(team.SourcePackage?.Author) ? null : ("By " + team.SourcePackage?.Author))">
+                    <button class="w3-button w3-bar-item" @onclick=@(() => select(myTeam))>About</button>
                     <Accordion Title="Faction Rules">
                         @foreach (var rule in (team.FactionRuleIds ?? Enumerable.Empty<string>())) {
                             var ruleId = rule;
@@ -495,6 +496,9 @@
         case Tab.UnitTab:
         <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
         break;
+        case Tab.TeamTab:
+        <TeamRenderer Team=@selectedTeam OnRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnUnitLookup=@(async (x) => { select(x.Item1, x.Item2); await InvokeAsync(StateHasChanged); })></TeamRenderer>
+        break;
     }
     @code {
         private Team? selectedTeam;
@@ -508,10 +512,16 @@
 
     private enum Tab {
         QuickReference,
-        UnitTab
+        UnitTab,
+        TeamTab,
     }
     private Tab currentTab;
 
+    private void select(Team? team) {
+        this.selectedTeam = team;
+        this.navigator?.CloseNavMenu();
+        this.currentTab = Tab.TeamTab;
+    }
     private void select(DeployedUnit deployment) {
         this.selectedTeam = deployment.Team;
         this.selectedDeployment = deployment;

@@ -42,21 +42,4 @@ public class Team: IPackagedContent
 
     [JsonIgnore]
     public string? Description { get; set; }
-
-    public Rule ToTeamDescriptionRule()
-    {
-        var first_paragraph = $"<p>One of the various teams you can deploy in-game.</p>";
-        StringBuilder sb = new StringBuilder((this.Description?.Length ?? 10) + first_paragraph.Length);
-        sb.Append(first_paragraph);
-
-        sb.Append(this.Description);
-
-        sb.Append("<p>For more information on the equipment and operatives used by this team please check out their entries in the Codex Militaris under the <b>/");
-        sb.Append(this.Faction); sb.Append('/'); sb.Append(this.Name);
-        sb.Append("</b> folder.</p>");
-
-        var rule = new TeamDescriptionRule(this, sb.ToString());
-
-        return rule;
-    }
 }

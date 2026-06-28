@@ -1,0 +1,39 @@
+header {
+    border-bottom-color: var(--theme-primary-background);
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+}
+
+.card {
+    border-radius: 8px;
+    border: 1px solid var(--theme-panel-background);
+}
+
+.card>.card-header {
+    text-align: center;
+    font-size:x-large;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: var(--theme-panel-background);
+    color: var(--theme-panel-foreground);
+}
+
+.card .card-name {
+    text-align: center;
+    margin: 6px;
+    padding: 4px;
+    text-align: center;
+}
+
+.card-name.rule {
+    background-color: var(--theme-primary-background);
+    color: var(--theme-primary-foreground);
+}
+
+.card-name.ploy {
+    border: 1px solid var(--theme-primary-background);
+}
+
+.card-name.equip {
+    border: 1px solid var(--theme-panel-background);
+}

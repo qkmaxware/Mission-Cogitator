@@ -1,0 +1,186 @@
+---
+{
+  "name": "Kasrkin Sergeant",
+  "art-path": null,
+  "flavour-text": "Leaders of Kasrkin kill teams, sergeants are extremely skilled and experienced soldiers who lead from the front. They experience all the same hardships as those who follow them, and are unflappable figures of authority who know how to get the best out of their troops.",
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Leader",
+    "Sergeant"
+  ],
+  "attributes": {
+    "apl": 3,
+    "move": 6,
+    "save": 4,
+    "wounds": 9
+  },
+  "weapons": [
+    {
+      "name": "Bolt pistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Hot-shot lasgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    },
+    {
+      "name": "Hot-shot laspistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Plasma pistol (standard)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Plasma pistol (supercharge)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "hot",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Chainsword",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": []
+    },
+    {
+      "name": "Gun butt",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 3,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    },
+    {
+      "name": "Power weapon",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "kasrkin-action-tactical-command"
+  ]
+}
+---
+<p>
+    <b>Veteran Leadership: </b>  Whenever this operative is in the killzone
+and you use the SKILL AT ARMS STRATEGIC GAMBIT,
+you can select one additional SKILL AT ARMS but they
+cannot be the same
+</p>
