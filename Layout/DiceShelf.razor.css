@@ -6,6 +6,13 @@
     padding: 15px;
 }
 
+@media (max-width:600px) {
+    .dice {
+        --d6-size: 64px;
+        --d6-half-size: 32px; 
+    }
+}
+
 .clickable {
     cursor: pointer;
 }

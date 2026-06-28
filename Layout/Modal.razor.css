@@ -4,4 +4,8 @@
     border-color: var(--theme-primary-background);
     border-width: 1px;
     border-style: solid;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }

@@ -273,6 +273,19 @@
         await ruleSearch.Focus();
     }
 }
+
+<Modal @ref=diceModal Title="Roll Dice" Options=@Modal.Buttons.Cancel>
+    <DiceShelf></DiceShelf>
+</Modal>
+@code {
+    private Modal? diceModal;
+    private async Task rollies() {
+        if (diceModal is null)  
+            return;
+        await diceModal.Show();
+    }
+}
+
 <NavMenu @ref=navigator Title="Datavault">
     <Header>
         <button class="w3-button w3-bar-item" @onclick=openSearchModal>
@@ -467,7 +480,10 @@
 }
 <Header>
     <button class="w3-button app-primary w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> <h2 class="w3-xlarge" style="display: inline-block; margin: 0;">Mission Cogitator</h2>
-    <button class="w3-display-right w3-button app-primary w3-xlarge" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/home.svg" style="height: 1em;"/></button>
+    <div class="w3-display-right">
+        <button class="w3-button app-primary w3-xlarge" style="padding: 8px;" @onclick="@(async () => await rollies())"><img src="art/dice.svg" style="height: 1em;"/></button>
+        <button class="w3-button app-primary w3-xlarge" style="padding: 8px;" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/home.svg" style="height: 1em;"/></button>
+    </div>
 </Header>
 <Counters></Counters>
 
