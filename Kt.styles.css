@@ -423,6 +423,46 @@ table th:nth-child(2)[b-32co24661i] {
     width: 8em;
     white-space: nowrap;
 }
+/* /Layout/TeamRenderer.razor.rz.scp.css */
+header[b-ar1qek6ju1] {
+    border-bottom-color: var(--theme-primary-background);
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+}
+
+.card[b-ar1qek6ju1] {
+    border-radius: 8px;
+    border: 1px solid var(--theme-panel-background);
+}
+
+.card>.card-header[b-ar1qek6ju1] {
+    text-align: center;
+    font-size:x-large;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: var(--theme-panel-background);
+    color: var(--theme-panel-foreground);
+}
+
+.card .card-name[b-ar1qek6ju1] {
+    text-align: center;
+    margin: 6px;
+    padding: 4px;
+    text-align: center;
+}
+
+.card-name.rule[b-ar1qek6ju1] {
+    background-color: var(--theme-primary-background);
+    color: var(--theme-primary-foreground);
+}
+
+.card-name.ploy[b-ar1qek6ju1] {
+    border: 1px solid var(--theme-primary-background);
+}
+
+.card-name.equip[b-ar1qek6ju1] {
+    border: 1px solid var(--theme-panel-background);
+}
 /* /Layout/UnitRenderer.razor.rz.scp.css */
 header[b-tyfdc6oqe8] {
     border-top-left-radius: 16px;

@@ -1,0 +1,79 @@
+---
+{
+  "name": "Kasrkin Demo-Trooper",
+  "art-path": null,
+  "flavour-text": "Clad in heavier armour and carrying a devastating melta mine, these Kasrkin serve in a necessary but incredibly dangerous role. It is their job - often under enemy fire - to place, prepare and detonate a melta mine, blasting their way into an armoured bunker or through fortress walls.",
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Demo-Trooper"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Hot-shot laspistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Gun butt",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Melta Mine: </b> This operative is carrying your Melta Mine marker. It
+can perform the Pick Up Marker action on that marker, and
+whenever it performs the Place Marker action on that marker,
+it can immediately perform a free Dash action. That marker
+cannot be placed within an enemy operative’s control range (if
+this operative is incapacitated while carrying that marker and
+that marker cannot be placed, it’s removed with this operative).
+</p>
+
+<p>
+    <b>Proximity Mine: </b> The first time your Melta Mine marker is within
+another operative’s control range, remove that marker and inflict
+2D6+3 damage on that operative; if it isn’t incapacitated, end
+its action (if any), even if that action’s effects aren’t fulfilled. If
+it cannot be placed, move it the minimum amount to do so. Note
+that this operative is ignored for these effects (i.e. it cannot set it
+off or take damage from that marker)
+</p>
+
+<p>
+    <b>Blast Padding: </b>  Whenever an operative is shooting this operative
+with a weapon that has the Blast or Torrent weapon rule
+(excluding weapons that have a sweeping profile), you can re-roll
+one of your defence dice. In addition, this operative isn’t affected
+by the x" Devastating x weapon rule (i.e. Devastating with a
+distance) unless they are the target during that sequence.
+</p>

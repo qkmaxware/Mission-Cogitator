@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "2W4gT2xr",
+  "version": "a79af/pm",
   "assets": [
     {
-      "hash": "sha256-ZHPKSh9DaHU86pYju48srUG4NK+vjJ4sWc+EZQxrlm8=",
+      "hash": "sha256-I7s12MpunWYHg9Zf7gQPd9GZAYqoqyezenjkkqTCkMc=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-YqEoeqFk9S+m/+/61bm8AqYWUV1+ztjtcy3apW10hss=",
-      "url": "_framework/Kt.mux9np99lv.wasm"
+      "hash": "sha256-PoaMZ4O/X7QGv7rShvIUDaLWkGCb9DuMoOHcRAQ6gX0=",
+      "url": "_framework/Kt.yrh5lyyqy8.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,6 +214,10 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-OVGygNFQy/z5MmFsp4gxmmhHV9OdCcEewIrlyjMl3qs=",
+      "url": "_framework/dotnet.7kjvii2lpi.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -224,10 +228,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
-    },
-    {
-      "hash": "sha256-F7pGD/y4JWJ2AghENuq+B/5O0xIx3cU6r/LiBuo9cPA=",
-      "url": "_framework/dotnet.zl8q8hq6pb.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1434,6 +1434,138 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-void-jammer.html"
     },
     {
+      "hash": "sha256-b/j/p4VRcNgSHvoZGBRPnXHZDxRdZt4DDUlWDWvkx6w=",
+      "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-auspex-scan.html"
+    },
+    {
+      "hash": "sha256-Hhm9YW8z8oPwwUEuYIqpDWtjONjUc25m8tVho9ydOv8=",
+      "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-battle-comms.html"
+    },
+    {
+      "hash": "sha256-x7VGj/3k0voabG5TNvNR2EWV7hj1wLYJPwgvBD3Nxms=",
+      "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-medikit.html"
+    },
+    {
+      "hash": "sha256-O4amPa0xMUzEmsvaMhsk3ew1RcC+ZUua7MMM8LKeX5Q=",
+      "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-tactical-command.html"
+    },
+    {
+      "hash": "sha256-iwOPTCv3fXlh4UWqpncWgD2ea5Hw8CIVGmeD2IZ1Ve8=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-concealed-position.html"
+    },
+    {
+      "hash": "sha256-KjU9WMTqn5MSQ/IKpkmKtexiDhoPCFoIWUKAkHk1s/g=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-for-cadia.html"
+    },
+    {
+      "hash": "sha256-hm/WqmJLLXGVuu5DQHg6zQBItF5Cf8sLRNdQ8eFKD5E=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-ice-in-your-veins.html"
+    },
+    {
+      "hash": "sha256-g+8rxqphSHogrmTN+FOpE9DPRNyKZ29Z31SRmLsEPLY=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-light-em-up.html"
+    },
+    {
+      "hash": "sha256-4qtEjJrHfQGvca7o82TiWWxZUOZncbzsmgs9UTns0PU=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-rapid-fire.html"
+    },
+    {
+      "hash": "sha256-773Mp0BbRBzCp+asURsXmG6wG/QF+Pvy3YJH5Gi0ZhI=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-skill-at-arms.html"
+    },
+    {
+      "hash": "sha256-xMRLQPzB+UY8PZWa+2msoUhGxREgAqYGk8REm6/OBG4=",
+      "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-strike-fast.html"
+    },
+    {
+      "hash": "sha256-1ifh4jftQwRZTALhFP7JDNW6306qFf3w0pXBHsBArsY=",
+      "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-combat-daggers.html"
+    },
+    {
+      "hash": "sha256-S4lbEM3Chi9WMw4cZMGxTGy/RUjpUv/TlRJXW03X4Kw=",
+      "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-foregrip.html"
+    },
+    {
+      "hash": "sha256-gDD67ATWsbJd2fJcmGkROFDz2tgZbwBnyGMBL9Gp0SI=",
+      "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-long-range-scope.html"
+    },
+    {
+      "hash": "sha256-gzQDwIvRgfuqAKpJZt/wpfbgcjbxb/TjJTA1q2SVXKg=",
+      "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-relics-of-cadia.html"
+    },
+    {
+      "hash": "sha256-lt8c7u8pRj43VDkvp/mVPVWWbH7nsQ0UGC7vc40HdmA=",
+      "url": "assets/packages/teams/kasrkin/index.json"
+    },
+    {
+      "hash": "sha256-nTqtm6LKixQvv+4SUUJ8iHPATZy/mTs6YbTqDyf3y+8=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-clearance-sweep.html"
+    },
+    {
+      "hash": "sha256-RdjH1GpGek22aT4Q0EkNGZo58Hr15kny/1dgJp9arLI=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-cover-retreat.html"
+    },
+    {
+      "hash": "sha256-sPL3RxZw38DNPfRtGuImVhDZ23wY4faet+VtLglGp88=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-elimination-pattern.html"
+    },
+    {
+      "hash": "sha256-T5bjw73W0ltYwp/FXyOMl7n9yGcQreO/sjBUfwy9OlA=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-engage-from-cover.html"
+    },
+    {
+      "hash": "sha256-MQ8q6wzHupK3qxfBCtZECynlT3EREwftNbFBkcwyd6I=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-give-no-ground.html"
+    },
+    {
+      "hash": "sha256-6Vr4IvY4FQEyn0atN/VnU5ZLdcNDy1SuZMS/lLqOAEs=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-neutralise-target.html"
+    },
+    {
+      "hash": "sha256-kY9z+9RPBPzwx68PyCav/MSZe4CI1j1Znjw35PoScxE=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-relocate.html"
+    },
+    {
+      "hash": "sha256-bufYpAqcPrfYjZPngQ7/tYBoaX9Xb9QGUpK/+80SmOU=",
+      "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-seize-the-initiative.html"
+    },
+    {
+      "hash": "sha256-Oc5/6A9wBNmco/h7/kYySDUGFc6wZpkN41YZ2inbZcg=",
+      "url": "assets/packages/teams/kasrkin/teams/kasrkin-team-kasrkin.html"
+    },
+    {
+      "hash": "sha256-1Ix5ewbKKmfBDcbuBnMaZCixJnzEgFLJGSK9LB6kW7U=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-combat-medic.html"
+    },
+    {
+      "hash": "sha256-NvMpDTZS/ubrVIVzWa6TmKq9VlQU7wOkw+epJe8eCu4=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-demo-trooper.html"
+    },
+    {
+      "hash": "sha256-9F2mKTmVRIWkRU7p5fKfF2Yam4BqrZBOm4+7Ixm56rA=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-gunner.html"
+    },
+    {
+      "hash": "sha256-nm+qM/kV0ORgdTXnfxRxodXGV2wfHPk7h2fyO8Arxmo=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-recon-trooper.html"
+    },
+    {
+      "hash": "sha256-gdmy8yaBISm9l3uhIERGB5/GjkGyfdzXsQ3+11EfmhA=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-sergeant.html"
+    },
+    {
+      "hash": "sha256-pwaLZm5tzv4MJKMb+99flkKdhXmCr/e1bOCO2IsIdE4=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-sharpshooter.html"
+    },
+    {
+      "hash": "sha256-XAxl8EOQzBuH4598SPk9tTX77RDKO9kz+M/jbDIvoCw=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-trooper.html"
+    },
+    {
+      "hash": "sha256-c4q22IVb/MUZrbsPpz33wpma7KxKxt3ttykvbi98uL4=",
+      "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-vox-trooper.html"
+    },
+    {
       "hash": "sha256-1QJ2Xn2rYINMutpYiDEP8x7IxK76WCySVtgvUhwToss=",
       "url": "assets/packages/teams/kommandos/actions/kommando-action-breach.html"
     },
@@ -1650,67 +1782,67 @@ self.assetsManifest = {
       "url": "assets/packages/teams/pathfinders/teams/pathfinders.html"
     },
     {
-      "hash": "sha256-MFME0ObTtNlqFFCNdUCatwPdpXdU8TvlEk7AzAdFbGg=",
+      "hash": "sha256-Byw5sXUNkQ3hY63Uyzh7sPC0IkToa75MEYiuf1kllZI=",
       "url": "assets/packages/teams/pathfinders/units/blooded-pathfinder.html"
     },
     {
-      "hash": "sha256-tmhTbl9Eh3AiqjbQ6zqtqfrIKDR4sWOT9QihumU1OI0=",
+      "hash": "sha256-TiK8t8ft5ufyamxhvl2ZAXZsMmdDQl6cQuGh3NztI0c=",
       "url": "assets/packages/teams/pathfinders/units/comms-pathfinder.html"
     },
     {
-      "hash": "sha256-IQSQizvKIrj8MpKVp35TB+ZSPjjuKUoRuc1RJMJ23K0=",
+      "hash": "sha256-bTasniJBrCzK+UP8CcBuEmBCsqZFTkA+hTxwtOUU3rY=",
       "url": "assets/packages/teams/pathfinders/units/controller-pathfinder.html"
     },
     {
-      "hash": "sha256-W1B4tCdLF0vyao5TnVtlVgUMzFO1n0X1hnqXh3imLk0=",
+      "hash": "sha256-I89MPlLmhAxBBeiFyj09OE8csFn0oAd0oqHnKxnDSmo=",
       "url": "assets/packages/teams/pathfinders/units/marksman-pathfinder.html"
     },
     {
-      "hash": "sha256-MrmS7/60dCyJ5cmK9GlXmf0o5p1jmSrHP4V/TylkW58=",
+      "hash": "sha256-BCgCwqhM1JpuUYVJW83/ZTH4vME2egcddSM9bbpCbFE=",
       "url": "assets/packages/teams/pathfinders/units/mb3.html"
     },
     {
-      "hash": "sha256-XPjCSyAqvCmeWuGXEro8UPKQwjTKm19CB3Zft4/FS58=",
+      "hash": "sha256-nJDZ3mSvdBVgwnp5zn+tvgrAMttplTMQ3NVbXmsy+5w=",
       "url": "assets/packages/teams/pathfinders/units/medic-pathfinder.html"
     },
     {
-      "hash": "sha256-W4sJ+TbnbYsJiVgfFAGKkUl1EzJR7XDJAcdn8BIiUFE=",
+      "hash": "sha256-UXmNnHnD4Dr8D/qtDta/biFY0kr1L7VvPSWMmiZjp98=",
       "url": "assets/packages/teams/pathfinders/units/mv1.html"
     },
     {
-      "hash": "sha256-GN6PfdWp1I4aZ4DHSEs7U0NOY841xPrzricqURhp2KM=",
+      "hash": "sha256-RF4BnIddC9E6byS8yE/8oUSB8Y2EanmvzkYo7+RgRFo=",
       "url": "assets/packages/teams/pathfinders/units/mv31.html"
     },
     {
-      "hash": "sha256-R9rQ2ajikV2rzss4U11IPp24ecyBeJTqgk2ObAr5R0k=",
+      "hash": "sha256-7UguQL1e+qS3kcHMTFbgO25uD6/c5tagchk3JBae5pA=",
       "url": "assets/packages/teams/pathfinders/units/mv33.html"
     },
     {
-      "hash": "sha256-iqo3UrnneoyFIw1rXiRz/w4LyKKM4IKKMRD/Xu4LOcM=",
+      "hash": "sha256-hh6N7KFv3b0OamYatGQGSgauISujsZM102UD8rfB4ho=",
       "url": "assets/packages/teams/pathfinders/units/mv4.html"
     },
     {
-      "hash": "sha256-2KFUwbuT8ICT3htgXXp00QOQMhHuG81mxFs10Ro+wlQ=",
+      "hash": "sha256-iTcxuXf0CiG7DLM4Gz6SBmG4uDKWmB0xruC/5ctXhRg=",
       "url": "assets/packages/teams/pathfinders/units/mv7.html"
     },
     {
-      "hash": "sha256-f25ZdfZ+GcmrUrln9yOhat0ybZSVSz0F73xr5sQvXWw=",
+      "hash": "sha256-0kXGqtwDl/1sEkhiCy9dPwP3MCIvm9U8KEFK/pWP1bk=",
       "url": "assets/packages/teams/pathfinders/units/pathfinder-assault-grenadier.html"
     },
     {
-      "hash": "sha256-sQfF5oWodNySaqNOJvRDhrz5E6/wPaurn8jWHv/qhoo=",
+      "hash": "sha256-ihl0gpB781PKCZlsC90cGURomE3X6akps2GG2wAkDqw=",
       "url": "assets/packages/teams/pathfinders/units/pathfinder-shasui.html"
     },
     {
-      "hash": "sha256-aAMLse2LdI1zgn65Ki+Bh76fqCse3uR7yWzKAKFcxxo=",
+      "hash": "sha256-en2Ac/Saa/CNuujcQX/XSuMg58yzICVzVHx7mwc54U0=",
       "url": "assets/packages/teams/pathfinders/units/shasla-pathfinder.html"
     },
     {
-      "hash": "sha256-4bOsXdKWj1+i/AVdlGolAeEJjq+lsahgwWFr0ww48H4=",
+      "hash": "sha256-bm7zohyyzsNWsfLG1LcaZQEARL5UJFIqcUelZ2Y6jok=",
       "url": "assets/packages/teams/pathfinders/units/transpectral-pathfinder.html"
     },
     {
-      "hash": "sha256-U7NH9zuMYhLehBDVP7lcYgOAXv7PI2NnkW8y32oMvwo=",
+      "hash": "sha256-kfBYRD/XgdMta8l9/tFAgjK7ZTkdaCCJVk/XbrJz5E4=",
       "url": "assets/packages/teams/pathfinders/units/weaponsexp-pathfinder.html"
     },
     {
@@ -2274,7 +2406,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-AVomz72+Xi5XHp+RyLRmjo6V1KN+nHfXufV5QAxqQIA=",
+      "hash": "sha256-xu+aDJQcW10gUKchbHudjKU+56g0j9LRRY/FPEGssTI=",
       "url": "index.html"
     },
     {

@@ -1,0 +1,51 @@
+{
+  "name": "Kasrkin",
+  "author": "",
+  "updated": "28-06-2026",
+  "definitions": [
+    "definitions/kasrkin-rule-rapid-fire",
+    "definitions/kasrkin-rule-for-cadia",
+    "definitions/kasrkin-rule-ice-in-your-veins",
+    "definitions/kasrkin-rule-strike-fast",
+    "definitions/kasrkin-rule-light-em-up",
+    "definitions/kasrkin-rule-skill-at-arms",
+    "definitions/kasrkin-rule-concealed-position"
+  ],
+  "actions": [
+    "actions/kasrkin-action-tactical-command",
+    "actions/kasrkin-action-medikit",
+    "actions/kasrkin-action-auspex-scan",
+    "actions/kasrkin-action-battle-comms"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/kasrkin-equipment-foregrip",
+    "equipment/kasrkin-equipment-long-range-scope",
+    "equipment/kasrkin-equipment-relics-of-cadia",
+    "equipment/kasrkin-equipment-combat-daggers"
+  ],
+  "ploys": [
+    "ploys/kasrkin-ploy-elimination-pattern",
+    "ploys/kasrkin-ploy-engage-from-cover",
+    "ploys/kasrkin-ploy-clearance-sweep",
+    "ploys/kasrkin-ploy-relocate",
+    "ploys/kasrkin-ploy-seize-the-initiative",
+    "ploys/kasrkin-ploy-cover-retreat",
+    "ploys/kasrkin-ploy-neutralise-target",
+    "ploys/kasrkin-ploy-give-no-ground"
+  ],
+  "units": [
+    "units/kasrkin-unit-kasrkin-sergeant",
+    "units/kasrkin-unit-kasrkin-combat-medic",
+    "units/kasrkin-unit-kasrkin-demo-trooper",
+    "units/kasrkin-unit-kasrkin-gunner",
+    "units/kasrkin-unit-kasrkin-recon-trooper",
+    "units/kasrkin-unit-kasrkin-sharpshooter",
+    "units/kasrkin-unit-kasrkin-trooper",
+    "units/kasrkin-unit-kasrkin-vox-trooper"
+  ],
+  "teams": [
+    "teams/kasrkin-team-kasrkin"
+  ],
+  "aliases": null
+}
