@@ -11,13 +11,17 @@
     <label>Effect:</label>
     <select class="w3-select" @bind=selectedEffectId>
         <option></option>
-        @foreach (var effect in ruledb.AllEffects) {
-            <option value="@effect.Id">
-                @effect.Name
-                @if (effect.SourcePackage?.Name is not null) {
-                    <text> - @effect.SourcePackage.Name</text>
-                }
-            </option>
+        @foreach (var grp in ruledb.AllEffects.GroupBy(x => x.SourcePackage)) {
+            <optgroup label="@(grp.Key?.Name ?? "Other")">
+                @foreach (var effect in grp) {
+                <option value="@effect.Id">
+                    @effect.Name
+                    @if (effect.SourcePackage?.Name is not null) {
+                        <text> - @effect.SourcePackage.Name</text>
+                    }
+                </option>
+            }
+            </optgroup>
         }
     </select>
 </Modal>
