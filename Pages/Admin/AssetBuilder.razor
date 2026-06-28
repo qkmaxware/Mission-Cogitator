@@ -411,11 +411,11 @@
                     <div class="w3-half">
                         <span for="description">Markup:</span>
                         <div style="overflow-x: auto; whitespace: nowrap; margin-bottom: 2px;">
-                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["quote"]))><img class="icon" src="art/blockquote.svg"/></button>
-                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["ul"]))><img class="icon" src="art/list.svg"/></button>
-                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["usage"]))><img class="icon" src="art/list.svg"/></button>
-                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["section"]))><img class="icon" src="art/section.svg"/></button>
-                            <button class="w3-button bordered border-primary" @onclick=@(async () => await insertIntoDescription(templates["paragraph"]))><img class="icon" src="art/section.svg"/></button>
+                            <button class="w3-button bordered border-primary" title="Add quote" @onclick=@(async () => await insertIntoDescription(templates["quote"]))><img class="icon" src="art/blockquote.svg"/></button>
+                            <button class="w3-button bordered border-primary" title="Add list" @onclick=@(async () => await insertIntoDescription(templates["ul"]))><img class="icon" src="art/list-plain.svg"/></button>
+                            <button class="w3-button bordered border-primary" title="Add usage list" @onclick=@(async () => await insertIntoDescription(templates["usage"]))><img class="icon" src="art/list.svg"/></button>
+                            <button class="w3-button bordered border-primary" title="Add section" @onclick=@(async () => await insertIntoDescription(templates["section"]))><img class="icon" src="art/section.svg"/></button>
+                            <button class="w3-button bordered border-primary" title="Add paragraph" @onclick=@(async () => await insertIntoDescription(templates["paragraph"]))><img class="icon" src="art/paragraph.svg"/></button>
                             <div style="display: inline-block" class="bordered border-primary">
                             <select @bind=linkedRule @bind:after=setRuleName class="w3-select" style="width: 12em; margin-bottom: 0;">
                                 @foreach (var action in DefinitionsAndActions) {
@@ -460,7 +460,7 @@
         private Pkg pkg = new Pkg {
         Name = "New Package",
         Author = Environment.UserName,
-        Updated = DateTime.Now.ToShortDateString()
+        Updated = DateTime.Now.ToString("dd/MM/yyyy")
     };
         private static readonly Type pkgType = typeof(Pkg);
 

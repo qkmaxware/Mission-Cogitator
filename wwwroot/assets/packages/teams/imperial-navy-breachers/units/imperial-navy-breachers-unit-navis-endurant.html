@@ -1,0 +1,103 @@
+---
+{
+  "name": "Navis Endurant",
+  "art-path": null,
+  "tags": [
+    "Imperium",
+    "Endurant"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 4,
+    "save": 2,
+    "wounds": 11
+  },
+  "weapons": [
+    {
+      "name": "Navis heavy shotgun (close range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "relentless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Navis heavy shotgun (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 5,
+      "damage": {
+        "normal": 1,
+        "critical": 2
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "relentless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Shield Bash",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 1,
+        "critical": 2
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "brutal",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "imperial-navy-breachers-rule-shield",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Breachwall: </b>  Whenever your opponent is selecting a valid
+target, they cannot select another friendly <b>IMPERIAL NAVY
+BREACHER</b> operative whose base is touching this operative’s
+if this operative has an <see cref="engage">Engage Order</see> and is intervening. This rule
+has no effect if more than one other friendly operative’s base is
+touching this operative’s.
+</p>
+
+<p>
+    <b>Disengage: </b> This operative can perform the <see cref="fall-back">Fall Back</see> action
+for 1 less <b>AP</b>.
+</p>

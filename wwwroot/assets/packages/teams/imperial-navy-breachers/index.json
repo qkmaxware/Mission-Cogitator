@@ -1,0 +1,54 @@
+{
+  "name": "Imperial Navy Breachers",
+  "author": "",
+  "updated": "28/01/2026",
+  "definitions": [
+    "definitions/imperial-navy-breachers-rule-void-armour",
+    "definitions/imperial-navy-breachers-rule-breach-and-clear",
+    "definitions/imperial-navy-breachers-rule-shield",
+    "definitions/imperial-navy-breachers-rule-detonate"
+  ],
+  "actions": [
+    "actions/imperial-navy-breachers-action-spot",
+    "actions/imperial-navy-breachers-action-boost",
+    "actions/imperial-navy-breachers-action-weld-shut",
+    "actions/imperial-navy-breachers-action-breach-point",
+    "actions/imperial-navy-breachers-action-wayfind",
+    "actions/imperial-navy-breachers-action-remote-control",
+    "actions/imperial-navy-breachers-action-interference-pulse"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/imperial-navy-breachers-equipment-rebreathers",
+    "equipment/imperial-navy-breachers-equipment-slugs",
+    "equipment/imperial-navy-breachers-equipment-combat-stimms",
+    "equipment/imperial-navy-breachers-equipment-system-override-device"
+  ],
+  "ploys": [
+    "ploys/imperial-navy-breachers-ploy-attack-order",
+    "ploys/imperial-navy-breachers-ploy-defence-order",
+    "ploys/imperial-navy-breachers-ploy-close-assault",
+    "ploys/imperial-navy-breachers-ploy-brace-for-counterattack",
+    "ploys/imperial-navy-breachers-ploy-overwhelm-target",
+    "ploys/imperial-navy-breachers-ploy-blitz",
+    "ploys/imperial-navy-breachers-ploy-lock-it-down",
+    "ploys/imperial-navy-breachers-ploy-deck-hand"
+  ],
+  "units": [
+    "units/imperial-navy-breachers-unit-navis-sergeant-at-arms",
+    "units/imperial-navy-breachers-unit-navis-armsman",
+    "units/imperial-navy-breachers-unit-navis-axejack",
+    "units/imperial-navy-breachers-unit-navis-cat-unit",
+    "units/imperial-navy-breachers-unit-navis-endurant",
+    "units/imperial-navy-breachers-unit-navis-gheistskull",
+    "units/imperial-navy-breachers-unit-navis-grenadier",
+    "units/imperial-navy-breachers-unit-navis-gunner",
+    "units/imperial-navy-breachers-unit-navis-hatchcutter",
+    "units/imperial-navy-breachers-unit-navis-surveyor",
+    "units/imperial-navy-breachers-unit-navis-void-jammer"
+  ],
+  "teams": [
+    "teams/imperial-navy-breachers-team-imperial-navy-breachers"
+  ],
+  "aliases": null
+}
