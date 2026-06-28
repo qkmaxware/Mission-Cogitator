@@ -1,18 +1,31 @@
-<div class="w3-center">
-    @for (var i = 0; i < dice.Count; i++) {
-        var me = i;
-        <div class="dice">
-            <div class="clickable d6 @CssClass(me)" @onclick=@(() => Roll(me))>
-                <div class="face face-1">1</div>
-                <div class="face face-2">2</div>
-                <div class="face face-3">3</div>
-                <div class="face face-4">4</div>
-                <div class="face face-5">5</div>
-                <div class="face face-6">6</div>
-            </div>
-        </div>
-    }
-</div>
+<table>
+    <tbody>
+        <tr style="height: 1px;">
+            <td style="height: inherit; width: 3em;">
+                <button class="w3-button" style="display: block; width: 100%; height: 100%;" title="Remove a die" @onclick=removeDie>-</button>
+            </td>
+            <td class="w3-center" style="height: inherit;">
+                @for (var i = 0; i < dice.Count; i++) {
+                var me = i;
+                <div class="dice">
+                    <div class="clickable d6 @CssClass(me)" @onclick=@(() => Roll(me))>
+                        <div class="face face-1">1</div>
+                        <div class="face face-2">2</div>
+                        <div class="face face-3">3</div>
+                        <div class="face face-4">4</div>
+                        <div class="face face-5">5</div>
+                        <div class="face face-6">6</div>
+                    </div>
+                </div>
+            }
+            </td>
+            <td style="height: inherit; width: 3em;">
+                <button class="w3-button" style="display: block; width: 100%; height: 100%;" title="Add a die" @onclick=addDie>+</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <table>
     <thead>
         @if (hitVal > 0) {
@@ -58,6 +71,15 @@
     protected override void OnInitialized()
     {
         SetCount(1); // Default to 1 dice
+    }
+
+    private void addDie() {
+        this.dice.Add(Random.Shared.Next(1, 7));
+    }
+
+    private void removeDie() {
+        if (this.dice.Count > 0)
+            this.dice.RemoveAt(this.dice.Count - 1);
     }
 
     public void SetCount(int count, int hitValue = -1) {
