@@ -23,6 +23,12 @@
                 <tr>
                     <td>
                         @myUnit.Name
+                        @if (myUnit.SourcePackage != team.SourcePackage && myUnit.SourcePackage?.Name is not null) {
+                            <br />
+                            <small>
+                                from: @myUnit.SourcePackage?.Name
+                            </small>
+                        }
                     </td>
                     <td style="text-align: center; width: 4em;">
                         <button class="w3-button app-error" @onclick=@(() => selected.Remove(myUnit))>-</button>

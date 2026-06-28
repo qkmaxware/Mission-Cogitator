@@ -33,8 +33,8 @@
 }
 
 <Modal @ref=ruleLookup Title="Search for Rule" Options=@Modal.Buttons.Cancel>
-    <RuleSearch @ref=ruleSearch Items=@ruledb.AllRules>
-        <div style="cursor: pointer" @onclick=@(async () => { if (ruleLookup is not null){ await ruleLookup.Hide(); } await alertRule(@context.Id); })>
+    <RuleSearch @ref=ruleSearch Items=@packageManager.LoadedContent>
+        <div style="cursor: pointer" @onclick=@(async () => await clickedSearchResult(context))>
             <div>
                 <b>@context.Name <small>(@context.Id)</small></b>
             </div>
@@ -49,6 +49,21 @@
 @code {
     private Modal? ruleLookup;
     private RuleSearch? ruleSearch;
+    private async Task clickedSearchResult(Kt.Data.IO.IPackagedContent? content) {
+        if (ruleLookup is null)
+            return;
+        await ruleLookup.Hide();
+
+        if (content is Rule rule) {
+            await alertRule(rule.Id);
+        }
+        else if (content is Team team) {
+            await alertRule(team.ToTeamDescriptionRule());
+        }
+        else if (content is Unit unit) {
+            select(null, unit);
+        }
+    }
 }
 
 <Modal @ref=setupWizardModal Title="Game Setup Wizard" Options="@Modal.Buttons.None" AllowTopX=true>

@@ -46,12 +46,12 @@ public class Pkg
     {
         return 
         (Definitions?.Values ?? Enumerable.Empty<IPackagedContent>())
-        .Concat((Actions?.Values ?? Enumerable.Empty<IPackagedContent>()))
-        .Concat((Effects?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Teams?.Values ?? Enumerable.Empty<IPackagedContent>()))
         .Concat((Equipment?.Values ?? Enumerable.Empty<IPackagedContent>()))
         .Concat((Ploys?.Values ?? Enumerable.Empty<IPackagedContent>()))
         .Concat((Units?.Values ?? Enumerable.Empty<IPackagedContent>()))
-        .Concat((Teams?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Actions?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Effects?.Values ?? Enumerable.Empty<IPackagedContent>()))
         ;
     }
 

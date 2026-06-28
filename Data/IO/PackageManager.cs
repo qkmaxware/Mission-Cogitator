@@ -7,16 +7,18 @@ public class PackageManager
 {
     private HttpClient client;
     private RuleDatabase ruledb;
+    private UnitDatabase unitdb;
     private TeamsDatabase teamdb;
     private JsConsole console;
 
     private List<Pkg> loaded = new();
     private List<(string, Exception)> failed = new();
 
-    public PackageManager(JsConsole console, HttpClient client, RuleDatabase rules, TeamsDatabase teams)
+    public PackageManager(JsConsole console, HttpClient client, RuleDatabase rules, UnitDatabase units, TeamsDatabase teams)
     {
         this.client = client;
         this.ruledb = rules;
+        this.unitdb = units;
         this.teamdb = teams;
         this.console = console;
     }
@@ -27,6 +29,7 @@ public class PackageManager
     }
 
     public IEnumerable<Pkg> LoadedPackages => loaded.AsReadOnly();
+    public IEnumerable<IPackagedContent> LoadedContent => loaded.SelectMany(pkg => pkg.Provides());
     public IEnumerable<(string Id, Exception Error)> FailedPackages => failed.AsReadOnly();
 
     public async Task AddFromUrl(string uri)
@@ -68,9 +71,18 @@ public class PackageManager
                 continue;
                 
             teamdb.AddTeam(team.Id, team);
+            unitdb.AddTeam(team);
 
-            // Also add a rule for the team
-            ruledb.AddRule(team.Id, team.ToTeamDescriptionRule());
+            // Resolve all external unit IDs for the team
+            team.Units = team.Units ?? new List<Unit>();
+            foreach (var id in (team.ExternalUnitIds ?? Enumerable.Empty<string>()))
+            {
+                var resolved = unitdb.GetValue(id);
+                if (resolved is null)
+                    continue;
+
+                team.Units.Add(resolved);
+            }
         }
 
         // Add aliasing if it exists

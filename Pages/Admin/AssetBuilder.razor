@@ -559,7 +559,7 @@
             local.Position = 0;
 
             this.pkg = Kt.Data.IO.Pkg.FromFile(local);
-        } catch (Exception ex) {
+        } catch {
             await prompt.AlertAsync("Failed to import package, the package may be malformed.");
         }
     }

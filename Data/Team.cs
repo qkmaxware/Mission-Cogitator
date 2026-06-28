@@ -37,6 +37,7 @@ public class Team: IPackagedContent
     [JsonIgnore] public List<Equipment>? Equipment {get; set;}
 
     public List<string>? UnitIds {get; set;}
+    public List<string>? ExternalUnitIds {get; set;}
     [JsonIgnore] public List<Unit>? Units {get; set;}
 
     [JsonIgnore]

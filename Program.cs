@@ -14,8 +14,15 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<JsConsole>(); // For logging to the browser console
 builder.Services.AddScoped<JsPrompt>(); // For prompting
 builder.Services.AddScoped(sp => new RuleDatabase());
+builder.Services.AddScoped(sp => new UnitDatabase());
 builder.Services.AddScoped(sp => new TeamsDatabase());
-builder.Services.AddScoped(sp => new PackageManager(sp.GetService<JsConsole>()!, sp.GetService<HttpClient>()!, sp.GetService<RuleDatabase>()!, sp.GetService<TeamsDatabase>()!));
+builder.Services.AddScoped(sp => new PackageManager(
+    sp.GetService<JsConsole>()!, 
+    sp.GetService<HttpClient>()!, 
+    sp.GetService<RuleDatabase>()!,
+    sp.GetService<UnitDatabase>()!,
+    sp.GetService<TeamsDatabase>()!
+));
 
 var app = builder.Build();
 var js = app.Services.GetService<IJSRuntime>()!;

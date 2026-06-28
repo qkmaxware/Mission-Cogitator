@@ -2,6 +2,7 @@
 @using System.Collections.Generic
 @using System.Timers
 @using Kt.Data
+@using Kt.Data.IO
 
 @inject IJSRuntime js
 
@@ -22,8 +23,8 @@
 @code {
     [Parameter] public float DebounceTime {get; set;} = 0.5f;
     [Parameter] public string? Placeholder {get; set;}
-    [Parameter] public IEnumerable<Rule>? Items {get; set;}
-    [Parameter] public RenderFragment<Rule>? ChildContent {get; set;}
+    [Parameter] public IEnumerable<IPackagedContent>? Items {get; set;}
+    [Parameter] public RenderFragment<IPackagedContent>? ChildContent {get; set;}
     [Parameter] public Func<string, string, bool>? Comparator {get; set;} 
 
     private ElementReference? input;
@@ -61,7 +62,7 @@
         timer?.Dispose();
     }
 
-    private List<Rule>? results;
+    private List<IPackagedContent>? results;
     private bool defaultComparator (string text, string item) {
         return System.Globalization.CultureInfo.InvariantCulture.CompareInfo.IndexOf(
             item?.ToString() ?? string.Empty, 
