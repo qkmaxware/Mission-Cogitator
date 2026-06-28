@@ -139,7 +139,7 @@
                         unit.Tags = unit.Tags ?? new List<string>();
 
                         <label for="rules">Flavour Text:</label>
-                        <textarea style="min-height: 4em;" @bind=unit.FlavourText></textarea>
+                        <input id="name" class="w3-input" @bind=unit.FlavourText>
 
                         <label for="attributes">Attributes:</label>
                         <table id="attributes" class="w3-table">

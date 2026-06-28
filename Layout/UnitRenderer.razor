@@ -152,7 +152,7 @@
     <footer class="w3-padding w3-large">
         <div class="comma-separated">
             @if (Team is not null) {
-                <span class="text-primary">@Team.Name</span>
+                <span class="text-primary clickable" @onclick=@(async () => await OnTeamLookup.InvokeAsync(Team))>@Team.Name</span>
             }
             @foreach (var tag in (Unit.Tags ?? Enumerable.Empty<string>())) {
                 <span>@tag</span>
@@ -173,6 +173,9 @@
 
     [Parameter]
     public EventCallback<Rule> OnRuleLookup { get; set; } 
+
+    [Parameter]
+    public EventCallback<Team> OnTeamLookup { get; set; } 
 
     private Modal? diceModal;
     private DiceShelf? dice;

@@ -56,6 +56,9 @@
 
     private IEnumerable<(string Kind, string Class, Rule Rule)> Cards {
         get {
+            if (Team is null)
+                yield break;
+                
             foreach (var fr in Team.FactionRules ?? Enumerable.Empty<Rule>())
                 yield return ("Faction Rule", "rule", fr);
 

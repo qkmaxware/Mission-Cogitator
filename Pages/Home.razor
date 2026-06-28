@@ -180,6 +180,9 @@
     }
     public async Task setupWizardComplete(Deployment deployment) {
         this.deployment = deployment ?? this.deployment;
+        if (counters is not null) {
+            await counters.Reinit();
+        }
         setupWizardModal?.CloseNavMenu();
         await InvokeAsync(StateHasChanged);
     }
@@ -294,6 +297,7 @@
     </Header>
     <Content>
     <Accordion Title="Your Deployment">
+        <button class="w3-button w3-bar-item" @onclick=@(() => select(deployment.Units.FirstOrDefault()?.Team))>About Team</button>
         <Accordion Title="Faction Rules">
             @foreach (var team in deployment.Units.Select(u => u.Team).Distinct()) {
                 foreach (var rule in (team?.FactionRuleIds ?? Enumerable.Empty<string>())) {
@@ -486,7 +490,7 @@
         <button class="w3-button app-primary w3-xlarge" style="padding: 8px;" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/home.svg" style="height: 1em;"/></button>
     </div>
 </Header>
-<Counters></Counters>
+<Counters @ref=counters></Counters>
 
 <article>
     @switch (currentTab) {
@@ -494,7 +498,7 @@
         <QuickReference OnRuleLookup="alertRule"></QuickReference>
         break;
         case Tab.UnitTab:
-        <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule))></UnitRenderer>
+        <UnitRenderer Team=@selectedTeam Deployment=@selectedDeployment OnWeaponRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnRuleLookup=@(async(rule) => await alertRule(rule)) OnTeamLookup=@((team) => select(team))></UnitRenderer>
         break;
         case Tab.TeamTab:
         <TeamRenderer Team=@selectedTeam OnRuleLookup=@(async(ruleId) => await alertRule(ruleId)) OnUnitLookup=@(async (x) => { select(x.Item1, x.Item2); await InvokeAsync(StateHasChanged); })></TeamRenderer>
@@ -508,6 +512,7 @@
 
 
 @code {
+    private Counters? counters;
     private Deployment deployment = new Deployment();
 
     private enum Tab {
@@ -518,6 +523,9 @@
     private Tab currentTab;
 
     private void select(Team? team) {
+        if (team is null) 
+            return;
+
         this.selectedTeam = team;
         this.navigator?.CloseNavMenu();
         this.currentTab = Tab.TeamTab;
