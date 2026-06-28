@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "gLbUny4G",
+  "version": "yFSFVpez",
   "assets": [
     {
       "hash": "sha256-NCSwjZ/gKsk7FkR1qpEkkN21EtQ3S/xZ5Jpw0sXCqx4=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-F7HO5KtyOFWep3FgQltKBzyYi7/mXj2K/gwR1jkfXSw=",
-      "url": "_framework/Kt.poz5bsjk6m.wasm"
+      "hash": "sha256-IP0IVymyPfDaQmyOddLxic4ZZiu/ml3t1/OKOWUtVzg=",
+      "url": "_framework/Kt.w4vx3tvy60.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,8 +214,8 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-9gSHmeTVGES2cld0BktqdWD0w808b/zypl4tfWKSvmg=",
-      "url": "_framework/dotnet.e7oe5dttqq.js"
+      "hash": "sha256-cjVuCT8JPR92A5GnxuhsVzaj0RZBw8/FfDdtlYGax4s=",
+      "url": "_framework/dotnet.a2e1kh46an.js"
     },
     {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
@@ -1382,7 +1382,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-overwhelm-target.html"
     },
     {
-      "hash": "sha256-pAMzsUQuhqHz7aApHyoIHg8Zc9rOd3ocF25s/LA0kXI=",
+      "hash": "sha256-xUzjD+fz/owuxnM7m9zzZFDriOb0DYmk5tdrWUkl3DA=",
       "url": "assets/packages/teams/imperial-navy-breachers/teams/imperial-navy-breachers-team-imperial-navy-breachers.html"
     },
     {
@@ -2270,7 +2270,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-nezrAon4ILkA4npmkw5v/vl3HsboOdB1SOz5PUu/an0=",
+      "hash": "sha256-dkJofWuPC1DtPCT9dfFy33N+1kUwQVM9nKbK96RogGI=",
       "url": "index.html"
     },
     {
