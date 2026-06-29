@@ -1,0 +1,95 @@
+---
+{
+  "name": "Death Korps Sapper",
+  "art-path": null,
+  "flavour-text": "Whether blowing up ammo dumps or cracking open defences, many kill teams need explosives experts. Death Korps Sappers are such troops. Naturally daring, they often have to put themselves in harm's way to plant their remote mines at the optimum point to blow their target into smithereens.",
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Sapper"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Lasgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    },
+    {
+      "name": "Remote detonator",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 2,
+      "damage": {
+        "normal": 5,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "limited",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "silent",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "death-korps-rule-detonate",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Bayonet",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "flavour-text": null,
+  "rules": []
+}
+---
+<p>
+    <b>Mine Layer: </b> This operative is carrying your Mine marker. It can perform the <see cref="pick-up-marker">Pick Up Marker</see> action on that marker, and whenever it
+performs the Place Marker action on that marker, it can immediately perform a free <see cref="dash">Dash</see> action.
+</p>

@@ -1,0 +1,79 @@
+---
+{
+  "name": "Death Korps Spotter",
+  "art-path": null,
+  "flavour-text": "To direct battle-winning heavy fire, forward observers form a part of kill teams. Spotters possess great focus, accurately guiding salvoes of mortar fire from safe lines even when under immense pressure. With this they can stymie enemy attacks or pin them down in their defences.",
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Spotter"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Lasgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    },
+    {
+      "name": "Mortar barrage",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 3,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "silent",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Bayonet",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "flavour-text": null,
+  "rules": [
+    "death-korps-action-spot"
+  ]
+}
+---

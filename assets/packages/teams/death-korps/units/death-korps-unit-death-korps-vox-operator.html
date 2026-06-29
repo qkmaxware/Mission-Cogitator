@@ -1,0 +1,53 @@
+---
+{
+  "name": "Death Korps Vox-Operator",
+  "art-path": null,
+  "flavour-text": "Vox-operators are consummate professionals, accompanying their leaders wherever required whilst carrying heavy equipment, all to receive and transmit communications that are vital for their comrades and superiors to understand the inevitable confusion of battle.",
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Vox-Operator"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Lasgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    },
+    {
+      "name": "Bayonet",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "flavour-text": null,
+  "rules": [
+    "death-korps-action-signal"
+  ]
+}
+---
+<p>
+    <b>Relay Orders: </b> Once per turning point, when this operative
+receives a <b><see cref="death-korps-rule-guardsmen-order">Guardsman Order</see></b>, if it’s not within <see cref='control-range'>Control Range</see> of enemy operatives, it can relay that order. Whenever an
+order is relayed, all friendly <b>DEATH KORPS</b> operatives in the
+killzone receive that order, then subtract 1 from this operative’s
+<b>APL</b> stat until the end of its next <see cref="activation">Activation</see>.
+</p>

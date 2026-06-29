@@ -1,0 +1,54 @@
+{
+  "name": "Death Korps",
+  "author": "",
+  "updated": "28-06-2026",
+  "definitions": [
+    "definitions/death-korps-rule-guardsmen-order",
+    "definitions/death-korps-rule-take-aim",
+    "definitions/death-korps-rule-fix-bayonets",
+    "definitions/death-korps-rule-dig-in",
+    "definitions/death-korps-rule-move-move-move",
+    "definitions/death-korps-rule-detonate",
+    "definitions/death-korps-rule-concealed-position"
+  ],
+  "actions": [
+    "actions/death-korps-action-medikit",
+    "actions/death-korps-action-spot",
+    "actions/death-korps-action-signal"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/death-korps-equipment-chronometer",
+    "equipment/death-korps-equipment-comm-beads",
+    "equipment/death-korps-equipment-gas-bombardment",
+    "equipment/death-korps-equipment-hand-axes"
+  ],
+  "ploys": [
+    "ploys/death-korps-ploy-siege-warfare",
+    "ploys/death-korps-ploy-take-cover",
+    "ploys/death-korps-ploy-clear-the-line",
+    "ploys/death-korps-ploy-regroup",
+    "ploys/death-korps-ploy-inspirational-leadership",
+    "ploys/death-korps-ploy-combined-arms",
+    "ploys/death-korps-ploy-in-life-shame",
+    "ploys/death-korps-ploy-in-death-atonement"
+  ],
+  "units": [
+    "units/death-korps-unit-death-korps-watchmaster",
+    "units/death-korps-unit-death-korps-bruiser",
+    "units/death-korps-unit-death-korps-confidant",
+    "units/death-korps-unit-death-korps-gunner",
+    "units/death-korps-unit-death-korps-medic",
+    "units/death-korps-unit-death-korps-sapper",
+    "units/death-korps-unit-death-korps-sniper",
+    "units/death-korps-unit-death-korps-spotter",
+    "units/death-korps-unit-death-korps-trooper",
+    "units/death-korps-unit-death-korps-veteran",
+    "units/death-korps-unit-death-korps-vox-operator",
+    "units/death-korps-unit-death-korps-zealot"
+  ],
+  "teams": [
+    "teams/death-korps-team-death-korps"
+  ],
+  "aliases": null
+}
