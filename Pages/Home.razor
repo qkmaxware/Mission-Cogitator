@@ -34,16 +34,35 @@
 
 <Modal @ref=ruleLookup Title="Search for Rule" Options=@Modal.Buttons.Cancel>
     <RuleSearch @ref=ruleSearch Items=@packageManager.LoadedContent>
+       <ArticleMatch>
         <div style="cursor: pointer" @onclick=@(async () => await clickedSearchResult(context))>
-            <div>
-                <b>@context.Name <small>(@context.Id)</small></b>
-            </div>
-            @if (context.SourcePackage is not null) {
-            <small>
-                @context.SourcePackage.Name @if(context.SourcePackage.Updated is not null){ <text> (updated: @context.SourcePackage.Updated)</text> }
-            </small>
-            }
+            <b>@context.Name</b>
         </div>
+       </ArticleMatch>
+        <AmbiguousMatch>
+        <div>
+            <b>@context.Name (disambiguation)</b>
+            <br />
+            <small>@context.Name may refer to:</small>
+            <ul>
+                @foreach (var match in context.Articles) {
+                    var self = match;
+                    <li style="cursor: pointer" @onclick=@(async () => await clickedSearchResult(self))>
+                        @match.Name <small><i>(@match.Id)</i></small>
+                        <br />
+                        @if (match.SourcePackage?.Name is not null) {
+                        <small>
+                            from: @match.SourcePackage.Name
+                            @if (!string.IsNullOrEmpty(match.SourcePackage.Author)) {
+                                <text> by @match.SourcePackage.Author</text>
+                            }
+                        </small>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+        </AmbiguousMatch>
     </RuleSearch>
 </Modal>
 @code {

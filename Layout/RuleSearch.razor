@@ -1,4 +1,5 @@
 @implements IDisposable
+
 @using System.Collections.Generic
 @using System.Timers
 @using Kt.Data
@@ -11,10 +12,17 @@
     <input @ref=input type="text" class="w3-input search" placeholder="@_placeholder" @bind=text @bind:event="oninput">
 </div>
 <ul class="results">
-    @if (this.results != null && ChildContent != null) {
-        foreach (var item in this.results) {
-            if (item.Id != null) {
-                <li>@ChildContent(item)</li>
+    @if (this.results != null) {
+        foreach (var matches in this.results) {
+            if (matches.Articles.Count == 1) {
+                if (ArticleMatch is not null) {
+                <li>@ArticleMatch(matches.Articles[0])</li>
+                }
+            }
+            else if (matches.Articles.Count > 1) {
+                if (AmbiguousMatch is not null) {
+                <li>@AmbiguousMatch(matches)</li>
+                }
             }
         }
     }
@@ -24,7 +32,8 @@
     [Parameter] public float DebounceTime {get; set;} = 0.5f;
     [Parameter] public string? Placeholder {get; set;}
     [Parameter] public IEnumerable<IPackagedContent>? Items {get; set;}
-    [Parameter] public RenderFragment<IPackagedContent>? ChildContent {get; set;}
+    [Parameter] public RenderFragment<IPackagedContent>? ArticleMatch {get; set;}
+    [Parameter] public RenderFragment<Ambiguity>? AmbiguousMatch {get; set;}
     [Parameter] public Func<string, string, bool>? Comparator {get; set;} 
 
     private ElementReference? input;
@@ -62,7 +71,21 @@
         timer?.Dispose();
     }
 
-    private List<IPackagedContent>? results;
+    public struct Ambiguity {
+        public string Name {get; init;}
+        public IReadOnlyList<IPackagedContent> Articles {get; set;}
+
+        public bool IsAmbiguous {
+            get => this.Articles.Count > 1;
+        }
+
+        public Ambiguity(string name, IReadOnlyList<IPackagedContent> articles) {
+            this.Name = name;
+            this.Articles = articles;
+        }
+    }
+
+    private List<Ambiguity>? results;
     private bool defaultComparator (string text, string item) {
         return System.Globalization.CultureInfo.InvariantCulture.CompareInfo.IndexOf(
             item?.ToString() ?? string.Empty, 
@@ -83,7 +106,15 @@
                 return;
             }
 
-            var results = Items.Where(x => x.Name is not null && compare(term, x.Name)).ToList();
+
+            List<Ambiguity> results = Items
+                    .GroupBy(x => x.Name)
+                    .Where(x => x.Key is not null && compare(term, x.Key))
+                    .Select(x => new Ambiguity(
+                        x.Key ?? string.Empty, 
+                        x.ToList().AsReadOnly()
+                    ))
+                    .ToList();
             if (term == this.text) {
                 this.results = results;
                 InvokeAsync(StateHasChanged);
