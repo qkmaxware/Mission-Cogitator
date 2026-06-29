@@ -17,10 +17,10 @@ public class Unit: IPackagedContent
     [JsonIgnore] public string? Id { get; set;}
     public string? Name {get; set;}
     public string? ArtPath {get; set;}
+    public string? FlavourText {get; set;}
     public List<string>? Tags {get; set;}
     public UnitAttributes Attributes {get; set;} = new();
     public List<Weapon> Weapons {get; set;} = new();
-    public string? FlavourText {get; set;}
     [JsonIgnore]
     public string? Description {get; set;}
     public List<string>? Rules {get; set;} = new();
