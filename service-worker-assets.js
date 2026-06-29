@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "lAg++PzI",
+  "version": "6W5I4+3E",
   "assets": [
     {
       "hash": "sha256-I7s12MpunWYHg9Zf7gQPd9GZAYqoqyezenjkkqTCkMc=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-59/ndAco9J/0Rkvw6hGEN+dQK2SCZHq7tSkFsxtJb38=",
-      "url": "_framework/Kt.948kiyiew7.wasm"
+      "hash": "sha256-W3L5DanQv97g0z7ph00V3j6nJEgsW4fB29GY0eQNNUc=",
+      "url": "_framework/Kt.t2kclujcje.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,10 +214,6 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-1sQWia+GkOesgFwvhf0bTL04MHyMVGQJ21uLUCwZpSA=",
-      "url": "_framework/dotnet.mtww52qjix.js"
-    },
-    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -228,6 +224,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+    },
+    {
+      "hash": "sha256-sB/jqgKqbdYJQq9ehiiRTpKb27+AzmRSc1vh8NKRw9s=",
+      "url": "_framework/dotnet.s13heuzzvk.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1922,8 +1922,12 @@ self.assetsManifest = {
       "url": "assets/packages/teams/pathfinders/ploys/pathfinder-worthy-cause.html"
     },
     {
-      "hash": "sha256-AXZNWtn3tIe9w8WSlijKxI+3d5XLA6XVaf5Kt54Z0tc=",
+      "hash": "sha256-MgPNbDwiUHqj1sZd1ipVsuCC+UXhOMoSsVyaxceou/s=",
       "url": "assets/packages/teams/pathfinders/teams/pathfinders.html"
+    },
+    {
+      "hash": "sha256-+0OhkieJxHE1IXuk4++7YdiKrTZuBE0NSZDmOusHapI=",
+      "url": "assets/packages/teams/pathfinders/teams/pathfinders.png"
     },
     {
       "hash": "sha256-Byw5sXUNkQ3hY63Uyzh7sPC0IkToa75MEYiuf1kllZI=",
@@ -2550,7 +2554,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-Jvv3sbkb8+uXYAk+TBePH9ye3B7hQxwZdkvDhGcRQR4=",
+      "hash": "sha256-X0a1eXF/dinpiYSFsNjUb6STxKi+nrHvhE/lt5hxA40=",
       "url": "index.html"
     },
     {
