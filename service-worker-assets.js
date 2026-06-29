@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "Wb5LTv6R",
+  "version": "lAg++PzI",
   "assets": [
     {
       "hash": "sha256-I7s12MpunWYHg9Zf7gQPd9GZAYqoqyezenjkkqTCkMc=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-pEfarmMZxatXFae/hOsak0e10KtN5eQ1ajnqX2Yzzc4=",
-      "url": "_framework/Kt.oj2z8aqtl8.wasm"
+      "hash": "sha256-59/ndAco9J/0Rkvw6hGEN+dQK2SCZHq7tSkFsxtJb38=",
+      "url": "_framework/Kt.948kiyiew7.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,16 +214,16 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-1sQWia+GkOesgFwvhf0bTL04MHyMVGQJ21uLUCwZpSA=",
+      "url": "_framework/dotnet.mtww52qjix.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
     {
       "hash": "sha256-iQOJ2Ignl/X3n6mOHRQ4zWYcute0MGlaiRFi2J3HXWk=",
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
-    },
-    {
-      "hash": "sha256-ie+tPjg+DbfHBp2G2KDVRs6yaMmbwTLRO6RzyHGYv5E=",
-      "url": "_framework/dotnet.nguth4l5zi.js"
     },
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -938,51 +938,51 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/teams/death-korps-team-death-korps.html"
     },
     {
-      "hash": "sha256-IlW0Y0PggmRk6i9XKnpWqHxnovfiXarsNWM4edub0s4=",
+      "hash": "sha256-4Myjs9Hxl6rlR1DehBYvH0ocy1i/DsT6r4tDIK2MypQ=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-bruiser.html"
     },
     {
-      "hash": "sha256-nOvBzEjPFd62am/50Uap4+RVhNARqKAbXT4fNVWADt8=",
+      "hash": "sha256-Q4al+bmF5M+uMu+00Ttmuddzq/nRXCjCKMNegqKXYGY=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-confidant.html"
     },
     {
-      "hash": "sha256-Y/XMz276CZFvr7FiSQW90cKA+Kc9s8NTZGvf/yUFXrU=",
+      "hash": "sha256-rTugAMpq6LUDTdhsHULlexQw3M/PuQvZVe5MjVfaRy8=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-gunner.html"
     },
     {
-      "hash": "sha256-lIG3/U8/Lj+NPIjrWBHO1sAQDMFInQY5/+0okYPVAYk=",
+      "hash": "sha256-tm2Xy1/w35wn8Ob3jieZdBc61VatLzsxPibMKSzoNFE=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-medic.html"
     },
     {
-      "hash": "sha256-sY7YHCy6FRk666BcxoSIhZz9jq+o0bgiRyH9btmGMiE=",
+      "hash": "sha256-J0KVizpCUoOY23/mZwKUZH4BElbs2+ReAoAk0qF7Q9o=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-sapper.html"
     },
     {
-      "hash": "sha256-LjRlr3MdnJLg1knwLmaDUy/NWKJvHjGwQHXdQOQCszU=",
+      "hash": "sha256-xYt8w+ttfRuKsm4iBEJ0L67qute4lIf7TFJ3oPCerXM=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-sniper.html"
     },
     {
-      "hash": "sha256-o1Ehcxnn3cPMmhP4/IPgWwcI0TbFnMRFG3ry6iXfbag=",
+      "hash": "sha256-bd8ohnlVrfQJ3LNvG4OOppDlBPk25gf0iVRHtx1g7/c=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-spotter.html"
     },
     {
-      "hash": "sha256-LvCCyxILCE94S5+WpGXXVcs9oWgp8cQ4mgsU8wRBqgA=",
+      "hash": "sha256-XBp8jOsMVSn8PfYceRKtjad4NOK5esmyl7n6uJ+xDXk=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-trooper.html"
     },
     {
-      "hash": "sha256-UUuf+lftOeLyC2FtA4FvlaEmjQSOvESfDOrCTbrbYWs=",
+      "hash": "sha256-IWdX9ETZ/3I/SHNunWTmGK2mfvJjHHQbCwYkkbeh698=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-veteran.html"
     },
     {
-      "hash": "sha256-XzzZ3fF6WARV3oaPE4pd/FDYUHUbw4j2Hl/7Fa1Yemw=",
+      "hash": "sha256-LzO9y/keNXRmibfkctj7D3+COKUZEQkLWVL7oBX8akE=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-vox-operator.html"
     },
     {
-      "hash": "sha256-iiruv9u6bApfiPJcwACORYRfzxToemfFeGs1ZYwAPk0=",
+      "hash": "sha256-+DT6A4Isv/bJvdfC2Ylt2fJ2j15FwC265xgzfchAXCc=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-watchmaster.html"
     },
     {
-      "hash": "sha256-wHPVYjsBGjEvP4TVk77QKLibLlGPOYCmpNrNpqh34XY=",
+      "hash": "sha256-WmUVTP4jbyrV2a9JVgG7pA3nBFaT4BY32Rx2auAdy5Y=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-zealot.html"
     },
     {
@@ -2550,7 +2550,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-My9L3PM2ArwG7/CsUK8guN3HfXkxHC75TQ10Y9gBO9c=",
+      "hash": "sha256-Jvv3sbkb8+uXYAk+TBePH9ye3B7hQxwZdkvDhGcRQR4=",
       "url": "index.html"
     },
     {
