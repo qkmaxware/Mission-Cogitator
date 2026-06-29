@@ -24,6 +24,7 @@ public class Team: IPackagedContent
     [JsonIgnore] public Pkg? SourcePackage {get; set;}
     [JsonIgnore] public string? Id { get; set;}
     public string? Name {get; set;}
+    public string? ArtPath {get; set;}
     public string? Faction {get; set;}
     public string? Version {get; set;}
 

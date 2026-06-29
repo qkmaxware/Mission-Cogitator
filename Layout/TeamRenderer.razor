@@ -13,6 +13,11 @@
 </article>
 
 <div class="w3-row-padding w3-margin-top w3-margin-bottom">
+@if (!string.IsNullOrEmpty(Team.ArtPath)) {
+    <div class="w3-half">
+        <img src="@Team.ArtPath" style="width: 100%; height: auto; max-height: 520px; margin-bottom: 16px; object-fit: contain;"/>
+    </div>
+}
 @foreach (var unit in (Team.Units ?? Enumerable.Empty<Unit>()))
 {
     var self = unit;
