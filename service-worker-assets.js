@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "6W5I4+3E",
+  "version": "+GcWQkiQ",
   "assets": [
     {
       "hash": "sha256-I7s12MpunWYHg9Zf7gQPd9GZAYqoqyezenjkkqTCkMc=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-W3L5DanQv97g0z7ph00V3j6nJEgsW4fB29GY0eQNNUc=",
-      "url": "_framework/Kt.t2kclujcje.wasm"
+      "hash": "sha256-QKXOy0+cS+INcFJLsuMuPXrOcJHXkVQw12KFiN1aySk=",
+      "url": "_framework/Kt.wszoev7vp0.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -170,12 +170,12 @@ self.assetsManifest = {
       "url": "_framework/System.Private.Xml.usiysxogub.wasm"
     },
     {
-      "hash": "sha256-Cp2bQOeRFVxMIA/IQbNc6pVyPdKopwM4EnwXZAse2KM=",
-      "url": "_framework/System.Runtime.InteropServices.JavaScript.uzoakn3mog.wasm"
+      "hash": "sha256-3+iQbSG8bVJvC/xuEStmAy/YqP1yRiTC1sGVb6h8PdU=",
+      "url": "_framework/System.Runtime.7y1ssxreys.wasm"
     },
     {
-      "hash": "sha256-Kl3KUWnfwlfVmxuvnJSZ0xVmeD/zVVi2i4tz08IgN2w=",
-      "url": "_framework/System.Runtime.i1iegg04y3.wasm"
+      "hash": "sha256-Cp2bQOeRFVxMIA/IQbNc6pVyPdKopwM4EnwXZAse2KM=",
+      "url": "_framework/System.Runtime.InteropServices.JavaScript.uzoakn3mog.wasm"
     },
     {
       "hash": "sha256-+MEnmrkB+tPje/AU645MfRUr8zlo02T+UG2TeNHbACs=",
@@ -226,8 +226,8 @@ self.assetsManifest = {
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
     },
     {
-      "hash": "sha256-sB/jqgKqbdYJQq9ehiiRTpKb27+AzmRSc1vh8NKRw9s=",
-      "url": "_framework/dotnet.s13heuzzvk.js"
+      "hash": "sha256-toilGCFF3D5df0lVNEC0dly+BH8ys2x8K8JrPz1H7B0=",
+      "url": "_framework/dotnet.u2x1fzprm4.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -2554,7 +2554,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-X0a1eXF/dinpiYSFsNjUb6STxKi+nrHvhE/lt5hxA40=",
+      "hash": "sha256-U//0HFsx/bagLOjZITQ7CoHLnXxefZ9npDUvyDLkpmc=",
       "url": "index.html"
     },
     {
