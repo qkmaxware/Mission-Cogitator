@@ -1,0 +1,60 @@
+---
+{
+  "name": "Death Korps Bruiser",
+  "art-path": null,
+  "flavour-text": "For some, war and fighting just agrees with them. Bruisers are such people. They look the galaxy's endless malevolent threats in the eye with a trench club in their hand, ready to bludgeon anything and everything to death.",
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Bruiser"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Lasgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    },
+    {
+      "name": "Trench club",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "shock",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "flavour-text": null,
+  "rules": []
+}
+---
+<p>
+    <b>Bruiser: </b> Once per turning point, when this operative is fighting
+or retaliating, in the Resolve Attack Dice step, you can ignore the
+damage inflicted on it from one normal success. If this operative
+is incapacitated during the <see cref="fight">Fight</see> action, you can strike the
+enemy operative in that sequence with one of your unresolved
+successes before this operative is removed from the killzone.
+</p>

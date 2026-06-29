@@ -159,9 +159,9 @@ if (current is null) {
         if (Package is null)
             return TextMatch<IPackagedContent>.Empty; // Failed match
         
-        var names = Package.Provides().Where(p => !ReferenceEquals(p, current));
+        var names = Package.AllRules().Where(p => !ReferenceEquals(p, current));
         if (include_stdlib && pm is not null) {
-            names = names.Concat(pm.LoadedPackages.SelectMany(pkg => pkg.Provides()));
+            names = names.Concat(pm.LoadedPackages.SelectMany(pkg => pkg.AllRules()));
         }
         var patterns = names
             .Select(x => (
