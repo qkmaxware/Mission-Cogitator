@@ -1,0 +1,123 @@
+@using System.Collections.Generic
+@using System.Text.RegularExpressions
+@using Kt.Data
+@using Kt.Data.IO
+
+@inject PackageManager pm
+@inject RuleDatabase ruledb
+
+<p>
+    This tool is used to detect units that are missing any flavour text which would result in a boring/bland team about screen.
+</p>
+@if (iterator is null) {
+    <div class="w3-center">
+        <button class="w3-button app-primary" @onclick=restart>Start</button>
+    </div>
+}
+else {
+if (current is null) {
+    <p>
+        Reached then end of the packaged content. Restart?
+    </p>
+    <div class="w3-center">
+        <button class="w3-button app-primary" @onclick=restart>Restart</button>
+    </div>
+} else {
+    <h3>@current.Name <small>(@current.Id)</small></h3>
+    @if (currentIssue is not null) {
+        <div class="w3-row w3-margin-bottom">
+            <div id="before" class="w3-col s6">
+                <label>Original:</label>
+                <hr />
+                No flavour text.
+            </div>
+            <div id="after" class="w3-col s6">
+                <label>Updated:</label>
+                <hr />
+                <input type="text" class="w3-input" @bind=currentIssue.FlavourText/>
+            </div>
+        </div>
+        
+    }
+    <div class="w3-row">
+        <div class="w3-col s6">
+            <button class="w3-button app-primary" @onclick=restart>Restart</button>
+        </div>
+        <div class="w3-col s6" style="text-align: right">
+            <button class="w3-button app-primary" @onclick=skip>Skip</button>
+            <button class="w3-button app-primary" @onclick=confirm>Replace</button>
+        </div>
+    </div>
+}
+}
+<hr />
+
+@code {
+    private IEnumerator<Unit>? iterator;
+    private Unit? current;
+    private Issue? currentIssue;
+
+    private bool include_stdlib;
+
+    [Parameter] public Pkg? Package {get; set;}
+
+    private void restart() {
+        iterator = Package?.Units?.Values?.GetEnumerator();
+        currentIssue = null;
+        current = null;
+        moveNext();
+    }
+
+    private void moveNext() {
+        nextContent();
+    }
+
+    private void skip() {
+        if (currentIssue is null)
+            return;
+
+        moveNext();
+    }
+    private void confirm() {
+        if (current is null)
+            return; 
+        if (currentIssue is null)
+            return;
+
+        currentIssue.Unit?.FlavourText = currentIssue.FlavourText;
+        moveNext();
+    }
+
+    private void nextContent() {
+        currentIssue = null;
+        current = iterator is not null && iterator.MoveNext() ? iterator?.Current : null;
+        if (current is not null)
+            nextIssue();
+    }
+
+    private class Issue {
+        public Unit? Unit;
+
+        public string? FlavourText;
+    } // this SHOULD be BOLDED TOGETHER okay?
+    private void nextIssue() {
+        if (current is null)
+            return;
+
+        if (!string.IsNullOrEmpty(current.FlavourText)) {
+            nextContent();
+            return;
+        }
+
+        currentIssue = new Issue {
+            Unit = current
+        };
+    }
+
+    private string replace(IPackagedContent? match) {
+        if (match is null)
+            return string.Empty;
+
+        return $"<see cref=\"{match.Id}\">{match.Name}</see>";
+    }
+}

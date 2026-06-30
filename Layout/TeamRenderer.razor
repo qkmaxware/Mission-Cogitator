@@ -21,6 +21,9 @@
 @foreach (var unit in (Team.Units ?? Enumerable.Empty<Unit>()))
 {
     var self = unit;
+    if (!ReferenceEquals(Team.SourcePackage, self.SourcePackage))
+        continue; // Skip if not from the same source
+
     <div class="w3-half">
         <header class="w3-large w3-button" style="min-width: 50%; text-align: left;" @onclick=@(async () => await OnUnitLookup.InvokeAsync((Team, self)))>@self.Name</header>
         <article class="w3-container w3-margin-bottom" style="min-height: 4em;">

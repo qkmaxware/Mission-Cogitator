@@ -25,11 +25,14 @@
         case QATools.BrokenLinks:
             <BrokenLinkReview Package=@pkg></BrokenLinkReview> 
             break;
+        case QATools.MissingFlavourText:
+            <MissingFlavourTextReview Package=@pkg></MissingFlavourTextReview>
+            break;
     }
 </Modal>
 @code {
     private enum QATools {
-        Bolding, Autolink, BrokenLinks
+        Bolding, Autolink, BrokenLinks, MissingFlavourText
     }
     private string qa_title = "Quality Assurance";
     private QATools qa_current_tool;
@@ -75,6 +78,7 @@
         <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.Bolding))>Bolding Checker</button>
         <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.Autolink))>Autolinker</button>
         <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.BrokenLinks))>Broken Links</button>
+        <button class="w3-button app-primary" @onclick=@(async () => await ShowQA(QATools.MissingFlavourText))>Flavour Text</button>
     </div>
 </section>
 
@@ -659,6 +663,7 @@
     }
 
     private static readonly Regex whitespace = new Regex(@"\s+", RegexOptions.Compiled);
+    private static readonly Regex invalidChars = new Regex(@"[^a-zA-Z0-9\-]", RegexOptions.Compiled);
     private async Task<T?> Add<T>() where T:IPackagedContent, new() {
         var name = await prompt.PromptAsync<string>("Item Name?", string.Empty);
         if (string.IsNullOrEmpty(name))
@@ -666,7 +671,7 @@
         
         T val = new();
         val.Name = name;
-        val.Id = whitespace.Replace(((pkg.Name ?? "new-package") + "-"  + typeof(T).Name + "-" + name).Trim().ToLower(), "-");
+        val.Id = invalidChars.Replace(whitespace.Replace(((pkg.Name ?? "new-package") + "-"  + typeof(T).Name + "-" + name).Trim().ToLower(), "-"), string.Empty);
 
         foreach (var prop in pkgType.GetProperties(BindingFlags.Public | BindingFlags.Instance)) {
             if (prop.PropertyType.IsAssignableTo(typeof(Dictionary<string, T>))) {

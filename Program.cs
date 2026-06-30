@@ -50,6 +50,9 @@ string[] packages = [
     "assets/packages/teams/imperial-navy-breachers",
     "assets/packages/teams/kasrkin",
     "assets/packages/teams/death-korps",
+    "assets/packages/teams/exaction-squad",
+    "assets/packages/teams/inquisitorial-agents/requisitions",
+    "assets/packages/teams/inquisitorial-agents",
 ];
 var lastPackage = packages.Length - 1;
 var packageManager = app.Services.GetService<PackageManager>()!;

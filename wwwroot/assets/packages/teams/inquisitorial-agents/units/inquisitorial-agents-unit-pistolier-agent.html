@@ -1,0 +1,131 @@
+---
+{
+  "name": "Pistolier Agent",
+  "art-path": null,
+  "flavour-text": "Sometimes known as Desperadoes, these Agents are skilled  killers who have honed their talents in the crime-ridden  underbowels of hive worlds. Alongside the quick draw  they have learned the value of the silent kill, as well as the  ostentatiously explosive.",
+  "tags": [
+    "Imperium",
+    "Inquisition",
+    "Pistolier"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Scoped plasma pistol (standard)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 12,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Scoped plasma pistol (supercharge)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 12,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "hot",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Suppressed autopistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "silent",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fists",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "inquisitorial-agents-action-pistol-barrage"
+  ]
+}
+---
+<p>
+    <b>Pistolier: </b> You can ignore any changes 
+to the Hit stat of this operative’s 
+ranged weapons.
+</p>

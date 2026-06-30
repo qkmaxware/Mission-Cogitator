@@ -1,0 +1,70 @@
+---
+{
+  "name": "Arbites Vigilant",
+  "art-path": null,
+  "flavour-text": "Vigilants brutally sweep the guilty from existence with the  signature combat shotgun of the Adeptus Arbites. These  grim men and women are ever-alert to malfeasance and  unwavering in its punishment, unleashing devastating blasts  at close range.",
+  "tags": [
+    "Imperium",
+    "Adeptus Arbites",
+    "Vigilant"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Combat shotgun (close range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Combat shotgun (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 5,
+      "damage": {
+        "normal": 2,
+        "critical": 2
+      },
+      "rules": []
+    },
+    {
+      "name": "Repression baton",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Close Quarters Vigilance: </b> This operative can perform the 
+<see cref="shoot">Shoot</see> action (excluding Guard) while within <see cref="control-range">Control Range</see> of 
+an enemy operative, but only if it hasn’t performed the <see cref="charge">Charge</see> 
+action during the <see cref="activation">Activation</see>, or if it’s a counteraction. Note this 
+operative isn’t restricted from performing the <see cref="charge">Charge</see> action 
+after performing the <see cref="shoot">Shoot</see> action.
+</p>

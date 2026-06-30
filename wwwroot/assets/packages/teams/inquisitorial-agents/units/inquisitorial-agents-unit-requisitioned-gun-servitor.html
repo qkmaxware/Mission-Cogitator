@@ -1,0 +1,208 @@
+---
+{
+  "name": "Requisitioned Gun Servitor",
+  "art-path": null,
+  "flavour-text": "More machine than Human, Gun Servitors are commonplace  across the Imperium, and lobotomised to the extent that they  lack any kind of capacity for independent thought. Used to  fulfil mundane and difficult tasks, they carry hefty loads often  including heavy weapons.",
+  "tags": [
+    "Imperium",
+    "Inquisition",
+    "Gun Servitor"
+  ],
+  "attributes": {
+    "apl": 1,
+    "move": 5,
+    "save": 4,
+    "wounds": 11
+  },
+  "weapons": [
+    {
+      "name": "Heavy bolter (focused)",
+      "kind": "ranged",
+      "atk": 5,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": "(Crits)",
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Heavy bolter (sweeping)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": "(Crits)",
+          "x": 1,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "torrent",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Multi-melta",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 6,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "devastating",
+          "suffix": null,
+          "x": 4,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Plasma cannon (standard)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Plasma cannon (supercharge)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 5,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "blast",
+          "suffix": null,
+          "x": 2,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "heavy",
+          "suffix": "(Dash only)",
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "hot",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "piercing",
+          "suffix": null,
+          "x": 1,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Servo claw",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 4,
+        "critical": 5
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Lobotomised: </b> Whenever this operative is activated, if it’s <see cref="visible">Visible</see> to and within 3" of another friendly <b>INQUISITORIAL AGENT</b> 
+operative (excluding <b>GUN SERVITOR</b>) or vice versa, add 1 to this operative’s <b>APL</b> stat until the end of that <see cref="activation">Activation</see>.
+</p>

@@ -1,0 +1,80 @@
+---
+{
+  "name": "Enlightener Agent",
+  "art-path": null,
+  "flavour-text": "Known to some as Excruciators or Truth-Peelers, these  sadistic individuals are highly valued by Inquisitors for their  utter lack of mercy and uncanny skill in extracting valuable  information, even from the most uncooperative of prisoners.",
+  "tags": [
+    "Imperium",
+    "Inquisition",
+    "Enlightener"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Autopistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Paired blades",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "balanced",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "rending",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>No Escape: </b> Whenever an enemy operative would perform the 
+Fall Back action while within <see cref='control-range'>Control Range</see> of this operative, 
+you can use this rule. If you do, roll one <b>D6</b>, subtracting 1 from 
+the result if that enemy operative has a higher Wounds stat than 
+this operative, and adding 1 if that enemy operative is wounded: 
+on a 4+, that enemy operative cannot perform that <see cref="action">Action</see> during 
+that <see cref="activation">Activation</see>/counteraction (the <b>AP</b> spent on it isn’t refunded).
+</p>
+
+<p>
+    <b>Extract Information: </b> Whenever an enemy operative is 
+incapacitated within this operative’s <see cref='control-range'>Control Range</see>, you gain 1<b>CP</b>.
+</p>

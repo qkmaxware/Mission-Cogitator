@@ -23,14 +23,18 @@ if (current is null) {
         <button class="w3-button app-primary" @onclick=restart>Restart</button>
     </div>
 } else {
-    <label>@current.Name <small>(@current.Id)</small></label>
+    <h3>@current.Name <small>(@current.Id)</small></h3>
     @if (currentIssue is not null && current.Description is not null) {
         var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPosition);
         <div class="w3-row w3-margin-bottom">
             <div id="before" class="w3-col s6">
+                <label>Original:</label>
+                <hr />
                 <span class="source">@before</span><span class="original">@middle</span><span class="source">@after</span>
             </div>
             <div id="after" class="w3-col s6">
+                <label>Updated:</label>
+                <hr />
                 <span class="source">@before</span><span class="replacement">@currentIssue.Replacement</span><span class="source">@after</span>
             </div>
         </div>

@@ -65,21 +65,29 @@ public class PackageManager
         }
 
         // Add all offered teams
+        foreach (var unit in (pkg.Units?.Values ?? Enumerable.Empty<Unit>()))
+        {
+            if (unit.Id is null)
+                continue;
+
+            unitdb.AddUnit(unit.Id, unit);
+        }
         foreach (var team in (pkg.Teams?.Values ?? Enumerable.Empty<Team>()))
         {
             if (team.Id is null)
                 continue;
-                
+            
             teamdb.AddTeam(team.Id, team);
-            unitdb.AddTeam(team);
 
             // Resolve all external unit IDs for the team
             team.Units = team.Units ?? new List<Unit>();
             foreach (var id in (team.ExternalUnitIds ?? Enumerable.Empty<string>()))
             {
                 var resolved = unitdb.GetValue(id);
-                if (resolved is null)
+                if (resolved is null) {
+                    Console.WriteLine("Failed to resolve: " + id);
                     continue;
+                }
 
                 team.Units.Add(resolved);
             }

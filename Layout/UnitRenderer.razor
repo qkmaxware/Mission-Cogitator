@@ -16,9 +16,6 @@
                 @foreach (var effect in grp) {
                 <option value="@effect.Id">
                     @effect.Name
-                    @if (effect.SourcePackage?.Name is not null) {
-                        <text> - @effect.SourcePackage.Name</text>
-                    }
                 </option>
             }
             </optgroup>
@@ -31,7 +28,7 @@
 <div>
     <header class="w3-row">
         <h1 class="unit-name w3-half">
-            <span class="border-primary">@Unit.Name</span>
+            <span class="border-primary" id="@Unit.Id">@Unit.Name</span>
             @if (!string.IsNullOrEmpty(Unit.ArtPath)) {
                 <img src="@Unit.ArtPath"/>
             }

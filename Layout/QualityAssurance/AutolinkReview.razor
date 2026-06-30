@@ -30,17 +30,24 @@ if (current is null) {
         <button class="w3-button app-primary" @onclick=restart>Restart</button>
     </div>
 } else {
-    <label>@current.Name <small>(@current.Id)</small></label>
+    <h3>@current.Name <small>(@current.Id)</small></h3>
     @if (currentIssue is not null && current.Description is not null) {
         var (before, middle, after) = SplitAroundRange(current.Description, currentIssue.StartPosition, currentIssue.EndPosition);
         <div class="w3-row w3-margin-bottom">
             <div id="before" class="w3-col s6">
+                <label>Original:</label>
+                <hr />
                 <span class="source">@before</span><span class="original">@middle</span><span class="source">@after</span>
             </div>
             <div id="after" class="w3-col s6">
+                <label>Updated:</label>
+                <hr />
                 <span class="source">@before</span><span class="replacement">@currentIssue.Replacement</span><span class="source">@after</span>
+                <hr />
+                <input type="text" class="w3-input" @bind=currentIssue.Replacement/>
             </div>
         </div>
+        
     }
     <div class="w3-row">
         <div class="w3-col s6">
@@ -155,6 +162,21 @@ if (current is null) {
             this.Length = length;
         } 
     }
+    private static Regex? ToNamePattern(IPackagedContent content) {
+        if (string.IsNullOrEmpty(content.Name))
+            return null;
+
+        var patternString = 
+            "\\b"                                       // Word boundary
+            + Regex.Escape(content.Name)                
+            .Replace(@"\ ", @"\s+")    // The escaped name, but replacing escaped spaces with any whitespace character (such as newlines)
+            + "\\b";                                    // Word boundary
+
+        return new Regex(patternString, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    }
+    private static Regex? ToIdPattern(IPackagedContent content) {
+        return string.IsNullOrEmpty(content.Id) ? null : new Regex("\\b" + Regex.Escape(content.Id) + "\\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    }
     private TextMatch<IPackagedContent> nextMatch(string corpus, int startOffset) {
         if (Package is null)
             return TextMatch<IPackagedContent>.Empty; // Failed match
@@ -167,8 +189,8 @@ if (current is null) {
             .Select(x => (
                 Content: x, 
                 Patterns: new Regex?[]{
-                    string.IsNullOrEmpty(x.Name) ? null : new Regex("\\b" + Regex.Escape(x.Name) + "\\b", RegexOptions.Compiled | RegexOptions.IgnoreCase),
-                    string.IsNullOrEmpty(x.Id) ? null : new Regex("\\b" + Regex.Escape(x.Id) + "\\b", RegexOptions.Compiled | RegexOptions.IgnoreCase),
+                    ToNamePattern(x),
+                    ToIdPattern(x),
                 }
             )).ToList();
 

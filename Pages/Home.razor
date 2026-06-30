@@ -421,6 +421,8 @@
                     <Accordion Title="Units">
                         @foreach (var unit in (team.Units ?? Enumerable.Empty<Unit>())) {
                             var myUnit = unit;
+                            if (!ReferenceEquals(team.SourcePackage, myUnit.SourcePackage))
+                                continue; // Skip if not from the same source
                             <button class="w3-button w3-bar-item" @onclick=@(() => select(myTeam, myUnit))>@unit.Name</button>
                         }
                     </Accordion>

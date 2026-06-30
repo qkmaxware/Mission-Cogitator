@@ -1,0 +1,71 @@
+---
+{
+  "name": "Questkeeper Agent",
+  "art-path": null,
+  "flavour-text": "Questkeepers \u2013 known also as Knight-Errants, Penitents  and many other names \u2013 are fanatical zealots dedicated to  the Imperial Creed. With an intense hatred for foes of the  Emperor, they execute sworn quests to slaughter heretics  and traitors.",
+  "tags": [
+    "Imperium",
+    "Inquisition",
+    "Questkeeper"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Autopistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Eviscerator",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 5,
+        "critical": 6
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "brutal",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Irrepressible Purpose: </b>  If this operative is incapacitated during 
+the <see cref="fight">Fight</see> action, you can strike the enemy operative in that 
+sequence with one of your unresolved successes before this 
+operative is removed from the killzone.
+</p>
+
+<p>
+    <b>Zealot: </b> Whenever an attack dice inflicts damage of 3 or more 
+on this operative, roll one <b>D6</b>: on a 5+, subtract 1 from that 
+inflicted damage.
+</p>
