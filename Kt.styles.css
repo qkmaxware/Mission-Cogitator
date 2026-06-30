@@ -275,6 +275,26 @@ textarea[b-qxjjnks04e] {
 .replacement[b-7rpfnuaczl]::after {
     content: "]";
 }
+/* /Layout/QualityAssurance/MissingFlavourTextReview.razor.rz.scp.css */
+.original[b-vrhbprvcog] {
+    color: red;
+}
+.original[b-vrhbprvcog]::before {
+    content: "[";
+}
+.original[b-vrhbprvcog]::after {
+    content: "]";
+}
+
+.replacement[b-vrhbprvcog] {
+    color: green;
+}
+.replacement[b-vrhbprvcog]::before {
+    content: "[";
+}
+.replacement[b-vrhbprvcog]::after {
+    content: "]";
+}
 /* /Layout/QuickReference.razor.rz.scp.css */
 .article[b-a74zqimslp] {
     margin-bottom: 16px;

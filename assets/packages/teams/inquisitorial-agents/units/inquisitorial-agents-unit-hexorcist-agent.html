@@ -1,0 +1,59 @@
+---
+{
+  "name": "Hexorcist Agent",
+  "art-path": null,
+  "flavour-text": "Hexorcists are holy men and women that are often mistaken  for priests by the uninitiated. They believe that the Imperial  Faith will only be spread at the barrel of a gun, and are  experienced enough in the galaxy\u2019s many horrors to know they  must fight tooth and nail for it.",
+  "tags": [
+    "Imperium",
+    "Inquisition",
+    "Hexorcist"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Shotgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Fists",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "inquisitorial-agents-action-chasten"
+  ]
+}
+---
+<p>
+    <b>Hexorcise: </b> Whenever an enemy operative 
+is <see cref="visible">Visible</see> to and within 6" of this operative, 
+your opponent cannot re-roll their attack 
+or defence dice for that operative.
+</p>

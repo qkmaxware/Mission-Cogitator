@@ -1,0 +1,74 @@
+---
+{
+  "name": "Arbites Chirurgant",
+  "art-path": null,
+  "flavour-text": "These Arbitrators are highly skilled medical specialists, used  to treating debilitating wounds inflicted by those resisting  detention. They are also skilled in the tactical questioning of  prisoners and have studied the limits to which the body can be  pushed to elicit answers.",
+  "tags": [
+    "Imperium",
+    "Adeptus Arbites",
+    "Medic",
+    "Chirurgant"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Combat shotgun (close range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Combat shotgun (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 5,
+      "damage": {
+        "normal": 2,
+        "critical": 2
+      },
+      "rules": []
+    },
+    {
+      "name": "Repression baton",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "exaction-squad-action-medikit"
+  ]
+}
+---
+<p>
+    <b>Medic!: </b> The first time during each turning point that another friendly <b>EXACTION SQUAD</b> operative would be incapacitated while 
+<see cref="visible">Visible</see> to and within 3" of this operative, you can use this rule, providing neither this nor that operative is within <see cref="control-range">Control Range</see> of an 
+enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the 
+remainder of the <see cref="action">Action</see>. After that action, that friendly operative can immediately perform a free <see cref="dash">Dash</see> action, but must end that 
+move within this operative’s <see cref="control-range">Control Range</see>. Subtract 1 from this and that operative’s <b>APL</b> stats until the end of their next activations 
+respectively, and if this rule was used during that friendly operative’s <see cref="activation">Activation</see>, that activation ends. You cannot use this rule if this 
+operative is incapacitated, or if it’s a <see cref="shoot">Shoot</see> action and this operative would be a primary or secondary target.
+</p>

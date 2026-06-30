@@ -1,0 +1,95 @@
+---
+{
+  "name": "Arbites Castigator",
+  "art-path": null,
+  "flavour-text": "It is the Castigator\u2019s role to ensure that the guilty receive  due punishment, their hood-like helms steeling their resolve  against curses and pleas alike. Once the quarry is located,  the Castigator is charged with their subdual by any means \u2013 a  task they perform with zealous dedication.",
+  "tags": [
+    "Imperium",
+    "Adeptus Arbites",
+    "Castigator"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Combat shotgun (close range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Combat shotgun (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 5,
+      "damage": {
+        "normal": 2,
+        "critical": 2
+      },
+      "rules": []
+    },
+    {
+      "name": "Excruciator maul",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 5,
+        "critical": 5
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "rending",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "shock",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Engendered Focus: </b> You can ignore any changes to this 
+operative’s stats (including its weapons’ stats, but excluding its 
+Save stat).
+</p>
+
+<p>
+    <b>Zealous Dedication: </b> Whenever an attack dice inflicts damage of 
+3 or more on this operative, roll one <b>D6</b>: on a 5+, subtract 1 from 
+that inflicted damage.
+</p>
+
+<p>
+    <b>Castigator’s Arrest: </b> Whenever an enemy operative is within 
+<see cref="control-range">Control Range</see> of this operative they can receive your <see cref="exaction-squad-effect-apprehended">Apprehended Token</see>, if no other enemy operatives 
+are within this operative’s <see cref="control-range">Control Range</see>, that enemy operative 
+cannot perform the <see cref="fall-back">Fall Back</see> action.
+</p>

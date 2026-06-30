@@ -1,0 +1,58 @@
+{
+  "name": "Exaction Squad",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [
+    "definitions/exaction-squad-rule-ruthless-efficiency",
+    "definitions/exaction-squad-rule-marked-for-justice",
+    "definitions/exaction-squad-rule-repress",
+    "definitions/exaction-squad-rule-concealed-position"
+  ],
+  "actions": [
+    "actions/exaction-squad-action-deploy-nuncio-aquila",
+    "actions/exaction-squad-action-medikit",
+    "actions/exaction-squad-action-r-vr-command",
+    "actions/exaction-squad-action-apprehend",
+    "actions/exaction-squad-action-veriscant",
+    "actions/exaction-squad-action-optics",
+    "actions/exaction-squad-action-spot",
+    "actions/exaction-squad-action-signal"
+  ],
+  "effects": [
+    "effects/exaction-squad-effect-apprehended"
+  ],
+  "equipment": [
+    "equipment/exaction-squad-equipment-reinforced-mirror-visor",
+    "equipment/exaction-squad-equipment-manacles",
+    "equipment/exaction-squad-equipment-strobing-phosphor-lumen",
+    "equipment/exaction-squad-equipment-special-issue-shells"
+  ],
+  "ploys": [
+    "ploys/exaction-squad-ploy-guilt-reveals-itself",
+    "ploys/exaction-squad-ploy-inviolate-jurisdiction",
+    "ploys/exaction-squad-ploy-dispense-justice",
+    "ploys/exaction-squad-ploy-terminal-decree",
+    "ploys/exaction-squad-ploy-long-arm-of-the-emperors-law",
+    "ploys/exaction-squad-ploy-exact-punishment",
+    "ploys/exaction-squad-ploy-brutal-backup",
+    "ploys/exaction-squad-ploy-execution-order"
+  ],
+  "units": [
+    "units/exaction-squad-unit-arbites-proctor-exactant",
+    "units/exaction-squad-unit-arbites-chirurgant",
+    "units/exaction-squad-unit-arbites-leashmaster",
+    "units/exaction-squad-unit-r-vr-cyber-mastiff",
+    "units/exaction-squad-unit-arbites-castigator",
+    "units/exaction-squad-unit-arbites-gunner",
+    "units/exaction-squad-unit-arbites-malocator",
+    "units/exaction-squad-unit-arbites-marksman",
+    "units/exaction-squad-unit-arbites-revelatum",
+    "units/exaction-squad-unit-arbites-subductor",
+    "units/exaction-squad-unit-arbites-vigilant",
+    "units/exaction-squad-unit-arbites-vox-signifier"
+  ],
+  "teams": [
+    "teams/exaction-squad-team-exaction-squad"
+  ],
+  "aliases": null
+}

@@ -1,0 +1,55 @@
+---
+{
+  "name": "Tempestus Scion Medic",
+  "art-path": null,
+  "flavour-text": null,
+  "tags": [
+    "Imperium",
+    "Astra Militarum",
+    "Tempestus Scion",
+    "Medic"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Hot-shot lasgun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    },
+    {
+      "name": "Gun butt",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "inquisitorial-agents-requisitions-action-medikit"
+  ]
+}
+---
+<p>
+    <b>Medic!: </b> The first time during each turning point that another friendly <b>INQUISITORIAL AGENT</b> operative would be incapacitated 
+while <see cref="visible">Visible</see> to and within 3" of this operative, you can use this rule, providing neither this nor that operative is within <see cref='control-range'>Control Range</see> 
+of an enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for 
+the remainder of the <see cref="action">Action</see>. After that action, that friendly operative can immediately perform a free <see cref="dash">Dash</see> action, but must end that 
+move within this operative’s <see cref='control-range'>Control Range</see>. Subtract 1 from this and that operative’s <b>APL</b> stats until the end of their next activations 
+respectively, and if this rule was used during that friendly operative’s <see cref="activation">Activation</see>, that activation ends. You cannot use this rule if this 
+operative is incapacitated, or if it’s a <see cref="shoot">Shoot</see> action and this operative would be a primary or secondary target.
+</p>

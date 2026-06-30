@@ -1,0 +1,142 @@
+---
+{
+  "name": "Arbites Proctor-Exactant",
+  "art-path": null,
+  "flavour-text": "Exaction Squads are selected and led by Proctors-exactant.  These experienced Arbitrators are ruthless tacticians and  savvy fighters. They are also intimidating embodiments of  Imperial justice and employ nuncio-aquilas to broadcast  deafening orations that cow the guilty into submission.",
+  "tags": [
+    "Imperium",
+    "Adeptus Arbites",
+    "Leader",
+    "Proctor-Exactant"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 4,
+    "wounds": 9
+  },
+  "weapons": [
+    {
+      "name": "Combat shotgun (close range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 2,
+      "damage": {
+        "normal": 4,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Combat shotgun (long range)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 4,
+      "damage": {
+        "normal": 2,
+        "critical": 2
+      },
+      "rules": []
+    },
+    {
+      "name": "Shotpistol",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Dominator maul \u0026 assault shield",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 4,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "shock",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "exaction-squad-rule-repress",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Repression baton",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 3,
+      "damage": {
+        "normal": 2,
+        "critical": 3
+      },
+      "rules": []
+    }
+  ],
+  "rules": [
+    "exaction-squad-action-deploy-nuncio-aquila"
+  ]
+}
+---
+<p>
+    <b>Assault Shield: </b>  If this operative has a dominator maul & assault 
+shield, it has a 3+ Save stat.
+</p>
+
+<p>
+    <b>Nuncio-aquila: </b> 
+<ul>
+    <li>
+         Whenever an enemy operative is within 3" of your 
+Nuncio-aquila marker (or this operative if your Nuncio-aquila 
+marker isn’t in the killzone), your opponent must spend 1 
+additional <b>AP</b> for that enemy operative to perform the Pick 
+Up Marker and mission actions.
+    </li>
+    <li>
+         Whenever determining control of a marker, treat the total 
+<b>APL</b> stat of enemy operatives that contest it as 1 lower if 
+at least one of those enemy operatives is within 3" of your 
+Nuncio-aquila marker (or this operative if your Nuncio-aquila 
+marker isn’t in the killzone). Note this isn’t a change to the <b>APL</b> 
+stat, so any changes are cumulative with this.
+    </li>
+</ul>
+</p>

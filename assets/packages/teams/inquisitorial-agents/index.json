@@ -1,0 +1,49 @@
+{
+  "name": "Inquisitorial Agents",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [
+    "definitions/inquisitorial-agents-rule-inquisitorial-requisition"
+  ],
+  "actions": [
+    "actions/inquisitorial-agents-action-chasten",
+    "actions/inquisitorial-agents-action-scry",
+    "actions/inquisitorial-agents-action-pistol-barrage"
+  ],
+  "effects": [
+    "effects/inquisitorial-agents-effect-denounced"
+  ],
+  "equipment": [
+    "equipment/inquisitorial-agents-equipment-inquisitorial-rosette",
+    "equipment/inquisitorial-agents-equipment-combat-daggers",
+    "equipment/inquisitorial-agents-equipment-armoured-bodysuits",
+    "equipment/inquisitorial-agents-equipment-servo-skull"
+  ],
+  "ploys": [
+    "ploys/inquisitorial-agents-ploy-denounce",
+    "ploys/inquisitorial-agents-ploy-intense-scrutiny",
+    "ploys/inquisitorial-agents-ploy-quarry",
+    "ploys/inquisitorial-agents-ploy-irrefutable-jurisdiction",
+    "ploys/inquisitorial-agents-ploy-absolute-authority",
+    "ploys/inquisitorial-agents-ploy-relentless-in-pursuit",
+    "ploys/inquisitorial-agents-ploy-the-emperors-will",
+    "ploys/inquisitorial-agents-ploy-intimidating-presence"
+  ],
+  "units": [
+    "units/inquisitorial-agents-unit-interrogator-agent",
+    "units/inquisitorial-agents-unit-tome-skull",
+    "units/inquisitorial-agents-unit-autosavant-agent",
+    "units/inquisitorial-agents-unit-death-world-veteran-agent",
+    "units/inquisitorial-agents-unit-enlightener-agent",
+    "units/inquisitorial-agents-unit-hexorcist-agent",
+    "units/inquisitorial-agents-unit-mystic-agent",
+    "units/inquisitorial-agents-unit-penal-legionnaire-agent",
+    "units/inquisitorial-agents-unit-pistolier-agent",
+    "units/inquisitorial-agents-unit-questkeeper-agent",
+    "units/inquisitorial-agents-unit-requisitioned-gun-servitor"
+  ],
+  "teams": [
+    "teams/inquisitorial-agents-team-inquisitorial-agents"
+  ],
+  "aliases": null
+}

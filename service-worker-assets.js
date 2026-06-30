@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "+GcWQkiQ",
+  "version": "BY/c6KdA",
   "assets": [
     {
-      "hash": "sha256-I7s12MpunWYHg9Zf7gQPd9GZAYqoqyezenjkkqTCkMc=",
+      "hash": "sha256-VLzs2d2/A7fQIaPaweiVKWu7yocM0Zifdz2Y8N5u0VU=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-QKXOy0+cS+INcFJLsuMuPXrOcJHXkVQw12KFiN1aySk=",
-      "url": "_framework/Kt.wszoev7vp0.wasm"
+      "hash": "sha256-QlWPhDiX4aN4+1E9R2RGfqyScsfkViHPSCK2fIuyPT0=",
+      "url": "_framework/Kt.aeonaot8gm.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,6 +214,10 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-pevynfDvMHs/FHWY8XxYeqsT/TEcTjIKm95NCrWJzIA=",
+      "url": "_framework/dotnet.9jr55bymwg.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -224,10 +228,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
-    },
-    {
-      "hash": "sha256-toilGCFF3D5df0lVNEC0dly+BH8ys2x8K8JrPz1H7B0=",
-      "url": "_framework/dotnet.u2x1fzprm4.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1102,6 +1102,166 @@ self.assetsManifest = {
       "url": "assets/packages/teams/deathwatch/units/deathwatch-watch-sergeant.html"
     },
     {
+      "hash": "sha256-Wxlk8CDM2/b/Jaw3D/GYJoItRLc4aRsud3Qg6N7vTlc=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-apprehend.html"
+    },
+    {
+      "hash": "sha256-ofsvUs+XKSwrCmEevkmnhwZkL2bxT9nqavU2AuVN+6Q=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-deploy-nuncio-aquila.html"
+    },
+    {
+      "hash": "sha256-WY1ZOf+xXTllY57rLRzQYxymUpwkiEXlU7FI3Rx/1nw=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-medikit.html"
+    },
+    {
+      "hash": "sha256-DX2beSfLcZjpYXC5Ppo55wsQX9u+OnlPIxOPSR+9jD8=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-optics.html"
+    },
+    {
+      "hash": "sha256-oMJb6hYBNuC/a5+3Rkp6+v8G9IYjSNfNwwB5BjGEDfU=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-r-vr-command.html"
+    },
+    {
+      "hash": "sha256-7kruIIOkRJNf5SCwSMVgi7IqHHlpG0CQD3ubJjqTYVQ=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-signal.html"
+    },
+    {
+      "hash": "sha256-cQLZYkQ3DiCEg50XGj5InKtyNhQ39VumSwznR9tchgo=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-spot.html"
+    },
+    {
+      "hash": "sha256-I56AD8f+A8XheUeybqekebUWZZBU1bSzoIUEMhf6+tI=",
+      "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-veriscant.html"
+    },
+    {
+      "hash": "sha256-AOSIsysik43WWtChjulIUH/NsKBmU8XOWBwKYHow2gA=",
+      "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-concealed-position.html"
+    },
+    {
+      "hash": "sha256-nGsyF5ooYMETbHq3HiRauOqopnn7WZRGBNInG+LyYa8=",
+      "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-marked-for-justice.html"
+    },
+    {
+      "hash": "sha256-QE44ux40e4uDejHBFTcArO7Lv/b9icbkINXewTZl4MA=",
+      "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-repress.html"
+    },
+    {
+      "hash": "sha256-J3tZOgSQgdE5Mi/pR+6wFYDGZEJnb26SZvJg6fYo7Ko=",
+      "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-ruthless-efficiency.html"
+    },
+    {
+      "hash": "sha256-zdRQZU6UcLDQK76oooDdKwoTR5NdP0IxO/I3MM9VDAs=",
+      "url": "assets/packages/teams/exaction-squad/effects/exaction-squad-effect-apprehended.html"
+    },
+    {
+      "hash": "sha256-PptNjas9O+O5935G1fiN158W+Cnd3rv066nfAXP20Ng=",
+      "url": "assets/packages/teams/exaction-squad/effects/exaction-squad-effect-apprehended.svg"
+    },
+    {
+      "hash": "sha256-JgDHFzRzHPcGww0L/zk/qgozbzvXWcizD3P6KnU5dUs=",
+      "url": "assets/packages/teams/exaction-squad/equipment/exaction-squad-equipment-manacles.html"
+    },
+    {
+      "hash": "sha256-4djmMBVk176Bu6K2ROreSZPba8hZazFEuNV8qUsNajM=",
+      "url": "assets/packages/teams/exaction-squad/equipment/exaction-squad-equipment-reinforced-mirror-visor.html"
+    },
+    {
+      "hash": "sha256-QVcuCXGC8hqifwVRRYUsw40RjE9Yf6c64DnlPZkgTCQ=",
+      "url": "assets/packages/teams/exaction-squad/equipment/exaction-squad-equipment-special-issue-shells.html"
+    },
+    {
+      "hash": "sha256-6wmxzU9SdbZLWig32QCA8Wh2VuAq1d2Wb0dBA1GX7iU=",
+      "url": "assets/packages/teams/exaction-squad/equipment/exaction-squad-equipment-strobing-phosphor-lumen.html"
+    },
+    {
+      "hash": "sha256-J4BOGD2ElrTztM3pw3agujcjbhyK3MhsI3LORSULwws=",
+      "url": "assets/packages/teams/exaction-squad/index.json"
+    },
+    {
+      "hash": "sha256-rQfa7SYMUX6zrhwhWIEFj3raByeGrAkljAWBnwvHbYE=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-brutal-backup.html"
+    },
+    {
+      "hash": "sha256-x8TqaK241VuhjzcnyStq+c/PPW9J+HCPLcz3hEPN8+8=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-dispense-justice.html"
+    },
+    {
+      "hash": "sha256-sT6MsyTFHCzqw34Bx2BXuPLh/Wa0C9fpdBripbiSeFw=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-exact-punishment.html"
+    },
+    {
+      "hash": "sha256-1W3NsPSR+JJsoC3Jtqtov7PidzKO3Q0cIri+jzd691c=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-execution-order.html"
+    },
+    {
+      "hash": "sha256-G6i1s3Z80FFbQ8WNmSYFeRPsQsxM1kX+HmFUkNzLmYA=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-guilt-reveals-itself.html"
+    },
+    {
+      "hash": "sha256-aDq5TMg+iEVGdpIiBz/aiboDqwbgpUZy8GDx/1L7fjs=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-inviolate-jurisdiction.html"
+    },
+    {
+      "hash": "sha256-V0IX8hHSRWBnUuAiZnBHmCEZxPNPiVE/sHKGLTSM2GI=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-long-arm-of-the-emperors-law.html"
+    },
+    {
+      "hash": "sha256-YGdPnRRf61cO7dB3r3kkQy36mF32k44Bt/JOuik2Z1g=",
+      "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-terminal-decree.html"
+    },
+    {
+      "hash": "sha256-aGAtiv0oLTnfOw4Bwlpe7TgNIYWOKvc2RtF20QHOjWQ=",
+      "url": "assets/packages/teams/exaction-squad/teams/exaction-squad-team-exaction-squad.html"
+    },
+    {
+      "hash": "sha256-GOsOsrIMSJ11+s370UlbrXs8KVfYgv9rgjyiKpn3lsI=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-castigator.html"
+    },
+    {
+      "hash": "sha256-audhuoUxKrkTpXqfVVN3VNbohy8aDoCINcdcDszt5AQ=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-chirurgant.html"
+    },
+    {
+      "hash": "sha256-F+jP9j0LmiVX47IHPJf8iqzAYZXZH+YVq94yO17TaH8=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-gunner.html"
+    },
+    {
+      "hash": "sha256-ZdnBgP67KKZG4rzCyFF9h12iHxCG9lyCPfen3gLQ9tc=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-leashmaster.html"
+    },
+    {
+      "hash": "sha256-tQPbBnQDKFFUCeweboIf7/vaTtp64jzPVg4HBDrptqw=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-malocator.html"
+    },
+    {
+      "hash": "sha256-nBrYlUGGj7qXSskNV6ql6LZEPEDnnOhvdy7bbHevmBU=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-marksman.html"
+    },
+    {
+      "hash": "sha256-6aDDsyL6mjtN2qkqH4Sik5Pgw9ugkFsiIr9lS5LjC/M=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-proctor-exactant.html"
+    },
+    {
+      "hash": "sha256-V1ZAVKxkwjSK+UkDgFzf7yufOKgVBEeb1GJKTtUbC7w=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-revelatum.html"
+    },
+    {
+      "hash": "sha256-p0YzS5viOQ57M9dlIXJo+/Eao6tM6bsTjVSKmJi0Jhk=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-subductor.html"
+    },
+    {
+      "hash": "sha256-TWl9GNz7fq/+3J2dZVjekw6aJ4+Qh2NJLNfts7QtLHE=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-vigilant.html"
+    },
+    {
+      "hash": "sha256-ZLygmxkoef8EaZi4mfwXd8e69tA/Hy3LRuyM8N/QTBw=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-vox-signifier.html"
+    },
+    {
+      "hash": "sha256-BHRU9gaDDkVSopv9gdVkS2H/Zz3V9vpX1PFxTDHgJGA=",
+      "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-r-vr-cyber-mastiff.html"
+    },
+    {
       "hash": "sha256-bY+zgZ8Ntfmb7IcMyJSHBAp+AEzV6s7FOHQgEUwVZiA=",
       "url": "assets/packages/teams/hearthkyn-salvagers/actions/hearthkyn-salvagers-accelerated-appraisal.html"
     },
@@ -1576,6 +1736,170 @@ self.assetsManifest = {
     {
       "hash": "sha256-MTlpApKUxAN++/k3l5GaEfA/qWPkMgYVGPOl5Fb15hQ=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-void-jammer.html"
+    },
+    {
+      "hash": "sha256-GGfp2dCVlfghZkgZFZ6BA69QFrjk/G5wG6FJopaygaA=",
+      "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-chasten.html"
+    },
+    {
+      "hash": "sha256-3l0lYwbm0wOKe/n3eLZr6zhBIy+LOyTFp4bP60sPhNY=",
+      "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-pistol-barrage.html"
+    },
+    {
+      "hash": "sha256-xxniWryJp7dKhic9gM5Dgc4Uxt2ZI9wOYMbaC4Nc8BE=",
+      "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-scry.html"
+    },
+    {
+      "hash": "sha256-Kz3p6Wlcar+eKDZw4x5wYSMuv3D507pdYFqz+26dFyg=",
+      "url": "assets/packages/teams/inquisitorial-agents/definitions/inquisitorial-agents-rule-inquisitorial-requisition.html"
+    },
+    {
+      "hash": "sha256-kGG+IWxeFLgHn0LjHLGMPaAXXj66dzSRweOg2s0AZHI=",
+      "url": "assets/packages/teams/inquisitorial-agents/effects/inquisitorial-agents-effect-denounced.html"
+    },
+    {
+      "hash": "sha256-b9dpjEB7916D2ELr72Nt299dt3Nhly163kE3NlajQek=",
+      "url": "assets/packages/teams/inquisitorial-agents/effects/inquisitorial-agents-effect-denounced.svg"
+    },
+    {
+      "hash": "sha256-l8edBPxQl7BCu62LuwLt/G8LV4SmJ3Bl351xbAeV7bI=",
+      "url": "assets/packages/teams/inquisitorial-agents/equipment/inquisitorial-agents-equipment-armoured-bodysuits.html"
+    },
+    {
+      "hash": "sha256-kB+GtBfxJbvqmQ0RW1hF44R748APCLuclaLjPDSoreQ=",
+      "url": "assets/packages/teams/inquisitorial-agents/equipment/inquisitorial-agents-equipment-combat-daggers.html"
+    },
+    {
+      "hash": "sha256-ubu+onV41J+vTctksNRjtQ7siH40UI03EHTIl1Jiw2k=",
+      "url": "assets/packages/teams/inquisitorial-agents/equipment/inquisitorial-agents-equipment-inquisitorial-rosette.html"
+    },
+    {
+      "hash": "sha256-7KPecxIEkmeWM+ZQiux7W8ry3bwA9zQdPVhRll26zsQ=",
+      "url": "assets/packages/teams/inquisitorial-agents/equipment/inquisitorial-agents-equipment-servo-skull.html"
+    },
+    {
+      "hash": "sha256-nf6D8uCEhyksOy9ze3YdXds7bLPdg76Vjw+Da/ma3KI=",
+      "url": "assets/packages/teams/inquisitorial-agents/index.json"
+    },
+    {
+      "hash": "sha256-15jvvefSOl5X+oaJTp03TDnftTIhaGsaijDWJ1HboKw=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-absolute-authority.html"
+    },
+    {
+      "hash": "sha256-kQcgAM1xXZb6dBm8skxF4tjXTSHCIJj7niLSrGXWHHo=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-denounce.html"
+    },
+    {
+      "hash": "sha256-OINSLZW68ov/55CSm2KAYkcHxIvhZuFoUjAxc5r07ks=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-intense-scrutiny.html"
+    },
+    {
+      "hash": "sha256-wMc28JIXkXf525x67FSOemyCb7PtEj2+T6DYxEH82Qc=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-intimidating-presence.html"
+    },
+    {
+      "hash": "sha256-3cfSF9xugLZWwkWcE08dBaB/EV05+2TAiHD1rNHf13U=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-irrefutable-jurisdiction.html"
+    },
+    {
+      "hash": "sha256-Mr0B3MU4w4d6d+ATiDg18EAh2jKBB65ykmvRADjyi5I=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-quarry.html"
+    },
+    {
+      "hash": "sha256-Ub+gEzJueu6gLGC5EKTCoFStQ2n6hD2tS5ZFikau2p4=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-relentless-in-pursuit.html"
+    },
+    {
+      "hash": "sha256-7HVhwk53udgRK7hXb9/WoA2me6fDrgwIbWDnGeumJPY=",
+      "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-the-emperors-will.html"
+    },
+    {
+      "hash": "sha256-wc9MP65Tl7y2oTljLrnpNxuIC8LRtuQ6cqCMunTfo6A=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/actions/inquisitorial-agents-requisitions-action-medikit.html"
+    },
+    {
+      "hash": "sha256-+E2XRNBbAGV5SmJIUoi4YB/s3uMIwCMxRhoOi5uwAgA=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/actions/inquisitorial-agents-requisitions-action-signal.html"
+    },
+    {
+      "hash": "sha256-L0isp0wd1Unr7bfVdFiMEx8MViJ8y/VFFXzp1BjYxsY=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/index.json"
+    },
+    {
+      "hash": "sha256-AOjaz+kWxAQb5up812kxnffQueKVigzb+xZiR7NNb3A=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-sister-of-silence-prosecutor.html"
+    },
+    {
+      "hash": "sha256-PDdDHyKgN0gIiCIMcCRzIQHBP1iS55G+RmNqarrNIbU=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-sister-of-silence-vigilator.html"
+    },
+    {
+      "hash": "sha256-6yDFPowyy9DD3byBUA5tHgTKOu0Nd844/gGm1NGWlaE=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-sister-of-silence-witchseeker.html"
+    },
+    {
+      "hash": "sha256-GzGEZvL8DdjE6LgHQAZchsBoflEDkAzshjonodHm02M=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-gunner.html"
+    },
+    {
+      "hash": "sha256-6ZYOfyyRw5HGUtPGv7H2Ow8s6bYxqyJIyaTpgMskBJc=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-medic.html"
+    },
+    {
+      "hash": "sha256-MDIHHGdcjLZofvAPpVL++uJQTdmyZA6YuUg2gXJ37Ks=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-trooper.html"
+    },
+    {
+      "hash": "sha256-ElKLS9KFbTOkTx3zmYy+qrlCzhrw5TORgIOwMWkRmwM=",
+      "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-vox-operator.html"
+    },
+    {
+      "hash": "sha256-7cac55PUFIlFX17v5aSRKuXc89s6jeTKqcs9FZwP+ps=",
+      "url": "assets/packages/teams/inquisitorial-agents/teams/inquisitorial-agents-team-inquisitorial-agents.html"
+    },
+    {
+      "hash": "sha256-1cFJ/g9VFjSTBLmNrsrvNQySHQoZ2wIwgBpUxsdf1CY=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-autosavant-agent.html"
+    },
+    {
+      "hash": "sha256-vryYaej2Q1vLLD3rCDz7IIIjrpvduGEqEBPO/qbU1JI=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-death-world-veteran-agent.html"
+    },
+    {
+      "hash": "sha256-zjnRbEaHnqtXj7y4Zc2p8YAPdkvWiZboDsblkd23yu4=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-enlightener-agent.html"
+    },
+    {
+      "hash": "sha256-C5PgoiijzFt9xJdPXCRCB1F5Fq5DDkTLln926n8IukQ=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-hexorcist-agent.html"
+    },
+    {
+      "hash": "sha256-QrfBvUYD39UbG9v3En4z46js9PgsERy06FAE7yscjX0=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-interrogator-agent.html"
+    },
+    {
+      "hash": "sha256-27QDzIY+8Yzj8slKyPPRcKbxLuXZu2B5ffuvDnniHPw=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-mystic-agent.html"
+    },
+    {
+      "hash": "sha256-gBHdD7vf42Uz9I3U9NgLpnF8NzWN6MoSxv90ClqPBpg=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-penal-legionnaire-agent.html"
+    },
+    {
+      "hash": "sha256-qx63IF85f0bY2cVbKjkc8uQasWiVCuJLVQ/7at8PPn0=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-pistolier-agent.html"
+    },
+    {
+      "hash": "sha256-euNIvoVoFbNFCVTcQIV8vDxMk/JTIpPbuYKmDFV1SGg=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-questkeeper-agent.html"
+    },
+    {
+      "hash": "sha256-JydN0SOTYyUOSFRL0/GzQ24th7Rl35ygKeGBsQiQyJc=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-requisitioned-gun-servitor.html"
+    },
+    {
+      "hash": "sha256-maH212wSEuw9Lp7yIBfLw9WyN1kDRottPNESXwxVhFg=",
+      "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-tome-skull.html"
     },
     {
       "hash": "sha256-b/j/p4VRcNgSHvoZGBRPnXHZDxRdZt4DDUlWDWvkx6w=",
@@ -2554,7 +2878,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-U//0HFsx/bagLOjZITQ7CoHLnXxefZ9npDUvyDLkpmc=",
+      "hash": "sha256-rEPKMCUI5ZmAM+9SDhjpPHNf1FDWrPUiCDLbgfwio+k=",
       "url": "index.html"
     },
     {

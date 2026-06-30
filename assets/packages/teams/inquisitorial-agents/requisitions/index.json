@@ -1,0 +1,24 @@
+{
+  "name": "Inquisitorial Agent Requisitions",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [],
+  "actions": [
+    "actions/inquisitorial-agents-requisitions-action-medikit",
+    "actions/inquisitorial-agents-requisitions-action-signal"
+  ],
+  "effects": [],
+  "equipment": [],
+  "ploys": [],
+  "units": [
+    "units/inquisitorial-agents-requisitions-unit-sister-of-silence-prosecutor",
+    "units/inquisitorial-agents-requisitions-unit-sister-of-silence-vigilator",
+    "units/inquisitorial-agents-requisitions-unit-sister-of-silence-witchseeker",
+    "units/inquisitorial-agents-requisitions-unit-tempestus-scion-gunner",
+    "units/inquisitorial-agents-requisitions-unit-tempestus-scion-medic",
+    "units/inquisitorial-agents-requisitions-unit-tempestus-scion-trooper",
+    "units/inquisitorial-agents-requisitions-unit-tempestus-scion-vox-operator"
+  ],
+  "teams": [],
+  "aliases": null
+}
