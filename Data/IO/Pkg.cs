@@ -150,43 +150,47 @@ public class Pkg
         return pkg;
     }
 
+    private static async Task<T?> LoadSingleResourceFromRelativeUrl<T>(Pkg currentPkg, HttpClient client, string url, string relative)
+    where T:IPackagedContent
+    {
+        try {
+            // Clean the relative path
+            var relativeUri = relative;
+            if (!relativeUri.StartsWith("/"))
+                relativeUri = "/" + relativeUri;
+            if (!relativeUri.EndsWith(".html"))
+                relativeUri = Path.ChangeExtension(relativeUri, ".html");
+
+            // Form final URL
+            var uri = url + relativeUri;
+
+            // Get resource
+            var resp = await client.GetAsync(uri);
+            var content = await resp.Content.ReadAsStringAsync();
+            var doc = new FmHtmlDocument(content);
+            var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
+            if (data is null)
+                return default(T);
+
+            // Assign the id and description 
+            data.SourcePackage = currentPkg;
+            data.Id = Path.GetFileNameWithoutExtension(relative);
+            data.Description = doc.Html.ToString();
+            return data;
+        } catch (Exception ex)
+        {
+            throw new FormatException($"Could not load package resource at {url}/{relative}", ex);
+        }
+    }
+
     private static async Task<Dictionary<string, T>> ParseResourcesFromRelativeUrl<T>(Pkg currentPkg, HttpClient client, string url, List<string> relatives)
     where T:IPackagedContent
     {
-        var tasks = relatives.Select<string, Task<T?>>(async relative =>
-        {
-            try {
-                // Clean the relative path
-                var relativeUri = relative;
-                if (!relativeUri.StartsWith("/"))
-                    relativeUri = "/" + relativeUri;
-                if (!relativeUri.EndsWith(".html"))
-                    relativeUri = Path.ChangeExtension(relativeUri, ".html");
-
-                // Form final URL
-                var uri = url + relativeUri;
-
-                // Get resource
-                var resp = await client.GetAsync(uri);
-                var content = await resp.Content.ReadAsStringAsync();
-                var doc = new FmHtmlDocument(content);
-                var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
-                if (data is null)
-                    return default(T);
-
-                // Assign the id and description 
-                data.SourcePackage = currentPkg;
-                data.Id = Path.GetFileNameWithoutExtension(relative);
-                data.Description = doc.Html.ToString();
-                return data;
-            } catch (Exception ex)
-            {
-                throw new FormatException($"Could not load package resource at {url}/{relative}", ex);
-            }
-        });
-
+        var tasks = new Task<T?>[relatives.Count];
+        for (var i = 0; i < relatives.Count; i++) {
+            tasks[i] = LoadSingleResourceFromRelativeUrl<T>(currentPkg, client, url, relatives[i]);
+        }
         var results = await Task.WhenAll(tasks);
-
 
         return results
             .Where(x => x is not null)
