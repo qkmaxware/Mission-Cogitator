@@ -85,7 +85,6 @@ public class PackageManager
             {
                 var resolved = unitdb.GetValue(id);
                 if (resolved is null) {
-                    Console.WriteLine("Failed to resolve: " + id);
                     continue;
                 }
 

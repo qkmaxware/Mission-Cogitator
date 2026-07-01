@@ -19,10 +19,131 @@ public class Deployment
 
 public class SerializedDeployment
 {
-    // Equipment Ids
-    public List<string> Equipment {get; set;} = new ();
-    // Faction -> List of Units from Faction
-    public Dictionary<string, string[]>? Units {get; set;}
+    public class SerializedUnit
+    {
+        public string? Id {get; set;}
+        public string? Nickname {get; set;}
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public DeployedUnitOrder Orders {get; set;}
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public Activation Activation {get; set;}
+        public int CurrentWounds {get; set;}
+        public List<string?>? Effects {get; set;}
+    }
+
+    public List<string?>? Equipment {get; set;} = new ();
+    public List<SerializedUnit?>? Units {get; set;} = new ();
+
+    public SerializedDeployment()
+    {
+        this.Equipment = new List<string?>();
+        this.Units = new List<SerializedUnit?>();
+    }
+
+    public SerializedDeployment(Deployment? deployment)
+    {
+        if (deployment == null)
+            return;
+
+        Equipment = deployment.Equipment.Select(e => e.Id).ToList();
+        Units = deployment.Units.Select(u => new SerializedUnit
+        {
+            Id = u.Unit.Id,
+            Nickname = u.HasNickname ? u.Nickname : null,
+            Orders = u.Order,
+            Activation = u.Activation,
+            CurrentWounds = u.CurrentWounds,
+            Effects = u.Effects?.Select(e => e.Id).ToList()
+        })
+        .Cast<SerializedUnit?>()
+        .ToList();
+    }
+
+    public Deployment ToDeployment(RuleDatabase ruledb, TeamsDatabase teamdb, UnitDatabase unitdb)
+    {
+        Deployment deployment = new Deployment();
+
+        deployment.Equipment = Equipment?.Where(eid => !string.IsNullOrEmpty(eid)).Select(eid => ruledb.GetValue(eid!)).Where(e => e != null && e is Equipment).Cast<Equipment>().ToList() ?? new List<Equipment>();
+        deployment.Units = Units?.Where(u => u != null && !string.IsNullOrEmpty(u.Id)).Select(u =>
+        {
+            if (u is null || u.Id is null)
+                return null;
+                
+            var unit = unitdb.GetValue(u.Id);
+            if (unit == null)
+                return null;
+
+            Team? team = teamdb.AllTeams.FirstOrDefault(t => t.Units?.Contains(unit) ?? t.UnitIds?.Contains(u.Id) ?? false);
+
+            var deployedUnit = new DeployedUnit(team, unit)
+            {
+                Nickname = u.Nickname,
+                Order = u.Orders,
+                Activation = u.Activation,
+                CurrentWounds = u.CurrentWounds,
+                Effects = u.Effects?
+                    .Where(eid => !string.IsNullOrEmpty(eid))
+                    .Select(eid => ruledb.GetValue(eid!))
+                    .Where(e => e != null && e is Effect)
+                    .Cast<Effect>()
+                    .ToList() ?? new List<Effect>()
+            };
+
+            return deployedUnit;
+        })
+        .Where(u => u != null)
+        .Cast<DeployedUnit>()
+        .ToList() ?? new List<DeployedUnit>();
+
+        return deployment;
+    }
+
+    public void ClearBattleState()
+    {
+        ClearOrders();
+        ClearWounds();
+        ClearEffects();
+    }
+
+    public void ClearOrders()
+    {
+        if (Units == null) return;
+
+        foreach (var unit in Units)
+        {
+            if (unit is null)
+                continue;
+
+            unit.Orders = DeployedUnitOrder.Concealed;
+            unit.Activation = Activation.Inactive;
+        }
+    }
+
+    public void ClearWounds()
+    {
+        if (Units == null) return;
+
+        foreach (var unit in Units)
+        {
+            if (unit is null)
+                continue;
+
+            unit.CurrentWounds = 0;
+        }
+    }
+
+    public void ClearEffects()
+    {
+        if (Units == null) return;
+
+        foreach (var unit in Units)
+        {
+            if (unit is null)
+                continue;
+
+            unit.Effects?.Clear();
+        }
+    }
 }
 
 public enum DeployedUnitOrder
@@ -69,6 +190,10 @@ public class DeployedUnit
         set => _nickname = string.IsNullOrEmpty(value) ? null : value;
     }
 
+    /// <summary>
+    /// See if the unit has been given a nickname or not
+    /// </summary>
+    public bool HasNickname => !string.IsNullOrEmpty(_nickname);
 
     /// <summary>
     /// The unit's current orders

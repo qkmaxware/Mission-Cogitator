@@ -6,6 +6,7 @@
 
 @inject RuleDatabase ruledb
 @inject TeamsDatabase teamdb
+@inject UnitDatabase unitdb
 @inject Kt.Data.IO.PackageManager packageManager
 @inject IJSRuntime js
 @inject JsPrompt prompts
@@ -208,12 +209,19 @@
 }
 
 <Modal @ref=importDeploymentModal Title="Load Deployment" Options=@Modal.Buttons.Cancel>
-    <label>Upload Deployment JSON:</label>
-    <div class="w3-padding w3-center">
-        <InputFile OnChange="deserializeDeployment" accept=".json"/>
-    </div>
+    <p>
+        <label>Reset battle condition:</label>
+        <input type="checkbox" class="w3-check" @bind="resetBattleCondition" />
+    </p>
+    <p>
+        <label>Upload Deployment JSON:</label>
+        <div class="w3-padding w3-center">
+            <InputFile OnChange="deserializeDeployment" accept=".json"/>
+        </div>
+    </p>
 </Modal>
 @code {
+    private bool resetBattleCondition = true;
     private Modal? importDeploymentModal;
     private async Task showImportModal() {
         if (importDeploymentModal is null)
@@ -356,7 +364,7 @@
         <Accordion Title="Operatives" InitiallyExpand=true>
         @foreach (var unit in deployment.Units) {
             <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))>
-                <ActivationRenderer Unit=@unit HideUponDeath=true Class="icon"></ActivationRenderer>
+                <ActivationRenderer Unit=@unit HideUponDeath=true Class="icon icon-large"></ActivationRenderer>
                 <span class="@(getDeployedUnitCssClass(unit))">@unit.Nickname</span>
                 </button>
         }
@@ -591,30 +599,31 @@
             >= 1 => string.Empty,
             >= 0.5f and < 1 => "text-primary",
             > 0 and < 0.5f => "text-error",
-            <= 0 => "delete",
+            <= 0 => "text-error delete",
             _ => string.Empty
         };
     }
 
     private async Task serializeDeployment() {
         // Create deployment specification
-        SerializedDeployment dep = new SerializedDeployment();
-        dep.Equipment = deployment.Equipment.Where(eq => eq.Id is not null).Select(eq => eq.Id).Cast<string>().ToList();
-        dep.Units = deployment.Units.GroupBy(u => u.Team?.Id ?? string.Empty).ToDictionary(grp => grp.Key, grp => grp.Select(u => u.Unit?.Id ?? string.Empty).ToArray());
+        SerializedDeployment dep = new SerializedDeployment(this.deployment);
 
         // Download the deployment
         using var stream = new MemoryStream();
         await JsonSerializer.SerializeAsync(stream, dep, options: Kt.Data.IO.Pkg.SerializationOptions);
         stream.Position = 0;
 
+        Team? team = deployment.Units.FirstOrDefault()?.Team;
+        var teamName = team?.Name ?? "wk40k";
+
         using var streamRef = new DotNetStreamReference(stream);
-        await js.InvokeVoidAsync("downloadFileFromStream", "deployment.json", streamRef);
+        await js.InvokeVoidAsync("downloadFileFromStream", $"deployment.{teamName}.json", streamRef);
     }
 
     private async Task deserializeDeployment(InputFileChangeEventArgs e) {
         using var stream = e.File.OpenReadStream();
 
-        // Read depoyment specification
+        // Read deployment specification
         SerializedDeployment? spec = null;
         try {
             spec = await JsonSerializer.DeserializeAsync<SerializedDeployment>(stream, options:  Kt.Data.IO.Pkg.SerializationOptions);
@@ -625,40 +634,15 @@
             return;
         }
         
-        // Replace equipment
-        deployment.Equipment.Clear();
-        if (spec.Equipment is not null) {
-            foreach (var id in spec.Equipment) {
-                Rule? rule = ruledb.GetValue(id);
-                if (rule is null || rule is not Equipment eq)
-                    continue;
-                deployment.Equipment.Add(eq);
-            }
+        // Replace deployment with current
+        if (resetBattleCondition) {
+            spec.ClearBattleState(); // Since we are loading a new deployment, we should clear any battle state that may have been saved in the deployment spec.
         }
-
-        // Replace deployment
-        deployment.Units.Clear();
-        if (spec.Units is not null) {
-            foreach (var kv in spec.Units) {
-                var team = teamdb.GetValue(kv.Key);
-                if (team is null || team.Units is null)
-                    continue;
-
-                if (kv.Value is null)
-                    continue;
-                
-                foreach (var unitId in kv.Value) {
-                    if (string.IsNullOrEmpty(unitId))
-                        continue;
-                    
-                    var unit = team.Units.Where(u => unitId == u.Id).FirstOrDefault();
-                    if (unit is null)
-                        continue;
-
-                    deployment.Units.Add(new DeployedUnit(team, unit));
-                }
-            }
+        var dep = spec.ToDeployment(this.ruledb, this.teamdb, this.unitdb);
+        if (dep is null || dep.Units is null || dep.Equipment is null) {
+            return;
         }
+        this.deployment = dep;
 
         if (importDeploymentModal is not null)
             await importDeploymentModal.Hide();

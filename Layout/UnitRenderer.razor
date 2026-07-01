@@ -34,6 +34,9 @@
                 Deployment?.Nickname = await prompt.PromptAsync("Enter a nickname for this unit", Unit.Name);    
             })>
                 @(Deployment?.Nickname ?? Unit.Name)
+                @if (Deployment?.HasNickname ?? false) {
+                    <small>(@(Unit.Name))</small>
+                }
             </span>
             @if (!string.IsNullOrEmpty(Unit.ArtPath)) {
                 <img src="@Unit.ArtPath"/>
