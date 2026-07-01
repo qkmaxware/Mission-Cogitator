@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "7ynLMaPJ",
+  "version": "5+uZ0TI6",
   "assets": [
     {
       "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-jE9TlFCyrT+UGadsJ0oV1nob70IllDvHpC15Iu6aNhU=",
-      "url": "_framework/Kt.sem8lippo2.wasm"
+      "hash": "sha256-QxsVM8B9k/8vVahe5t36ID9o+yuIbFjQpiQFjxurMEg=",
+      "url": "_framework/Kt.bq9o0pxzmc.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -222,12 +222,12 @@ self.assetsManifest = {
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
     },
     {
-      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
-      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+      "hash": "sha256-2AKetRIibqZUx3wqbTJCtAy7ppDSHtDRBd4vgVaE1mQ=",
+      "url": "_framework/dotnet.oknin55byt.js"
     },
     {
-      "hash": "sha256-jJhinuLIltU5xDTYLq6dPLgjLb1ifEXJre7SI1e3xQE=",
-      "url": "_framework/dotnet.wzgu312xpq.js"
+      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
+      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1906,7 +1906,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-scry.html"
     },
     {
-      "hash": "sha256-Kz3p6Wlcar+eKDZw4x5wYSMuv3D507pdYFqz+26dFyg=",
+      "hash": "sha256-m7P1npxtMEjLjT8lRmH0zGy92Wy1qVJ5OMDDGq6j2Z0=",
       "url": "assets/packages/teams/inquisitorial-agents/definitions/inquisitorial-agents-rule-inquisitorial-requisition.html"
     },
     {
@@ -2366,7 +2366,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/pathfinders/equipment/pathfinder-orbital-survey-uplink.html"
     },
     {
-      "hash": "sha256-ldrW2B4vy8YPCl3R9YehDbnujBr4I1PimRmJlfcA2xI=",
+      "hash": "sha256-vPwbPkmaorTHxbi7sxYORritG8+UziDb+ZKDGqOzqeY=",
       "url": "assets/packages/teams/pathfinders/equipment/pathfinder-photon-grenade.html"
     },
     {
@@ -3034,7 +3034,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-+dYSo+Xw7TsEtR3dGHYwtqCyAuirhwTHKhKZnAhFGMc=",
+      "hash": "sha256-oRQVFNqyrAc2f+rXa9q8Bu1K4pOhFBaW+JYDemFxhmQ=",
       "url": "index.html"
     },
     {
