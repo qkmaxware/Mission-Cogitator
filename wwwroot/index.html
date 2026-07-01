@@ -129,6 +129,19 @@
             }
             element.addEventListener('keydown', tabKeyHandler, false);
         }
+        window.addDotNetEventListener = (dotNetRef, eventName, methodName) => {
+            const handler = (event) => {
+                // Pass any relevant event properties back to C#
+                dotNetRef.invokeMethodAsync(methodName, event.key || event.type);
+            };
+
+            window.addEventListener(eventName, handler);
+
+            // Return a function or token to easily remove it later
+            return {
+                dispose: () => window.removeEventListener(eventName, handler)
+            };
+        }
     </script>
 </body>
 

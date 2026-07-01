@@ -4,12 +4,17 @@
 @using System.Text.Json
 @using Kt.Data.JsInterop
 
+@implements IAsyncDisposable
+
 @inject RuleDatabase ruledb
 @inject TeamsDatabase teamdb
 @inject UnitDatabase unitdb
+@inject JsLocalStorage localStorage
 @inject Kt.Data.IO.PackageManager packageManager
 @inject IJSRuntime js
 @inject JsPrompt prompts
+@inject JsWindow window
+
 
 @using Kt.Data
 
@@ -554,6 +559,27 @@
     }
     private Tab currentTab;
 
+    private JsEventListener? visibilityChangeListener;
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender) {
+            // Register a pagehide event listener to save the deployment to local storage when the page is hidden or unloaded
+            this.visibilityChangeListener = await window.AddEventListener("visibilitychange", this, nameof(saveLocalDeployment));
+
+            // Load the deployment from local storage if it exists
+            bool didLoad = await loadLocalDeployment();
+            if (didLoad)
+                await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    public async ValueTask DisposeAsync() {
+        if (visibilityChangeListener is not null) {
+            await visibilityChangeListener.DisposeAsync();
+        }
+    }
+
     private void select(Team? team) {
         if (team is null) 
             return;
@@ -602,6 +628,36 @@
             <= 0 => "text-error delete",
             _ => string.Empty
         };
+    }
+
+
+    private static string sessionDeploymentKey = "session.deployment.json";
+    [JSInvokable()]
+    public async Task saveLocalDeployment() {
+        try {
+            SerializedDeployment dep = new SerializedDeployment(this.deployment);
+            await localStorage.StoreItemAsync(sessionDeploymentKey, dep, Kt.Data.IO.Pkg.SerializationOptions);
+        } catch {
+            // Ignore errors when saving deployment to local storage
+        }
+    }
+
+    private async Task<bool> loadLocalDeployment() {
+        try {
+            SerializedDeployment? dep = await localStorage.RetrieveItemAsync<SerializedDeployment>(sessionDeploymentKey, Kt.Data.IO.Pkg.SerializationOptions);
+            if (dep is null)
+                return false;
+
+            var loaded = dep.ToDeployment(this.ruledb, this.teamdb, this.unitdb);
+            if (loaded is null || loaded.Units is null || loaded.Equipment is null)
+                return false;
+
+            this.deployment = loaded;
+            return true;
+        } catch {
+            // Ignore errors when loading deployment from local storage
+            return false;
+        }
     }
 
     private async Task serializeDeployment() {

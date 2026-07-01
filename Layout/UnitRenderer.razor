@@ -71,11 +71,11 @@
     </header>
     <article class="w3-padding w3-large">
         <div class="horizontal-gallery border-primary w3-border-bottom w3-margin-bottom">
-            <button class="w3-button w3-round gallery-item" title="@(Deployment?.Order) & @(Deployment?.Activation == Activation.Activated ? "Activated" : "Awaiting Activation")" @onclick=toggleActivation @oncontextmenu=toggleOrder @oncontextmenu:preventDefault @ondblclick=toggleOrder>
-                <ActivationRenderer Unit=@Deployment HideUponDeath=false Style="width: 100%; height: 100%; object-fit: contain;"></ActivationRenderer>
-            </button>
             <button class="w3-button w3-round gallery-item" title="Add Effect" @onclick=beginAddStatus>
                 <img src="art/marker-add.svg"/>
+            </button>
+            <button class="w3-button w3-round gallery-item" title="@(Deployment?.Order) & @(Deployment?.Activation == Activation.Activated ? "Activated" : "Awaiting Activation")" @onclick=toggleActivation @oncontextmenu=toggleOrder @oncontextmenu:preventDefault @ondblclick=toggleOrder>
+                <ActivationRenderer Unit=@Deployment HideUponDeath=false Style="width: 100%; height: 100%; object-fit: contain;"></ActivationRenderer>
             </button>
             @if (Deployment is not null && Deployment.HealthPercent < 0.5f) {
                 var rule = ruledb.GetValue("injured");
@@ -89,7 +89,7 @@
                 @foreach (var effect in Deployment.Effects) {
                     var myEffect = effect;
                     var effectId = myEffect.Id;
-                    <button class="w3-button w3-round gallery-item" title="@effectId" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(effectId)) @oncontextmenu=@(() => rm(myEffect)) @oncontextmenu:preventDefault @ondblclick=@(() => rm(myEffect))>
+                    <button class="w3-button w3-round gallery-item" id="@effectId" title="@(myEffect.Name ?? effectId)" @onclick=@(async() => await OnWeaponRuleLookup.InvokeAsync(effectId)) @oncontextmenu=@(() => rm(myEffect)) @oncontextmenu:preventDefault @ondblclick=@(() => rm(myEffect))>
                         <img src="@(string.IsNullOrEmpty(effect.ArtPath) ? "art/unknown-full.svg" : effect.ArtPath)"/>
                     </button>
                 }

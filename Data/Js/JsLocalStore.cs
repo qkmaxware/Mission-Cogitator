@@ -1,33 +1,40 @@
+using System.Reflection;
+using System.Text.Json;
 using Microsoft.JSInterop;
 
 namespace Kt.Data.JsInterop;
 
-public class JsLocalStore
+public class JsLocalStorage
 {
-   private readonly IJSRuntime JsRuntime;
-   public JsLocalStore(IJSRuntime jSRuntime)
-   {
-       this.JsRuntime = jSRuntime;
-   }
+    private string _prefix = Assembly.GetExecutingAssembly().GetName().Name + ".";
+    private readonly IJSRuntime JsRuntime;
+    public JsLocalStorage(IJSRuntime jSRuntime)
+    {
+        this.JsRuntime = jSRuntime;
+    }
 
     public async Task ClearAsync()
     {
         await JsRuntime.InvokeVoidAsync("localStorage.clear");
     }
 
-    public async Task StoreItemAsync<TItem>(string key, TItem item)
+    public async Task StoreItemAsync<TItem>(string key, TItem item, JsonSerializerOptions? options = null)
     {
-        await JsRuntime.InvokeVoidAsync("localStorage.setItem", key, item);
+        var datum = JsonSerializer.Serialize(item, options ?? JsonSerializerOptions.Default);
+        await JsRuntime.InvokeVoidAsync("localStorage.setItem", _prefix + key, datum);
     }
 
-    public async Task<TItem?> RetrieveItemAsync<TItem>(string key)
+    public async Task<TItem?> RetrieveItemAsync<TItem>(string key, JsonSerializerOptions? options = null)
     {
-        return await JsRuntime.InvokeAsync<TItem>("localStorage.getItem", key);
+        var str = await JsRuntime.InvokeAsync<string>("localStorage.getItem", _prefix + key);
+        if (str is null)
+            return default;
+        return JsonSerializer.Deserialize<TItem>(str, options ?? JsonSerializerOptions.Default);
     }
 
     public async Task RemoveItemAsync<TItem>(string key)
     {
-        await JsRuntime.InvokeVoidAsync("localStorage.removeItem", key);
+        await JsRuntime.InvokeVoidAsync("localStorage.removeItem", _prefix + key);
     }
 
 }

@@ -13,6 +13,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<JsConsole>(); // For logging to the browser console
 builder.Services.AddScoped<JsPrompt>(); // For prompting
+builder.Services.AddScoped<JsLocalStorage>(); // For local storage operations
+builder.Services.AddScoped<JsWindow>(); // For window operations
 builder.Services.AddScoped(sp => new RuleDatabase());
 builder.Services.AddScoped(sp => new UnitDatabase());
 builder.Services.AddScoped(sp => new TeamsDatabase());

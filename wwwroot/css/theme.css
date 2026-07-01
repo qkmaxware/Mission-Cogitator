@@ -31,6 +31,8 @@
 
         --theme-dark-background: rgb(44, 44, 44);
         --theme-dark-foreground: white;
+
+        --theme-error-background: #cc0000;
     }
 
     /* For all black icons, invert them to a light colour */
