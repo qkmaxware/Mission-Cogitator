@@ -134,15 +134,25 @@ public class Pkg
         pkg.Updated = index.Updated;
 
         // Convert the paths in the package index into actual resources by parsing them one at a time
-        pkg.Definitions = await ParseResourcesFromRelativeUrl<Rule>   (pkg, client, url, index.Definitions ?? EMPTY);
-        pkg.Actions = await ParseResourcesFromRelativeUrl<Action> (pkg, client, url, index.Actions ?? EMPTY);
-        pkg.Effects = await ParseResourcesFromRelativeUrl<Effect> (pkg, client, url, index.Effects ?? EMPTY);
-        pkg.Equipment = await ParseResourcesFromRelativeUrl<Equipment> (pkg, client, url, index.Equipment ?? EMPTY);
-        pkg.Ploys = await ParseResourcesFromRelativeUrl<Ploy> (pkg, client, url, index.Ploys ?? EMPTY);
-        pkg.Units   = await ParseResourcesFromRelativeUrl<Unit>   (pkg, client, url, index.Units ?? EMPTY);
-        pkg.Teams   = await ParseResourcesFromRelativeUrl<Team>   (pkg, client, url, index.Teams ?? EMPTY);
+        var definitionTask = ParseResourcesFromRelativeUrl<Rule>   (pkg, client, url, index.Definitions ?? EMPTY);
+        var actionTask     = ParseResourcesFromRelativeUrl<Action> (pkg, client, url, index.Actions ?? EMPTY);
+        var effectTask     = ParseResourcesFromRelativeUrl<Effect> (pkg, client, url, index.Effects ?? EMPTY);
+        var equipmentTask  = ParseResourcesFromRelativeUrl<Equipment>(pkg, client, url, index.Equipment ?? EMPTY);
+        var ployTask       = ParseResourcesFromRelativeUrl<Ploy>   (pkg, client, url, index.Ploys ?? EMPTY);
+        var unitTask       = ParseResourcesFromRelativeUrl<Unit>   (pkg, client, url, index.Units ?? EMPTY);           
+        var teamTask       = ParseResourcesFromRelativeUrl<Team>   (pkg, client, url, index.Teams ?? EMPTY);
 
-        pkg.Aliases = index.Aliases;
+        await Task.WhenAll(definitionTask, actionTask, effectTask, equipmentTask, ployTask, unitTask, teamTask);
+
+        pkg.Definitions = await definitionTask;
+        pkg.Actions     = await actionTask;
+        pkg.Effects     = await effectTask;
+        pkg.Equipment   = await equipmentTask;
+        pkg.Ploys       = await ployTask;
+        pkg.Units       = await unitTask;
+        pkg.Teams       = await teamTask;
+
+        pkg.Aliases     = index.Aliases;
 
         // Resolve ID references to objects for the TEAMs 
         ResolveTeamIds(pkg);
