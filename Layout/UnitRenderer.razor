@@ -1,6 +1,8 @@
 @using Kt.Data
+@using Kt.Data.JsInterop
 
 @inject RuleDatabase ruledb
+@inject JsPrompt prompt
 @inject IJSRuntime js
 
 <Modal @ref=diceModal Title="Attack Roll" Options=@Modal.Buttons.Okay>
@@ -28,7 +30,11 @@
 <div>
     <header class="w3-row">
         <h1 class="unit-name w3-half">
-            <span class="border-primary" id="@Unit.Id">@Unit.Name</span>
+            <span class="border-primary clickable" id="@Unit.Id" @onclick=@(async () => {
+                Deployment?.Nickname = await prompt.PromptAsync("Enter a nickname for this unit", Unit.Name);    
+            })>
+                @(Deployment?.Nickname ?? Unit.Name)
+            </span>
             @if (!string.IsNullOrEmpty(Unit.ArtPath)) {
                 <img src="@Unit.ArtPath"/>
             }

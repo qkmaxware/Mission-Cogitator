@@ -47,6 +47,16 @@ public class DeployedUnit
     /// </summary>
     public Unit Unit {get; set;}
 
+    private string? _nickname;
+    /// <summary>
+    /// The unit's nickname or real name if no nickname is set
+    /// </summary>
+    public string? Nickname
+    {
+        get => _nickname ?? Unit.Name;
+        set => _nickname = string.IsNullOrEmpty(value) ? null : value;
+    }
+
     /// <summary>
     /// Number of wounds currently hit with
     /// </summary>
