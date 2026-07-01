@@ -195,42 +195,6 @@ public class Pkg
         return results
             .Where(x => x is not null)
             .ToDictionary(x => x?.Id!, x => x!);
-        /*
-        Dictionary<string, T> lst = new Dictionary<string, T>(relatives.Count);
-
-        for (var i = 0; i < relatives.Count; i++)
-        {
-            try {
-                // Clean the relative path
-                var relativeUri = relatives[i];
-                if (!relativeUri.StartsWith("/"))
-                    relativeUri = "/" + relativeUri;
-                if (!relativeUri.EndsWith(".html"))
-                    relativeUri = Path.ChangeExtension(relativeUri, ".html");
-
-                // Form final URL
-                var uri = url + relativeUri;
-
-                // Get resource
-                var resp = await client.GetAsync(uri);
-                var content = await resp.Content.ReadAsStringAsync();
-                var doc = new FmHtmlDocument(content);
-                var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
-                if (data is null)
-                    continue;
-
-                // Assign the id and description 
-                data.SourcePackage = currentPkg;
-                data.Id = Path.GetFileNameWithoutExtension(relatives[i]);
-                data.Description = doc.Html.ToString();
-                lst[data.Id] = data;
-            } catch (Exception ex)
-            {
-                throw new FormatException($"Could not load package resource at {url}/{relatives[i]}", ex);
-            }
-        }
-
-        return lst;*/
     }
 
     /// <summary>
