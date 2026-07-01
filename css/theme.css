@@ -142,7 +142,15 @@ section.no-subsection section {
 }
 
 table {
+    table-layout: auto;
     width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+
+table td {
+    vertical-align: middle;
 }
 
 img.icon {
@@ -151,6 +159,14 @@ img.icon {
     margin-top: -0.25em;
     margin-right: 0.25em;
 }
+
+img.icon.icon-large {
+    height: 2em;
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+    margin-right: 0.25em;
+}
+
 
 .comma-separated *:not(:last-child)::after {
     content: ", ";

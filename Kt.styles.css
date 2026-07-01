@@ -500,6 +500,7 @@ footer[b-tyfdc6oqe8] {
 
 .clickable[b-tyfdc6oqe8] {
     cursor: pointer;
+    user-select: none;
 }
 
 .attributes[b-tyfdc6oqe8] {
@@ -512,10 +513,17 @@ footer[b-tyfdc6oqe8] {
     padding-left: 1em;
     border-bottom-width: 6px;
     border-bottom-style: solid;
+    line-height: 1em;
     position: relative;
     z-index: 1;            /* keep text above image if they overlap */
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+.unit-name span small[b-tyfdc6oqe8] {
+    font-size: 0.4em;
+    display: block;
+    margin-top: -0.25em;
 }
 
 @media (max-width: 600px) {
