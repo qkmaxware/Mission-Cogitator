@@ -1,0 +1,73 @@
+---
+{
+  "name": "Kroot Stalker",
+  "art-path": null,
+  "flavour-text": "Even among Kroot, these warriors are particularly able  infiltrators and hunters. They possess an almost preternatural  understanding of terrain and the art of concealment, able to  get extremely close to an enemy before moving in for the kill. ",
+  "tags": [
+    "T\u0027au Empire",
+    "Kroot",
+    "Stalker"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Kroot scattergun",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 3
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 6,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Stalker blade",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "balanced",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "rending",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "farstalker-kinband-action-stealth-attack"
+  ]
+}
+---
+<p>
+    <b>Stalker: </b> This operative can 
+perform the <see cref="charge">Charge</see> action 
+while it has a <see cref="conceal">Conceal Order</see>.
+</p>

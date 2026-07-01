@@ -1,0 +1,58 @@
+---
+{
+  "name": "Kroot Hount",
+  "art-path": null,
+  "flavour-text": "Fast, nimble, ferocious and incredibly loyal to their Kroot  masters, Kroot Hounds are natural companions to the  Farstalker Kinbands. These beasts can steal into narrow  passageways, recover objects and rip foes apart with their  beaked jaws. ",
+  "tags": [
+    "T\u0027au Empire",
+    "Kroot",
+    "Hound"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 8,
+    "save": 5,
+    "wounds": 7
+  },
+  "weapons": [
+    {
+      "name": "Ripping fangs",
+      "kind": "melee",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "rending",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "farstalker-kinband-action-gather"
+  ]
+}
+---
+<p>
+    <b>Beast: </b> This operative cannot perform any actions other than <see cref="charge">Charge</see>, <see cref="dash">Dash</see>, 
+<see cref="fall-back">Fall Back</see>, <see cref="fight">Fight</see>, <see cref="farstalker-kinband-action-gather">Gather</see>, Guard, <see cref="reposition">Reposition</see>, <see cref="pick-up-marker">Pick Up Marker</see> and 
+Place Marker. It cannot use any weapons that aren’t on its datacard.
+</p>
+
+<p>
+    <b>Bad-tempered: </b> Whenever an enemy operative performs the <see cref="fight">Fight</see> action, if 
+this operative is a valid operative to <see cref="fight">Fight</see> against, you can force them to select 
+this operative to <see cref="fight">Fight</see> against instead. Whenever an enemy operative ends 
+the <see cref="charge">Charge</see> action within <see cref="control-range">Control Range</see> of another friendly <b>FARSTALKER 
+KINBAND</b> operative within 3" of this operative, if this operative isn’t within 
+<see cref="control-range">Control Range</see> of enemy operatives, this operative can immediately perform 
+a free <see cref="charge">Charge</see> action, but must end that move within <see cref="control-range">Control Range</see> of that 
+enemy operative.
+</p>

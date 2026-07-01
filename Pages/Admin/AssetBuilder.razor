@@ -87,32 +87,32 @@
         <section>
             <header>Content</header>
             <div class="w3-margin-top w3-bar-block">
-                @foreach (var item in pkg.Provides()) {
+                @{
+                Type? lastType = null; 
+                foreach (var item in pkg.Provides()) {
                     var self = item;
+                    var type = item.GetType();
+                    if (!ReferenceEquals(lastType, type)) {
+                        lastType = type;
+                        <div class="border-primary" style="border-bottom-width: 1px; border-bottom-style: solid;">
+                            <span>@if(type == typeof(Equipment)){ <text>@type.Name</text>}else{<text>@(type.Name)s</text>}</span>
+                        </div>
+                    }
                     <div class="w3-row">
                         <div class="w3-col" style="width: 2.5em;">
                             <button class="w3-button w3-bar-item" @onclick=@(async () => { if (await prompt.ConfirmAsync("Are you sure you wish to delete this resource? Some links may break if deleted.")){ Delete(self); } })>x</button>
                         </div>
                         <div class="w3-rest">
-                            <button class="w3-button w3-bar-item @(IsSelected(self) ? "app-primary" : string.Empty)" @onclick=@(() => selectedObject = self)>@self.Name <small><i>@self.GetType().Name</i></small></button>
+                            <button class="w3-button w3-bar-item @(IsSelected(self) ? "app-primary" : string.Empty)" @onclick=@(() => selectedObject = self)>@self.Name</button>
                         </div>
                     </div>
                 }
-                <hr />
-                <div class="w3-row">
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Rule>() ?? selectedObject)>+ Definition</button>
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Action>() ?? selectedObject)>+ Action</button>
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Effect>() ?? selectedObject)>+ Effect</button>
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Ploy>() ?? selectedObject)>+ Ploy</button>
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Equipment>() ?? selectedObject)>+ Equipment</button>
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Unit>() ?? selectedObject)>+ Unit</button>
-                    <button class="w3-button w3-half" style="text-align: left;" @onclick=@(async () => selectedObject = await Add<Kt.Data.Team>() ?? selectedObject)>+ Team</button>
-                </div>
+                }
             </div>
         </section>
     </div>
     <div class="w3-rest">
-        <section>
+        <section style="margin-bottom: 8em;">
             <header>Selected Item: @(selectedObject?.Name ?? "NULL")</header>
             <div class="w3-margin-top">
                 @if (selectedObject is not null) {
@@ -292,6 +292,7 @@
                         team.Ploys = team.Ploys ?? new List<Ploy>();
                         team.Equipment = team.Equipment ?? new List<Equipment>();
                         team.Units = team.Units ?? new List<Unit>();
+                        team.ExternalUnitIds = team.ExternalUnitIds ?? new List<string>();
 
                         <label for="faction">Faction:</label>
                         <select id="faction" class="w3-select" @bind=team.Faction>
@@ -325,7 +326,7 @@
                         </ol>
                         <details>
                             <summary>Add Faction Rule to Team</summary>
-                            <button class="w3-button" @onclick=@(async () => { Rule? u = await Add<Rule>(); if (u is not null){ addFactionRuleToTeam(team, u); selectedObject = u; }})>Create New Faction Rule</button>
+                            <button class="w3-button app-primary" @onclick=@(async () => { Rule? u = await Add<Rule>(); if (u is not null){ addFactionRuleToTeam(team, u); selectedObject = u; }})>Create New Faction Rule</button>
                         @foreach (var factOption in DefinitionsAndActions) {
                             var self = factOption;
                             if (team.FactionRules is null || !team.FactionRules.Contains(factOption)) {
@@ -350,7 +351,7 @@
                         </ol>
                         <details>
                             <summary>Add Ploy to Team</summary>
-                            <button class="w3-button" @onclick=@(async () => { Ploy? u = await Add<Ploy>(); if (u is not null){ addPloyToTeam(team, u); selectedObject = u; }})>Create New Ploy</button>
+                            <button class="w3-button app-primary" @onclick=@(async () => { Ploy? u = await Add<Ploy>(); if (u is not null){ addPloyToTeam(team, u); selectedObject = u; }})>Create New Ploy</button>
                         @foreach (var ployOption in (pkg.Ploys?.Values ?? Enumerable.Empty<Ploy>())) {
                             var self = ployOption;
                             if (team.Ploys is null || !team.Ploys.Contains(ployOption)) {
@@ -375,7 +376,7 @@
                         </ol>
                         <details>
                             <summary>Add Equipment to Team</summary>
-                            <button class="w3-button" @onclick=@(async () => { Equipment? u = await Add<Equipment>(); if (u is not null){ addEquipToTeam(team, u); selectedObject = u; }})>Create New Equipment</button>
+                            <button class="w3-button app-primary" @onclick=@(async () => { Equipment? u = await Add<Equipment>(); if (u is not null){ addEquipToTeam(team, u); selectedObject = u; }})>Create New Equipment</button>
                         @foreach (var eqOption in (pkg.Equipment?.Values ?? Enumerable.Empty<Equipment>())) {
                             var self = eqOption;
                             if (team.Equipment is null || !team.Equipment.Contains(eqOption)) {
@@ -400,13 +401,21 @@
                         </ol>
                         <details>
                             <summary>Add Unit to Team</summary>
-                            <button class="w3-button" @onclick=@(async () => { Unit? u = await Add<Unit>(); if (u is not null){ addUnitToTeam(team, u); selectedObject = u; }})>Create New Unit</button>
+                            <button class="w3-button app-primary" @onclick=@(async () => { Unit? u = await Add<Unit>(); if (u is not null){ addUnitToTeam(team, u); selectedObject = u; }})>Create New Unit</button>
                         @foreach (var unitOption in (pkg.Units?.Values ?? Enumerable.Empty<Unit>())) {
                             var self = unitOption;
                             if (team.Units is null || !team.Units.Contains(unitOption)) {
                                 <button class="w3-button" @onclick=@(() => addUnitToTeam(team, self))>+ @unitOption.Name</button>
                             }
                         }
+                        </details>
+                        <details>
+                            <summary>Package External Units</summary>
+                            <ListEditor Items=@team.ExternalUnitIds OnAdd=@(() => team.ExternalUnitIds.Add(string.Empty)) OnSubtract="@(() => { if (team.ExternalUnitIds.Count > 0) { team.ExternalUnitIds.RemoveAt(team.ExternalUnitIds.Count - 1); }})" OnDelete="@((index) => team.ExternalUnitIds?.RemoveAt(index.GetOffset(team.ExternalUnitIds?.Count ?? 0)))">
+                                <Template>
+                                    <input type="text" class="w3-input" @bind=team.ExternalUnitIds[context.Index]>
+                                </Template>
+                            </ListEditor>
                         </details>
                     }
                 }
@@ -462,6 +471,16 @@
             </div>
         </section>
     </div>
+</div>
+
+<div class="w3-row w3-center border-primary" style="position: fixed; left: 0; right: 0; bottom: 0; border-width: 1px; border-style: solid; background-color: var(--theme-panel-background); color: var(--theme-panel-foreground);">
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Rule>() ?? selectedObject)>+ Definition</button>
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Action>() ?? selectedObject)>+ Action</button>
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Effect>() ?? selectedObject)>+ Effect</button>
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Ploy>() ?? selectedObject)>+ Ploy</button>
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Equipment>() ?? selectedObject)>+ Equipment</button>
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Unit>() ?? selectedObject)>+ Unit</button>
+    <button class="w3-button" @onclick=@(async () => selectedObject = await Add<Kt.Data.Team>() ?? selectedObject)>+ Team</button>
 </div>
 
     @code {

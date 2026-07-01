@@ -53,6 +53,7 @@ string[] packages = [
     "assets/packages/teams/exaction-squad",
     "assets/packages/teams/inquisitorial-agents/requisitions",
     "assets/packages/teams/inquisitorial-agents",
+    "assets/packages/teams/farstalker-kinband",
 ];
 var lastPackage = packages.Length - 1;
 var packageManager = app.Services.GetService<PackageManager>()!;
