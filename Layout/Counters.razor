@@ -9,7 +9,7 @@
                 <img class="icon" src="art/chevron-right.svg"/>
             </button>
             <div class="w3-rest">
-                <input type="number" class="w3-input" @bind=TurningPoint/>
+                <input type="number" class="w3-input" value="@TurningPoint" @onchange="@(e => setTp(e.Value))"/>
             </div>
         </div>
     </div>
@@ -31,6 +31,8 @@
 
 @code {
 
+    [Parameter] public EventCallback<int> OnTurningPointChanged { get; set; }
+
     private int tp = 1;
     private int cp = 2;
     private int vp = 0;
@@ -38,7 +40,9 @@
 
     public int TurningPoint {
         get => tp;
-        set => tp = Math.Max(1, value);
+        set {
+            tp = Math.Max(1, value);
+        }
     }
     public int CommandPoints {
         get => cp;
@@ -61,10 +65,29 @@
         await InvokeAsync(StateHasChanged);
     }
 
-    private void incTP() {
-        TurningPoint = TurningPoint + 1;
+    private async Task setTp(object? value) {
+        var old = TurningPoint;
+        TurningPoint = value is int i ? i : int.Parse(value?.ToString() ?? "1");
+
+        if (old != TurningPoint) {
+            await OnTurningPointChanged.InvokeAsync(TurningPoint);
+        }
     }
-    private void decTp() {
+
+    private async Task incTP() {
+        var old = TurningPoint;
+        TurningPoint = TurningPoint + 1;
+
+        if (old != TurningPoint) {
+            await OnTurningPointChanged.InvokeAsync(TurningPoint);
+        }
+    }
+    private async Task decTp() {
+        var old = TurningPoint;
         TurningPoint = TurningPoint - 1;
+
+        if (old != TurningPoint) {
+            await OnTurningPointChanged.InvokeAsync(TurningPoint);
+        }
     }
 }

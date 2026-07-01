@@ -75,6 +75,17 @@ html {
     background-color:var(--theme-error-background)!important;
 }
 
+.text-error {
+    color:var(--theme-error-background)!important;
+}
+
+.border-error {
+    border-top-color:var(--theme-error-background)!important;
+    border-left-color:var(--theme-error-background)!important;
+    border-right-color:var(--theme-error-background)!important;
+    border-bottom-color:var(--theme-error-background)!important;
+}
+
 .border-primary {
     border-top-color:var(--theme-primary-background)!important;
     border-left-color:var(--theme-primary-background)!important;
@@ -85,6 +96,10 @@ html {
 .bordered {
     border-width: 1px!important;
     border-style: solid!important;
+}
+
+.delete {
+    text-decoration: line-through;
 }
 
 blockquote {

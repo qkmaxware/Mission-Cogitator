@@ -355,7 +355,10 @@
         </Accordion>
         <Accordion Title="Operatives" InitiallyExpand=true>
         @foreach (var unit in deployment.Units) {
-            <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))><HealthIndicator Deployment=@unit></HealthIndicator> @unit.Unit?.Name</button>
+            <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))>
+                <ActivationRenderer Unit=@unit HideUponDeath=true Class="icon"></ActivationRenderer>
+                <span class="@(getDeployedUnitCssClass(unit))">@unit.Nickname</span>
+                </button>
         }
         </Accordion>
         <hr />
@@ -511,7 +514,7 @@
         <button class="w3-button app-primary w3-xlarge" style="padding: 8px;" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/home.svg" style="height: 1em;"/></button>
     </div>
 </Header>
-<Counters @ref=counters></Counters>
+<Counters @ref=counters OnTurningPointChanged=turningPointChanged></Counters>
 
 <article>
     @switch (currentTab) {
@@ -567,6 +570,30 @@
         this.selectedDeployment = new DeployedUnit(team, unit);
         this.navigator?.CloseNavMenu();
         this.currentTab = Tab.UnitTab;
+    }
+
+    private void turningPointChanged(int tp) {
+        if (this.deployment is null)
+            return;
+        if (this.deployment.Units is null)
+            return;
+
+        foreach (var deployed in this.deployment.Units) {
+            deployed.Activation = Activation.Inactive; // Reset activation state for all units when turning point changes;
+        }
+    }
+
+    private string getDeployedUnitCssClass(DeployedUnit? unit) {
+        if (unit is null)
+            return string.Empty;
+            
+        return unit.HealthPercent switch {
+            >= 1 => string.Empty,
+            >= 0.5f and < 1 => "text-primary",
+            > 0 and < 0.5f => "text-error",
+            <= 0 => "delete",
+            _ => string.Empty
+        };
     }
 
     private async Task serializeDeployment() {

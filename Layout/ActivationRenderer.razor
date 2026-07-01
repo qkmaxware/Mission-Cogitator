@@ -1,0 +1,37 @@
+@using Kt.Data
+
+@if (Unit is not null) {
+    switch (Unit.Activation) {
+        case Activation.Inactive:
+            switch (Unit.Order) {
+                case DeployedUnitOrder.Concealed:
+                    <img class="@Class" style="@(aliveStyle) @(Style)" src="art/marker-concealed-available.svg"/>
+                    break;
+                case DeployedUnitOrder.Engaged:
+                    <img class="@Class" style="@(aliveStyle) @(Style)" src="art/marker-engaged-available.svg"/>
+                    break;
+            }
+            break;
+        case Activation.Activated:
+            switch (Unit.Order) {
+                case DeployedUnitOrder.Concealed:
+                    <img class="@Class" style="@(aliveStyle) @(Style)" src="art/marker-concealed-activated.svg"/>
+                    break;
+                case DeployedUnitOrder.Engaged:
+                    <img class="@Class" style="@(aliveStyle) @(Style)" src="art/marker-engaged-activated.svg"/>
+                    break;
+            }
+            break;
+    }
+}
+
+@code {
+    [Parameter] public DeployedUnit? Unit {get; set;}
+
+    [Parameter] public string? Class {get; set;}
+
+    [Parameter] public string? Style {get; set;}
+
+    [Parameter] public bool HideUponDeath {get; set;}
+    private string aliveStyle => HideUponDeath ? (Unit?.IsAlive == true ? string.Empty : "visibility: hidden;") : string.Empty;
+}
