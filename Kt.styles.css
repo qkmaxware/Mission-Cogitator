@@ -44,6 +44,17 @@
     border-bottom-width: 0px;
     margin-bottom: 6px;
 }
+/* /Layout/ActivationRenderer.razor.rz.scp.css */
+img[b-0lqpcc2x86] {
+    mask-image: url("art/marker.svg");
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("art/marker.svg");
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
 /* /Layout/Counters.razor.rz.scp.css */
 input[b-mzmrqjyjxb] {
     background-color: #0000000a;

@@ -8,7 +8,7 @@
     <title>Mission-Cogitator</title>
     <base href="/Mission-Cogitator/" />
     <link rel="manifest" href="manifest.json">
-    <link href="_framework/dotnet.9af0naxste.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-YTztVQsLsFBQJivYRMzY7KEXX/1D+LP2nFI9DEGTIuQ=" />
+    <link href="_framework/dotnet.wzgu312xpq.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-jJhinuLIltU5xDTYLq6dPLgjLb1ifEXJre7SI1e3xQE=" />
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/blazor.css" />
@@ -21,20 +21,20 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.958z1vx7fr.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.9af0naxste.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.ikrs475e5v.js",
-    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.a6jcqbs390.js"
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.a6jcqbs390.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.wzgu312xpq.js"
   },
   "scopes": {},
   "integrity": {
     "./_framework/blazor.webassembly.958z1vx7fr.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
     "./_framework/blazor.webassembly.js": "sha256-A59Tr9HqEhHMu8kU7kruLI9ayw5MRS6Lvc6z7jCbghk=",
-    "./_framework/dotnet.9af0naxste.js": "sha256-YTztVQsLsFBQJivYRMzY7KEXX/1D+LP2nFI9DEGTIuQ=",
-    "./_framework/dotnet.js": "sha256-YTztVQsLsFBQJivYRMzY7KEXX/1D+LP2nFI9DEGTIuQ=",
+    "./_framework/dotnet.js": "sha256-jJhinuLIltU5xDTYLq6dPLgjLb1ifEXJre7SI1e3xQE=",
     "./_framework/dotnet.native.ikrs475e5v.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.native.js": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
     "./_framework/dotnet.runtime.a6jcqbs390.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
-    "./_framework/dotnet.runtime.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M="
+    "./_framework/dotnet.runtime.js": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
+    "./_framework/dotnet.wzgu312xpq.js": "sha256-jJhinuLIltU5xDTYLq6dPLgjLb1ifEXJre7SI1e3xQE="
   }
 }</script>
 </head>
@@ -146,6 +146,19 @@
                 }
             }
             element.addEventListener('keydown', tabKeyHandler, false);
+        }
+        window.addDotNetEventListener = (dotNetRef, eventName, methodName) => {
+            const handler = (event) => {
+                // Pass any relevant event properties back to C#
+                dotNetRef.invokeMethodAsync(methodName, event.key || event.type);
+            };
+
+            window.addEventListener(eventName, handler);
+
+            // Return a function or token to easily remove it later
+            return {
+                dispose: () => window.removeEventListener(eventName, handler)
+            };
         }
     </script>
 </body>
