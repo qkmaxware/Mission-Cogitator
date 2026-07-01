@@ -1,0 +1,99 @@
+---
+{
+  "name": "Kroot Pistolier",
+  "art-path": null,
+  "flavour-text": "Cool under pressure and comfortable fighting close to the  enemy, Kroot Pistoliers are dexterous and quick-thinking  fighters. Once in optimum range, they unleash a fusillade from  their pistols that is almost impossible to escape. ",
+  "tags": [
+    "T\u0027au Empire",
+    "Kroot",
+    "Pistolier"
+  ],
+  "attributes": {
+    "apl": 2,
+    "move": 6,
+    "save": 5,
+    "wounds": 8
+  },
+  "weapons": [
+    {
+      "name": "Dual Kroot pistols (focused)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "ceaseless",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "lethal",
+          "suffix": null,
+          "x": 5,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Dual Kroot pistols (salvo)",
+      "kind": "ranged",
+      "atk": 4,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": [
+        {
+          "prefix": null,
+          "id": "range",
+          "suffix": null,
+          "x": 8,
+          "note": null
+        },
+        {
+          "prefix": null,
+          "id": "farstalker-kinband-rule-salvo",
+          "suffix": null,
+          "x": 0,
+          "note": null
+        }
+      ]
+    },
+    {
+      "name": "Blade",
+      "kind": "melee",
+      "atk": 3,
+      "hit": 3,
+      "damage": {
+        "normal": 3,
+        "critical": 4
+      },
+      "rules": []
+    }
+  ],
+  "rules": []
+}
+---
+<p>
+    <b>Quick Draw: </b> Once per turning point, when an enemy operative is performing the <see cref="shoot">Shoot</see> 
+action and this operative is selected as the <see cref="valid-target">Valid Target</see> (or if it will be a secondary target 
+from the <see cref="blast">Blast</see> weapon rule), if this operative is ready, you can interrupt that action to 
+use this rule. If you do, this operative can immediately perform a free <see cref="shoot">Shoot</see> action with 
+its dual Kroot pistols (focused) against that enemy operative (you can change its order 
+to <see cref="engage">Engage Order</see> to do so), but that enemy operative must be a <see cref="valid-target">Valid Target</see>.
+</p>

@@ -1,0 +1,52 @@
+{
+  "name": "Farstalker Kinband",
+  "author": "",
+  "updated": "17/06/2026",
+  "definitions": [
+    "definitions/farstalker-kinband-rule-farstalker",
+    "definitions/farstalker-kinband-rule-concealed-position",
+    "definitions/farstalker-kinband-rule-salvo"
+  ],
+  "actions": [
+    "actions/farstalker-kinband-action-energise",
+    "actions/farstalker-kinband-action-gather",
+    "actions/farstalker-kinband-action-long-sight",
+    "actions/farstalker-kinband-action-stealth-attack",
+    "actions/farstalker-kinband-action-marked-for-the-hunt",
+    "actions/farstalker-kinband-action-from-the-eye-above"
+  ],
+  "effects": [],
+  "equipment": [
+    "equipment/farstalker-kinband-equipment-piercing-shot",
+    "equipment/farstalker-kinband-equipment-toxin-shot",
+    "equipment/farstalker-kinband-equipment-meat",
+    "equipment/farstalker-kinband-equipment-trophy"
+  ],
+  "ploys": [
+    "ploys/farstalker-kinband-ploy-cut-throats",
+    "ploys/farstalker-kinband-ploy-rogue",
+    "ploys/farstalker-kinband-ploy-prey",
+    "ploys/farstalker-kinband-ploy-bound",
+    "ploys/farstalker-kinband-ploy-savage-ambush",
+    "ploys/farstalker-kinband-ploy-slip-away",
+    "ploys/farstalker-kinband-ploy-poach",
+    "ploys/farstalker-kinband-ploy-vengeance-for-the-kinband"
+  ],
+  "units": [
+    "units/farstalker-kinband-unit-kroot-kill-broker",
+    "units/farstalker-kinband-unit-kroot-bow-hunter",
+    "units/farstalker-kinband-unit-kroot-cold-blood",
+    "units/farstalker-kinband-unit-kroot-cut-skin",
+    "units/farstalker-kinband-unit-kroot-heavy-gunner",
+    "units/farstalker-kinband-unit-kroot-hount",
+    "units/farstalker-kinband-unit-kroot-long-sight",
+    "units/farstalker-kinband-unit-kroot-pistolier",
+    "units/farstalker-kinband-unit-kroot-stalker",
+    "units/farstalker-kinband-unit-kroot-tracker",
+    "units/farstalker-kinband-unit-kroot-warrior"
+  ],
+  "teams": [
+    "teams/farstalker-kinband-team-farstalker-kinband"
+  ],
+  "aliases": null
+}

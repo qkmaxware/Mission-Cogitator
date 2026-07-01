@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "BY/c6KdA",
+  "version": "qAPvRihC",
   "assets": [
     {
       "hash": "sha256-VLzs2d2/A7fQIaPaweiVKWu7yocM0Zifdz2Y8N5u0VU=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-QlWPhDiX4aN4+1E9R2RGfqyScsfkViHPSCK2fIuyPT0=",
-      "url": "_framework/Kt.aeonaot8gm.wasm"
+      "hash": "sha256-ia7rcZWNtReLZaz7sjjD7uOIAl/LoU7N7G8o+Xq3ULc=",
+      "url": "_framework/Kt.z5yaq3cihb.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,8 +214,8 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-pevynfDvMHs/FHWY8XxYeqsT/TEcTjIKm95NCrWJzIA=",
-      "url": "_framework/dotnet.9jr55bymwg.js"
+      "hash": "sha256-uhcobt89rRMv6SIWqjXcXaL2Gi8793+KrXVy3mibU6A=",
+      "url": "_framework/dotnet.iym2zpzw44.js"
     },
     {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
@@ -1260,6 +1260,146 @@ self.assetsManifest = {
     {
       "hash": "sha256-BHRU9gaDDkVSopv9gdVkS2H/Zz3V9vpX1PFxTDHgJGA=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-r-vr-cyber-mastiff.html"
+    },
+    {
+      "hash": "sha256-ud+HsYrV1oahsPvAS8JMqBvq37Z1+3LbYTS0tdRJ/io=",
+      "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-energise.html"
+    },
+    {
+      "hash": "sha256-C9/hZ8jkSblbcmWBuUvRBwvhR4D3WEf7d5FKHBP6KyU=",
+      "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-from-the-eye-above.html"
+    },
+    {
+      "hash": "sha256-7jEqqbcFJ6bFiBm59H0WuuWSdLARClmrycBO4RQle7I=",
+      "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-gather.html"
+    },
+    {
+      "hash": "sha256-oThW0QNb7SZUkOGOCCwJYjhtvLM7p+uYdEIQs5i2jkM=",
+      "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-long-sight.html"
+    },
+    {
+      "hash": "sha256-3C7O3oKqf20D4wmtVks3SlVjgzG6Jc4jL4B0Lriz+3Y=",
+      "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-marked-for-the-hunt.html"
+    },
+    {
+      "hash": "sha256-8LafALY0XgWJxD2KPNVdfceKVdzCP25AcN86M45Q9Sg=",
+      "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-stealth-attack.html"
+    },
+    {
+      "hash": "sha256-mUHDGFCIKPYNaydDXf6H7fvOvUxl0w81ACZkxR5n7/A=",
+      "url": "assets/packages/teams/farstalker-kinband/definitions/farstalker-kinband-rule-concealed-position.html"
+    },
+    {
+      "hash": "sha256-5JjwrutihIYq3YqpVzWSvC8Ihn3+DjwpLReawnbVjeo=",
+      "url": "assets/packages/teams/farstalker-kinband/definitions/farstalker-kinband-rule-farstalker.html"
+    },
+    {
+      "hash": "sha256-MEIgEcJ/lAbKGPt9u/7pvlPr4HGVT/VrTkli7QjYY+Q=",
+      "url": "assets/packages/teams/farstalker-kinband/definitions/farstalker-kinband-rule-salvo.html"
+    },
+    {
+      "hash": "sha256-lRevCT2aNxr3HpLYJkzZn3AbFXUHLyBJKJ02BjpF4MI=",
+      "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-meat.html"
+    },
+    {
+      "hash": "sha256-qGVVrxRBTgWlFfKheMnuhTHljFSAzG3ydyW8VAnRaU8=",
+      "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-piercing-shot.html"
+    },
+    {
+      "hash": "sha256-46cg7WqobIFnwmuSGpDTJK0IthPwZo0y/By8tGuo6qE=",
+      "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-toxin-shot.html"
+    },
+    {
+      "hash": "sha256-JJYVzHEtdKeIlmnBUzjtfOIoBnDT4iY+OVYUlON5pGE=",
+      "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-trophy.html"
+    },
+    {
+      "hash": "sha256-8iXHbNxJBR+0NTVrEZC1KR5hMkBiVzthDYImgX5B3RI=",
+      "url": "assets/packages/teams/farstalker-kinband/index.json"
+    },
+    {
+      "hash": "sha256-2uCrGu3WgJVg+EDXbEbbEroYsBuO6KVQP02aPqSwMBI=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-bound.html"
+    },
+    {
+      "hash": "sha256-QNqKeL3OJrSjwMaVeTBUn6zA86QMV9gwnmiHNGF9e30=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-cut-throats.html"
+    },
+    {
+      "hash": "sha256-Uj3CIaJTIAyVB8TilNDwuvSPchLoyDJH8IMIJ66wLIU=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-poach.html"
+    },
+    {
+      "hash": "sha256-ptrnE83smLKegMcLg9EzVQ4s6yRybLQ3l0Ej9/OggiA=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-prey.html"
+    },
+    {
+      "hash": "sha256-IAcQQLVFtAdoEex4hkDHbbdiTOdZkqy2nIvhawHLSJw=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-rogue.html"
+    },
+    {
+      "hash": "sha256-3pDjxqoyRE8vBV/wIn8CVE98L3C71L63oFJbWNTEBvI=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-savage-ambush.html"
+    },
+    {
+      "hash": "sha256-+8AgHQLrZ+P0yKtgdy3HGF8KcnYWpAwIoTOebQB/mhw=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-slip-away.html"
+    },
+    {
+      "hash": "sha256-CzJZdyWxodTfGHQ6aOa0cKqMp0kRzUwZFY7fpOhwr2M=",
+      "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-vengeance-for-the-kinband.html"
+    },
+    {
+      "hash": "sha256-VidqUp0smzqurkevxcqmMajDhHJirQbaWGJziRriu7o=",
+      "url": "assets/packages/teams/farstalker-kinband/teams/farstalker-kinband-team-farstalker-kinband.html"
+    },
+    {
+      "hash": "sha256-RuoU1blAikd8qcYrdTmwV1YPFjhsKAM0t2BOfF06dQQ=",
+      "url": "assets/packages/teams/farstalker-kinband/teams/farstalker-kinband-team-farstalker-kinband.png"
+    },
+    {
+      "hash": "sha256-PuzgHx+gIBeMamvcboDtwu49HX7zAh5b52wRIDpRTf8=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-bow-hunter.html"
+    },
+    {
+      "hash": "sha256-Cz51hpbxnW56JVJ9rD38gUGWJC2qcTRXYXNo0KJUu9M=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-cold-blood.html"
+    },
+    {
+      "hash": "sha256-Adu+s28JyXd9j6EYa3F51eBYfQlS4z2PvoK0M2AT8IE=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-cut-skin.html"
+    },
+    {
+      "hash": "sha256-a/GC1SzZr+Kmk4RZSdp5CHlks50bDdx/aFnUmPwOn7U=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-heavy-gunner.html"
+    },
+    {
+      "hash": "sha256-X+dPyXngme4iXzjxCDg8p2K/0QBxluTK0zVv9gP9qcY=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-hount.html"
+    },
+    {
+      "hash": "sha256-eTVQll3/XDQz0QIiCJV6MaTLNJQyfK4kJ/Oo7BpuA6E=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-kill-broker.html"
+    },
+    {
+      "hash": "sha256-ygJqgbCoCw5t2YkCRya971/WgqsCQbLx63TCj26nMV0=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-long-sight.html"
+    },
+    {
+      "hash": "sha256-kyrn76k1vLqaAV/wwUr77xe1izx9GcGfT5YikbvMSHU=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-pistolier.html"
+    },
+    {
+      "hash": "sha256-EFSnug1wJHQArT8Uxylw1oFeVAfgG4vaGtx+1/d154k=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-stalker.html"
+    },
+    {
+      "hash": "sha256-H5tqxSIHXH0CWun20LSv2aiccJ8bhzkcK7g9ZWlzfkI=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-tracker.html"
+    },
+    {
+      "hash": "sha256-w8iBnvEE+A2lKoKO8R73xrZGrZzQN98QdeJVL4JRHr4=",
+      "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-warrior.html"
     },
     {
       "hash": "sha256-bY+zgZ8Ntfmb7IcMyJSHBAp+AEzV6s7FOHQgEUwVZiA=",
@@ -2878,7 +3018,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-rEPKMCUI5ZmAM+9SDhjpPHNf1FDWrPUiCDLbgfwio+k=",
+      "hash": "sha256-R6lc9AMGRbNKepfFwBmXXG1Wn11royie0ucEyn2HnrY=",
       "url": "index.html"
     },
     {
