@@ -16,6 +16,8 @@
 
     --theme-dark-background: black;
     --theme-dark-foreground: white;
+
+    --theme-disabled-foreground: #555;
 }
 
 @media  (prefers-color-scheme: dark) {
@@ -33,6 +35,7 @@
         --theme-dark-foreground: white;
 
         --theme-error-background: #cc0000;
+        --theme-disabled-foreground: #888;
     }
 
     /* For all black icons, invert them to a light colour */
@@ -70,6 +73,10 @@ html {
 
 .text-primary {
     color:var(--theme-primary-background)!important;
+}
+
+.text-disabled {
+    color:var(--theme-disabled-foreground)!important;
 }
 
 .app-error {

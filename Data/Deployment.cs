@@ -205,6 +205,10 @@ public class DeployedUnit
     /// </summary>
     [JsonIgnore] public Activation Activation {get; set;}
 
+    public bool IsReady => IsAlive && Activation == Activation.Inactive;
+
+    public bool IsActivated => IsAlive && Activation == Activation.Activated;
+
     /// <summary>
     /// Number of wounds currently hit with
     /// </summary>

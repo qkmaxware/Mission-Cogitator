@@ -44,8 +44,9 @@
                     <td>
                         A new version is available
                     </td>
-                    <td style="width: 6em;">
+                    <td style="width: 8em;">
                         <button id="pwa-update-reload" class="w3-button w3-bar-item app-primary w3-round">RELOAD</button>
+                        <button id="pwa-update-dismiss" class="w3-button w3-bar-item w3-round" style="padding-left: 6px; padding-right: 6px;">x</button>
                     </td>
                 </tr>
             </tbody>
@@ -68,11 +69,15 @@
     <script>
         const pwaNotification = document.getElementById("pwa-update-notification");
         const pwaUpdateBtn = document.getElementById("pwa-update-reload");
+        const pwaDismissBtn = document.getElementById("pwa-update-dismiss");
         let pwaServiceWorkerUpdate = null;
         pwaUpdateBtn.addEventListener('click', function(){
             if (!pwaServiceWorkerUpdate)
                 return;
             pwaServiceWorkerUpdate.postMessage({ action: 'skipWaiting' });
+        });
+        pwaDismissBtn.addEventListener('click', function(){
+            pwaNotification.classList.remove('w3-show');
         });
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' }).then(reg => {
