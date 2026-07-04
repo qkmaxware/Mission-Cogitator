@@ -34,6 +34,11 @@
         "/definitions/valid-target.html",
         "/definitions/visible.html",
 
+        "/definitions/climb.html",
+        "/definitions/drop.html",
+        "/definitions/obscured.html",
+        "/definitions/vantage.html",
+
         "/weapon-rules/accurate.html",
         "/weapon-rules/balanced.html",
         "/weapon-rules/blast.html",

@@ -366,6 +366,17 @@ table.striped tbody tr:nth-child(even)[b-a74zqimslp]{
     border-width: 1px;
     border-style: solid;
 }
+
+.header-icon-col[b-oo77x8cheu] {
+    width: 76px;
+    vertical-align: middle;
+    padding: 4px;
+}
+
+
+.header-icon-col>img[b-oo77x8cheu] {
+    width: 100%;
+}
 /* /Layout/RuleSearch.razor.rz.scp.css */
 .w3-display-container>img[b-l7hwozzl11] {
     left: 13px;

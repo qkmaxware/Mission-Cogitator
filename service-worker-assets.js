@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "V0Ixb0fH",
+  "version": "WOFWUbdL",
   "assets": [
     {
-      "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
+      "hash": "sha256-7PZQmU+tM1uPIE5eVBptmTzMfy/LGsopiNgm/4XT+MU=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-k3cFdGcO7oMci29I9t/zG3xVCSPU+bpi2ircNBtyAdc=",
-      "url": "_framework/Kt.jggpklh542.wasm"
+      "hash": "sha256-u665ymJ7Dbe8JLym9CTLj69Iuz8ePscJ2RImc5ZR7u0=",
+      "url": "_framework/Kt.d6606f1nms.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,10 +214,6 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-I1CbPA8fg38z+JoD0Q/7DElbwGCp1xm2oelogvuKPzk=",
-      "url": "_framework/dotnet.jsmj2twady.js"
-    },
-    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -230,6 +226,10 @@ self.assetsManifest = {
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
     },
     {
+      "hash": "sha256-kiGrFFl2yNosgTtwg7KHrdoHcE5lrqJPjY50nWKlELY=",
+      "url": "_framework/dotnet.yopir1rik1.js"
+    },
+    {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
       "url": "_framework/icudt_CJK.tjcz0u77k5.dat"
     },
@@ -240,6 +240,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs=",
       "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
+    },
+    {
+      "hash": "sha256-ZQhG3uCDPLGaq7RsUXo9QGqWCGHSX8+sYKucn2BL7Rs=",
+      "url": "art/action.svg"
     },
     {
       "hash": "sha256-mmUKhl5ijrQ2PKx8m/7cAUFOCOmc/hwABLqR04isuOo=",
@@ -276,6 +280,14 @@ self.assetsManifest = {
     {
       "hash": "sha256-Xiv9v+/vPSWkbTmvb/A1zQhQVY2LptbFGtvQqtCEVME=",
       "url": "art/download.svg"
+    },
+    {
+      "hash": "sha256-GMLUUm0Du+PhppEm1iLdZ92ZpHqNZQcj2D6iynj26R0=",
+      "url": "art/effect.svg"
+    },
+    {
+      "hash": "sha256-T03XVG/4Kt0fXP//zc+PsbPXPtVM6kvmHKu8OO3Ek2c=",
+      "url": "art/gears.svg"
     },
     {
       "hash": "sha256-gPwBKiH/DRYybgolT+iEATapxQmMPNxxBWGluNbkhK0=",
@@ -354,6 +366,10 @@ self.assetsManifest = {
       "url": "art/paragraph.svg"
     },
     {
+      "hash": "sha256-pI5KTVMwFsUwujNBf2ypSfW4lw1pCI95OttR9LepGgc=",
+      "url": "art/ranged-inverted.svg"
+    },
+    {
       "hash": "sha256-/zq0mC/UU7Beb+rur2tWDmgRyEe9ynWRZwyOBO6OCmo=",
       "url": "art/ranged.svg"
     },
@@ -366,6 +382,10 @@ self.assetsManifest = {
       "url": "art/reload.svg"
     },
     {
+      "hash": "sha256-4Q07/nn4fZiHL1G44XtlIYGC3xuzrwMHO6B8CThedRw=",
+      "url": "art/rule.svg"
+    },
+    {
       "hash": "sha256-wNjRbSReK3RiuWuPGxLwc9L0xt+J/zmJ2ADiOWzHrbk=",
       "url": "art/save.svg"
     },
@@ -376,6 +396,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-R+yy0vNjNTInrYqH9TrrRoNGwVLztV0iXMAzuXXp1bA=",
       "url": "art/section.svg"
+    },
+    {
+      "hash": "sha256-aaDlUPj9hqE9T7dbCgeJYtdMlyAAeVdGStQWX4lY4ew=",
+      "url": "art/strategy-inverted.svg"
     },
     {
       "hash": "sha256-Qd3QBjbCWxcGOVbgLPxKESZF4cxpx3a0ag7nTM2aYBs=",
@@ -450,6 +474,10 @@ self.assetsManifest = {
       "url": "assets/packages/lite-rules/definitions/activation.html"
     },
     {
+      "hash": "sha256-il1HAnMSwuFP3c0bhYoohHo9d69DkI/O9XbOcQCtzUI=",
+      "url": "assets/packages/lite-rules/definitions/climb.html"
+    },
+    {
       "hash": "sha256-dfuhmE5buVKDAJL5iT633J2xxLO+eQCQ52h9ntjMgEI=",
       "url": "assets/packages/lite-rules/definitions/control-range.html"
     },
@@ -458,7 +486,7 @@ self.assetsManifest = {
       "url": "assets/packages/lite-rules/definitions/counteract.html"
     },
     {
-      "hash": "sha256-kLqwIvqRu+bXCisW1GdkGPfJeNpqPl86ZpMVd3Drcl0=",
+      "hash": "sha256-/Wx3avtHWOtonF2sNf08IVhy08DMex3hQDy7cQOJahg=",
       "url": "assets/packages/lite-rules/definitions/cover.html"
     },
     {
@@ -470,12 +498,24 @@ self.assetsManifest = {
       "url": "assets/packages/lite-rules/definitions/damage.html"
     },
     {
+      "hash": "sha256-ItFMn1LETKl9TKtz0TUoPBnaXenYUGkhgHABWv7/GN4=",
+      "url": "assets/packages/lite-rules/definitions/drop.html"
+    },
+    {
       "hash": "sha256-w4wSH1S4IOAVXM400nyQYFkhDCrWSH8UFidNUeEgwN4=",
       "url": "assets/packages/lite-rules/definitions/gambit.html"
     },
     {
+      "hash": "sha256-ZLh4+WlGDCRNaZMH1Gvoy3OTV5KbYTdh73DefbrZ++s=",
+      "url": "assets/packages/lite-rules/definitions/obscured.html"
+    },
+    {
       "hash": "sha256-e/+Uh07C4wf6OJ9ulKKKlz+Rokfu2tUVfky35CAZOW4=",
       "url": "assets/packages/lite-rules/definitions/valid-target.html"
+    },
+    {
+      "hash": "sha256-FrE75NA8cP7rd06GvB2yAser57hjDw8izRsCHAabcWQ=",
+      "url": "assets/packages/lite-rules/definitions/vantage.html"
     },
     {
       "hash": "sha256-ikivXpcD9EETfIUtwB+HN4l+rRCJEIrg6LK2ai0rWvg=",
@@ -490,7 +530,7 @@ self.assetsManifest = {
       "url": "assets/packages/lite-rules/effects/injured.svg"
     },
     {
-      "hash": "sha256-ZlCWRXXcwzMvKKElBGT16Sun4/RnjqERhaOhPwSW8gI=",
+      "hash": "sha256-Tf+4obKQ6ZcG1hUEytW7UR16EpJqh8s/PX3lw3XWvyw=",
       "url": "assets/packages/lite-rules/index.json"
     },
     {
@@ -3050,7 +3090,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-Y7TXHGih8EBox9nj7dyx/NDAUURaqyD0K6YeAQIfon4=",
+      "hash": "sha256-UDNpX11KsHR4kEpsq8TYtnVxk/ymHMjUgqD+lsIG+WA=",
       "url": "index.html"
     },
     {
