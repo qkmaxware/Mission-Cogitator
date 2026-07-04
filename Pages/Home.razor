@@ -368,7 +368,7 @@
         </Accordion>
         <Accordion Title="Operatives" InitiallyExpand=true>
             <span class="w3-bar-item">Ready (@(deployment.Units.Count((u) => u.IsReady)))</span>
-            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px; margin-right: 0;">
                 @foreach (var unit in deployment.Units.Where(u => u.IsReady)) {
                     <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))>
                         <ActivationRenderer Unit=@unit HideUponDeath=true Class="icon icon-large"></ActivationRenderer>
@@ -378,7 +378,7 @@
             </div>
             @if (deployment.Units.Any((u) => u.IsActivated)) {
             <span class="w3-bar-item">Activated (@(deployment.Units.Count((u) => u.IsActivated)))</span>
-            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px; margin-right: 0;">
                 @foreach (var unit in deployment.Units.Where(u => u.IsActivated)) {
                     <button class="w3-button w3-bar-item" @onclick=@(() => select(unit))>
                         <ActivationRenderer Unit=@unit HideUponDeath=true Class="icon icon-large"></ActivationRenderer>
@@ -477,21 +477,21 @@
         <button class="w3-button w3-bar-item" @onclick=@(async () => { currentTab = Tab.QuickReference; navigator?.CloseNavMenu(); })>Quick Reference</button>
 
         <span class="w3-bar-item">Orders</span>
-        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px; margin-right: 0;">
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("engage"))>Engage Order</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("conceal"))>Conceal Order</button>
         </div>
 
         <span class="w3-bar-item">Phases</span>
-        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+        <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px; margin-right: 0;">
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("set-up"))>Set Up</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("initiative-phase"))>Initiative Phase</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("strategy-phase"))>Strategy Phase</button>
             <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("firefight-phase"))>Firefight Phase</button>
-            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+            <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px; margin-right: 0;">
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("counteract"))>Counteract</button>
                 <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("action"))>Actions</button>
-                <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px;">
+                <div class="w3-border-light-grey w3-leftbar w3-container" style="margin-left: 16px; margin-right: 0;">
                     <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("reposition"))>Reposition</button>
                     <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("dash"))>Dash</button>
                     <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("fall-back"))>Fall Back</button>
