@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "RPBN7iEZ",
+  "version": "ALHeNF6t",
   "assets": [
     {
       "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-ob3paEPOkv/2iHU+eMPZyGnYk/uluPzwmweKl1JLtpM=",
-      "url": "_framework/Kt.na6u39q2ww.wasm"
+      "hash": "sha256-DeRkANHcTBBbKPGR3VxQPNBooE7fLM3Uxg41+EONhXQ=",
+      "url": "_framework/Kt.hv2eif76rp.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -222,12 +222,12 @@ self.assetsManifest = {
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
     },
     {
-      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
-      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+      "hash": "sha256-I+cfV9+Yvp4SXUMy0pFETyKDQjht6ejzK8YdiLBbVsU=",
+      "url": "_framework/dotnet.rmfcxbkc0n.js"
     },
     {
-      "hash": "sha256-el6lwMJ20beG3c7yuq9uqWhSfim192wUfaFn3AieB/g=",
-      "url": "_framework/dotnet.uimek9y70r.js"
+      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
+      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -1710,43 +1710,47 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/ploys/hierotek-circle-undying-androids.html"
     },
     {
-      "hash": "sha256-bDZwyVQcmaCvJwjCveBA+X/5pZ4KzwvxE1pSIq+phug=",
+      "hash": "sha256-L82ZKtTA8F0H4nZxisS6UnwXRLr7Ui90xYSfyoYA7xA=",
       "url": "assets/packages/teams/hierotek-circle/teams/hierotek-circle.html"
     },
     {
-      "hash": "sha256-H0fC0jX+ZkfhNhym40yVz+ZIy1HVlB7UjPSaSpmswEE=",
+      "hash": "sha256-xf4WtC8yX2b21gLD83h0eyC/VYPLxl3RrDJTsXOacGg=",
+      "url": "assets/packages/teams/hierotek-circle/teams/hierotek-circle.png"
+    },
+    {
+      "hash": "sha256-p5zZGlDjjmuvVldUz89v1C0p1UzVe3TnESHPXSBV0iw=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-apprentek.html"
     },
     {
-      "hash": "sha256-ceXeTNgf+SMJTUAqzIRP8ixGiMi1OteY0l/p2eeNCGY=",
+      "hash": "sha256-UPaKg2Q571VVif2oQZVQW+AzZuijd5B7KQPuWaVNJsk=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-chronomancer.html"
     },
     {
-      "hash": "sha256-6PBz45R9SywYJw+xC2v7XriV3eakcEsq9dwy5TRt/l8=",
+      "hash": "sha256-05eO1MI6DTzyJEFdXDrln0g7gyk8sQZwb7T7R3U9uTM=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-deathmark.html"
     },
     {
-      "hash": "sha256-clIHp/0DPbDs43v2SvUlVuJNnYgM4vQDlU9AL9uLdD8=",
+      "hash": "sha256-8rVIx189jtFFNqkDVi69gUM6LOJ7XwrGJzuG6gbArHo=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-immortal-despotek.html"
     },
     {
-      "hash": "sha256-j/6WFn3Hq7XcGpm1geZ20i0FvnJdC9ZOHNjmYuK2Qpg=",
+      "hash": "sha256-ZodfDPFKVvFxUA9W8GnCUc+7ry7DTyngWM1YMWgXWkk=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-immortal-guardian.html"
     },
     {
-      "hash": "sha256-Mx4kyBz6bbkRGlFxFlYcBUQQb7SEuXihVjck3eCpmtU=",
+      "hash": "sha256-j4+z4JvIlRHO2bNw9T+59JahYtZdv3FxE+yjmYT9mAw=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-plasmacyte-accelerator.html"
     },
     {
-      "hash": "sha256-ZtuWAHgIen4MLN0IxEJI69fgswZ5V3oTsxpPITuZQ00=",
+      "hash": "sha256-G/qYLljjyijZqao7qvLpCbu5KgFVyQpDHgvK/me3JQw=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-plasmacyte-reanimator.html"
     },
     {
-      "hash": "sha256-d2UHwMOBrygVh0IdBvEmAPWJRHLcfnNcCNY5jQz51o4=",
+      "hash": "sha256-Dk5fJOfSkvbbj5KWHccDk73VCK94MocT1SVxn6fWNss=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-psychomancer.html"
     },
     {
-      "hash": "sha256-lucFo2tC75bFa5xe5bYTAfxGv/YCZqP4x7WoFDiJZSY=",
+      "hash": "sha256-W6NNYPx0eLaJvqoD1VEvZ1uizqEf1Klm+vvzWxkku/U=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-technomancer.html"
     },
     {
@@ -3034,7 +3038,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-n+WbhShqn5H/yf84gq0aw6Ykh810VZ6unyURusgiThM=",
+      "hash": "sha256-wxtJ+99jCuc4sZFIL7nhkytvvrjfoTllVt13RSE6dMQ=",
       "url": "index.html"
     },
     {
