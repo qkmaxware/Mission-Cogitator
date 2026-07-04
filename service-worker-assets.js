@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "jtgeUrHS",
+  "version": "V0Ixb0fH",
   "assets": [
     {
       "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-0dDhp7gSjPXHzXne3t8sip7Fez37xsYp9yDGRzi/tZo=",
-      "url": "_framework/Kt.z3a4vdx1zt.wasm"
+      "hash": "sha256-k3cFdGcO7oMci29I9t/zG3xVCSPU+bpi2ircNBtyAdc=",
+      "url": "_framework/Kt.jggpklh542.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,6 +214,10 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-I1CbPA8fg38z+JoD0Q/7DElbwGCp1xm2oelogvuKPzk=",
+      "url": "_framework/dotnet.jsmj2twady.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
@@ -224,10 +228,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
-    },
-    {
-      "hash": "sha256-aoZ6C7oX4SY9zOSMb3YFxfiS+h8C0s89rARf55WB6yM=",
-      "url": "_framework/dotnet.uzmowbp5w0.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -2694,35 +2694,39 @@ self.assetsManifest = {
       "url": "assets/packages/teams/vespid-stingwings/ploys/vespid-stingwings-sting.html"
     },
     {
-      "hash": "sha256-naXKI5IC/t7B+zKdkhxh/HLqBYtKR6u0UT477T5XNZE=",
+      "hash": "sha256-0kFiXHuOubdm/5poiHE/P6c1D//ti1l6XKVSrOkfg2Q=",
       "url": "assets/packages/teams/vespid-stingwings/teams/vespid-stingwings.html"
     },
     {
-      "hash": "sha256-b04YAqkbY+oj8UuhsoXexpQ900hUlINVEVfSiSMH5lw=",
+      "hash": "sha256-jNWXEzh39e5Du6FI6Z6rQL1dmEIvL34E7zmCidfBaIQ=",
+      "url": "assets/packages/teams/vespid-stingwings/teams/vespid-stingwings.png"
+    },
+    {
+      "hash": "sha256-gmRVY5vehswpurlS+Zdu2++grwuPS83vWuFeO6MR/sY=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-longsting.html"
     },
     {
-      "hash": "sha256-mLTmlISufZUXjx0SeHUUR619NrKg6RIAUKlwRwmCb4A=",
+      "hash": "sha256-Z7GSwXB5pYK6tUwfb4xarK85hrY0Wz+rJ10ojJjKmco=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-oversight-drone.html"
     },
     {
-      "hash": "sha256-lyxC8PngtEcufUwJJiwKb5kLsF5+b49HiJu0DTU2BGs=",
+      "hash": "sha256-09Ftbd35fWkL3R3h+qsPpHrZxNy/4CrWOhavcoqlEBQ=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-shadestrain.html"
     },
     {
-      "hash": "sha256-ymZIKNAk1Ey26Twlil5e4Gc8eBK4pEM6IKIFSPiz27g=",
+      "hash": "sha256-Ic7RFaJp3sWm/LkI9u+AVGufkRUGAh4T9LLRjkpStkw=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-skyblast.html"
     },
     {
-      "hash": "sha256-fHR0zvOfqw14ED33b9NT4IBu0ec3F+y9pMX6dEkv5BY=",
+      "hash": "sha256-65/OQFZU93qRI6eR/15fY4+aTraakQM02kFTDGrEdSY=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-strain-leader.html"
     },
     {
-      "hash": "sha256-gD0AgigafoxarmTy91cdUUgZ47U0+5bJUPIikzUp2Lo=",
+      "hash": "sha256-nKnWtEyTQ8fAFfkruPEfeF9I3wsJvRk/n1IbOixy9GI=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-swarmguard.html"
     },
     {
-      "hash": "sha256-W8KZoS2AW/0Twb/gkHnIOSGty0pZyQIimjzCh08EQ9U=",
+      "hash": "sha256-R9CQZDI6XmLJ4FVnWadwdGwpAEeFey9IbZhWJmj2f8Y=",
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-warrior.html"
     },
     {
@@ -3046,7 +3050,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-3YT5Ha/MV3zpC2vAoS7Oc3+t9piKGYv/6AGYi598W8o=",
+      "hash": "sha256-Y7TXHGih8EBox9nj7dyx/NDAUURaqyD0K6YeAQIfon4=",
       "url": "index.html"
     },
     {
