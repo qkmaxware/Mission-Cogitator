@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "8OdZEJHL",
+  "version": "jtgeUrHS",
   "assets": [
     {
       "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-QRgaVUY49EggANC5hQtmjBXFtYyp9v3tAbE4kgdCI50=",
-      "url": "_framework/Kt.tpacbfleca.wasm"
+      "hash": "sha256-0dDhp7gSjPXHzXne3t8sip7Fez37xsYp9yDGRzi/tZo=",
+      "url": "_framework/Kt.z3a4vdx1zt.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -222,12 +222,12 @@ self.assetsManifest = {
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
     },
     {
-      "hash": "sha256-ZHW6OMLEqpAo7k2UY50HMLqXpMS1KD1FPmn68aYckfI=",
-      "url": "_framework/dotnet.o7dy627mkr.js"
-    },
-    {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
       "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+    },
+    {
+      "hash": "sha256-aoZ6C7oX4SY9zOSMb3YFxfiS+h8C0s89rARf55WB6yM=",
+      "url": "_framework/dotnet.uzmowbp5w0.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -426,7 +426,7 @@ self.assetsManifest = {
       "url": "assets/packages/lite-rules/actions/fall-back.html"
     },
     {
-      "hash": "sha256-7CfIXliWj4Zgr7XkcGo0IuGfFEIqcgRJmvzDyVkqfLU=",
+      "hash": "sha256-X3ciampR/u/CU90O6gKs69WFWNIj6UhwgB0uZW55Xrc=",
       "url": "assets/packages/lite-rules/actions/fight.html"
     },
     {
@@ -858,27 +858,27 @@ self.assetsManifest = {
       "url": "assets/packages/teams/battleclade/units/battleclade-technomedic-servitor.html"
     },
     {
-      "hash": "sha256-Au9m/r/bpX+fRK0sEyVAu4h9FFQjSmH4TyhhhzR9MtM=",
+      "hash": "sha256-LdH2Mw80f6hAys5gsUfASfLKes6OR9wH7i9cfLgmJHQ=",
       "url": "assets/packages/teams/death-korps/actions/death-korps-action-medikit.html"
     },
     {
-      "hash": "sha256-KYIpQIhv+4GZXp1sqPtuvOial8h/cyAKiNhHCj2sawk=",
+      "hash": "sha256-qxjKQy2MumdmQXcNjBxj719m8Gl+miAh0Mf98/lGp7g=",
       "url": "assets/packages/teams/death-korps/actions/death-korps-action-signal.html"
     },
     {
-      "hash": "sha256-NfqcLlQipMSTj7N342yZ72MKH7prNxbwcZ6KSRCQ5Y0=",
+      "hash": "sha256-jRLwclLMY0WcQ4OiEzaaVAugGx3s328w/EUMnG0/Hig=",
       "url": "assets/packages/teams/death-korps/actions/death-korps-action-spot.html"
     },
     {
-      "hash": "sha256-Od66B1/ms0CLkc91a9H2Em4G68IySmQgpDd2Bjaenvo=",
+      "hash": "sha256-wbtE8CgDk3OUR0lqv9XUEh3G56Dlek4FuqeUrELXAUk=",
       "url": "assets/packages/teams/death-korps/definitions/death-korps-rule-concealed-position.html"
     },
     {
-      "hash": "sha256-unxmBFJ6R7Dxk2IiLNVD/aFUklkJ57Zrr/WJV/oNLp4=",
+      "hash": "sha256-ELamXGyyBaiEdOZn7vZYNCPCzDgSlTrEIh2GDwX7jEU=",
       "url": "assets/packages/teams/death-korps/definitions/death-korps-rule-detonate.html"
     },
     {
-      "hash": "sha256-OfJlG7QPX8PdQ64Q9jXbyOu59k/NHdbynu88CGN1rDY=",
+      "hash": "sha256-H+iRYaZxQ23hW7z+FAAFPmiMoy3C3SE2Hs3O8N2oZtM=",
       "url": "assets/packages/teams/death-korps/definitions/death-korps-rule-dig-in.html"
     },
     {
@@ -890,7 +890,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/definitions/death-korps-rule-guardsmen-order.html"
     },
     {
-      "hash": "sha256-lkpdOw9Li99o36b6ihOVnOpW2WBAU/5KBDhBvG4KezA=",
+      "hash": "sha256-8h9BRPtyMhjTBeA99cIidJaIW9RVLp1PedFjp0cNYnY=",
       "url": "assets/packages/teams/death-korps/definitions/death-korps-rule-move-move-move.html"
     },
     {
@@ -898,7 +898,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/definitions/death-korps-rule-take-aim.html"
     },
     {
-      "hash": "sha256-DsIa0wdubLRySDJnEr7OoCpizhjpYPLSmmw81i6g9Bo=",
+      "hash": "sha256-OttDg4zcUuqHXQsiC3duc3WfNyONkjPKy5stLtC0EWs=",
       "url": "assets/packages/teams/death-korps/equipment/death-korps-equipment-chronometer.html"
     },
     {
@@ -906,7 +906,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/equipment/death-korps-equipment-comm-beads.html"
     },
     {
-      "hash": "sha256-QuXOAkO4gfQ7jxQOwO9TCUi+378YIR6pc+N+GmPjYVQ=",
+      "hash": "sha256-9/EHlPplUVquce713guXE4/6OLs1+xxUIg/oWeuggLY=",
       "url": "assets/packages/teams/death-korps/equipment/death-korps-equipment-gas-bombardment.html"
     },
     {
@@ -918,15 +918,15 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/index.json"
     },
     {
-      "hash": "sha256-pphv82Lm3spDbMeiBIA6+ArCq9ZnWufingwmM12SNlg=",
+      "hash": "sha256-KKLnDZdcG//cwtfeJHKBcUBJQo+euAPGOIz5r1Coz5U=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-clear-the-line.html"
     },
     {
-      "hash": "sha256-jD/6ByyBuKLpvxx/s4tvth5YlxSQWsMW2lAcgb1HiDE=",
+      "hash": "sha256-j0negIL5aRWIFaqUrQOLE+lzEeec0+ZHZVP2HzCzM+E=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-combined-arms.html"
     },
     {
-      "hash": "sha256-FRXsaNzOUNdTb/4iUwrf5Y5zibkKI0UiDWuJ1rghApA=",
+      "hash": "sha256-TA/xBNJpSUGV2j07HV4a5rmKdQ1+GUYEEvKi/O5igtE=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-in-death-atonement.html"
     },
     {
@@ -934,19 +934,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-in-life-shame.html"
     },
     {
-      "hash": "sha256-CG9eH+mI+7jYsR51Go9ZocaxD35sCtBv0MmZFIP+h/c=",
+      "hash": "sha256-1zg4sAbUw71WBRu+xwhZxNYW4AiaOShtv2AeGlC4kHw=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-inspirational-leadership.html"
     },
     {
-      "hash": "sha256-FuLimInk+NZUONHE0AyoDeZctbApc1zrLkddOJlewVg=",
+      "hash": "sha256-iPiJ1eRNPIzXMzals9mHBe65SqO12uBgP6ZoS0COZSI=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-regroup.html"
     },
     {
-      "hash": "sha256-fHiXTN7dTRBBrx3QgNcQft7m0ck5Od3giAbrinx34rk=",
+      "hash": "sha256-v350s8q/LahClXuj14YLSW9QhnXA+gDW1t4Q6GQN2R8=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-siege-warfare.html"
     },
     {
-      "hash": "sha256-AXRgraiTcsKDZ8JCV/54N3WC5+lR0Q7CM5f7Ufb9aDc=",
+      "hash": "sha256-OKi4rXxd5nra/iqYPv0NYunWyYPw6Ig8nGohNiHIKpQ=",
       "url": "assets/packages/teams/death-korps/ploys/death-korps-ploy-take-cover.html"
     },
     {
@@ -958,7 +958,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-bruiser.html"
     },
     {
-      "hash": "sha256-Q4al+bmF5M+uMu+00Ttmuddzq/nRXCjCKMNegqKXYGY=",
+      "hash": "sha256-sEF/rpyv0JieoVPFgA6wntn90FLTw9J8Sh3h3snnE+k=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-confidant.html"
     },
     {
@@ -994,11 +994,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-vox-operator.html"
     },
     {
-      "hash": "sha256-+DT6A4Isv/bJvdfC2Ylt2fJ2j15FwC265xgzfchAXCc=",
+      "hash": "sha256-rSJ7iqSm2UeeQJ75oW9IAat15fMAF4ZnBTZ46KWd/ZE=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-watchmaster.html"
     },
     {
-      "hash": "sha256-WmUVTP4jbyrV2a9JVgG7pA3nBFaT4BY32Rx2auAdy5Y=",
+      "hash": "sha256-YUdbyvPJy2I9EhgA2mDHUHLdBnBz60OiU5ywDV01tNY=",
       "url": "assets/packages/teams/death-korps/units/death-korps-unit-death-korps-zealot.html"
     },
     {
@@ -1078,11 +1078,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/deathwatch/teams/deathwatch.png"
     },
     {
-      "hash": "sha256-al37A10dqvdVbfVGePbjmgDkBFFSbYWNCeP8KlU/7j0=",
+      "hash": "sha256-K3FDNYIOO3RAHnmLfYqbpN6h1lREclMug/A+nis3ffs=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-aegis-veteran.html"
     },
     {
-      "hash": "sha256-rWt5luXw0//WwrH8KghZv7d7xsob2SY2Q3J1mu+TWeM=",
+      "hash": "sha256-U8E3vlZR+dU91806LuHHRD7DX7FK2Wz+1tge3Z/94Zg=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-blademaster-veteran.html"
     },
     {
@@ -1098,7 +1098,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/deathwatch/units/deathwatch-demolisher-veteran.html"
     },
     {
-      "hash": "sha256-34+hqTUk0Wf8FF+LrJdzaAkwGq6KV3TtiO8t0l8vBF0=",
+      "hash": "sha256-f8mcTBBXPb+duZTPh4GE76ppVkgiceaaJOq/368Gr7g=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-disruptor-veteran.html"
     },
     {
@@ -1114,27 +1114,27 @@ self.assetsManifest = {
       "url": "assets/packages/teams/deathwatch/units/deathwatch-horde-slayer-veteran.html"
     },
     {
-      "hash": "sha256-U5VPEx22ZRg8B636/gp2DC0cYCSV3MnApcWUjc2dG8Y=",
+      "hash": "sha256-Aklr6z0doOAl35PUiO9Sh8/Iz3oNV5kB1W8rEo7qaR8=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-marksman-veteran.html"
     },
     {
-      "hash": "sha256-yiXFlE/RjZHLsWjx++TTAtCJZJfxz6Ua/Q2eGkK3bgk=",
+      "hash": "sha256-Ad24thRgl+/dw6Mz78Jc0Md+9Ho7dPOY/RxucXgI9NM=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-watch-sergeant.html"
     },
     {
-      "hash": "sha256-Wxlk8CDM2/b/Jaw3D/GYJoItRLc4aRsud3Qg6N7vTlc=",
+      "hash": "sha256-bgUQ6qaSRwUzpSrGwbGpCP8rLwFz6VlSdQ8y7n+yJ5c=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-apprehend.html"
     },
     {
-      "hash": "sha256-ofsvUs+XKSwrCmEevkmnhwZkL2bxT9nqavU2AuVN+6Q=",
+      "hash": "sha256-Mq1US8+l/4EvQIOy975j++G8sGArU+T1fBVaSVx1gDA=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-deploy-nuncio-aquila.html"
     },
     {
-      "hash": "sha256-WY1ZOf+xXTllY57rLRzQYxymUpwkiEXlU7FI3Rx/1nw=",
+      "hash": "sha256-l2WqTuJvsEia4GPvCZhCKkGFGbgpPtapuH7KgJrczic=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-medikit.html"
     },
     {
-      "hash": "sha256-DX2beSfLcZjpYXC5Ppo55wsQX9u+OnlPIxOPSR+9jD8=",
+      "hash": "sha256-SwNsTuiNWSNY7i/RMfqBG9yhnBT/KGXmR/nIsH2PnRk=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-optics.html"
     },
     {
@@ -1142,19 +1142,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-r-vr-command.html"
     },
     {
-      "hash": "sha256-7kruIIOkRJNf5SCwSMVgi7IqHHlpG0CQD3ubJjqTYVQ=",
+      "hash": "sha256-5P11lbPG/6vUsPkD5tQkbpWee7Qt3WB8MipTPyFy2cw=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-signal.html"
     },
     {
-      "hash": "sha256-cQLZYkQ3DiCEg50XGj5InKtyNhQ39VumSwznR9tchgo=",
+      "hash": "sha256-Mw1dXgT8XyHPuHH7LCy/FlMpeF2SQexSdS0B2k81I54=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-spot.html"
     },
     {
-      "hash": "sha256-I56AD8f+A8XheUeybqekebUWZZBU1bSzoIUEMhf6+tI=",
+      "hash": "sha256-jNZGDvv8hCeucINzTxaFtbKuo4mlROeGApOsst+jq/8=",
       "url": "assets/packages/teams/exaction-squad/actions/exaction-squad-action-veriscant.html"
     },
     {
-      "hash": "sha256-AOSIsysik43WWtChjulIUH/NsKBmU8XOWBwKYHow2gA=",
+      "hash": "sha256-9gVgDAu2CJD/runMF+WycoF//VmY7OeODrymvBji/Vk=",
       "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-concealed-position.html"
     },
     {
@@ -1166,7 +1166,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-repress.html"
     },
     {
-      "hash": "sha256-J3tZOgSQgdE5Mi/pR+6wFYDGZEJnb26SZvJg6fYo7Ko=",
+      "hash": "sha256-za4yEXIbQHuzcQSaJS8DuV3Sq/B96QbpnaVsdCLER7w=",
       "url": "assets/packages/teams/exaction-squad/definitions/exaction-squad-rule-ruthless-efficiency.html"
     },
     {
@@ -1178,11 +1178,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/effects/exaction-squad-effect-apprehended.svg"
     },
     {
-      "hash": "sha256-JgDHFzRzHPcGww0L/zk/qgozbzvXWcizD3P6KnU5dUs=",
+      "hash": "sha256-INxRqqawdj94LEfQkNM5p3XgHcU6fFjA485TFE1qEVk=",
       "url": "assets/packages/teams/exaction-squad/equipment/exaction-squad-equipment-manacles.html"
     },
     {
-      "hash": "sha256-4djmMBVk176Bu6K2ROreSZPba8hZazFEuNV8qUsNajM=",
+      "hash": "sha256-7/E2VXBm0zQNTnPDQgIUAVJetdk+PfX4WS6bjiaPK44=",
       "url": "assets/packages/teams/exaction-squad/equipment/exaction-squad-equipment-reinforced-mirror-visor.html"
     },
     {
@@ -1198,27 +1198,27 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/index.json"
     },
     {
-      "hash": "sha256-rQfa7SYMUX6zrhwhWIEFj3raByeGrAkljAWBnwvHbYE=",
+      "hash": "sha256-s05elfSeZqRgLrYZRPdYOWvpw6MnitQU86v+mjSCqzA=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-brutal-backup.html"
     },
     {
-      "hash": "sha256-x8TqaK241VuhjzcnyStq+c/PPW9J+HCPLcz3hEPN8+8=",
+      "hash": "sha256-hDVoeFMt86NFdwaL7rqI+edMGoXQHhFn3fh3QG5JQoQ=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-dispense-justice.html"
     },
     {
-      "hash": "sha256-sT6MsyTFHCzqw34Bx2BXuPLh/Wa0C9fpdBripbiSeFw=",
+      "hash": "sha256-xngaxt6zv5LKWBKN83qGnMraM6NX8IAp+GWtGfLFWig=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-exact-punishment.html"
     },
     {
-      "hash": "sha256-1W3NsPSR+JJsoC3Jtqtov7PidzKO3Q0cIri+jzd691c=",
+      "hash": "sha256-1tEMdOz48y+KsfRkSBYIwqmsk8Vxpc/n5AotwYkEn2w=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-execution-order.html"
     },
     {
-      "hash": "sha256-G6i1s3Z80FFbQ8WNmSYFeRPsQsxM1kX+HmFUkNzLmYA=",
+      "hash": "sha256-A/DKXi0bhOEn7cfhVfIyHhVUAZpNQvJAbAlUgL+iW1g=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-guilt-reveals-itself.html"
     },
     {
-      "hash": "sha256-aDq5TMg+iEVGdpIiBz/aiboDqwbgpUZy8GDx/1L7fjs=",
+      "hash": "sha256-f9PmzIUwSjWWa7NMXIjxVmfgvKNIz0U8wb6nEHvubYY=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-inviolate-jurisdiction.html"
     },
     {
@@ -1226,19 +1226,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-long-arm-of-the-emperors-law.html"
     },
     {
-      "hash": "sha256-YGdPnRRf61cO7dB3r3kkQy36mF32k44Bt/JOuik2Z1g=",
+      "hash": "sha256-0EWEFCVGLnvQVBnK9IVeQJqOx9g7JmJkSfVdD4aKv8g=",
       "url": "assets/packages/teams/exaction-squad/ploys/exaction-squad-ploy-terminal-decree.html"
     },
     {
-      "hash": "sha256-aGAtiv0oLTnfOw4Bwlpe7TgNIYWOKvc2RtF20QHOjWQ=",
+      "hash": "sha256-e+LXIuA8gz6B3IExj0lNjZCtEy4AZthk0QMclRGm8KM=",
       "url": "assets/packages/teams/exaction-squad/teams/exaction-squad-team-exaction-squad.html"
     },
     {
-      "hash": "sha256-GOsOsrIMSJ11+s370UlbrXs8KVfYgv9rgjyiKpn3lsI=",
+      "hash": "sha256-wW0GdoA2guwc4Oj4YIvxAuqY8Di9sZ39p0ZE9T15HRM=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-castigator.html"
     },
     {
-      "hash": "sha256-audhuoUxKrkTpXqfVVN3VNbohy8aDoCINcdcDszt5AQ=",
+      "hash": "sha256-ybW2UMFnu/s4N1C5ql8KqIgjXQ4vgcjI9hf20RVKl7k=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-chirurgant.html"
     },
     {
@@ -1250,7 +1250,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-leashmaster.html"
     },
     {
-      "hash": "sha256-tQPbBnQDKFFUCeweboIf7/vaTtp64jzPVg4HBDrptqw=",
+      "hash": "sha256-sMS2SIbbtE9+HI9sCJ5eWKQgxzsBLrC9+O5DtjdNZ0U=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-malocator.html"
     },
     {
@@ -1258,7 +1258,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-marksman.html"
     },
     {
-      "hash": "sha256-6aDDsyL6mjtN2qkqH4Sik5Pgw9ugkFsiIr9lS5LjC/M=",
+      "hash": "sha256-Qsa70y379o8R6naMjvk83821DiY/J/YrlxGrrdaVt68=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-proctor-exactant.html"
     },
     {
@@ -1266,11 +1266,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-revelatum.html"
     },
     {
-      "hash": "sha256-p0YzS5viOQ57M9dlIXJo+/Eao6tM6bsTjVSKmJi0Jhk=",
+      "hash": "sha256-owhR8wfKrl7tEee6W/AnBw1ezMM9MCOmmcKQlCyJfr0=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-subductor.html"
     },
     {
-      "hash": "sha256-TWl9GNz7fq/+3J2dZVjekw6aJ4+Qh2NJLNfts7QtLHE=",
+      "hash": "sha256-j6JGgFtaYpI5JgfA6gNCZEmF2J+2jIaM8H+kpS1fWH0=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-vigilant.html"
     },
     {
@@ -1278,7 +1278,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-arbites-vox-signifier.html"
     },
     {
-      "hash": "sha256-BHRU9gaDDkVSopv9gdVkS2H/Zz3V9vpX1PFxTDHgJGA=",
+      "hash": "sha256-oH2pWlZKywvXatyKw2DF4gRmDrggJk15s+i8h37cdco=",
       "url": "assets/packages/teams/exaction-squad/units/exaction-squad-unit-r-vr-cyber-mastiff.html"
     },
     {
@@ -1286,7 +1286,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-energise.html"
     },
     {
-      "hash": "sha256-C9/hZ8jkSblbcmWBuUvRBwvhR4D3WEf7d5FKHBP6KyU=",
+      "hash": "sha256-0W8ma546yqgZ51gShxThk8kugtWlwOW98rIr/Bvy5KU=",
       "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-from-the-eye-above.html"
     },
     {
@@ -1294,31 +1294,31 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-gather.html"
     },
     {
-      "hash": "sha256-oThW0QNb7SZUkOGOCCwJYjhtvLM7p+uYdEIQs5i2jkM=",
+      "hash": "sha256-wuHUKNiiQUmK5i9c5UibsZ0jn9AbIYQeoa6a6VtgQXs=",
       "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-long-sight.html"
     },
     {
-      "hash": "sha256-3C7O3oKqf20D4wmtVks3SlVjgzG6Jc4jL4B0Lriz+3Y=",
+      "hash": "sha256-yeYnW3cA1wMtzCZYCLUzC1CMkHjKLuej3IsRevxXPgg=",
       "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-marked-for-the-hunt.html"
     },
     {
-      "hash": "sha256-8LafALY0XgWJxD2KPNVdfceKVdzCP25AcN86M45Q9Sg=",
+      "hash": "sha256-uNq3BdzIEVYHQapSWg5XBg+f5S4mLxyEVUqpIGwpnJU=",
       "url": "assets/packages/teams/farstalker-kinband/actions/farstalker-kinband-action-stealth-attack.html"
     },
     {
-      "hash": "sha256-mUHDGFCIKPYNaydDXf6H7fvOvUxl0w81ACZkxR5n7/A=",
+      "hash": "sha256-FqUYxI1DqHeND3fZy3/oFjF4L9Z10mmC007T3+Segak=",
       "url": "assets/packages/teams/farstalker-kinband/definitions/farstalker-kinband-rule-concealed-position.html"
     },
     {
-      "hash": "sha256-5JjwrutihIYq3YqpVzWSvC8Ihn3+DjwpLReawnbVjeo=",
+      "hash": "sha256-0bC4205RYTIUPlQmnUoiHC8UsnUKFTscGg/U2vUBr4g=",
       "url": "assets/packages/teams/farstalker-kinband/definitions/farstalker-kinband-rule-farstalker.html"
     },
     {
-      "hash": "sha256-MEIgEcJ/lAbKGPt9u/7pvlPr4HGVT/VrTkli7QjYY+Q=",
+      "hash": "sha256-xl7ne0d0PhaOskwbIbbOVhhHTXlomtKStqXXWnWGVe4=",
       "url": "assets/packages/teams/farstalker-kinband/definitions/farstalker-kinband-rule-salvo.html"
     },
     {
-      "hash": "sha256-lRevCT2aNxr3HpLYJkzZn3AbFXUHLyBJKJ02BjpF4MI=",
+      "hash": "sha256-ArflyC2XWf1Z/7u5SKiIfhyOQyCFGzDW7V0FDBnuRWs=",
       "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-meat.html"
     },
     {
@@ -1330,7 +1330,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-toxin-shot.html"
     },
     {
-      "hash": "sha256-JJYVzHEtdKeIlmnBUzjtfOIoBnDT4iY+OVYUlON5pGE=",
+      "hash": "sha256-N+8p6uCDC0z2Hykg9MIUTXhwkrr+MOO2jknfz97M5UI=",
       "url": "assets/packages/teams/farstalker-kinband/equipment/farstalker-kinband-equipment-trophy.html"
     },
     {
@@ -1338,23 +1338,23 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/index.json"
     },
     {
-      "hash": "sha256-2uCrGu3WgJVg+EDXbEbbEroYsBuO6KVQP02aPqSwMBI=",
+      "hash": "sha256-NExhQ9AOblEtrC7KwU330o+3WdrmFZP2RutjdLUMtRs=",
       "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-bound.html"
     },
     {
-      "hash": "sha256-QNqKeL3OJrSjwMaVeTBUn6zA86QMV9gwnmiHNGF9e30=",
+      "hash": "sha256-cIA6tTQyWJpukUZ1QV8ZOHoKBlFiCL9SEpHzPAUBfXE=",
       "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-cut-throats.html"
     },
     {
-      "hash": "sha256-Uj3CIaJTIAyVB8TilNDwuvSPchLoyDJH8IMIJ66wLIU=",
+      "hash": "sha256-mrDEg4EtRdGLW/M2/PvaSt72M7nuSFdhCU2mjzVwfnM=",
       "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-poach.html"
     },
     {
-      "hash": "sha256-ptrnE83smLKegMcLg9EzVQ4s6yRybLQ3l0Ej9/OggiA=",
+      "hash": "sha256-kDl/UHx2Xb4iL1CrAP3oP7lN/GK5LBEfrHM6SOdrxDQ=",
       "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-prey.html"
     },
     {
-      "hash": "sha256-IAcQQLVFtAdoEex4hkDHbbdiTOdZkqy2nIvhawHLSJw=",
+      "hash": "sha256-pU2kq03FshmFxWaB7dJB9rqMgLIR7egjNM/SYaRRMeE=",
       "url": "assets/packages/teams/farstalker-kinband/ploys/farstalker-kinband-ploy-rogue.html"
     },
     {
@@ -1382,11 +1382,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-bow-hunter.html"
     },
     {
-      "hash": "sha256-Cz51hpbxnW56JVJ9rD38gUGWJC2qcTRXYXNo0KJUu9M=",
+      "hash": "sha256-MDxSLDPEeR4/mNnj0R0wjMWnhFD0zdZ3CXjrWErSvss=",
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-cold-blood.html"
     },
     {
-      "hash": "sha256-Adu+s28JyXd9j6EYa3F51eBYfQlS4z2PvoK0M2AT8IE=",
+      "hash": "sha256-+XiNajF9rYZaM5gQyhA9cUtrXXqNK1wkeTWj59Hfp5U=",
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-cut-skin.html"
     },
     {
@@ -1394,11 +1394,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-heavy-gunner.html"
     },
     {
-      "hash": "sha256-X+dPyXngme4iXzjxCDg8p2K/0QBxluTK0zVv9gP9qcY=",
+      "hash": "sha256-pAKx+M7r0fLWjweeIo6bdp7ycgWb8/RMN47sWzr1ptM=",
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-hount.html"
     },
     {
-      "hash": "sha256-eTVQll3/XDQz0QIiCJV6MaTLNJQyfK4kJ/Oo7BpuA6E=",
+      "hash": "sha256-jMpgOK4RQ1XpYDxoZTiqgsrCI45iTpRLhrrodDX7TPg=",
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-kill-broker.html"
     },
     {
@@ -1418,7 +1418,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-tracker.html"
     },
     {
-      "hash": "sha256-w8iBnvEE+A2lKoKO8R73xrZGrZzQN98QdeJVL4JRHr4=",
+      "hash": "sha256-7u/DpC7HsgLRLh3nfZbN+vy1jxIdujP7LSfz9ggWT2A=",
       "url": "assets/packages/teams/farstalker-kinband/units/farstalker-kinband-unit-kroot-warrior.html"
     },
     {
@@ -1638,7 +1638,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/definitions/hierotek-circle-magnify.html"
     },
     {
-      "hash": "sha256-+GLK9kN/ftfpkkNGH/YRtZDBoIrNdG1LRrhi5Jp6lKE=",
+      "hash": "sha256-VT8b43BvP+Bypk9U45p4T7d1vbWShTUMwMsz5ZrtlkA=",
       "url": "assets/packages/teams/hierotek-circle/definitions/hierotek-circle-reanimation-protocols.html"
     },
     {
@@ -1722,7 +1722,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/teams/hierotek-circle.png"
     },
     {
-      "hash": "sha256-p5zZGlDjjmuvVldUz89v1C0p1UzVe3TnESHPXSBV0iw=",
+      "hash": "sha256-ZNslNLHwjElFKJmMcyBxKIZNdOTuqP9RT47ikIsLT+Y=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-apprentek.html"
     },
     {
@@ -1730,7 +1730,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-chronomancer.html"
     },
     {
-      "hash": "sha256-05eO1MI6DTzyJEFdXDrln0g7gyk8sQZwb7T7R3U9uTM=",
+      "hash": "sha256-g8dBlQZm0nz+RSQR2wQJQFlASSUbaCYziJuwQFAIIgw=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-deathmark.html"
     },
     {
@@ -1750,7 +1750,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-plasmacyte-reanimator.html"
     },
     {
-      "hash": "sha256-Dk5fJOfSkvbbj5KWHccDk73VCK94MocT1SVxn6fWNss=",
+      "hash": "sha256-eLUunVHFikdeckH8SA7B2iNxPuJbLMabO+MC7SGldaQ=",
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-psychomancer.html"
     },
     {
@@ -1758,31 +1758,31 @@ self.assetsManifest = {
       "url": "assets/packages/teams/hierotek-circle/units/hierotek-circle-technomancer.html"
     },
     {
-      "hash": "sha256-yGlWzFEYH8VvMf9Ob4nfug356hPastDUJmIZF32DkJA=",
+      "hash": "sha256-FiPentLnPJNSpYuSRbgvqfn1UszEHtmUpUFv64OI8VE=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-boost.html"
     },
     {
-      "hash": "sha256-FRPDpbIGN1iEaBcjxEfFMkbi57EoI38N+hIgWxWEM0I=",
+      "hash": "sha256-9DMMGN5IeIeb+NRHU7QXwD6bdKlyM4hoxio0YSCX564=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-breach-point.html"
     },
     {
-      "hash": "sha256-BWP8BsR0a7bUg376pZ1i6M3kBZ/wDAE2YIaorTAZ7qc=",
+      "hash": "sha256-j1YScL982UAvjMSen5COJtyJhyGzoDiNALLojtaE1nU=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-interference-pulse.html"
     },
     {
-      "hash": "sha256-jpefXjXEuDXb8rCqWWmE7LcbEqDU/h6UkdCSAfDrqe4=",
+      "hash": "sha256-+HK8/hVom9kdjorhjnUYnupUnmWvXVuka4vj3CtPNUw=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-remote-control.html"
     },
     {
-      "hash": "sha256-W4kGr4jRMsOCjpE3E8HYyOBLHouruHI2Bj/m5CGt3sg=",
+      "hash": "sha256-o7Ra7itKuaO+mjVGhbZcE2xcRUCIyNfLFxdrigHJRto=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-spot.html"
     },
     {
-      "hash": "sha256-eLVymcn/JWuuFJuDjGZjhHEcnq8YAScA0UJcfih+bfQ=",
+      "hash": "sha256-vb4hPgVDAd6+9iRGbz2LzjT4NLFRQd7mAWLS0dryzJ8=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-wayfind.html"
     },
     {
-      "hash": "sha256-9jvQYWfVovVtg24opBFY3qi504eHkZ3v9yvblNqLTxo=",
+      "hash": "sha256-Y6wRW9uWFVmwfWqQT5aEqiJXghTWQTFI800Hz32SmzQ=",
       "url": "assets/packages/teams/imperial-navy-breachers/actions/imperial-navy-breachers-action-weld-shut.html"
     },
     {
@@ -1790,7 +1790,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-breach-and-clear.html"
     },
     {
-      "hash": "sha256-4K1K7O9mihuDpjcQvpIzMDeTzxbSZB2Od0sElFzS4Yo=",
+      "hash": "sha256-nuBQDPapuystoOU4rlW3A5gYCa4RWtC32cC6r596K/M=",
       "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-detonate.html"
     },
     {
@@ -1798,7 +1798,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-shield.html"
     },
     {
-      "hash": "sha256-MSA11f24k+k3CJBj802LcXpQuqIvVbY8ttQOKzeOS0M=",
+      "hash": "sha256-newgEHMbyYbcjK83xes5KW03IZ6/Z0Gd4+5RTdm2hoo=",
       "url": "assets/packages/teams/imperial-navy-breachers/definitions/imperial-navy-breachers-rule-void-armour.html"
     },
     {
@@ -1806,7 +1806,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/equipment/imperial-navy-breachers-equipment-combat-stimms.html"
     },
     {
-      "hash": "sha256-6i43nDQiRrySUKrSd3XxezFwPS1unCEnrL+gszleA54=",
+      "hash": "sha256-6fpPA4L8UBdWWsFx4FeRsxXMKrg6WBrdUctr0LxUBs8=",
       "url": "assets/packages/teams/imperial-navy-breachers/equipment/imperial-navy-breachers-equipment-rebreathers.html"
     },
     {
@@ -1826,11 +1826,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-attack-order.html"
     },
     {
-      "hash": "sha256-rpwnrnHjbHNioX+nwfX+lvSmH7hAC8UCDAPQNljFsig=",
+      "hash": "sha256-QbbGDBixaN2smIZVh2RMaC3ZVT3qOjkv5gcqEXsWGrA=",
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-blitz.html"
     },
     {
-      "hash": "sha256-if/VyBQ29DyCLb4KOdH+/ts60YdZOoiKCNIjruCnxwU=",
+      "hash": "sha256-5+GUTIXD1FFzwAOXhxahYmTKuSSuNZwPX19i6IzmeOg=",
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-brace-for-counterattack.html"
     },
     {
@@ -1838,19 +1838,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-close-assault.html"
     },
     {
-      "hash": "sha256-1l9rkZq6gLB5TeQ1PYbF1MTaRzocSDejOqG5RvTMIu8=",
+      "hash": "sha256-JciQ6BS/E2wJhd8VzWhg5nUJatLa9zXNIfxqLuq+nfg=",
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-deck-hand.html"
     },
     {
-      "hash": "sha256-TiXjOpQfr5i18bqw8EVOcMPOgmjDCkOQ1B+MUSmnG00=",
+      "hash": "sha256-wSsAPDyaMEeOhrmqOdh9gz770HMYeCdZLj8XHG/54dY=",
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-defence-order.html"
     },
     {
-      "hash": "sha256-DZzz3qp+I6UxozhxppOWrBhDd3a5eZpL3WmogXGzBhk=",
+      "hash": "sha256-lSpWSEjVQUCO3GzGV2p1st7HRQbntZWdPe11UKafwGI=",
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-lock-it-down.html"
     },
     {
-      "hash": "sha256-FXrXRCg+220D88dzVa32ok/KXdvE4qPjMXXmym3+Gpc=",
+      "hash": "sha256-H1eY7at3iC3Ddyh/cdd7uFqGDwwYiX36IYENsR1LB5s=",
       "url": "assets/packages/teams/imperial-navy-breachers/ploys/imperial-navy-breachers-ploy-overwhelm-target.html"
     },
     {
@@ -1866,19 +1866,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-axejack.html"
     },
     {
-      "hash": "sha256-shcZqg5m4xJmc6uzSy/o7V4WhWF4wZkdTspIHqZvbUE=",
+      "hash": "sha256-/mUgJHFNyhSr5O14MZmyNavRB2v0YXtGuves4XpMp0Q=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-cat-unit.html"
     },
     {
-      "hash": "sha256-zs5bDoZUOLTTPEVhX/BOCz6ItYbDfWWmATIKPOeNI7s=",
+      "hash": "sha256-9ASvBP34onR6VFNSvBe8ZDngAs7UNjDp3aKQGOcOtZY=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-endurant.html"
     },
     {
-      "hash": "sha256-LkVES0OkCjCfqP9C4ciFxaIfmMnO21UPKgL3LdJcGgg=",
+      "hash": "sha256-x87L0KeBtI9H+4aj4Idn5or45182ieod9ln/JSMWGvQ=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-gheistskull.html"
     },
     {
-      "hash": "sha256-eS/stuIESJvnXpUtQNmjUArNrORNIDDLF+KAeTV9AzY=",
+      "hash": "sha256-ITaKRFE4R5KJsMbKjJ7yUWUGCKq8gjHR8iW8Wc15mZ0=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-grenadier.html"
     },
     {
@@ -1890,7 +1890,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-hatchcutter.html"
     },
     {
-      "hash": "sha256-ANS68uHI7bXW0eMQujJkyY4K8lELV07cr3bGY+xu29g=",
+      "hash": "sha256-+Hatj7WbAMBm7RWHVh0qfrVB8a63+MEF59xHU2pPhj8=",
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-sergeant-at-arms.html"
     },
     {
@@ -1902,7 +1902,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/imperial-navy-breachers/units/imperial-navy-breachers-unit-navis-void-jammer.html"
     },
     {
-      "hash": "sha256-GGfp2dCVlfghZkgZFZ6BA69QFrjk/G5wG6FJopaygaA=",
+      "hash": "sha256-4jQTBeuaxsLEHQOfTcxMyWOXEoZNu+t2qK9ITySDPVk=",
       "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-chasten.html"
     },
     {
@@ -1910,7 +1910,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-pistol-barrage.html"
     },
     {
-      "hash": "sha256-xxniWryJp7dKhic9gM5Dgc4Uxt2ZI9wOYMbaC4Nc8BE=",
+      "hash": "sha256-SYB/9Zdp7GFOD+qWi+d9IRLGFQf8HgagwJk/LzPhRX8=",
       "url": "assets/packages/teams/inquisitorial-agents/actions/inquisitorial-agents-action-scry.html"
     },
     {
@@ -1934,7 +1934,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/equipment/inquisitorial-agents-equipment-combat-daggers.html"
     },
     {
-      "hash": "sha256-ubu+onV41J+vTctksNRjtQ7siH40UI03EHTIl1Jiw2k=",
+      "hash": "sha256-A45zGAUP1aOF3SbnjqNZwkefqnaJuC7H4ergRF3PwEY=",
       "url": "assets/packages/teams/inquisitorial-agents/equipment/inquisitorial-agents-equipment-inquisitorial-rosette.html"
     },
     {
@@ -1946,15 +1946,15 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/index.json"
     },
     {
-      "hash": "sha256-15jvvefSOl5X+oaJTp03TDnftTIhaGsaijDWJ1HboKw=",
+      "hash": "sha256-UgpB10SVtS/2xOlLxR3piWyuJhPp3nGlS2JPc9Vp54k=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-absolute-authority.html"
     },
     {
-      "hash": "sha256-kQcgAM1xXZb6dBm8skxF4tjXTSHCIJj7niLSrGXWHHo=",
+      "hash": "sha256-2v+/r7sEN4YBnuD+Z5g/DdP7ne4pYbg0B3RJnyz+ztE=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-denounce.html"
     },
     {
-      "hash": "sha256-OINSLZW68ov/55CSm2KAYkcHxIvhZuFoUjAxc5r07ks=",
+      "hash": "sha256-YzapjR/sv4qCRWn+9MndjsWcz/gOvb8vXrkYM+rqdKA=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-intense-scrutiny.html"
     },
     {
@@ -1962,27 +1962,27 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-intimidating-presence.html"
     },
     {
-      "hash": "sha256-3cfSF9xugLZWwkWcE08dBaB/EV05+2TAiHD1rNHf13U=",
+      "hash": "sha256-EauWfUalHuHeP0JZQ4TzuogHMtml07iXxYuerWK67hI=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-irrefutable-jurisdiction.html"
     },
     {
-      "hash": "sha256-Mr0B3MU4w4d6d+ATiDg18EAh2jKBB65ykmvRADjyi5I=",
+      "hash": "sha256-ejm+orrG2aY7NyWLrsxAeqpBMKbBbeRxl5spG/e0CqA=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-quarry.html"
     },
     {
-      "hash": "sha256-Ub+gEzJueu6gLGC5EKTCoFStQ2n6hD2tS5ZFikau2p4=",
+      "hash": "sha256-lc435m0Q39LLforwOLTw2AUaA33hdF+TcUQuYMj8tWo=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-relentless-in-pursuit.html"
     },
     {
-      "hash": "sha256-7HVhwk53udgRK7hXb9/WoA2me6fDrgwIbWDnGeumJPY=",
+      "hash": "sha256-fXU1mOeb1/WZey4BHj22ZWHGvQA/mSfN7W6/l6Mkcpg=",
       "url": "assets/packages/teams/inquisitorial-agents/ploys/inquisitorial-agents-ploy-the-emperors-will.html"
     },
     {
-      "hash": "sha256-wc9MP65Tl7y2oTljLrnpNxuIC8LRtuQ6cqCMunTfo6A=",
+      "hash": "sha256-ooMCJBjvSNKgBNgbN8hmKrmfoqSX5Gy2r7ME2PWph0w=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/actions/inquisitorial-agents-requisitions-action-medikit.html"
     },
     {
-      "hash": "sha256-+E2XRNBbAGV5SmJIUoi4YB/s3uMIwCMxRhoOi5uwAgA=",
+      "hash": "sha256-QNI2pRAkeoA7JXx9hdvwIxYmeEVBesM9NrL7pSK4Vn4=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/actions/inquisitorial-agents-requisitions-action-signal.html"
     },
     {
@@ -1990,15 +1990,15 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/index.json"
     },
     {
-      "hash": "sha256-AOjaz+kWxAQb5up812kxnffQueKVigzb+xZiR7NNb3A=",
+      "hash": "sha256-mLXByOJcbhpCc/HbF7r9D+G+oFnH7TwDIhuKCMXGBTY=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-sister-of-silence-prosecutor.html"
     },
     {
-      "hash": "sha256-PDdDHyKgN0gIiCIMcCRzIQHBP1iS55G+RmNqarrNIbU=",
+      "hash": "sha256-tb48Z1ej87N0S/O2qa3FLX6shDvtPztG0PPuWbWxPMg=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-sister-of-silence-vigilator.html"
     },
     {
-      "hash": "sha256-6yDFPowyy9DD3byBUA5tHgTKOu0Nd844/gGm1NGWlaE=",
+      "hash": "sha256-HRbwH9+ucQ5paqkAEzAGILLgHjr43sGVmRfRHyX25MI=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-sister-of-silence-witchseeker.html"
     },
     {
@@ -2006,11 +2006,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-gunner.html"
     },
     {
-      "hash": "sha256-6ZYOfyyRw5HGUtPGv7H2Ow8s6bYxqyJIyaTpgMskBJc=",
+      "hash": "sha256-HHejjq/aHLMGGMk4PR2pVVjLujGYnD/oRFBqyTqhaBc=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-medic.html"
     },
     {
-      "hash": "sha256-MDIHHGdcjLZofvAPpVL++uJQTdmyZA6YuUg2gXJ37Ks=",
+      "hash": "sha256-IfgYszFfnf0gPFAFOK1R8JUsZsI0Z/f7JI1Y2GgIbzI=",
       "url": "assets/packages/teams/inquisitorial-agents/requisitions/units/inquisitorial-agents-requisitions-unit-tempestus-scion-trooper.html"
     },
     {
@@ -2022,7 +2022,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/teams/inquisitorial-agents-team-inquisitorial-agents.html"
     },
     {
-      "hash": "sha256-1cFJ/g9VFjSTBLmNrsrvNQySHQoZ2wIwgBpUxsdf1CY=",
+      "hash": "sha256-gVl3d7NkyRc8BH47zpcDNU5aKh9r0AEy5yEDXJoj9nM=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-autosavant-agent.html"
     },
     {
@@ -2030,7 +2030,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-death-world-veteran-agent.html"
     },
     {
-      "hash": "sha256-zjnRbEaHnqtXj7y4Zc2p8YAPdkvWiZboDsblkd23yu4=",
+      "hash": "sha256-URc/kJUh9GW8PKX/uFkg5InWnJYDQvw21IOwe7I1oUA=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-enlightener-agent.html"
     },
     {
@@ -2038,19 +2038,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-hexorcist-agent.html"
     },
     {
-      "hash": "sha256-QrfBvUYD39UbG9v3En4z46js9PgsERy06FAE7yscjX0=",
+      "hash": "sha256-S0lFq5jXzQFbmCE8LtpkMLTlAC0QJPrtpBq5ODrAmLQ=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-interrogator-agent.html"
     },
     {
-      "hash": "sha256-27QDzIY+8Yzj8slKyPPRcKbxLuXZu2B5ffuvDnniHPw=",
+      "hash": "sha256-IFC1IY/sUzrKUmCgk7u8FYqnz2m34NYzxK1mkx4XoDM=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-mystic-agent.html"
     },
     {
-      "hash": "sha256-gBHdD7vf42Uz9I3U9NgLpnF8NzWN6MoSxv90ClqPBpg=",
+      "hash": "sha256-+ovGpyH0aXJWD+Yh7MOmKEosQLVscK5mhFxGjZkwwCY=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-penal-legionnaire-agent.html"
     },
     {
-      "hash": "sha256-qx63IF85f0bY2cVbKjkc8uQasWiVCuJLVQ/7at8PPn0=",
+      "hash": "sha256-ByVQt5RcH3zZWg1uB49yLzLo8m4Uq0it8lqsFgF2TJI=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-pistolier-agent.html"
     },
     {
@@ -2058,23 +2058,23 @@ self.assetsManifest = {
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-questkeeper-agent.html"
     },
     {
-      "hash": "sha256-JydN0SOTYyUOSFRL0/GzQ24th7Rl35ygKeGBsQiQyJc=",
+      "hash": "sha256-wNzfkfcYUYmKmDRES8mr2VdHVvfEUQFqio2LKKgSJWE=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-requisitioned-gun-servitor.html"
     },
     {
-      "hash": "sha256-maH212wSEuw9Lp7yIBfLw9WyN1kDRottPNESXwxVhFg=",
+      "hash": "sha256-BmNzxXvazoaD832bmZu8LL018U/5/zWwWrkrLeBju0U=",
       "url": "assets/packages/teams/inquisitorial-agents/units/inquisitorial-agents-unit-tome-skull.html"
     },
     {
-      "hash": "sha256-b/j/p4VRcNgSHvoZGBRPnXHZDxRdZt4DDUlWDWvkx6w=",
+      "hash": "sha256-fgZQgVsG+PuGO1ix9xkGKVxj2qa2IsCQ05JQjmKGwwQ=",
       "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-auspex-scan.html"
     },
     {
-      "hash": "sha256-Hhm9YW8z8oPwwUEuYIqpDWtjONjUc25m8tVho9ydOv8=",
+      "hash": "sha256-zV7IRa0OTGYuIS9V5p/8Hl3oub1yAeWKnCyJDjdEad4=",
       "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-battle-comms.html"
     },
     {
-      "hash": "sha256-x7VGj/3k0voabG5TNvNR2EWV7hj1wLYJPwgvBD3Nxms=",
+      "hash": "sha256-Kof2gcKXB5bMnvaBUf39IOL8Yctz+2i21RlCGUCRlso=",
       "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-medikit.html"
     },
     {
@@ -2082,11 +2082,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kasrkin/actions/kasrkin-action-tactical-command.html"
     },
     {
-      "hash": "sha256-iwOPTCv3fXlh4UWqpncWgD2ea5Hw8CIVGmeD2IZ1Ve8=",
+      "hash": "sha256-DmNJho3WTG2BiSGjyzn6GUzAsGaUjQOfIdwneQ+hsRY=",
       "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-concealed-position.html"
     },
     {
-      "hash": "sha256-KjU9WMTqn5MSQ/IKpkmKtexiDhoPCFoIWUKAkHk1s/g=",
+      "hash": "sha256-5cRH8BJ8OuAC9HxCs60m+82nBp02o8U6nSJn1KsdtTc=",
       "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-for-cadia.html"
     },
     {
@@ -2094,11 +2094,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-ice-in-your-veins.html"
     },
     {
-      "hash": "sha256-g+8rxqphSHogrmTN+FOpE9DPRNyKZ29Z31SRmLsEPLY=",
+      "hash": "sha256-eRyu+5fPVuTymkTJtyXNZS546NkN2KWlOoRecCitd/E=",
       "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-light-em-up.html"
     },
     {
-      "hash": "sha256-4qtEjJrHfQGvca7o82TiWWxZUOZncbzsmgs9UTns0PU=",
+      "hash": "sha256-03+J6fy4z43d0ZQUD7MeK6FcEQdooiPfS97K8/Rc19Q=",
       "url": "assets/packages/teams/kasrkin/definitions/kasrkin-rule-rapid-fire.html"
     },
     {
@@ -2114,11 +2114,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-combat-daggers.html"
     },
     {
-      "hash": "sha256-S4lbEM3Chi9WMw4cZMGxTGy/RUjpUv/TlRJXW03X4Kw=",
+      "hash": "sha256-/FSTnEhbN9rrT1z5vGFrPuXWsSWu3mIVTrSp0/fUMOE=",
       "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-foregrip.html"
     },
     {
-      "hash": "sha256-gDD67ATWsbJd2fJcmGkROFDz2tgZbwBnyGMBL9Gp0SI=",
+      "hash": "sha256-Lqq5cSqKKG6+5blGvXCOnWWmWYbpF/ZrS3Imbu/p5Tk=",
       "url": "assets/packages/teams/kasrkin/equipment/kasrkin-equipment-long-range-scope.html"
     },
     {
@@ -2130,47 +2130,47 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kasrkin/index.json"
     },
     {
-      "hash": "sha256-nTqtm6LKixQvv+4SUUJ8iHPATZy/mTs6YbTqDyf3y+8=",
+      "hash": "sha256-CcLKcnqhQKjHHQPR5rPcg5mKmPCJKoimwSG7s0m9Eiw=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-clearance-sweep.html"
     },
     {
-      "hash": "sha256-RdjH1GpGek22aT4Q0EkNGZo58Hr15kny/1dgJp9arLI=",
+      "hash": "sha256-9SaV/jaHjq17f+oSnIVSz/sClTIym3p3WcPZKB2r1vY=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-cover-retreat.html"
     },
     {
-      "hash": "sha256-sPL3RxZw38DNPfRtGuImVhDZ23wY4faet+VtLglGp88=",
+      "hash": "sha256-cNfQXWDXGoI/YUyILAphL008SFL7z58QKDCSRfp+r+8=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-elimination-pattern.html"
     },
     {
-      "hash": "sha256-T5bjw73W0ltYwp/FXyOMl7n9yGcQreO/sjBUfwy9OlA=",
+      "hash": "sha256-gjTmqpoxtidoGyqjJeQDbrL6BbFA8UZz0W+XkPKDN6o=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-engage-from-cover.html"
     },
     {
-      "hash": "sha256-MQ8q6wzHupK3qxfBCtZECynlT3EREwftNbFBkcwyd6I=",
+      "hash": "sha256-KJquO3sLLlcmjAMw7yQv3NPZUQkaP3kL38sR51LJzLU=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-give-no-ground.html"
     },
     {
-      "hash": "sha256-6Vr4IvY4FQEyn0atN/VnU5ZLdcNDy1SuZMS/lLqOAEs=",
+      "hash": "sha256-bKTPcOP16fzpVleTTsw+rMUg3SXY0/p/zHD43WwIwFM=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-neutralise-target.html"
     },
     {
-      "hash": "sha256-kY9z+9RPBPzwx68PyCav/MSZe4CI1j1Znjw35PoScxE=",
+      "hash": "sha256-XvdZtmL693MJYHA09cs/xLZZRg7kH6F6aYBxX6cwtIE=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-relocate.html"
     },
     {
-      "hash": "sha256-bufYpAqcPrfYjZPngQ7/tYBoaX9Xb9QGUpK/+80SmOU=",
+      "hash": "sha256-RAulFWnB2JzsyK7DrXnvCKMKRf701t9ClhVP1wzZ8rQ=",
       "url": "assets/packages/teams/kasrkin/ploys/kasrkin-ploy-seize-the-initiative.html"
     },
     {
-      "hash": "sha256-Oc5/6A9wBNmco/h7/kYySDUGFc6wZpkN41YZ2inbZcg=",
+      "hash": "sha256-zO66Kj9NztXoKPD0SDAsek7Dd/ARIxs/xw/Cbj3U4NQ=",
       "url": "assets/packages/teams/kasrkin/teams/kasrkin-team-kasrkin.html"
     },
     {
-      "hash": "sha256-1Ix5ewbKKmfBDcbuBnMaZCixJnzEgFLJGSK9LB6kW7U=",
+      "hash": "sha256-j63e6IeBv+/f+xd0cLfK/UGJM0DbavXtZ9o6zXkBZxs=",
       "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-combat-medic.html"
     },
     {
-      "hash": "sha256-NvMpDTZS/ubrVIVzWa6TmKq9VlQU7wOkw+epJe8eCu4=",
+      "hash": "sha256-sFRvX3GQ3gPojMvlR+8YsYsQcpyzs9QNeXbTmWrDnlY=",
       "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-demo-trooper.html"
     },
     {
@@ -2186,11 +2186,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-sergeant.html"
     },
     {
-      "hash": "sha256-pwaLZm5tzv4MJKMb+99flkKdhXmCr/e1bOCO2IsIdE4=",
+      "hash": "sha256-ADI1QeaTUdb1m2s0+P8cglqzVchKYyG5eldDRjxi4TI=",
       "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-sharpshooter.html"
     },
     {
-      "hash": "sha256-XAxl8EOQzBuH4598SPk9tTX77RDKO9kz+M/jbDIvoCw=",
+      "hash": "sha256-u7X/fFV5eG0MGHvjucRGarsp/+tDTwvR4S2l11mptME=",
       "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-trooper.html"
     },
     {
@@ -2198,7 +2198,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kasrkin/units/kasrkin-unit-kasrkin-vox-trooper.html"
     },
     {
-      "hash": "sha256-1QJ2Xn2rYINMutpYiDEP8x7IxK76WCySVtgvUhwToss=",
+      "hash": "sha256-uQmJnFQuI6yzL91JtP0s+9kK0j8xUhZcvrYbm1yGe4I=",
       "url": "assets/packages/teams/kommandos/actions/kommando-action-breach.html"
     },
     {
@@ -2206,7 +2206,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/actions/kommando-action-dakka-dash.html"
     },
     {
-      "hash": "sha256-TMuPR5CknrXCW21uTYYhkDAQnKiWONNNUkT1EUBVjGg=",
+      "hash": "sha256-fs00dAcO2Axg8PuYYRtJup2xqNkW2aLZjidW19SrY7k=",
       "url": "assets/packages/teams/kommandos/actions/kommando-action-get-it-dun!.html"
     },
     {
@@ -2214,15 +2214,15 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/actions/kommando-action-grappling-hook.html"
     },
     {
-      "hash": "sha256-OMkQ1sdq0eYW2DHT544ory1Kk4Nm5jxcHpzBYwQl5Y4=",
+      "hash": "sha256-bZBwBe8ds0e0Tlx4s9u5+xa9m7Fj4UXnvRbCMvS4INM=",
       "url": "assets/packages/teams/kommandos/actions/kommando-action-listen-in.html"
     },
     {
-      "hash": "sha256-mUHDGFCIKPYNaydDXf6H7fvOvUxl0w81ACZkxR5n7/A=",
+      "hash": "sha256-FqUYxI1DqHeND3fZy3/oFjF4L9Z10mmC007T3+Segak=",
       "url": "assets/packages/teams/kommandos/definitions/kommando-rule-concealed-position.html"
     },
     {
-      "hash": "sha256-Eopfci5sG5SXTlmoZHJJvl0/9fiMofy37ItKyNvsS0A=",
+      "hash": "sha256-WumWBuj3TsaAZr5Z6qVoNz9cLdSFEy3gLvCfqiArw/g=",
       "url": "assets/packages/teams/kommandos/definitions/kommando-rule-explosive.html"
     },
     {
@@ -2254,7 +2254,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/index.json"
     },
     {
-      "hash": "sha256-0A2zmEiau5P/zMpkDU6qoGzcq5CUu7C+Rvf8lzzZmdE=",
+      "hash": "sha256-0ubDHJhjrZV4EsZYStU0oHoADpsTB2BLLsZLuuGAmNU=",
       "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-dakka-dakka-dakka.html"
     },
     {
@@ -2266,7 +2266,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-krump-em!.html"
     },
     {
-      "hash": "sha256-OkOREyw9tMS7Zfm6H5DJKsHZogSm4WuDsADyL0qbZy8=",
+      "hash": "sha256-NlLGPrkheYQOVfG3Y/VZMBOeFaS90BGWJZNmDPzaYsU=",
       "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-kunnin-but-brutal.html"
     },
     {
@@ -2278,11 +2278,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-skulk-about.html"
     },
     {
-      "hash": "sha256-jWEwwtfz4rm+k3PgmppJlSsxlYcCKqNnyt3pjWdAoYo=",
+      "hash": "sha256-Wz0bHVjD0XtliVt4p+dpP7whdLfZ1O9yHUaKLpaUkGg=",
       "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-sssshhhh!.html"
     },
     {
-      "hash": "sha256-yn3+HGfEJsbyBDdGdW3+H1H5kR1SIEcem6KXls8l5LY=",
+      "hash": "sha256-/1S7ho0xos8ImM35Fqu97yXCcCy2knNfrCOP5BNV9no=",
       "url": "assets/packages/teams/kommandos/ploys/kommando-ploy-waaagh!.html"
     },
     {
@@ -2290,15 +2290,15 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/teams/kommando-team-kommandos.html"
     },
     {
-      "hash": "sha256-lvRYtt3L0MC4UZBEP8k34TG2tRdjvdOQ5zJRG1qMCeM=",
+      "hash": "sha256-QN+xP7i47pYJACrOWHQ0dNw66Tlp6Ad3+h5U1OeqJN4=",
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-bomb-squig.html"
     },
     {
-      "hash": "sha256-xsYGZr8dAvjGcAqJe2ogapANxKv7ystLkYitSTIkWbc=",
+      "hash": "sha256-CR3csvciT759QlVa40uXsN/VL+9PqoE2yiF8RI0jP34=",
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-boss-nob.html"
     },
     {
-      "hash": "sha256-k6ABqjkQF5/dYfFDZ/w8jHecK0fcmgnv0Ee6uXPaygs=",
+      "hash": "sha256-xJwElwC/fkvh9Cywlpt+rabINAg5ywyziXNdGW/VIVQ=",
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-boy.html"
     },
     {
@@ -2310,7 +2310,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-burna-boy.html"
     },
     {
-      "hash": "sha256-qMv9U7PXxBcFtsBu3XICLaXHN/XWzZ9IxpOmoNZl9Dk=",
+      "hash": "sha256-qkNm4XIv/MiwTgTmLR561IL0Cw2k2pvlEgLI6FVBuZc=",
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-comms-boy.html"
     },
     {
@@ -2326,7 +2326,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-rokkit-boy.html"
     },
     {
-      "hash": "sha256-l0seWu41pvAjYjTcf/PyarVH6SvX1F3V3cfmSzdPKko=",
+      "hash": "sha256-M95cHs9NdbARgwUtvx8+gJTENQL6l1JR2swnk9SDg8o=",
       "url": "assets/packages/teams/kommandos/units/kommando-unit-kommando-slasha-boy.html"
     },
     {
@@ -2338,7 +2338,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/pathfinders/actions/pathfinder-markerlight.html"
     },
     {
-      "hash": "sha256-f37WE7X3KFQo4RQPP0KB5upRa9PqZ2Hf34829cbuJhM=",
+      "hash": "sha256-TV4d1XX4egpMzhujSoCbNnQM+6/Iq9p800X4p/CRu4c=",
       "url": "assets/packages/teams/pathfinders/actions/pathfinder-medikit.html"
     },
     {
@@ -2726,27 +2726,27 @@ self.assetsManifest = {
       "url": "assets/packages/teams/vespid-stingwings/units/vespid-stingwings-warrior.html"
     },
     {
-      "hash": "sha256-oQ7AZCccwOtOqdu/xge76TEZnTZ9MsWeEMpKtUmxmVU=",
+      "hash": "sha256-L6V9r7J8+1XgM+DAEVkRRbHZ8R+6bsXdg7rT4YqSHqo=",
       "url": "assets/packages/teams/wrecka-krew/actions/wrecka-krew-action-break-stuff.html"
     },
     {
-      "hash": "sha256-4mW+5I6vZtjCN73NmKhyDXrZJHuePnmpl/kBZ5Erd3w=",
+      "hash": "sha256-hkdK1Kst3ikJOFnHdOSdFZ3qMYNsEcJqlr10kinqcro=",
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-detonate.html"
     },
     {
-      "hash": "sha256-Eopfci5sG5SXTlmoZHJJvl0/9fiMofy37ItKyNvsS0A=",
+      "hash": "sha256-WumWBuj3TsaAZr5Z6qVoNz9cLdSFEy3gLvCfqiArw/g=",
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-explosives.html"
     },
     {
-      "hash": "sha256-P9LrcQNRXMDM4E3HkqrcgdiH9RmJX9sElfpD5RVK7lo=",
+      "hash": "sha256-FJBI6dS1VZZgGDFrg/ivDddkP6e/FBYZAj40/RTFHIo=",
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-pulsa.html"
     },
     {
-      "hash": "sha256-Ht1CbDCVHEt42sYLq3AapKsuLigZawL4hsGqOf95wV4=",
+      "hash": "sha256-MWCeSH/ycEGaVcj1nzbaCu1GSI3BAlZkf2uyX6Gllqs=",
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-salvo.html"
     },
     {
-      "hash": "sha256-Cfz1x0olA4qV3Q7euFKRHiMKYye9UEpCFcLqY7XSQ0s=",
+      "hash": "sha256-IBlupJCUJ41ZaoZF6C/WgiuZxVPv/S8EFN2T9AKD5I8=",
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-smash.html"
     },
     {
@@ -2754,19 +2754,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-tanked-up.html"
     },
     {
-      "hash": "sha256-U6WLR2SfxB9hneQ6h7BX+5JkLc2tVCy8xHD2/P2MjFw=",
+      "hash": "sha256-zLaOVzwiN158UyiFZSp4gmYepOckEWWNsudJzOfbW/k=",
       "url": "assets/packages/teams/wrecka-krew/definitions/wrecka-krew-rule-wrecka-rampage.html"
     },
     {
-      "hash": "sha256-VSurebqfFj6oPs8AwUQuuDJkE4nl4qbzTxRfeCZQ1IE=",
+      "hash": "sha256-kSD4LaWsBjg+Dmk4SDhf9rXG0vuJAuMEeALu5mCh6l8=",
       "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-drill-rokkits.html"
     },
     {
-      "hash": "sha256-CNL0qy5hF+GowfdfR1KupRkUlkpKSMc2ScWntMqtilo=",
+      "hash": "sha256-V0rrLd5kZUwGBajdFhchcQdJnDC6KBy/kYQVCkVG5wY=",
       "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-engine-oil.html"
     },
     {
-      "hash": "sha256-V4GK0S4kknrMGtE+vYp27krWjjrwXlvaeJu4TbrF+s0=",
+      "hash": "sha256-TViv/UvhjVh0oiw+e+R5XfCyc/2s1ElYcjxnL9AdzUU=",
       "url": "assets/packages/teams/wrecka-krew/equipment/wrecka-krew-equipment-extra-armour.html"
     },
     {
@@ -2782,11 +2782,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-amped-up.html"
     },
     {
-      "hash": "sha256-byaIGpy0wu1GhL3kVh+nq9Q0PaGaPPZSc/PbfVBfTQ8=",
+      "hash": "sha256-BAa3+dkC9wMrSbLV53yONqGyFSWXvS3MQb/F3n+zj9M=",
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-demolition-job.html"
     },
     {
-      "hash": "sha256-tnToFbRuCK47bYcywlj5n1jCLzYIOGt29D/6VEZIONM=",
+      "hash": "sha256-GriM+Ntl0X5/Vu1yeUcRPH7ipNqA4NxGrNH5cSCdYXY=",
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-destruction.html"
     },
     {
@@ -2794,11 +2794,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-just-a-scratch.html"
     },
     {
-      "hash": "sha256-CJbsUlayDniKWL5ohq5ffqSd1GrQEeOaKK5Ky2WhKOY=",
+      "hash": "sha256-AZYSHW4yAKLiXZ9V5tmRayYgMACehFGiAYRY0qcOdfE=",
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-kaboom!.html"
     },
     {
-      "hash": "sha256-zbJ65i17TVK6t74Amud2iMM/2GTDGEawjGm6cZYBaQI=",
+      "hash": "sha256-IO66au+8MDD5rXaa8Vf7AM17I+0Gp1gxCijyOMBM10w=",
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-proppa-scrap.html"
     },
     {
@@ -2806,11 +2806,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-tuff-gitz.html"
     },
     {
-      "hash": "sha256-rIYGPCGUFwk++gavo5aISSLfV7SLUf/t+b0rYSskgSQ=",
+      "hash": "sha256-jIcPLKvIhOGUNRaxnOcVdqbVUrMp3okmSpEKVYGZWFw=",
       "url": "assets/packages/teams/wrecka-krew/ploys/wrecka-krew-ploy-waaagh!.html"
     },
     {
-      "hash": "sha256-m14J2f0UvW/+ap+mIGrE70D28x5ChUB9MCfPpw7ZGyE=",
+      "hash": "sha256-wxCnM0IOdqyESUUbayrykFN4XU9GsmoCgN1b3PxRYMU=",
       "url": "assets/packages/teams/wrecka-krew/teams/wrecka-krew-team-wrecka-krew.html"
     },
     {
@@ -2830,11 +2830,11 @@ self.assetsManifest = {
       "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-tankbusta-gunner.html"
     },
     {
-      "hash": "sha256-BVh02mw5Kc3ag7t5/4lH1QgA0+cIhzlJGmDQbeoelkE=",
+      "hash": "sha256-fsb4YNVcuMrnzyv+UBbIXHtok3bWwPVzpVdiX/lK5h4=",
       "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-tankbusta-rokkiteer.html"
     },
     {
-      "hash": "sha256-1Wk3PDD0AEiukqD0n0EfZrez6/G6GkLJo73nj6zh5s0=",
+      "hash": "sha256-bG7/LG/BH/z+rfgdVD7vDcvWSmkaD5HjyuMm3BXXzKA=",
       "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-wrecka-bomb-squig.html"
     },
     {
@@ -2842,19 +2842,19 @@ self.assetsManifest = {
       "url": "assets/packages/teams/wrecka-krew/units/wrecka-krew-unit-wrecka-boss-nob.html"
     },
     {
-      "hash": "sha256-VxkzReKvWGSKOeQ0r9V+UYGahSWJsvQtnqZGFjN7TG0=",
+      "hash": "sha256-dDA/mmLL3GlginIw2k8b8dUq1KKqANm3ZCwQ7X4341I=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/actions/xv26-stealth-battlesuits-action-focused-markerlight.html"
     },
     {
-      "hash": "sha256-UpoqXOAKr1IGjVbWhFzD4IiSUb/EvhAm/QevdG+mIik=",
+      "hash": "sha256-f9ntE2rfB0ygE1qntxLKo9jKHtkDRpiSJTI3rQQPwdQ=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/actions/xv26-stealth-battlesuits-action-photon-grenade-launcher.html"
     },
     {
-      "hash": "sha256-FZIAbepioOWuR7V1N6LG06eW0m/D7ACF8iYrkGBkkG0=",
+      "hash": "sha256-SixAZZIekoTH7Um/LpwqBG5wHKKOPGkvwbs6f+tsjqI=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/actions/xv26-stealth-battlesuits-action-system-jam.html"
     },
     {
-      "hash": "sha256-2pliI4K4Iaim79YweH/VvInMx+8P60WVdU0A9VtSqJA=",
+      "hash": "sha256-GZJBsD9yFwjmHuOd1WPhSH226ahMJBCbnOODlEj84OY=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/definitions/xv26-stealth-battlesuits-rule-kauyon.html"
     },
     {
@@ -2866,7 +2866,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/xv26-stealth-battlesuits/equipment/xv26-stealth-battlesuits-equipment-advanced-blacksun-filters.html"
     },
     {
-      "hash": "sha256-YXGc0uhtToKcaEBKKOyLbKGsNN8SbGnxJDF5fucPm5Y=",
+      "hash": "sha256-n8AmmffsJWtb6TjuDNF0+343FF5PvfAwqpCMeGSXGu0=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/equipment/xv26-stealth-battlesuits-equipment-counter-network-jammers.html"
     },
     {
@@ -2882,7 +2882,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/xv26-stealth-battlesuits/index.json"
     },
     {
-      "hash": "sha256-g4SdDZPn6tPU5DBAdWRpps1d0GKpbLNfS+RXEZnHfBY=",
+      "hash": "sha256-pvjp+C4T+RwqMVLtRH3ZWmkd6SKIFjJqd1di022uGmU=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-bonds-of-unity.html"
     },
     {
@@ -2890,63 +2890,67 @@ self.assetsManifest = {
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-engage-jet-pack.html"
     },
     {
-      "hash": "sha256-eHS9O3+AODk4tCE9TWWydHRMsnWJgl+3VUGA4QyAnps=",
+      "hash": "sha256-o/MU5Djpd1V1HiPfnyZn6mg4n1wAfHP586lidEeFwBI=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-ghostshroud.html"
     },
     {
-      "hash": "sha256-0F/GhZMuoA3h58xfBJnuicv9bvFohBXJdl4vk7chBSQ=",
+      "hash": "sha256-1Us9TswOyWj5pcohDyeJRlroRQtY/K99cXIQrUyHYZw=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-holowave-countermeasures.html"
     },
     {
-      "hash": "sha256-QYuLVy3IFmIP3XMk+X0VmfT0OQZKijx9qM1MYDbKcaM=",
+      "hash": "sha256-KSrtYa0L3sp6EmVaiGXvMIvwODeZtaMRup/A44ZkRRE=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-patient-hunters.html"
     },
     {
-      "hash": "sha256-uvHBqb+jX8vvCj5fS6jTK5yt9AQ1VlHsMlntJIUaPXM=",
+      "hash": "sha256-I45vk8PV6HiFUbm6cXBLSB4xkaL+/mGwrY9/rwetdNQ=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-prepare-ambush.html"
     },
     {
-      "hash": "sha256-8R9fW1WnZU+yBt3y+8WJO2Z1NuNQ8czg01AS7cjQAaQ=",
+      "hash": "sha256-urCZ8HYW/NouWUBNLB9Hhs/tLbT80QV9NTNNBdsbDA0=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-saviour-protocols.html"
     },
     {
-      "hash": "sha256-f+kt3z+Wce6hZx9EGRAt/L68a7Gw7MT1gI0l6butITk=",
+      "hash": "sha256-I2uHR5e6GGHGqgqw1gTqgDTdFRuhy7pV68D2XXHA6g8=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-vectored-retro-thrusters.html"
     },
     {
-      "hash": "sha256-Fm6fxgmPas74SdEWp1NM9pcy3TibtcUrzYrQa4ZUF5M=",
+      "hash": "sha256-OT5fnrJ7Jik8zSW8rauRi2FTImZpOjYJIyop/Y04Mzc=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/teams/xv26-stealth-battlesuits-team-xv26-stealth-battlesuits.html"
     },
     {
-      "hash": "sha256-gA1NcpjPVLNcZC17jNI4Lj0OiCE0o4bmBDshH1MPzv8=",
+      "hash": "sha256-CaI4D9/9dERerXzRIdAyyGeoxNHJYSJ2LXPvfwENNoc=",
+      "url": "assets/packages/teams/xv26-stealth-battlesuits/teams/xv26-stealth-battlesuits-team-xv26-stealth-battlesuits.png"
+    },
+    {
+      "hash": "sha256-iKEgVXTs66HnC5e73TkiqvMuEI10VegYicwQEV6gyc8=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-mv15-gun-drone.html"
     },
     {
-      "hash": "sha256-L/6EnSd2W3DGdl//qgHtALj46+aNlsyV6ygH9cgByvI=",
+      "hash": "sha256-eRaSWfRBKqOVCBftuo8208ZhlAzCeEQCEL037cLhGFw=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-mv75-marker-drone.html"
     },
     {
-      "hash": "sha256-dVhK3cnHc7YrUv3ciV/X+Xz3+M6qAB4asK1t+Ltv3oo=",
+      "hash": "sha256-KjvsEJKgS+Oja0T3s5N4eufr3ftIPB/5csQk5d39fnQ=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-vx26-shas'vre.html"
     },
     {
-      "hash": "sha256-QQH7nXW1PieW31UHjpgoWC6bUX8gdT1d4oz6HAHBDSg=",
+      "hash": "sha256-6bEMNkrOCabSYO0nDPH1tx90bYyUOSjqGz5psjYFwJw=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-designator.html"
     },
     {
-      "hash": "sha256-2rTTKXggTH5UItNpoTo+wcc6ICqfCtrtKDkc6FTxcJw=",
+      "hash": "sha256-qqF/hOpy8oULAxazjvdq0OI7nagx6l0kgVhJG0kxHwE=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-infiltrator.html"
     },
     {
-      "hash": "sha256-8bF0iX8A/LWnuTBdp/d/nSUfKQJGPKtqekVDN276UVs=",
+      "hash": "sha256-C0FZPJS17Xdv3B1whVGOwMocTcFnpPX0FRlGxpfBM3E=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-liberator.html"
     },
     {
-      "hash": "sha256-irONFHgQsOE8rqzbw2+BGA9/WLfUR/VVUrE56e3qBpQ=",
+      "hash": "sha256-ZYX66DPIkw6PWskJX6qJq5NWBEM6qfboEvjhXdAD81E=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-lodestar.html"
     },
     {
-      "hash": "sha256-RhBx8ToHYTtY0otxH0j9ptA6zsOc3YULESGx85rsjzU=",
+      "hash": "sha256-9R6jFj9B/uPuBV8grcagNMyRCUmNOUbCcEICORlr59s=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/units/xv26-stealth-battlesuits-unit-xv26-neutraliser.html"
     },
     {
@@ -2974,7 +2978,7 @@ self.assetsManifest = {
       "url": "assets/packages/universal-equipment/equipment/krak.html"
     },
     {
-      "hash": "sha256-TL84lwJzFo6ZFYGJvz/q5Md1f2wTeGlahV5bMgGoe+U=",
+      "hash": "sha256-lPClSVUbvFjRB1qcv9s75eHPw7x5pperTMa3XOBR05w=",
       "url": "assets/packages/universal-equipment/equipment/ladders.html"
     },
     {
@@ -2994,7 +2998,7 @@ self.assetsManifest = {
       "url": "assets/packages/universal-equipment/equipment/razor-wire.html"
     },
     {
-      "hash": "sha256-moUOTQ2+PUShqdaRf35DqACLjpF3pFoQi3zFbusZHKk=",
+      "hash": "sha256-St0cWrCISfYzM7TXDIT3Pk0LiHwxxK9Ve2BWmzZ2b9w=",
       "url": "assets/packages/universal-equipment/equipment/smoke-utility-grenades.html"
     },
     {
@@ -3042,7 +3046,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-TltNTH57xOh/bEoht5jJvdkO1ks27mz18MeggpsukgE=",
+      "hash": "sha256-3YT5Ha/MV3zpC2vAoS7Oc3+t9piKGYv/6AGYi598W8o=",
       "url": "index.html"
     },
     {
