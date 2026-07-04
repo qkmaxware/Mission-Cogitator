@@ -5,3 +5,14 @@
     border-width: 1px;
     border-style: solid;
 }
+
+.header-icon-col {
+    width: 76px;
+    vertical-align: middle;
+    padding: 4px;
+}
+
+
+.header-icon-col>img {
+    width: 100%;
+}

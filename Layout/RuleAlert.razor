@@ -12,20 +12,40 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>
-                            @switch (Rule) {
-                                case Kt.Data.Action action:
-                                    break;
-                                case Kt.Data.Effect effect:
-                                    break;
-                                case Kt.Data.Ploy ploy:
-                                    break;
-                                case Kt.Data.Equipment equipment:
-                                    break;
-                                default:
-                                    break;
-                            }
-                        </td>
+                        @switch (Rule) {
+                            case Kt.Data.Action action:
+                                <td class="w3-hide-small header-icon-col">
+                                    <img src="art/action.svg" class="header-icon"/>
+                                </td>
+                                break;
+                            case Kt.Data.Effect effect:
+                                <td class="w3-hide-small header-icon-col">
+                                    <img src="art/effect.svg" class="header-icon"/>
+                                </td>
+                                break;
+                            case Kt.Data.Ploy ploy:
+                                <td class="w3-hide-small header-icon-col">
+                                @switch (ploy.Kind) {
+                                    case PloyKind.strategy:
+                                        <img src="art/strategy-inverted.svg" class="header-icon"/>
+                                        break;
+                                    case PloyKind.firefight:
+                                        <img src="art/ranged-inverted.svg" class="header-icon"/>
+                                        break;
+                                }
+                                </td>
+                                break;
+                            case Kt.Data.Equipment equipment:
+                                <td class="w3-hide-small header-icon-col">
+                                    <img src="art/gears.svg" class="header-icon"/>
+                                </td>
+                                break;
+                            default:
+                                <td class="w3-hide-small header-icon-col">
+                                    <img src="art/rule.svg" class="header-icon"/>
+                                </td>
+                                break;
+                        }
                         <td>
                             <h2>@Rule?.Name</h2>
                             @if (Rule?.SourcePackage is not null) {
