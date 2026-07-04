@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "COi17vDD",
+  "version": "DtrmtRgu",
   "assets": [
     {
       "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-EwBq2NORLKpbATgHG+q4A5SRNrZTEyeoUH7xN+FYyq0=",
-      "url": "_framework/Kt.3gl2j9b3hc.wasm"
+      "hash": "sha256-WKCTiVhEIKSuuok9v9KnmbGTkAbPJjWurO6ZHrBYcH8=",
+      "url": "_framework/Kt.88gqzyg7m9.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,16 +214,16 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
+      "hash": "sha256-nfQzkvbuJUoOXHPOQ9VxZbEYBeKdkbcTlYIdPRAO1oo=",
+      "url": "_framework/dotnet.137zypcb4t.js"
+    },
+    {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
       "url": "_framework/dotnet.native.ikrs475e5v.js"
     },
     {
       "hash": "sha256-iQOJ2Ignl/X3n6mOHRQ4zWYcute0MGlaiRFi2J3HXWk=",
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
-    },
-    {
-      "hash": "sha256-UtlTPm1BBBUWXXH17Kc3sCJ2srvjgiF0Xme+PLZgTCk=",
-      "url": "_framework/dotnet.qq55tki83s.js"
     },
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -1074,7 +1074,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/deathwatch/teams/deathwatch.html"
     },
     {
-      "hash": "sha256-TnDQ1S8Lux9RsOJj8MrDKNyB3Y6CL3gd/2QelCEVHG8=",
+      "hash": "sha256-DhX55pxFA8CB5Q8kZR7NaPgZ0URzZ7ZchVV3PNKuASY=",
       "url": "assets/packages/teams/deathwatch/teams/deathwatch.png"
     },
     {
@@ -2914,7 +2914,7 @@ self.assetsManifest = {
       "url": "assets/packages/teams/xv26-stealth-battlesuits/ploys/xv26-stealth-battlesuits-ploy-vectored-retro-thrusters.html"
     },
     {
-      "hash": "sha256-3KNpwrUjLDpYYeJSCCQGbUAwDX6guFJ/jcSUdSMZjWc=",
+      "hash": "sha256-Fm6fxgmPas74SdEWp1NM9pcy3TibtcUrzYrQa4ZUF5M=",
       "url": "assets/packages/teams/xv26-stealth-battlesuits/teams/xv26-stealth-battlesuits-team-xv26-stealth-battlesuits.html"
     },
     {
@@ -3042,7 +3042,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-S2aXRCdkpRhhYeDaCWJB4+2j7S8+ID5mW2nsnGkeOxQ=",
+      "hash": "sha256-nlappmL2n65AsD12Yx+keP/jwjP6DBEp/9iZmqewbGQ=",
       "url": "index.html"
     },
     {
