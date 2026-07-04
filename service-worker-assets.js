@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "ALHeNF6t",
+  "version": "COi17vDD",
   "assets": [
     {
       "hash": "sha256-G73+WlO8vXitJFxObnotopoA/G4cGEeaKm52Rf9kBUY=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-DeRkANHcTBBbKPGR3VxQPNBooE7fLM3Uxg41+EONhXQ=",
-      "url": "_framework/Kt.hv2eif76rp.wasm"
+      "hash": "sha256-EwBq2NORLKpbATgHG+q4A5SRNrZTEyeoUH7xN+FYyq0=",
+      "url": "_framework/Kt.3gl2j9b3hc.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -222,8 +222,8 @@ self.assetsManifest = {
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
     },
     {
-      "hash": "sha256-I+cfV9+Yvp4SXUMy0pFETyKDQjht6ejzK8YdiLBbVsU=",
-      "url": "_framework/dotnet.rmfcxbkc0n.js"
+      "hash": "sha256-UtlTPm1BBBUWXXH17Kc3sCJ2srvjgiF0Xme+PLZgTCk=",
+      "url": "_framework/dotnet.qq55tki83s.js"
     },
     {
       "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
@@ -1070,51 +1070,55 @@ self.assetsManifest = {
       "url": "assets/packages/teams/deathwatch/ploys/deathwatch-transhuman-physiology.html"
     },
     {
-      "hash": "sha256-HQkgq3XYqcwVfbFMgq2DKBeA/kLAHkBB5E0++F6HfZ0=",
+      "hash": "sha256-Ed/5AWudIp6BqBEw8jDEp/y0ODWxbd2WYB6I5vH79gM=",
       "url": "assets/packages/teams/deathwatch/teams/deathwatch.html"
     },
     {
-      "hash": "sha256-6eT5eUjcZRz9eIrOFlDaMXzFfDiIylVT1p6j5wGhsPk=",
+      "hash": "sha256-TnDQ1S8Lux9RsOJj8MrDKNyB3Y6CL3gd/2QelCEVHG8=",
+      "url": "assets/packages/teams/deathwatch/teams/deathwatch.png"
+    },
+    {
+      "hash": "sha256-al37A10dqvdVbfVGePbjmgDkBFFSbYWNCeP8KlU/7j0=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-aegis-veteran.html"
     },
     {
-      "hash": "sha256-GPu3b7WiRhpndjy5WIhRs+GhE0+WbEe/mufk5q3mECU=",
+      "hash": "sha256-rWt5luXw0//WwrH8KghZv7d7xsob2SY2Q3J1mu+TWeM=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-blademaster-veteran.html"
     },
     {
-      "hash": "sha256-JJdYPxPxSruhxpBmIKL122g1ULHLOnmyDhsyQLk1K50=",
+      "hash": "sha256-KUbDjdjIawu2NZP5SCKJuG+oGj41iy39hdJixUjTlrQ=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-bombard-veteran.html"
     },
     {
-      "hash": "sha256-KsTpEqwkr/joghEN5PVr90O4mk1oYiRORXGxU+koOZE=",
+      "hash": "sha256-jIqRsgLwm03sJ31dkuKm4YwEjmayy/MkJm8p9h9dctc=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-breacher-veteran.html"
     },
     {
-      "hash": "sha256-zfk3yMREwYUkz78/990WK9FdSOZudYozCLPivKz6VR8=",
+      "hash": "sha256-ACDMQ3hzoT6S/LQ14vLCs72kfL4tPKVYxX7GSoH0L90=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-demolisher-veteran.html"
     },
     {
-      "hash": "sha256-x8eM+YCogF5+VCq26IREJ7ohJYcd5PfZ6xxMo2LNK3U=",
+      "hash": "sha256-34+hqTUk0Wf8FF+LrJdzaAkwGq6KV3TtiO8t0l8vBF0=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-disruptor-veteran.html"
     },
     {
-      "hash": "sha256-xmGsUyFjDD87wML52xgJ46SLp3MlxdPB8EtOD6n4TOY=",
+      "hash": "sha256-kAzRd2o/K8Zcis8/e0qx4Mf4bOK7QjqMqcxGbSoj7NE=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-gunner-veteran.html"
     },
     {
-      "hash": "sha256-GVWYuWv2pnnhCv/AYS0ulxg1GVa3z383GsnjjV99vK8=",
+      "hash": "sha256-6p59v50rIcNZwUdir8hGOR4RkAoP4gnTwyv9u/Jk+OM=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-headtaker-veteran.html"
     },
     {
-      "hash": "sha256-nhIqS1MVe3Bj3BynAlTniLveG/qV0oBQQFT+pmCcNQc=",
+      "hash": "sha256-4ar0t/EZs/37ymee1RpX009RUWCt97jB3xG2MTj8Nj8=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-horde-slayer-veteran.html"
     },
     {
-      "hash": "sha256-upT+0ktyxfFpV8520ly5p5gFGii9x7szfcBjTd3mMXA=",
+      "hash": "sha256-U5VPEx22ZRg8B636/gp2DC0cYCSV3MnApcWUjc2dG8Y=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-marksman-veteran.html"
     },
     {
-      "hash": "sha256-jFOGx0vkDZDps6kgfLGCK9BQG2RuihEevJvDWL5Jo7E=",
+      "hash": "sha256-yiXFlE/RjZHLsWjx++TTAtCJZJfxz6Ua/Q2eGkK3bgk=",
       "url": "assets/packages/teams/deathwatch/units/deathwatch-watch-sergeant.html"
     },
     {
@@ -3038,7 +3042,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-wxtJ+99jCuc4sZFIL7nhkytvvrjfoTllVt13RSE6dMQ=",
+      "hash": "sha256-S2aXRCdkpRhhYeDaCWJB4+2j7S8+ID5mW2nsnGkeOxQ=",
       "url": "index.html"
     },
     {
