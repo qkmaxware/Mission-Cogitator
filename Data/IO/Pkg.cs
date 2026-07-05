@@ -1,4 +1,5 @@
 using System.IO.Compression;
+using System.Reflection;
 using System.Text.Json;
 
 namespace Kt.Data.IO;
@@ -160,6 +161,76 @@ public class Pkg
         return pkg;
     }
 
+    /// <summary>
+    /// Read a package from embedded resources where the supplied path points to the package's index resource.
+    /// </summary>
+    /// <param name="path">Path to the package index resource, for example "Homebrew".</param>
+    /// <returns>package</returns>
+    public static Task<Pkg> FromEmbeddedResources(string path)
+        => FromEmbeddedResources(typeof(Pkg).Assembly, path);
+
+    public static async Task<Pkg> FromEmbeddedResources(Assembly assembly, string path)
+    {
+        var pkg = new Pkg();
+        pkg.Author = Environment.UserName;
+        pkg.Name = Path.GetFileNameWithoutExtension(path);
+
+        PkgIndex? index = null;
+        try
+        {
+            var indexResourceName = FindEmbeddedResourceName(assembly, path, "index.json")
+                ?? FindEmbeddedResourceName(assembly, path, "index.jsonc");
+
+            if (indexResourceName is null)
+                throw new FileNotFoundException($"Could not find package index at {path}/index.json or {path}/index.jsonc");
+
+            using var indexStream = assembly.GetManifestResourceStream(indexResourceName);
+            if (indexStream is null)
+                throw new FileNotFoundException($"Could not find package index resource {indexResourceName}");
+
+            using var indexReader = new StreamReader(indexStream);
+            index = JsonSerializer.Deserialize<PkgIndex>(await indexReader.ReadToEndAsync(), json);
+            if (index is null)
+                return pkg;
+        }
+        catch (FileNotFoundException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new FileNotFoundException($"Could not find package index at {path}/index.json or {path}/index.jsonc", ex);
+        }
+
+        pkg.Name = index.Name ?? pkg.Name;
+        pkg.Author = index.Author ?? pkg.Author;
+        pkg.Updated = index.Updated;
+
+        var definitionTask = ParseResourcesFromEmbeddedResources<Rule>(pkg, assembly, path, index.Definitions ?? EMPTY);
+        var actionTask = ParseResourcesFromEmbeddedResources<Action>(pkg, assembly, path, index.Actions ?? EMPTY);
+        var effectTask = ParseResourcesFromEmbeddedResources<Effect>(pkg, assembly, path, index.Effects ?? EMPTY);
+        var equipmentTask = ParseResourcesFromEmbeddedResources<Equipment>(pkg, assembly, path, index.Equipment ?? EMPTY);
+        var ployTask = ParseResourcesFromEmbeddedResources<Ploy>(pkg, assembly, path, index.Ploys ?? EMPTY);
+        var unitTask = ParseResourcesFromEmbeddedResources<Unit>(pkg, assembly, path, index.Units ?? EMPTY);
+        var teamTask = ParseResourcesFromEmbeddedResources<Team>(pkg, assembly, path, index.Teams ?? EMPTY);
+
+        await Task.WhenAll(definitionTask, actionTask, effectTask, equipmentTask, ployTask, unitTask, teamTask);
+
+        pkg.Definitions = await definitionTask;
+        pkg.Actions = await actionTask;
+        pkg.Effects = await effectTask;
+        pkg.Equipment = await equipmentTask;
+        pkg.Ploys = await ployTask;
+        pkg.Units = await unitTask;
+        pkg.Teams = await teamTask;
+
+        pkg.Aliases = index.Aliases;
+
+        ResolveTeamIds(pkg);
+
+        return pkg;
+    }
+
     private static async Task<T?> LoadSingleResourceFromRelativeUrl<T>(Pkg currentPkg, HttpClient client, string url, string relative)
     where T:IPackagedContent
     {
@@ -205,6 +276,100 @@ public class Pkg
         return results
             .Where(x => x is not null)
             .ToDictionary(x => x?.Id!, x => x!);
+    }
+
+    private static async Task<Dictionary<string, T>> ParseResourcesFromEmbeddedResources<T>(Pkg currentPkg, Assembly assembly, string path, List<string> relatives)
+    where T : IPackagedContent
+    {
+        var results = new Dictionary<string, T>();
+
+        foreach (var relative in relatives)
+        {
+            try
+            {
+                var resourceName = FindEmbeddedResourceName(assembly, path, relative);
+                if (resourceName is null)
+                    continue;
+
+                using var contentStream = assembly.GetManifestResourceStream(resourceName);
+                if (contentStream is null)
+                    continue;
+
+                using var reader = new StreamReader(contentStream);
+                var content = await reader.ReadToEndAsync();
+
+                var doc = new FmHtmlDocument(content);
+                var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
+                if (data is null)
+                    continue;
+
+                data.SourcePackage = currentPkg;
+                data.Id = Path.GetFileNameWithoutExtension(relative);
+                data.Description = doc.Html.ToString();
+                results[data.Id] = data;
+            }
+            catch (Exception ex)
+            {
+                throw new FormatException($"Could not load package resource from embedded resources: {relative}", ex);
+            }
+        }
+
+        return results;
+    }
+
+    private static string? FindEmbeddedResourceName(Assembly assembly, string path, string relative)
+    {
+        var normalizedPath = NormalizeEmbeddedResourcePath(path);
+        var normalizedRelative = NormalizeEmbeddedResourcePath(relative, ensureHtmlExtension: true);
+        var resourcePaths = new List<string>();
+
+        if (!string.IsNullOrWhiteSpace(normalizedPath))
+            resourcePaths.Add($"{normalizedPath}/{normalizedRelative}");
+        resourcePaths.Add(normalizedRelative);
+
+        if (!normalizedRelative.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
+        {
+            resourcePaths.Add($"{normalizedPath}/{NormalizeEmbeddedResourcePath(relative)}");
+            resourcePaths.Add(NormalizeEmbeddedResourcePath(relative));
+        }
+
+        foreach (var resourcePath in resourcePaths.Distinct(StringComparer.OrdinalIgnoreCase))
+        {
+            var dottedPath = resourcePath.Replace('/', '.').Replace('\\', '.');
+            foreach (var resourceName in assembly.GetManifestResourceNames())
+            {
+                var dottedResourceName = resourceName.Replace('/', '.').Replace('\\', '.');
+                if (dottedResourceName.Equals(dottedPath, StringComparison.OrdinalIgnoreCase)
+                    || dottedResourceName.EndsWith($".{dottedPath}", StringComparison.OrdinalIgnoreCase))
+                {
+                    return resourceName;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private static string NormalizeEmbeddedResourcePath(string path, bool ensureHtmlExtension = false)
+    {
+        if (string.IsNullOrWhiteSpace(path))
+            return string.Empty;
+
+        var normalized = path.Replace('\\', '/').Trim('/');
+        if (normalized.EndsWith("index.json", StringComparison.OrdinalIgnoreCase)
+            || normalized.EndsWith("index.jsonc", StringComparison.OrdinalIgnoreCase))
+        {
+            var lastSlash = normalized.LastIndexOf('/');
+            if (lastSlash >= 0)
+                normalized = normalized[..lastSlash];
+            else
+                normalized = string.Empty;
+        }
+
+        if (ensureHtmlExtension && !normalized.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
+            normalized = Path.ChangeExtension(normalized, ".html");
+
+        return normalized;
     }
 
     /// <summary>
