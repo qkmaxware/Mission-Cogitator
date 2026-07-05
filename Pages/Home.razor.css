@@ -5,6 +5,12 @@ article {
     padding-bottom: 8px;
 }
 
+@media (min-width: 993px) {
+    main {
+        margin-left: 320px;
+    }
+}
+
 @media (max-width: 600px) {
     article {
         padding-left: 8px;

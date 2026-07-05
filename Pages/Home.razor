@@ -544,8 +544,11 @@
 @code {
     private NavMenu? navigator;
 }
+<main>
 <Header>
-    <button class="w3-button app-primary w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> <h2 class="w3-xlarge" style="display: inline-block; margin: 0;">Mission Cogitator</h2>
+    <button class="w3-button app-primary w3-hide-large w3-xlarge" @onclick="@(() => navigator?.OpenNavMenu())">☰</button> 
+    <span class="w3-hide-medium w3-hide-small" style="padding-top: 8px; padding-bottom: 8px; padding-right: 8px;">&nbsp;</span>
+    <h2 class="w3-xlarge" style="display: inline-block; margin: 0; padding-top: 8px; padding-bottom: 8px;">Mission Cogitator</h2>
     <div class="w3-display-right">
         <button class="w3-button app-primary w3-xlarge" style="padding: 8px;" @onclick="@(async () => await rollies())"><img src="art/dice.svg" style="height: 1em;"/></button>
         <button class="w3-button app-primary w3-xlarge" style="padding: 8px;" @onclick="@(() => currentTab = Tab.QuickReference)"><img src="art/home.svg" style="height: 1em;"/></button>
@@ -570,6 +573,7 @@
         private DeployedUnit? selectedDeployment;
     }
 </article>
+</main>
 
 
 @code {

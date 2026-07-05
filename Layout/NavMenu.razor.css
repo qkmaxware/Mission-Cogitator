@@ -23,8 +23,21 @@
     background-color: var(--theme-background-light);
 }
 
-.w3-sidebar.hide {
-    display: none !important;
+
+@media (min-width: 993px) {
+    .w3-sidebar.w3-animate-left {
+        animation: none !important;
+        transition: none !important;
+    }
+    .w3-sidebar-background  {
+        display: none !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .w3-sidebar.hide {
+        display: none !important;
+    }
 }
 
 .w3-sidebar>header {
