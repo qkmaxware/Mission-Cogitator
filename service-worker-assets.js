@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "WOFWUbdL",
+  "version": "5fMyTEW6",
   "assets": [
     {
       "hash": "sha256-7PZQmU+tM1uPIE5eVBptmTzMfy/LGsopiNgm/4XT+MU=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-u665ymJ7Dbe8JLym9CTLj69Iuz8ePscJ2RImc5ZR7u0=",
-      "url": "_framework/Kt.d6606f1nms.wasm"
+      "hash": "sha256-G9+GggUtKKHeJNqzaFmdnuGhF7Vxt5BJsLZqBbf9noI=",
+      "url": "_framework/Kt.d6w41pkju2.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -158,8 +158,8 @@ self.assetsManifest = {
       "url": "_framework/System.ObjectModel.2oauxyoozb.wasm"
     },
     {
-      "hash": "sha256-PLA1LttC3gkSYtKmkjtxPlq/1FEaoU449cFQrmERfM8=",
-      "url": "_framework/System.Private.CoreLib.wjrboyr33i.wasm"
+      "hash": "sha256-Uqj+k/33e8NuRAXWJSOS53z5OqGo7dAoXD27EKCyYNs=",
+      "url": "_framework/System.Private.CoreLib.aqa0mfgsrk.wasm"
     },
     {
       "hash": "sha256-KMTV6b8QOt820TCnXaihd8UG9E/HRDfk8Cpkhxxydy8=",
@@ -222,12 +222,12 @@ self.assetsManifest = {
       "url": "_framework/dotnet.native.veuqw8a0w9.wasm"
     },
     {
-      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
-      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
+      "hash": "sha256-ap3LaHzbqcYYHQE9d8yUOS2EBXP2N+aADkif63Eb16g=",
+      "url": "_framework/dotnet.qofw2psm0q.js"
     },
     {
-      "hash": "sha256-kiGrFFl2yNosgTtwg7KHrdoHcE5lrqJPjY50nWKlELY=",
-      "url": "_framework/dotnet.yopir1rik1.js"
+      "hash": "sha256-7i3usfTrnzC/9qWO4si5Bw4w7D9fUSnSBdhQ47blX2M=",
+      "url": "_framework/dotnet.runtime.a6jcqbs390.js"
     },
     {
       "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
@@ -3090,7 +3090,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-UDNpX11KsHR4kEpsq8TYtnVxk/ymHMjUgqD+lsIG+WA=",
+      "hash": "sha256-r2EnwMJ933D0hbKUeNUfcxHuC6hEZejPulTKKA8xvpU=",
       "url": "index.html"
     },
     {
