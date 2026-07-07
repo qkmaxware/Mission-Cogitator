@@ -18,7 +18,7 @@ public class Unit: IPackagedContent
     public string? Name {get; set;}
     public string? ArtPath {get; set;}
     public string? FlavourText {get; set;}
-    public List<string>? Tags {get; set;}
+    public List<string?>? Tags {get; set;}
     public UnitAttributes Attributes {get; set;} = new();
     public List<Weapon> Weapons {get; set;} = new();
     [JsonIgnore]

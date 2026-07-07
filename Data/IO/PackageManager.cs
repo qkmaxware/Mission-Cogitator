@@ -9,17 +9,19 @@ public class PackageManager
     private RuleDatabase ruledb;
     private UnitDatabase unitdb;
     private TeamsDatabase teamdb;
+    private ObjectiveDatabase objectdb;
     private JsConsole console;
 
     private List<Pkg> loaded = new();
     private List<(string, Exception)> failed = new();
 
-    public PackageManager(JsConsole console, HttpClient client, RuleDatabase rules, UnitDatabase units, TeamsDatabase teams)
+    public PackageManager(JsConsole console, HttpClient client, RuleDatabase rules, UnitDatabase units, TeamsDatabase teams, ObjectiveDatabase objectives)
     {
         this.client = client;
         this.ruledb = rules;
         this.unitdb = units;
         this.teamdb = teams;
+        this.objectdb = objectives;
         this.console = console;
     }
 
@@ -32,7 +34,7 @@ public class PackageManager
     public IEnumerable<IPackagedContent> LoadedContent => loaded.SelectMany(pkg => pkg.Provides());
     public IEnumerable<(string Id, Exception Error)> FailedPackages => failed.AsReadOnly();
 
-    public async Task AddFromUrl(string uri)
+    public async Task<Pkg?> AddFromUrl(string uri)
     {
         Pkg? pkg;
         try {
@@ -42,10 +44,28 @@ public class PackageManager
             var outer = new PackageLoadException(uri, e);
             await console.WarnAsync(outer);
             failed.Add((uri, outer));
-            return;
+            return null;
         }
 
         Import(pkg);
+        return pkg;
+    }
+
+    public async Task<Pkg?> AddFromEmbeddedResources(string uri)
+    {
+        Pkg? pkg;
+        try {
+            pkg = await Pkg.FromEmbeddedResources(uri);
+        } catch (Exception e)
+        {
+            var outer = new PackageLoadException(uri, e);
+            await console.WarnAsync(outer);
+            failed.Add((uri, outer));
+            return null;
+        }
+
+        Import(pkg);
+        return pkg;
     }
 
     public void Import(Pkg? pkg)
@@ -62,6 +82,9 @@ public class PackageManager
                 continue;
 
             ruledb.AddRule(rule.Id, rule);
+
+            if (rule is Objective obj && !string.IsNullOrEmpty(obj.Id))
+                objectdb.AddObjective(obj.Id, obj);
         }
 
         // Add all offered teams

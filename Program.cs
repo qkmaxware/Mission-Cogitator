@@ -18,12 +18,14 @@ builder.Services.AddScoped<JsWindow>(); // For window operations
 builder.Services.AddScoped(sp => new RuleDatabase());
 builder.Services.AddScoped(sp => new UnitDatabase());
 builder.Services.AddScoped(sp => new TeamsDatabase());
+builder.Services.AddScoped(sp => new ObjectiveDatabase());
 builder.Services.AddScoped(sp => new PackageManager(
     sp.GetService<JsConsole>()!, 
     sp.GetService<HttpClient>()!, 
     sp.GetService<RuleDatabase>()!,
     sp.GetService<UnitDatabase>()!,
-    sp.GetService<TeamsDatabase>()!
+    sp.GetService<TeamsDatabase>()!,
+    sp.GetService<ObjectiveDatabase>()!
 ));
 
 var app = builder.Build();
@@ -38,6 +40,7 @@ async Task updateProgress(int step, int maxSteps, string? title = null)
 string[] packages = [
     "assets/packages/lite-rules",
     "assets/packages/universal-equipment",
+    "assets/packages/approved-ops",
     "assets/packages/teams/pathfinders",
     "assets/packages/teams/angels-of-death",
     "assets/packages/teams/deathwatch",
@@ -63,7 +66,9 @@ await updateProgress(0, lastPackage, "Loading Asset Packs...");
 for (int i = 0, next=1; i < packages.Length; i++, next++)
 {
     var pkgName = packages[i];
-    await packageManager.AddFromUrl(pkgName);  
+    Pkg? loaded = await packageManager.AddFromEmbeddedResources(pkgName);
+    if (loaded is null)
+        loaded = await packageManager.AddFromUrl(pkgName);  
     await updateProgress(next, lastPackage);  
 }
 

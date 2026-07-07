@@ -1,0 +1,10 @@
+{
+    "name": "Approved Operations",
+    "updated": "23/07/2025",
+    "definitions": [
+        "/kill-ops/kill-op.html"
+    ],
+    "objectives": [
+        "/crit-ops/secure.html"
+    ]
+}

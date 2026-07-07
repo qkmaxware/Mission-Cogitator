@@ -93,6 +93,24 @@
             System.Globalization.CompareOptions.IgnoreCase
         ) >= 0;
     }
+    private bool matchesSearch(string? searchTerm, IPackagedContent? content, Func<string, string, bool> textComparer) {
+        if (content?.Name is null || searchTerm is null)
+            return false;
+
+        if (textComparer(searchTerm, content.Name))
+            return true;
+
+        if (content.Tags is not null && content.Tags.Count > 0) {
+            foreach (var tag in content.Tags) {
+                if (string.IsNullOrEmpty(tag))
+                    continue;
+                if (textComparer(searchTerm, tag))
+                    return true;
+            }
+        }
+
+        return false;
+    }
     private void refreshResults(object? sender, ElapsedEventArgs e) {
         this.results = null;
         var term = this.text ?? string.Empty;
@@ -106,10 +124,9 @@
                 return;
             }
 
-
             List<Ambiguity> results = Items
+                    .Where(pkg => matchesSearch(term, pkg, compare))
                     .GroupBy(x => x.Name)
-                    .Where(x => x.Key is not null && compare(term, x.Key))
                     .Select(x => new Ambiguity(
                         x.Key ?? string.Empty, 
                         x.ToList().AsReadOnly()

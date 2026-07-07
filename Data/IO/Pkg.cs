@@ -1,6 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace Kt.Data.IO;
 
@@ -19,6 +21,8 @@ public class Pkg
     public Dictionary<string, Ploy>? Ploys {get; set;}
     public Dictionary<string, Unit>? Units {get; set;}
     public Dictionary<string, Team>? Teams {get; set;}
+
+    public Dictionary<string, Objective>? Objectives {get; set;}
 
     // Rule aliasing (if a rule is known by other ids as well)
     public Dictionary<string, IEnumerable<string>?>? Aliases {get; set;}
@@ -53,6 +57,7 @@ public class Pkg
         .Concat((Units?.Values ?? Enumerable.Empty<IPackagedContent>()))
         .Concat((Actions?.Values ?? Enumerable.Empty<IPackagedContent>()))
         .Concat((Effects?.Values ?? Enumerable.Empty<IPackagedContent>()))
+        .Concat((Objectives?.Values ?? Enumerable.Empty<IPackagedContent>()))
         ;
     }
 
@@ -61,7 +66,8 @@ public class Pkg
         .Concat((Actions?.Values ?? Enumerable.Empty<Rule>()))
         .Concat((Effects?.Values ?? Enumerable.Empty<Rule>()))
         .Concat((Equipment?.Values ?? Enumerable.Empty<Rule>()))
-        .Concat((Ploys?.Values ?? Enumerable.Empty<Rule>()));
+        .Concat((Ploys?.Values ?? Enumerable.Empty<Rule>()))
+        .Concat((Objectives?.Values ?? Enumerable.Empty<Rule>()));
 
 
     public class PkgIndex
@@ -79,6 +85,7 @@ public class Pkg
         public List<string>? Ploys {get; set;}
         public List<string>? Units {get; set;}
         public List<string>? Teams {get; set;}
+        public List<string>? Objectives {get; set;}
 
         public Dictionary<string, IEnumerable<string>?>? Aliases {get; set;}
     }
@@ -142,8 +149,9 @@ public class Pkg
         var ployTask       = ParseResourcesFromRelativeUrl<Ploy>   (pkg, client, url, index.Ploys ?? EMPTY);
         var unitTask       = ParseResourcesFromRelativeUrl<Unit>   (pkg, client, url, index.Units ?? EMPTY);           
         var teamTask       = ParseResourcesFromRelativeUrl<Team>   (pkg, client, url, index.Teams ?? EMPTY);
+        var objTask        = ParseResourcesFromRelativeUrl<Objective>(pkg, client, url, index.Objectives ?? EMPTY);
 
-        await Task.WhenAll(definitionTask, actionTask, effectTask, equipmentTask, ployTask, unitTask, teamTask);
+        await Task.WhenAll(definitionTask, actionTask, effectTask, equipmentTask, ployTask, unitTask, teamTask, objTask);
 
         pkg.Definitions = await definitionTask;
         pkg.Actions     = await actionTask;
@@ -152,6 +160,7 @@ public class Pkg
         pkg.Ploys       = await ployTask;
         pkg.Units       = await unitTask;
         pkg.Teams       = await teamTask;
+        pkg.Objectives  = await objTask;
 
         pkg.Aliases     = index.Aliases;
 
@@ -178,18 +187,15 @@ public class Pkg
         PkgIndex? index = null;
         try
         {
-            var indexResourceName = FindEmbeddedResourceName(assembly, path, "index.json")
-                ?? FindEmbeddedResourceName(assembly, path, "index.jsonc");
-
-            if (indexResourceName is null)
+            string? indexJson = null;
+            if (!TryGetEmbeddedResource(assembly, path + "/index.json", out indexJson))
+            {
+                TryGetEmbeddedResource(assembly, path + "/index.jsonc", out indexJson);
+            }
+            if (indexJson is null)
                 throw new FileNotFoundException($"Could not find package index at {path}/index.json or {path}/index.jsonc");
-
-            using var indexStream = assembly.GetManifestResourceStream(indexResourceName);
-            if (indexStream is null)
-                throw new FileNotFoundException($"Could not find package index resource {indexResourceName}");
-
-            using var indexReader = new StreamReader(indexStream);
-            index = JsonSerializer.Deserialize<PkgIndex>(await indexReader.ReadToEndAsync(), json);
+                
+            index = JsonSerializer.Deserialize<PkgIndex>(indexJson, json);
             if (index is null)
                 return pkg;
         }
@@ -199,11 +205,11 @@ public class Pkg
         }
         catch (Exception ex)
         {
-            throw new FileNotFoundException($"Could not find package index at {path}/index.json or {path}/index.jsonc", ex);
+            throw new FileNotFoundException($"Could not read package index at {path}/index.json or {path}/index.jsonc", ex);
         }
 
-        pkg.Name = index.Name ?? pkg.Name;
-        pkg.Author = index.Author ?? pkg.Author;
+        pkg.Name = index.Name;
+        pkg.Author = index.Author;
         pkg.Updated = index.Updated;
 
         var definitionTask = ParseResourcesFromEmbeddedResources<Rule>(pkg, assembly, path, index.Definitions ?? EMPTY);
@@ -213,8 +219,9 @@ public class Pkg
         var ployTask = ParseResourcesFromEmbeddedResources<Ploy>(pkg, assembly, path, index.Ploys ?? EMPTY);
         var unitTask = ParseResourcesFromEmbeddedResources<Unit>(pkg, assembly, path, index.Units ?? EMPTY);
         var teamTask = ParseResourcesFromEmbeddedResources<Team>(pkg, assembly, path, index.Teams ?? EMPTY);
+        var objTask = ParseResourcesFromEmbeddedResources<Objective>(pkg, assembly, path, index.Objectives ?? EMPTY);
 
-        await Task.WhenAll(definitionTask, actionTask, effectTask, equipmentTask, ployTask, unitTask, teamTask);
+        await Task.WhenAll(definitionTask, actionTask, effectTask, equipmentTask, ployTask, unitTask, teamTask, objTask);
 
         pkg.Definitions = await definitionTask;
         pkg.Actions = await actionTask;
@@ -223,6 +230,7 @@ public class Pkg
         pkg.Ploys = await ployTask;
         pkg.Units = await unitTask;
         pkg.Teams = await teamTask;
+        pkg.Objectives = await objTask;
 
         pkg.Aliases = index.Aliases;
 
@@ -230,6 +238,32 @@ public class Pkg
 
         return pkg;
     }
+
+    private static bool TryGetEmbeddedResource(Assembly assembly, string resource, [NotNullWhen(true)] out string? contents)
+    {
+        contents = null;
+        var normalizedResource = resource;
+        var resourceName = assembly.GetManifestResourceNames().FirstOrDefault((name) => name.EndsWith(normalizedResource, StringComparison.InvariantCultureIgnoreCase));
+        if (resourceName is null) {
+            Console.WriteLine("Failed to load " + resource + "(" + normalizedResource + ")");  
+            var debug_ext = Path.GetFileName(resource);     
+            foreach (var item in assembly.GetManifestResourceNames())
+            {
+                if (!item.EndsWith(debug_ext))
+                    continue;
+                Console.WriteLine(item + " == " + item.EndsWith(normalizedResource));
+            }
+            return false;
+        }
+
+        using var contentStream = assembly.GetManifestResourceStream(resourceName);
+        if (contentStream is null)
+            return false;
+
+        using var reader = new StreamReader(contentStream);
+        contents = reader.ReadToEnd();
+        return true;
+    } 
 
     private static async Task<T?> LoadSingleResourceFromRelativeUrl<T>(Pkg currentPkg, HttpClient client, string url, string relative)
     where T:IPackagedContent
@@ -278,7 +312,7 @@ public class Pkg
             .ToDictionary(x => x?.Id!, x => x!);
     }
 
-    private static async Task<Dictionary<string, T>> ParseResourcesFromEmbeddedResources<T>(Pkg currentPkg, Assembly assembly, string path, List<string> relatives)
+    private static async Task<Dictionary<string, T>> ParseResourcesFromEmbeddedResources<T>(Pkg currentPkg, Assembly assembly, string url, List<string> relatives)
     where T : IPackagedContent
     {
         var results = new Dictionary<string, T>();
@@ -287,16 +321,20 @@ public class Pkg
         {
             try
             {
-                var resourceName = FindEmbeddedResourceName(assembly, path, relative);
-                if (resourceName is null)
-                    continue;
+                // Clean the relative path
+                var relativeUri = relative;
+                if (!relativeUri.StartsWith("/"))
+                    relativeUri = "/" + relativeUri;
+                if (!relativeUri.EndsWith(".html"))
+                    relativeUri = Path.ChangeExtension(relativeUri, ".html");
 
-                using var contentStream = assembly.GetManifestResourceStream(resourceName);
-                if (contentStream is null)
-                    continue;
+                // Form final URL
+                var uri = url + relativeUri;
 
-                using var reader = new StreamReader(contentStream);
-                var content = await reader.ReadToEndAsync();
+                if (!TryGetEmbeddedResource(assembly, relativeUri, out var content))
+                {
+                    continue;
+                }
 
                 var doc = new FmHtmlDocument(content);
                 var data = JsonSerializer.Deserialize<T>(doc.FrontMatter, json);
@@ -315,61 +353,6 @@ public class Pkg
         }
 
         return results;
-    }
-
-    private static string? FindEmbeddedResourceName(Assembly assembly, string path, string relative)
-    {
-        var normalizedPath = NormalizeEmbeddedResourcePath(path);
-        var normalizedRelative = NormalizeEmbeddedResourcePath(relative, ensureHtmlExtension: true);
-        var resourcePaths = new List<string>();
-
-        if (!string.IsNullOrWhiteSpace(normalizedPath))
-            resourcePaths.Add($"{normalizedPath}/{normalizedRelative}");
-        resourcePaths.Add(normalizedRelative);
-
-        if (!normalizedRelative.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
-        {
-            resourcePaths.Add($"{normalizedPath}/{NormalizeEmbeddedResourcePath(relative)}");
-            resourcePaths.Add(NormalizeEmbeddedResourcePath(relative));
-        }
-
-        foreach (var resourcePath in resourcePaths.Distinct(StringComparer.OrdinalIgnoreCase))
-        {
-            var dottedPath = resourcePath.Replace('/', '.').Replace('\\', '.');
-            foreach (var resourceName in assembly.GetManifestResourceNames())
-            {
-                var dottedResourceName = resourceName.Replace('/', '.').Replace('\\', '.');
-                if (dottedResourceName.Equals(dottedPath, StringComparison.OrdinalIgnoreCase)
-                    || dottedResourceName.EndsWith($".{dottedPath}", StringComparison.OrdinalIgnoreCase))
-                {
-                    return resourceName;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    private static string NormalizeEmbeddedResourcePath(string path, bool ensureHtmlExtension = false)
-    {
-        if (string.IsNullOrWhiteSpace(path))
-            return string.Empty;
-
-        var normalized = path.Replace('\\', '/').Trim('/');
-        if (normalized.EndsWith("index.json", StringComparison.OrdinalIgnoreCase)
-            || normalized.EndsWith("index.jsonc", StringComparison.OrdinalIgnoreCase))
-        {
-            var lastSlash = normalized.LastIndexOf('/');
-            if (lastSlash >= 0)
-                normalized = normalized[..lastSlash];
-            else
-                normalized = string.Empty;
-        }
-
-        if (ensureHtmlExtension && !normalized.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
-            normalized = Path.ChangeExtension(normalized, ".html");
-
-        return normalized;
     }
 
     /// <summary>
@@ -419,6 +402,7 @@ public class Pkg
         pkg.Ploys = ParseResourcesFromZip<Ploy>(pkg, archive, index.Ploys ?? EMPTY);
         pkg.Units = ParseResourcesFromZip<Unit>(pkg, archive, index.Units ?? EMPTY);
         pkg.Teams = ParseResourcesFromZip<Team>(pkg, archive, index.Teams ?? EMPTY);
+        pkg.Objectives = ParseResourcesFromZip<Objective>(pkg, archive, index.Objectives ?? EMPTY);
         
         pkg.Aliases = index.Aliases;
         

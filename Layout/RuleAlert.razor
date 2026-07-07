@@ -68,6 +68,16 @@
             </table>
         </header>
         <article class="w3-padding w3-large">
+            @if (Rule?.Tags is not null) {
+                <div class="w3-margin-bottom">
+                <span class="app-primary w3-round w3-small" style="padding: 2px; margin: 2px;">@Rule.Name</span>
+                @foreach (var tag in Rule.Tags) {
+                    if (string.IsNullOrEmpty(tag))
+                        continue;
+                    <span class="app-primary w3-round w3-small" style="padding: 2px; margin: 2px;">@tag</span>
+                }
+                </div>
+            }
             @RenderDescription(Rule?.Fmt())
         </article>
         <figure class="w3-center">
