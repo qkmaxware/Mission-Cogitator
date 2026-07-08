@@ -239,6 +239,76 @@ textarea[b-qxjjnks04e] {
     flex-shrink: 0;     /* never shrink */
     border-top: 1px solid #ccc;
 }
+/* /Layout/ObjectivePicker.razor.rz.scp.css */
+.horizontal-gallery[b-npw1rssocy] {
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.gallery-item[b-npw1rssocy] {
+    display: inline-block;
+    padding: 6px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: small;
+}
+
+.w3-card[b-npw1rssocy] {
+    border-radius: 8px;
+    width: 382px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--theme-panel-background);
+}
+
+.w3-card.selected[b-npw1rssocy] {
+    border: 1px solid var(--theme-primary-background);
+}
+
+.w3-card>header[b-npw1rssocy] {
+    text-align: center;
+    font-size:x-large;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: var(--theme-panel-background);
+    color: var(--theme-panel-foreground);
+}
+
+.w3-card.selected>header[b-npw1rssocy] {
+    background-color: var(--theme-primary-background);
+    color: var(--theme-primary-foreground);
+}
+
+.w3-card>footer[b-npw1rssocy] {
+    text-align: center;
+    font-size:large;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: var(--theme-panel-background);
+    color: var(--theme-panel-foreground);
+}
+
+.w3-card.selected>footer[b-npw1rssocy] {
+    background-color: var(--theme-primary-background);
+    color: var(--theme-primary-foreground);
+}
+
+.w3-card>article[b-npw1rssocy] {
+    height: 432px;
+    overflow-y: auto;
+    text-align: initial;
+    padding: 8px;
+    white-space: initial;
+}
 /* /Layout/QualityAssurance/AutolinkReview.razor.rz.scp.css */
 .original[b-ig0vg4cvcf] {
     color: red;
@@ -411,6 +481,7 @@ table.striped tbody tr:nth-child(even)[b-a74zqimslp]{
     list-style-type: upper-roman;
 }
 /* /Layout/SetupWizard.razor.rz.scp.css */
+/* /Layout/SetupWizardPages/DetermineCritOp.razor.rz.scp.css */
 /* /Layout/SetupWizardPages/EquipmentSelection.razor.rz.scp.css */
 table[b-7f61os6nnd] {
     width: 100%;

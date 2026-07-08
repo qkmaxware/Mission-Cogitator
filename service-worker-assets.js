@@ -1,8 +1,8 @@
 self.assetsManifest = {
-  "version": "QLX/afIe",
+  "version": "zIgG7VNy",
   "assets": [
     {
-      "hash": "sha256-CshbsBUebK69s8TKFLNCtZ9tyOHOSq9wjoMCggIMctk=",
+      "hash": "sha256-9xNTqH9x0YnvLOItRsmJVGdhxM5cFqlTczGDGP1wz+E=",
       "url": "Kt.styles.css"
     },
     {
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_framework/HtmlAgilityPack.st8ng737vz.wasm"
     },
     {
-      "hash": "sha256-QAPFpf2BtecUPO4EYXikMMd/rpNri1iZ8dtPmjL+Xz0=",
-      "url": "_framework/Kt.shs0njdcyf.wasm"
+      "hash": "sha256-+72lEjCdItAxz7hAD9wJ4lDwZOkMe0BdG4s4NvvR1ts=",
+      "url": "_framework/Kt.r0egj4ldz4.wasm"
     },
     {
       "hash": "sha256-bwcq5xHqHsoFmTOyyBvWh7Ue+i/QgN41tjvQKcBk6hU=",
@@ -214,8 +214,8 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.958z1vx7fr.js"
     },
     {
-      "hash": "sha256-KbQ0tQdmYtO6YtoSmJQYC5jOlqS4mx8tmfwuObJ0Q/k=",
-      "url": "_framework/dotnet.bv35d74747.js"
+      "hash": "sha256-PfTs1UWPN05+cUdbKI4qpwtDtHl7n4UxGwsEl2lhfc8=",
+      "url": "_framework/dotnet.1z1puche7n.js"
     },
     {
       "hash": "sha256-kkp5wX0htwkBcZt5WmEiKmhBqjqdCJtGc+koldfyoDQ=",
@@ -434,16 +434,96 @@ self.assetsManifest = {
       "url": "art/wound.svg"
     },
     {
-      "hash": "sha256-p7YhEqiktvlgc1JxV/Kdrgunhm3dMNbhhwX5KY+wLYw=",
+      "hash": "sha256-VW8YF6wJCRjFXQ0JurOmexavYNW65/os07k9y5f7Fz4=",
+      "url": "assets/packages/approved-ops/crit-ops/data.html"
+    },
+    {
+      "hash": "sha256-Mz/ROyvx1XOwQ9mOi0MlZ33cmUbwv+D8cV67SVsAXDw=",
+      "url": "assets/packages/approved-ops/crit-ops/download.html"
+    },
+    {
+      "hash": "sha256-rkioNwohq8XX6yW0TG1JTwoRlwdySp95nQ/PQZI/u/c=",
+      "url": "assets/packages/approved-ops/crit-ops/energy-cells.html"
+    },
+    {
+      "hash": "sha256-DxPsp8RZC0npjGUeohSw4gcQoFynyn/Z3y2qZ2TxACE=",
+      "url": "assets/packages/approved-ops/crit-ops/loot.html"
+    },
+    {
+      "hash": "sha256-hG7dbIVCiBIE1j6HFVidS65p95zozYTVrYRt9KDAY/s=",
+      "url": "assets/packages/approved-ops/crit-ops/orb.html"
+    },
+    {
+      "hash": "sha256-w553H2zPlC/gPRncXenv2e67zD8Di4mpUju7Isk5Frw=",
+      "url": "assets/packages/approved-ops/crit-ops/reboot.html"
+    },
+    {
+      "hash": "sha256-UTOaOsfpH7DSCWLI0LtWyAuvdMCHUao7BKYqcvoK5sY=",
       "url": "assets/packages/approved-ops/crit-ops/secure.html"
     },
     {
-      "hash": "sha256-1nmGrNlFfzBbe7FVUclfErnZip0gJwoyIfRK1ZOD+RM=",
+      "hash": "sha256-Ey/8oTs8Esp31hkRpi/ZjmxkQyuVmFeT5KOf+/uKfHE=",
+      "url": "assets/packages/approved-ops/crit-ops/stake-claim.html"
+    },
+    {
+      "hash": "sha256-8ZABwLK+QujCq3Lz3B1zQFpcgTDXKXwt8PdOEnDRWAU=",
+      "url": "assets/packages/approved-ops/crit-ops/transmission.html"
+    },
+    {
+      "hash": "sha256-8OeVP7HAWjS+l7QgNcxxTIMFa0O+KwvojHislq9A5ho=",
       "url": "assets/packages/approved-ops/index.json"
     },
     {
       "hash": "sha256-ShSqZMQbPbi7ZocN7dumu4tE38nJ91QdFWneEY66OnE=",
       "url": "assets/packages/approved-ops/kill-ops/kill-op.html"
+    },
+    {
+      "hash": "sha256-1lm1j2E7ih00u2GQV3e/wKqwR7QomjSJn53eAg8O3Pg=",
+      "url": "assets/packages/approved-ops/tac-ops/dominate.html"
+    },
+    {
+      "hash": "sha256-jAojBZNQmjSxG8OTeaBrnmUmVlMRJvUoOEXHOw6GwqI=",
+      "url": "assets/packages/approved-ops/tac-ops/envoy.html"
+    },
+    {
+      "hash": "sha256-q22Tcy/3q3t3X4On/ajw5zU/4gSwlvfURRBQFWpJoqM=",
+      "url": "assets/packages/approved-ops/tac-ops/flank.html"
+    },
+    {
+      "hash": "sha256-PF21sn0foKaUbDZTSrWKAUvmzD0dNVXVgQxvbrArGq8=",
+      "url": "assets/packages/approved-ops/tac-ops/martyrs.html"
+    },
+    {
+      "hash": "sha256-0X2Cm6OR4jc9b9FVSRXAObvgACH02Yp0mciLiffD8dw=",
+      "url": "assets/packages/approved-ops/tac-ops/plant-banner.html"
+    },
+    {
+      "hash": "sha256-slwoFXJ3Rpwp02V+7dkGJaAkv6njAyJ9AOhMqbjSmw4=",
+      "url": "assets/packages/approved-ops/tac-ops/plant-devices.html"
+    },
+    {
+      "hash": "sha256-+v+0ZsjgMlcV1WG3AgXpwJ0ufIggMnKukLO9bXW65cM=",
+      "url": "assets/packages/approved-ops/tac-ops/retrieval.html"
+    },
+    {
+      "hash": "sha256-0wEw5vabOjeRj1kHphqewvIupeMKM0nGgpK5PH7oz+0=",
+      "url": "assets/packages/approved-ops/tac-ops/route.html"
+    },
+    {
+      "hash": "sha256-s5urCB/LMH5BvmhChhObUKIq/TAvhv/6j2Iqy/7jxSQ=",
+      "url": "assets/packages/approved-ops/tac-ops/scout-enemy-movement.html"
+    },
+    {
+      "hash": "sha256-83w3PPknhnHVkQLNwC537FuhhTjQnWTwzK/3XHkGKfY=",
+      "url": "assets/packages/approved-ops/tac-ops/steal-intelligence.html"
+    },
+    {
+      "hash": "sha256-74L+aaRcd+Vk1TV/e9ZAvDA4YQbZ1YMhWXXl215Kn0w=",
+      "url": "assets/packages/approved-ops/tac-ops/sweep-clear.html"
+    },
+    {
+      "hash": "sha256-OfPovk/k0+CGymPlwrb1qvByd73sezpHgL7gjC4+brQ=",
+      "url": "assets/packages/approved-ops/tac-ops/track-enemy.html"
     },
     {
       "hash": "sha256-PKtnswJ5WtnF8sKyANn+XVS0M8Nd4xyLuEMX0STd7f8=",
@@ -3102,7 +3182,7 @@ self.assetsManifest = {
       "url": "favicon/web-app-manifest-512x512.png"
     },
     {
-      "hash": "sha256-srmE9YB2wliVOTp5cV2I2Fs8CXxqqS544yMiQadRjxg=",
+      "hash": "sha256-+M3Wr/1DLaa8hLxVeVwbanZ+KNOMV9pzRDjE2TG/bL8=",
       "url": "index.html"
     },
     {
