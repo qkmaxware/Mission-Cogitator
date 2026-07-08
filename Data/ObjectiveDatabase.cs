@@ -3,7 +3,6 @@ using System.Text.Json;
 
 namespace Kt.Data;
 
-// https://th0mas-h0ward.github.io/ktc/#/killop
 public class ObjectiveDatabase
 {
     private Dictionary<string, Objective> objectives = new();

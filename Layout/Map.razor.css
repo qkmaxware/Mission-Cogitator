@@ -1,0 +1,22 @@
+svg {
+    width: 100%;
+}
+
+svg #grid line {
+    stroke-width: 0.05;
+    stroke: grey;
+}
+
+.ally {
+    fill: rgb(84, 206, 255);
+}
+.ally.dropzone {
+    fill: rgb(25, 159, 212);
+}
+
+.enemy {
+    fill: rgb(255, 126, 126);
+}
+.enemy.dropzone {
+    fill: rgb(194, 54, 54);
+}

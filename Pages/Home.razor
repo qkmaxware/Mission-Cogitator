@@ -387,6 +387,9 @@
                 }
             </div>
         </div> 
+        <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule("kill-op"))>
+            Kill Op
+        </button>
     </Accordion>
     <Accordion Title="Your Deployment">
         <button class="w3-button w3-bar-item" @onclick=@(() => select(deployment.Units.FirstOrDefault()?.Team))>About Team</button>
