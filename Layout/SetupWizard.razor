@@ -111,6 +111,10 @@
 
         if (IsAtEnd) {
             var deployment = new Deployment();
+
+            deployment.PrimaryOp = ruledb.GetValue(GetProviderValue<string?>("crit-op", null)) as Objective;
+            deployment.SecondaryOp = ruledb.GetValue(GetProviderValue<string?>("tac-op", null)) as Objective;
+
             // Null case is already handled, it is safe to return a NULL default value here
             #nullable disable
             var team = GetProviderValue<Team>("team", null);

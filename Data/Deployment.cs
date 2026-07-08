@@ -7,6 +7,9 @@ namespace Kt.Data;
 /// </summary>
 public class Deployment
 {
+    public Objective? PrimaryOp {get; set;}
+    public Objective? SecondaryOp {get; set;}
+
     /// <summary>
     /// Deployed Equipment
     /// </summary>
@@ -31,6 +34,8 @@ public class SerializedDeployment
         public List<string?>? Effects {get; set;}
     }
 
+    public string? PrimaryOp {get; set;}
+    public string? SecondaryOp {get; set;}
     public List<string?>? Equipment {get; set;} = new ();
     public List<SerializedUnit?>? Units {get; set;} = new ();
 
@@ -44,6 +49,9 @@ public class SerializedDeployment
     {
         if (deployment == null)
             return;
+
+        this.PrimaryOp = deployment.PrimaryOp?.Id;
+        this.SecondaryOp = deployment.SecondaryOp?.Id;
 
         Equipment = deployment.Equipment.Select(e => e.Id).ToList();
         Units = deployment.Units.Select(u => new SerializedUnit
@@ -62,6 +70,9 @@ public class SerializedDeployment
     public Deployment ToDeployment(RuleDatabase ruledb, TeamsDatabase teamdb, UnitDatabase unitdb)
     {
         Deployment deployment = new Deployment();
+
+        deployment.PrimaryOp = ruledb.GetValue(this.PrimaryOp) as Objective;
+        deployment.SecondaryOp = ruledb.GetValue(this.SecondaryOp) as Objective;
 
         deployment.Equipment = Equipment?.Where(eid => !string.IsNullOrEmpty(eid)).Select(eid => ruledb.GetValue(eid!)).Where(e => e != null && e is Equipment).Cast<Equipment>().ToList() ?? new List<Equipment>();
         deployment.Units = Units?.Where(u => u != null && !string.IsNullOrEmpty(u.Id)).Select(u =>

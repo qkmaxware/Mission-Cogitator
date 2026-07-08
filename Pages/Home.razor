@@ -9,6 +9,7 @@
 @inject RuleDatabase ruledb
 @inject TeamsDatabase teamdb
 @inject UnitDatabase unitdb
+@inject ObjectiveDatabase objdb
 @inject JsLocalStorage localStorage
 @inject Kt.Data.IO.PackageManager packageManager
 @inject IJSRuntime js
@@ -321,6 +322,31 @@
     }
 }
 
+<Modal @ref=objectivePicker Title="Manage Objectives" Options=@Modal.Buttons.OkayCancel OnOkay=OnObjectiveSelect>
+    <h4>Critical Operation (Primary)</h4>
+    <ObjectivePicker Filter=@((obj) => obj.Kind == ObjectiveCategory.Primary) SelectedId=@this.objectivePickerPrimaryId OnChange=@((obj) => this.objectivePickerPrimaryId = obj.Id)></ObjectivePicker>
+    <hr />
+    <h4>Tactical Operation (Secondary)</h4>
+    <ObjectivePicker Filter=@((obj) => obj.Kind == ObjectiveCategory.Secondary) SelectedId=@this.objectivePickerSecondaryId OnChange=@((obj) => this.objectivePickerSecondaryId = obj.Id)></ObjectivePicker>
+</Modal>
+@code {
+    private Modal? objectivePicker {get; set;}
+    private string? objectivePickerPrimaryId;
+    private string? objectivePickerSecondaryId;
+
+    private async Task OpenObjectivePicker() {
+        this.objectivePickerPrimaryId = this.deployment.PrimaryOp?.Id;
+        this.objectivePickerSecondaryId = this.deployment.SecondaryOp?.Id;
+    
+        if (objectivePicker is not null)
+            await objectivePicker.Show();
+    }
+    private async Task OnObjectiveSelect() {
+        this.deployment.PrimaryOp = objdb.GetValue(this.objectivePickerPrimaryId);
+        this.deployment.SecondaryOp = objdb.GetValue(this.objectivePickerSecondaryId);
+    }
+}
+
 <NavMenu @ref=navigator Title="Datavault">
     <Header>
         <button class="w3-button w3-bar-item" @onclick=openSearchModal>
@@ -328,6 +354,40 @@
         </button>
     </Header>
     <Content>
+    <Accordion Title="Current Operations">
+        <div class="w3-row w3-bar-block">
+            <div class="w3-col w3-right" style="width: 3em;">
+                <button class="w3-button w3-center" @onclick=OpenObjectivePicker>
+                    <img src="art/reload.svg" style="height: 1em"/>
+                </button>
+            </div>
+            <div class="w3-rest">
+                @if (this.deployment.PrimaryOp is not null) {
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(this.deployment.PrimaryOp))>
+                        @this.deployment.PrimaryOp.Name <small class="text-primary">(primary)</small>
+                    </button>
+                } else {
+                    <span class="text-disabled w3-bar-item">No primary operation</span>
+                }
+            </div>
+        </div>
+        <div class="w3-row w3-bar-block">
+            <div class="w3-col w3-right" style="width: 3em;">
+                <button class="w3-button w3-center" @onclick=OpenObjectivePicker>
+                    <img src="art/reload.svg" style="height: 1em"/>
+                </button>
+            </div>
+            <div class="w3-rest">
+                @if (this.deployment.SecondaryOp is not null) {
+                    <button class="w3-button w3-bar-item" @onclick=@(async () => await alertRule(this.deployment.SecondaryOp))>
+                        @this.deployment.SecondaryOp.Name
+                    </button>
+                } else {
+                    <span class="text-disabled w3-bar-item">No secondary operation</span>
+                }
+            </div>
+        </div> 
+    </Accordion>
     <Accordion Title="Your Deployment">
         <button class="w3-button w3-bar-item" @onclick=@(() => select(deployment.Units.FirstOrDefault()?.Team))>About Team</button>
         <Accordion Title="Faction Rules">

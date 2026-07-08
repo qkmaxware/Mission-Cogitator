@@ -140,7 +140,7 @@
                         unit.Attributes = unit.Attributes ?? new UnitAttributes();
                         unit.Weapons = unit.Weapons ?? new List<Weapon>();
                         unit.Rules = unit.Rules ?? new List<string>();
-                        unit.Tags = unit.Tags ?? new List<string>();
+                        unit.Tags = unit.Tags ?? new List<string?>();
 
                         <label for="rules">Flavour Text:</label>
                         <input id="name" class="w3-input" @bind=unit.FlavourText>

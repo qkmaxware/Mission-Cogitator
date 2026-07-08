@@ -169,7 +169,7 @@
             @if (Team is not null) {
                 <span class="text-primary clickable" @onclick=@(async () => await OnTeamLookup.InvokeAsync(Team))>@Team.Name</span>
             }
-            @foreach (var tag in (Unit.Tags ?? Enumerable.Empty<string>())) {
+            @foreach (var tag in (Unit.Tags ?? Enumerable.Empty<string?>())) {
                 <span>@tag</span>
             }
         </div>

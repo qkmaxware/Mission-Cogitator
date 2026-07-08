@@ -5,6 +5,27 @@
         "/kill-ops/kill-op.html"
     ],
     "objectives": [
-        "/crit-ops/secure.html"
+        "/crit-ops/secure.html",
+        "/crit-ops/loot.html",
+        "/crit-ops/transmission.html",
+        "/crit-ops/orb.html",
+        "/crit-ops/stake-claim.html",
+        "/crit-ops/energy-cells.html",
+        "/crit-ops/download.html",
+        "/crit-ops/data.html",
+        "/crit-ops/reboot.html",
+
+        "/tac-ops/dominate.html",
+        "/tac-ops/envoy.html",
+        "/tac-ops/flank.html",
+        "/tac-ops/martyrs.html",
+        "/tac-ops/plant-banner.html",
+        "/tac-ops/plant-devices.html",
+        "/tac-ops/retrieval.html",
+        "/tac-ops/route.html",
+        "/tac-ops/scout-enemy-movement.html",
+        "/tac-ops/steal-intelligence.html",
+        "/tac-ops/sweep-clear.html",
+        "/tac-ops/track-enemy.html"
     ]
 }

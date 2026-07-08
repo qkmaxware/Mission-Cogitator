@@ -1,0 +1,39 @@
+@using Kt.Data
+@inject ObjectiveDatabase objdb
+
+<div class="horizontal-gallery">
+@if (objdb is not null) {
+    foreach (Objective obj in objdb.All) {
+        if (Filter is not null && !Filter(obj))
+            continue;
+
+        var self = obj;
+        <div class="gallery-item">
+            <button class="w3-button w3-card @(self.Id == this.SelectedId ? "selected" : string.Empty)" @onclick=@(async () => { await OnChange.InvokeAsync(self); })>
+                <header>@self.Name</header>
+                <article>
+                    @RenderDescription(self.Description)
+                </article>
+                @if (obj.Kind == ObjectiveCategory.Secondary) {
+                    <footer>
+                        @obj.Archetype
+                    </footer>
+                }
+            </button>
+        </div>
+    }
+} 
+</div>
+
+@code {
+    [Parameter] public Func<Objective, bool>? Filter {get; set;}
+    [Parameter] public string? SelectedId {get; set;}
+    [Parameter] public EventCallback<Objective> OnChange {get; set;}
+
+    private RenderFragment RenderDescription(string? text) => builder =>
+    {
+        DescriptionRenderer.RenderDescription(text, this, async (id) => {
+            // Do nothing
+        })(builder);
+    };   
+}

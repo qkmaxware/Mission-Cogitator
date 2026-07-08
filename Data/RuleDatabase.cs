@@ -20,8 +20,11 @@ public class RuleDatabase
         this.equipment = new();
     }
 
-    public Rule? GetValue(string id)
+    public Rule? GetValue(string? id)
     {
+        if (id is null)
+            return null;
+            
         if (rules.TryGetValue(id, out var rule))
             return rule;
         return null;

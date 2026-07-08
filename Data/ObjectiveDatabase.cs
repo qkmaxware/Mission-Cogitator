@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace Kt.Data;
 
-// 
+// https://th0mas-h0ward.github.io/ktc/#/killop
 public class ObjectiveDatabase
 {
     private Dictionary<string, Objective> objectives = new();
@@ -15,8 +15,11 @@ public class ObjectiveDatabase
     public IEnumerable<Objective> Primary => primary.Values;
     public IEnumerable<Objective> Secondary => secondary.Values;
 
-    public Objective? GetValue(string id)
+    public Objective? GetValue(string? id)
     {
+        if (id is null)
+            return null;
+            
         if (objectives.TryGetValue(id, out var rule))
             return rule;
         return null;

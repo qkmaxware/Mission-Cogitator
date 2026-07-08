@@ -1,25 +1,70 @@
+@using Kt.Data
 @inherits SetupWizardPage
+
+@inject ObjectiveDatabase objdb
 
 @if (this.IsActivePage) {
 <h3 style="margin-bottom: 0;">Set Up the Battle</h3>
-<h4 style="margin-top: 0;">Determine Critical Operation</h4>
+<h4 style="margin-top: 0;">Select Battlefield Operations</h4>
 <hr />
+<h4 style="margin-top: 0;">Determine Critical Operation</h4>
+<div class="w3-margin-bottom"> 
+<p>
+    Determine the critical (primary) operation and set objective markers onto the killzone.
+</p>
+@if (objdb is not null && objdb.Primary.Any()) {
+    <ObjectivePicker Filter=@((obj) => obj.Kind == ObjectiveCategory.Primary) SelectedId=@this.selectedPrimaryId OnChange=@((obj) => this.selectedPrimaryId = obj.Id)></ObjectivePicker>
+} 
+</div>
+
+<hr />
+<h4 style="margin-top: 0;">Determine Tactical Operation</h4>
 <div class="w3-margin-bottom">
 <p>
-    Determine the critical operation and set objective markers onto the killzone.
+    Determine the tactical (secondary) operation and keep it to yourself.
 </p>
+@if (objdb is not null && objdb.Secondary.Any()) {
+    <ObjectivePicker Filter=@((obj) => obj.Kind == ObjectiveCategory.Secondary) SelectedId=@this.selectedSecondaryId OnChange=@((obj) => this.selectedSecondaryId = obj.Id)></ObjectivePicker>
+} 
 </div>
 }
 
 @code {
     
+    private string? selectedPrimaryId = null;
+    private string? selectedSecondaryId = null;
+
+    public override bool Provides(string field)
+    {
+        return field switch {
+            "crit-op" => true,
+            "tac-op" => true,
+            _ => false
+        };
+    }
+
+    public override object? GetValue(string field)
+    {
+        return field switch {
+            "crit-op" => selectedPrimaryId,
+            "tac-op" => selectedSecondaryId,
+            _ => false
+        };
+    }
+
     public override void Reset()
     {
-        
+        selectedPrimaryId = null;
+        selectedSecondaryId = null;
     }
 
     public override bool CanAdvance()
     {
-        return true;
+        return 
+            objdb is null || (
+                ((objdb.Primary.Any() && !string.IsNullOrEmpty(selectedPrimaryId)) || (!objdb.Primary.Any()))           // Require primary op if available
+                //&& 
+                //((objdb.Secondary.Any() && !string.IsNullOrEmpty(selectedSecondaryId)) || (!objdb.Secondary.Any()))   // Require secondary op if available
+            );
     }
 }

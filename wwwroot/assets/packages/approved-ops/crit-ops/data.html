@@ -1,0 +1,50 @@
+---
+{
+    "name": "Data",
+    "kind": "primary",
+    "archetype": "fixed",
+}
+---
+Victory Points:
+<p>
+    At the end of the second and third turning point, if friendly operatives have performed more Compile Data actions during that turning point than the enemy operatives, you score 1VP
+</p>
+<p>
+    Whenever a friendly operatives performs the Send Data action you score VP equal to the number of Data points removed.
+</p>
+
+Mission Action:
+<section>
+    <header>
+        Compile Data (1AP)
+    </header>
+    <p>
+        <ul class="usage-bullets">
+            <li>
+                One objective marker the active operative controls gains 1 Data point.
+            </li>
+        </ul>
+        <ul class="condition-bullets">
+            <li>
+                An operative cannot perform this action during the first turning point, while within <see cref="control-range">control range</see> of an enemy operative, or if that objective marker has already gained a Data point during this turning point.
+            </li>
+        </ul>
+    </p>
+</section>
+<section>
+    <header>
+        Send Data (1AP)
+    </header>
+    <p>
+        <ul class="usage-bullets">
+            <li>
+                Remove all Data points from an objective marker during the active operative controls.
+            </li>
+        </ul>
+        <ul class="condition-bullets">
+            <li>
+                An operative cannot perform this action during the first, second, or third turning points, while within <see cref="control-range">control range</see> of an enemy operative, or if that objective marker has doesn't have any Data points to remove.
+            </li>
+        </ul>
+    </p>
+</section>
