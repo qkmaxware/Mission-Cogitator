@@ -167,6 +167,29 @@ textarea[b-qxjjnks04e] {
 }
 /* /Layout/Header.razor.rz.scp.css */
 /* /Layout/MainLayout.razor.rz.scp.css */
+/* /Layout/Map.razor.rz.scp.css */
+svg[b-jzup5uirs4] {
+    width: 100%;
+}
+
+svg #grid line[b-jzup5uirs4] {
+    stroke-width: 0.05;
+    stroke: grey;
+}
+
+.ally[b-jzup5uirs4] {
+    fill: rgb(84, 206, 255);
+}
+.ally.dropzone[b-jzup5uirs4] {
+    fill: rgb(25, 159, 212);
+}
+
+.enemy[b-jzup5uirs4] {
+    fill: rgb(255, 126, 126);
+}
+.enemy.dropzone[b-jzup5uirs4] {
+    fill: rgb(194, 54, 54);
+}
 /* /Layout/Modal.razor.rz.scp.css */
 .w3-modal-content[b-3jugimk9m9] {
     color: var(--theme-panel-foreground);

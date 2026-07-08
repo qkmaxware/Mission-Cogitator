@@ -162,6 +162,18 @@ table td {
     vertical-align: middle;
 }
 
+table.striped tbody tr:nth-child(even){
+    color:rgb(255, 123, 0);
+    background-color: rgba(255, 255, 255, 0.356);   
+}
+
+@media  (prefers-color-scheme: dark) {
+    table.striped tbody tr:nth-child(even){
+        background-color: rgba(255,255,255,0.05);
+    }
+}
+
+
 img.icon {
     height: 1.5em;
     margin-left: -0.25em;
