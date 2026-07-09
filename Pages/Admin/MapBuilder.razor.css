@@ -1,0 +1,16 @@
+.sidebar {
+    width: 480px; 
+    overflow: auto; 
+    height: 100vh;
+    height: 100dvh; 
+    border-right: 1px solid grey;
+    border-right: 1px solid grey;
+    background: var(--theme-background-light);
+    color: var(--theme-background-foreground);
+}
+
+.map-container {
+    height: 100vh;
+    height: 100dvh;
+    overflow: auto;
+}

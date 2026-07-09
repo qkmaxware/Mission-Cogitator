@@ -1,0 +1,248 @@
+@page "/admin/mapping"
+@layout MainLayout
+
+@using System.Text
+@using System.Text.Json
+
+@inject IJSRuntime js
+
+<div class="w3-row">
+    <div class="w3-col w3-bar-block sidebar">
+        <div class="w3-bar-item app-primary">
+            <h2>Menu</h2>
+        </div>
+        <Accordion Title="Map Settings" InitiallyExpand=true>
+            <div class="w3-padding">
+            <label>Name:</label>
+            <input type="text" class="w3-input" @bind=@Data.Name />
+            <label>Orientation:</label>
+            <select class="w3-select" @bind="@Data.Orientation">
+                @foreach (var option in Enum.GetValues<Map.MapOrientation>()) {
+                    <option>@option</option>
+                }
+            </select>
+            </div>
+        </Accordion>
+        <Accordion Title="Terrain">
+            <div class="w3-row">
+            @foreach (var path in terrain_art) {
+                var myPath = path;
+                <div class="w3-col" style="width: 115px; height: 115px">
+                    <button class="w3-button @(selected_terrain_art == myPath ? "app-primary" : string.Empty)" title="@myPath" style="width: 100%; height: 100%;" @onclick=@(() => selected_terrain_art = myPath)>
+                        <img src="@myPath" style="width: 100%; height: 100%; object-fit: contain;"/>
+                    </button>
+                </div>
+            }
+            </div>
+        </Accordion>
+
+        <Accordion Title="Export">
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await Export(encodeJson, ".json"))>Export JSON</button>
+            <button class="w3-button w3-bar-item" @onclick=@(async () => await Export(encodeCS, ".cs"))>Export C#</button>
+        </Accordion>
+    </div>
+    <div class="w3-col w3-right sidebar">
+        <h4 class="text-primary">Minimap:</h4>
+        <div style="position: relative;">
+        <div style="width: 100%; height: 320px">
+            <Map @ref=map Data=@Data OnClick="@addTerrain"></Map>
+        </div>
+        @if (reference_image is not null) {
+        <div style="position: absolute; top: 0; left; 0; width: 100%; height: 320px;">
+            <img src="@reference_image" style="width: 100%; height: 100%; object-fit: contain; object-position: left top; opacity: @reference_opacity;"/>
+        </div>
+        }
+        </div>
+        <label>Overlay:</label>
+        <input type="text" class="w3-input" @bind=reference_image />
+        <input type="range" min="0" max="1" step="0.1" style="width: 100%" @bind=reference_opacity/>
+        <div class="w3-bar-block">
+        <h4 class="text-primary">Entities:</h4>
+        <Accordion Title="Objectives">
+            @if (Data.Objectives is not null) {
+                foreach (var obj in Data.Objectives) {
+                    var self = obj;
+                    if (self is null)
+                        continue;
+                    <li class="w3-row-padding">
+                        <input type="text" class="w3-input w3-margin-bottom" @bind=self.Name/>
+                        <div class="w3-half">
+                            <label>X":</label>
+                            <input type="number" class="w3-input" @bind=self.X />
+                            <input type="range" min="0" max="@Map.MapWidth" class="w3-input" @bind=self.X @bind:event="oninput"/>
+                        </div>
+                        <div class="w3-half">
+                            <label>Y":</label>
+                            <input type="number" class="w3-input" @bind=self.Y />
+                            <input type="range" min="0" max="@Map.MapHeight" class="w3-input" @bind=self.Y @bind:event="oninput"/>
+                        </div>
+                    </li>
+                }
+            }
+        </Accordion>
+        <Accordion Title="Terrain">
+        <div>
+            <ol>
+            @if (Data.Terrain is not null) {
+                foreach (var obj in Data.Terrain) {
+                    var self = obj;
+                    if (self is null)
+                        continue;
+                    <li class="w3-row">
+                        <div class="w3-col" style="width: 48px; height: 96px;">
+                            <img src="@self.ArtPath" style="width: 100%; height: 100%; object-fit: contain;"/>
+                        </div>
+                        <div class="w3-rest w3-row-padding">
+                                <div class="w3-quarter">
+                                    <label>X":</label>
+                                    <input type="number" class="w3-input" @bind=self.X />
+                                    <input type="range" min="0" max="@Map.MapWidth" class="w3-input" @bind=self.X @bind:event="oninput"/>
+                                </div>
+                                <div class="w3-quarter">
+                                    <label>Y":</label>
+                                    <input type="number" class="w3-input" @bind=self.Y />
+                                    <input type="range" min="0" max="@Map.MapHeight" class="w3-input" @bind=self.Y @bind:event="oninput"/>
+                                </div>
+                                <div class="w3-quarter">
+                                    <label>Rot°:</label>
+                                    <input type="number" class="w3-input" @bind=self.Rotation />
+                                    <input type="range" min="0" max="360" class="w3-input" @bind=self.Rotation @bind:event="oninput"/>
+                                </div>
+                                <div class="w3-quarter">
+                                    <label>Scale:</label>
+                                    <input type="number" class="w3-input" @bind=self.Scale />
+                                </div>
+                        </div>
+                    </li>
+                }
+            }
+            </ol>
+        </div>
+        </Accordion>
+        </div>
+    </div>
+    <div class="w3-rest">
+        <div class="map-container">
+            <Map @ref=map Data=@Data OnClick="@addTerrain"></Map>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Map? map;
+    private Map.MapData Data = new Map.MapData {
+        Name = "New Map",
+        Orientation = Map.MapOrientation.LeftToRight,
+        Objectives = [
+            new Map.ObjectiveMarker(Map.MapHalfWidth, Map.MapHalfHeight) { Name = "Center Objective"},
+            new Map.ObjectiveMarker(Map.MapHalfWidth / 2, Map.MapHalfHeight / 2) { Name = "Allied Objective" },
+            new Map.ObjectiveMarker(Map.MapHalfWidth + Map.MapHalfWidth / 2 , Map.MapHalfHeight + Map.MapHalfHeight / 2) { Name = "Enemy Objective" }
+        ],
+        Terrain = [
+        ]
+    };
+    private string? reference_image = null;
+    private float reference_opacity = 0.5f;
+
+    private string? selected_terrain_art = null;
+    private string[] terrain_art = [
+        "art/terrain/barricade.01.svg",
+        "art/terrain/barricade.02.svg",
+        "art/terrain/building.01.svg",
+        "art/terrain/building.02.svg",
+        "art/terrain/building.03.svg",
+        "art/terrain/building.04.svg",
+        "art/terrain/building.05.svg",
+        "art/terrain/building.06.svg",
+        "art/terrain/building.07.svg",
+        "art/terrain/building.08.svg",
+        "art/terrain/building.09.svg",
+        "art/terrain/rubble.01.svg",
+        "art/terrain/rubble.02.svg",
+        "art/terrain/rubble.03.svg",
+    ];
+
+    private async Task addTerrain(MouseEventArgs args) {
+        if (selected_terrain_art is null || map is null)
+            return;
+
+        var x = args.OffsetX;
+        var y = args.OffsetY;
+
+        var bounds = await map.GetMapBounds();
+
+        var x_inches = (x / bounds.Width) * Map.MapWidth;
+        var y_inches = (y / bounds.Height) * Map.MapHeight;
+    
+        Data.Terrain = Data.Terrain ?? new List<Map.Terrain>();
+        Data.Terrain.Add(new Map.Terrain {
+            X = (float)x_inches,
+            Y = (float)y_inches,
+            Rotation = 0f,
+            Scale = 1f,
+            ArtPath = selected_terrain_art,
+        });
+        selected_terrain_art = null;
+    }
+
+    private static string clean(string? name) {
+        if (string.IsNullOrEmpty(name))
+            return "Map_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year;
+
+        var cleaned = new string(name.Where(x => char.IsLetter(x)).ToArray());
+        if (string.IsNullOrEmpty(cleaned))
+            return "Map_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year; 
+        return cleaned;
+    }
+
+    private static string encodeJson(Map.MapData data) {
+        return JsonSerializer.Serialize(data, Kt.Data.IO.Pkg.SerializationOptions);
+    }
+
+    private string  encodeCS(Map.MapData data) {
+        var builder = new StringBuilder();
+
+        const string tab = "  ";
+
+        builder.AppendLine("using static Kt.Layout.Map;");
+        builder.AppendLine();
+        builder.AppendLine("namespace Kt.Maps;");
+        builder.AppendLine();
+
+        builder.AppendLine("public partial class UserMaps {");
+        builder.AppendLine("public static readonly MapData " + clean(Data.Name)  + " = new MapData {");
+            builder.Append(tab); builder.AppendLine("Name = " + JsonSerializer.Serialize(Data.Name) + ",");
+            builder.Append(tab); builder.AppendLine("Orientation = MapOrientation." + Data.Orientation.ToString() + ",");
+            builder.Append(tab); builder.AppendLine("Objectives = new List<ObjectiveMarker> {");
+            if (Data.Objectives is not null)
+                foreach (var obj in Data.Objectives) {
+                    builder.Append(tab); builder.Append(tab); builder.AppendLine($"new ObjectiveMarker({obj.X}f, {obj.Y}f, {JsonSerializer.Serialize(obj.Name)}),");
+                }
+            builder.Append(tab); builder.AppendLine("},");
+            builder.Append(tab); builder.AppendLine("Terrain = new List<Terrain> {");
+            if (Data.Terrain is not null)
+                foreach (var obj in Data.Terrain) {
+                    builder.Append(tab); builder.Append(tab); builder.AppendLine($"new Terrain({obj.X}f, {obj.Y}f, {obj.Rotation}f, {obj.Scale}f, {JsonSerializer.Serialize(obj.ArtPath)}),");
+                }
+            builder.Append(tab); builder.AppendLine("}");
+        builder.AppendLine("};");
+        builder.AppendLine("}");
+
+        return builder.ToString();
+    }
+
+    private async Task Export(Func<Map.MapData, string> encoder, string extension) {
+        if (this.Data is null)
+            return;
+
+        var str = encoder(this.Data);
+        var filename = (this.Data.Name ?? "New Map") + extension;
+
+        using var stream = new MemoryStream();
+        stream.Write(Encoding.UTF8.GetBytes(str));
+        stream.Position = 0;
+
+        using var streamRef = new DotNetStreamReference(stream);
+        await js.InvokeVoidAsync("downloadFileFromStream", filename, streamRef);
+    }
+}

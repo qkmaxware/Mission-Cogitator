@@ -134,6 +134,19 @@
             }
             element.addEventListener('keydown', tabKeyHandler, false);
         }
+        window.getBoundingClientRect = function (element) {
+            const r = element.getBoundingClientRect();
+            return {
+                left: r.left,
+                top: r.top,
+                right: r.right,
+                bottom: r.bottom,
+                width: r.width,
+                height: r.height,
+                x: r.x,
+                y: r.y
+            };
+        };
         window.addDotNetEventListener = (dotNetRef, eventName, methodName) => {
             const handler = (event) => {
                 // Pass any relevant event properties back to C#

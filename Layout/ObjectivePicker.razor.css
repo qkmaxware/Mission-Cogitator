@@ -22,7 +22,7 @@
 
 .w3-card {
     border-radius: 8px;
-    width: 382px;
+    width: 300px;
     margin: 0;
     padding: 0;
     border: 1px solid var(--theme-panel-background);
@@ -61,7 +61,7 @@
 }
 
 .w3-card>article {
-    height: 432px;
+    height: 400px;
     overflow-y: auto;
     text-align: initial;
     padding: 8px;

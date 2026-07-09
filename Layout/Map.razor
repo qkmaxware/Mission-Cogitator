@@ -1,7 +1,12 @@
 @using System.Drawing
-<svg viewBox="0 0 @MapWidth @MapHeight">
-    <g id="zones">
-        @if (Orientation == MapOrientation.LeftToRight) {
+@inject IJSRuntime js
+
+<svg viewBox="0 0 @MapWidth @MapHeight" preserveAspectRatio="xMinYMin meet">
+    <g id="backdrop" @onclick=OnClick @ref=background>
+        <rect x="0" y="0" width="@MapWidth" height="@MapHeight" fill="black" @onclick=OnClick></rect>
+        <g id="zones">
+        @if (Data is not null) {
+        @if (Data.Orientation == MapOrientation.LeftToRight) {
         <g id="left-to-right">
             <rect class="enemy" x="@MapHalfWidth" y="0" width="@MapHalfWidth" height="@MapHeight"></rect>
             <rect class="ally" x="0" y="0" width="@MapHalfWidth" height="@MapHeight"></rect>
@@ -10,7 +15,7 @@
             <rect class="ally dropzone" x="0" y="0" width="@DropZoneTallDepth" height="@MapHeight"></rect>
         </g>
         }
-        @if (Orientation == MapOrientation.TopToBottom) {
+        @if (Data.Orientation == MapOrientation.TopToBottom) {
         <g id="top-to-bottom">
             <rect class="enemy" x="0" y="0" width="@MapWidth" height="@MapHalfHeight"></rect>
             <rect class="ally" x="0" y="@MapHalfHeight" width="@MapWidth" height="@MapHalfHeight"></rect>
@@ -19,25 +24,40 @@
             <rect class="ally dropzone" x="0" y="@(MapHeight - DropZoneWideDepth)" width="@MapWidth" height="@DropZoneWideDepth"></rect>
         </g>
         }
-    </g>
-    <g id="grid">
-        <g id="vertical">
-        @for (var i = 0; i <= MapWidth; i++) {
-            <line x1="@i" y1="0" x2="@i" y2="@MapHeight" />
         }
         </g>
-        <g id="horizontal">
-        @for (var i = 0; i <= MapHeight; i++) {
-            <line x1="0" y1="@i" x2="@MapWidth" y2="@i" />
-        }
+        <g id="grid">
+            <g id="vertical">
+            @for (var i = 0; i <= MapWidth; i++) {
+                <line x1="@i" y1="0" x2="@i" y2="@MapHeight" />
+            }
+            </g>
+            <g id="horizontal">
+            @for (var i = 0; i <= MapHeight; i++) {
+                <line x1="0" y1="@i" x2="@MapWidth" y2="@i" />
+            }
+            </g>
         </g>
     </g>
     <g id="terrain">
-        
+        @if (Data?.Terrain is not null) {
+            var markerId = 0;
+            foreach (var marker in Data.Terrain) {
+                var myId = ++markerId;
+                if (marker is null || marker.ArtPath is null)
+                    continue;
+                <g>
+                    <image href="@marker.ArtPath" x="@marker.X" y="@marker.Y" transform-box="fill-box" transform-origin="center" transform="rotate(@marker.Rotation) scale(@marker.Scale @marker.Scale)"/>
+                    <text x="@(marker.X + 1)" y="@(marker.Y + 1)">@markerId</text>
+                </g>
+            }
+        }
     </g>
     <g id="markers">
-        @if (ObjectiveMarkers is not null) {
-            foreach (var marker in ObjectiveMarkers) {
+        @if (Data?.Objectives is not null) {
+            foreach (var marker in Data.Objectives) {
+                if (marker is null)
+                    continue;
                 <image href="art/objective.svg" x="@(marker.X - 0.75f)" y="@(marker.Y - 0.75f)" width="1.5" height="1.5"/>
             }
         }
@@ -45,24 +65,86 @@
 </svg>
 
 @code {
-    private const int MapWidth = 30;
-    private const int MapHalfWidth = MapWidth / 2;
-    private const int MapHeight = 22;
-    private const int MapHalfHeight = MapHeight / 2;
+    public const int MapWidth = 30;
+    public const int MapHalfWidth = MapWidth / 2;
+    public const int MapHeight = 22;
+    public const int MapHalfHeight = MapHeight / 2;
 
     private const int DropZoneWideDepth = 3;
-    private const int DropZoneTallDepth = 3;
+    private const int DropZoneTallDepth = 6;
 
-    [Parameter] public MapOrientation Orientation {get; set;}
+    private ElementReference background;
+
+    [Parameter] public EventCallback<MouseEventArgs> OnClick {get; set;}
 
     public enum MapOrientation {
         LeftToRight,
         TopToBottom,
     }
 
-    [Parameter] public List<PointF>? ObjectiveMarkers {get; set;} = [
-        new PointF(MapHalfWidth, MapHalfHeight),
-        new PointF(MapHalfWidth / 2, MapHalfHeight / 2),
-        new PointF(MapHalfWidth + MapHalfWidth / 2 , MapHalfHeight + MapHalfHeight / 2)
-    ];
+    public class Point {
+        public float X {get; set;}
+        public float Y {get; set;}
+
+        public Point() {}
+        public Point(float x, float y) {
+            this.X = x;
+            this.Y = y;
+        }
+    }
+
+    public class ObjectiveMarker: Point {
+        public string? Name {get; set;}
+        public ObjectiveMarker() {}
+        public ObjectiveMarker(float x, float y) : base(x, y) {}
+        public ObjectiveMarker(float x, float y, string? name) : base(x, y) {
+            this.Name = name;
+        }
+    }
+
+    public class Entity: Point {
+        public float Scale {get; set;} = 1;
+        public float Rotation {get; set;} = 0;
+
+        public Entity() {}
+
+        public Entity(float x, float y, float rot, float scale): base(x ,y) {
+            this.Scale = scale;
+            this.Rotation = rot;
+        }
+    }
+
+    public class Terrain: Entity {
+        public string? ArtPath {get; set;}
+
+        public Terrain() {}
+        public Terrain(float x, float y, float rot, float scale, string? art): base(x, y, rot, scale) {
+            this.ArtPath = art;
+        }
+    }
+
+    public class MapData {
+        public string? Name {get; set;}
+        public MapOrientation Orientation {get; set;}
+        public List<ObjectiveMarker>? Objectives {get; set;}
+        public List<Terrain>? Terrain {get; set;}
+    }
+
+    [Parameter] public MapData? Data {get; set;}
+
+    public class BoundingClientRect
+    {
+        public double Left { get; set; }
+        public double Top { get; set; }
+        public double Right { get; set; }
+        public double Bottom { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+    }
+
+    public async Task<BoundingClientRect> GetMapBounds() {
+        return await js.InvokeAsync<BoundingClientRect>("getBoundingClientRect", this.background);
+    }
 }

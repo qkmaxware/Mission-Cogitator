@@ -3,7 +3,7 @@
 
 <div class="horizontal-gallery">
 @if (objdb is not null) {
-    foreach (Objective obj in objdb.All) {
+    foreach (Objective obj in objdb.All.OrderBy(o => o.Archetype)) {
         if (Filter is not null && !Filter(obj))
             continue;
 

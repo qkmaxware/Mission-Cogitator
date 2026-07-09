@@ -17,6 +17,22 @@
 <p>
     Once an area has been set aside, place all terrain onto the zone. Follow official terrain positioning if required.
 </p>
+<div class="horizontal-gallery">
+    @foreach (var map in Kt.Maps.UserMaps.All) {
+        var data = map;
+        if (data is null)
+            continue;
+
+        <div class="gallery-item">
+            <div class="map-container">
+                <Map Data="@data"></Map>
+            </div>
+            <div class="w3-center">
+                @data.Name
+            </div>
+        </div>
+    }
+</div>
 </div>
 }
 

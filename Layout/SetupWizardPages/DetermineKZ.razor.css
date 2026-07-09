@@ -1,0 +1,26 @@
+.horizontal-gallery {
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.gallery-item {
+    display: inline-block;
+    padding: 6px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: small;
+}
+
+.map-container {
+    width: 240px;
+    height: calc((240px * 22) / 33);
+}
