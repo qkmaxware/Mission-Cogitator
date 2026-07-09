@@ -170,11 +170,22 @@ textarea[b-qxjjnks04e] {
 /* /Layout/Map.razor.rz.scp.css */
 svg[b-jzup5uirs4] {
     width: 100%;
+    height: 100%;
 }
 
 svg #grid line[b-jzup5uirs4] {
     stroke-width: 0.05;
     stroke: grey;
+}
+
+svg #terrain image[b-jzup5uirs4] {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+svg #terrain text[b-jzup5uirs4] {
+    fill: white;
+    font-size: 1px;
 }
 
 .ally[b-jzup5uirs4] {
@@ -287,7 +298,7 @@ svg #grid line[b-jzup5uirs4] {
 
 .w3-card[b-npw1rssocy] {
     border-radius: 8px;
-    width: 382px;
+    width: 300px;
     margin: 0;
     padding: 0;
     border: 1px solid var(--theme-panel-background);
@@ -326,7 +337,7 @@ svg #grid line[b-jzup5uirs4] {
 }
 
 .w3-card>article[b-npw1rssocy] {
-    height: 432px;
+    height: 400px;
     overflow-y: auto;
     text-align: initial;
     padding: 8px;
@@ -505,6 +516,33 @@ table.striped tbody tr:nth-child(even)[b-a74zqimslp]{
 }
 /* /Layout/SetupWizard.razor.rz.scp.css */
 /* /Layout/SetupWizardPages/DetermineCritOp.razor.rz.scp.css */
+/* /Layout/SetupWizardPages/DetermineKZ.razor.rz.scp.css */
+.horizontal-gallery[b-vhvgknqryi] {
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.gallery-item[b-vhvgknqryi] {
+    display: inline-block;
+    padding: 6px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: small;
+}
+
+.map-container[b-vhvgknqryi] {
+    width: 240px;
+    height: calc((240px * 22) / 33);
+}
 /* /Layout/SetupWizardPages/EquipmentSelection.razor.rz.scp.css */
 table[b-7f61os6nnd] {
     width: 100%;
@@ -760,6 +798,23 @@ input[b-j6pryufax8], select[b-j6pryufax8], textarea[b-j6pryufax8] {
         color: rgb(255, 123, 0);
         background-color: rgba(255,255,255,0.2) !important;
     }
+}
+/* /Pages/Admin/MapBuilder.razor.rz.scp.css */
+.sidebar[b-w4lhljxkft] {
+    width: 480px; 
+    overflow: auto; 
+    height: 100vh;
+    height: 100dvh; 
+    border-right: 1px solid grey;
+    border-right: 1px solid grey;
+    background: var(--theme-background-light);
+    color: var(--theme-background-foreground);
+}
+
+.map-container[b-w4lhljxkft] {
+    height: 100vh;
+    height: 100dvh;
+    overflow: auto;
 }
 /* /Pages/Home.razor.rz.scp.css */
 article[b-yj484j0oi8] {
