@@ -523,7 +523,7 @@ table.striped tbody tr:nth-child(even)[b-a74zqimslp]{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding-bottom: 16px;
     white-space: nowrap;
